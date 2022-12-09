@@ -2,7 +2,7 @@
 id: Refs
 title: Полезные ссылки
 sidebar_label: Refs
-weight: 7
+weight: 4
 ---
 
 ## Полезные ссылки и примечания

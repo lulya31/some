@@ -2,7 +2,7 @@ baseURL = "https://example.com"
 
 languageCode = "RU-ru"
 DefaultContentLanguage = "ru"
-title = "Сервис MES"
+title = "Документация OneROLF"
 theme = "template"
 
 hasCJKLanguage = true
@@ -11,6 +11,7 @@ metaDataFormat = "yaml"
 defaultContentLanguage = "ru"
 defaultContentLanguageInSubdir= false
 enableMissingTranslationPlaceholders = false
+enableGitInfo = true
 
 [params]
     # Source Code repository section
@@ -52,6 +53,7 @@ enableMissingTranslationPlaceholders = false
         "post",
         "posts",
     ]
+    github_doc_repository = "https://gitlab.int.rolfcorp.ru/one-rolf/doc/core"
 
 
 # Markup configure section

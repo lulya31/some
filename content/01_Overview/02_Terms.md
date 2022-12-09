@@ -2,7 +2,7 @@
 id: Terms
 title: Термины и сокращения
 sidebar_label: Terms
-weight: 6
+weight: 3
 ---
 
 ## Термины и сокращения
