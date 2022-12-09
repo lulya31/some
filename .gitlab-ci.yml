@@ -1,0 +1,61 @@
+default:
+  tags:
+    - com-dev
+
+variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    GIT_SUBMODULE_UPDATE_FLAGS: --remote 
+    
+stages:
+- build
+- deploy
+
+build:
+    stage: build
+    variables:
+      DOCKER_IMAGE_NAME: $CI_PROJECT_PATH
+      DOCKER_IMAGE_VERSION: $CI_COMMIT_REF_NAME
+      DOCKER_FILE_FOLDER: $CI_PROJECT_DIR/themes/template
+      DOCKER_REGISTRY_HOST: docker-rolf.registry.int.rolfcorp.ru
+    image:
+      name: docker.registry.int.rolfcorp.ru/kaniko-project/executor:v1.9.0-debug
+      entrypoint:
+      - ""
+    before_script:
+    - |
+      build () {
+        TAG=$(echo $DOCKER_IMAGE_VERSION | sed "s/[^[:alnum:]\.\_\-]/-/g" | tr "[:upper:]" "[:lower:]")
+        /kaniko/executor \
+          --context $CI_PROJECT_DIR \
+          --dockerfile $DOCKER_FILE_FOLDER/Dockerfile \
+          --destination $DOCKER_REGISTRY_HOST/$DOCKER_IMAGE_NAME:$TAG \
+          --skip-tls-verify \
+          --build-arg DOCKER_PROXY_HOST_1=$DOCKER_PROXY_HOST \
+          --build-arg DOCKER_CUSTOM_PROXY_HOST=$DOCKER_PROXY_HOST \
+          $@
+        DIGEST="-"
+        NAME="-"
+        echo $NAME@$DIGEST > docker-image-full-name
+      }
+    artifacts:
+      paths:
+      - docker-image-full-name
+    tags:
+    - com-dev
+    script: |
+      build \
+        --build-arg HUGO_BASE_URL=https://docs-pform-dev.com-dev.int.rolfcorp.ru/ 
+    only:
+      - main
+deploy:
+  stage: deploy
+  image: docker.registry.int.rolfcorp.ru/curlimages/curl:7.69.1
+  script: |
+    curl -k -X POST \
+      -F token=$TOKEN_DEPLOY_TRIGGER \
+      -F ref=main \
+      -F "variables[PROJECT]=$CI_PROJECT_PATH" \
+      -F "variables[BRANCH]=$CI_COMMIT_REF_NAME" \
+      https://gitlab.int.rolfcorp.ru/api/v4/projects/$ID_DEPLOY_PROJECT/trigger/pipeline
+  only:
+    - main
