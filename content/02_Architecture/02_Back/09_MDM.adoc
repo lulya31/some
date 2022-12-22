@@ -1,7 +1,7 @@
 ---
-title: "WMS"
-description: "WMS"
-weight: 4
+title: "MDM"
+description: "MDM"
+weight: 11
 ---
 
 == Описание...

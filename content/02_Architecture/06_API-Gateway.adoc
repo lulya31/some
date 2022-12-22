@@ -1,6 +1,6 @@
 ---
-title: "MDM"
-description: "MDM"
+title: "API Gateway"
+description: "API Gateway"
 weight: 5
 ---
 
