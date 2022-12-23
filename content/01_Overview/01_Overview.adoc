@@ -1,7 +1,5 @@
 ---
-id: Overview
 title: Описание
-sidebar_label: Overview
 weight: 2
 ---
 

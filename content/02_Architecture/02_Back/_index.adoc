@@ -1,6 +1,6 @@
 ---
-title: "Внутренняя логика (Backend)"
-description: "Внутренняя логика (Backend)"
+title: Внутренняя логика (Backend)
+description: Внутренняя логика (Backend)
 weight: 2
 date: 2022-09-22T00:00:00+03:00
 lastmod: 2022-09-22T00:00:00+03:00
