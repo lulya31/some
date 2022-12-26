@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Закрытие потребности (сделки) on Архитектура ПО Rolf</title>
+    <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/</link>
+    <description>Recent content in Закрытие потребности (сделки) on Архитектура ПО Rolf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>RU-ru</language>
+    <lastBuildDate>Thu, 22 Sep 2022 00:00:00 +0300</lastBuildDate><atom:link href="https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Новые автомобили. Заказ / Продажа</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/01_newcarsordersale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/01_newcarsordersale/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Продажа АСП</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/02_saleusedcars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/02_saleusedcars/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Выкуп АСП</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/03_ransomusedcars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/03_ransomusedcars/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Продажа Финуслуг / страховок</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/04_salefinancialservicesinsurance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/04_salefinancialservicesinsurance/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Продажа запчастей</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/05_salespareparts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/05_salespareparts/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Продажа Услуг сервиса</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/06_saleservices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/06_saleservices/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+  </channel>
+</rss>

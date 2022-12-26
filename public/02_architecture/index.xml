@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Верхнеуровневая архитектура системы on Архитектура ПО Rolf</title>
+    <link>https://example.com/02_architecture/</link>
+    <description>Recent content in Верхнеуровневая архитектура системы on Архитектура ПО Rolf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>RU-ru</language>
+    <lastBuildDate>Thu, 22 Sep 2022 00:00:00 +0300</lastBuildDate><atom:link href="https://example.com/02_architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OEM</title>
+      <link>https://example.com/02_architecture/03_oem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/03_oem/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Внешние сервисы</title>
+      <link>https://example.com/02_architecture/04_externalservices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/04_externalservices/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Справочники</title>
+      <link>https://example.com/02_architecture/05_dictionarys/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/05_dictionarys/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>API Gateway</title>
+      <link>https://example.com/02_architecture/06_api-gateway/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/06_api-gateway/</guid>
+      <description>Описание API Management (Gravitee APIM) Gravitee.io API Management (далее по тексту – APIM) – это гибкое, легкое и быстрое решение, предназначенное для управления API с открытым исходным кодом. Решение позволяет создавать, управлять, контролировать и анализировать использование API.
+Задачи характерные для организаций обладающих большой клиентской базой Сокращение времени регистрации новых партнеров.
+Идентификация партнеров и управление их использованием API.
+Измерение использования API с точки зрения пользователя и/или производителя.
+Предоставление API внешним потребителям и их мониторинг.</description>
+    </item>
+    
+  </channel>
+</rss>

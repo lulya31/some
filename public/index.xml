@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Архитектура ПО Rolf</title>
+    <link>https://example.com/</link>
+    <description>Recent content on Архитектура ПО Rolf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>RU-ru</language>
+    <lastBuildDate>Wed, 04 Nov 2020 09:19:42 +0100</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OEM</title>
+      <link>https://example.com/02_architecture/03_oem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/03_oem/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Новые автомобили. Заказ / Продажа</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/01_newcarsordersale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/01_newcarsordersale/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Описание</title>
+      <link>https://example.com/01_overview/01_overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/01_overview/01_overview/</guid>
+      <description>Назначение проекта Описание основного предназначения проекта ROLF</description>
+    </item>
+    
+    <item>
+      <title>One ROLF ID</title>
+      <link>https://example.com/02_architecture/02_back/01_onerolfid/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/01_onerolfid/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>АРМ сотрудника</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_apm-employee/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_apm-employee/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Внешние сервисы</title>
+      <link>https://example.com/02_architecture/04_externalservices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/04_externalservices/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Продажа АСП</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/02_saleusedcars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/02_saleusedcars/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Термины и сокращения</title>
+      <link>https://example.com/01_overview/02_terms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/01_overview/02_terms/</guid>
+      <description>Термины и сокращения Термин Сокращение Описание Manufacturing Execution System
+MES
+Система управления производственными процессами
+Мастер цеха
+МЦ
+Сотрудник, который отвечает за формирование рассписани
+Автомобиль
+А/М
+Автомобиль, приехавший на обслуживание
+Заказ-наряд
+З/Н
+Запасные части
+З/Ч
+Мастер-консультант
+МК
+Календарь
+-</description>
+    </item>
+    
+    <item>
+      <title>One CAR ID</title>
+      <link>https://example.com/02_architecture/02_back/02_onecarid/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/02_onecarid/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>WMS</title>
+      <link>https://example.com/02_architecture/01_front/03_wms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/03_wms/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>АРМ руководителя</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/02_apm-supervisor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/02_apm-supervisor/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Выкуп АСП</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/03_ransomusedcars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/03_ransomusedcars/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Полезные ссылки</title>
+      <link>https://example.com/01_overview/03_references/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/01_overview/03_references/</guid>
+      <description> Полезные ссылки и примечания </description>
+    </item>
+    
+    <item>
+      <title>Справочники</title>
+      <link>https://example.com/02_architecture/05_dictionarys/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/05_dictionarys/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>API Gateway</title>
+      <link>https://example.com/02_architecture/06_api-gateway/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/06_api-gateway/</guid>
+      <description>Описание API Management (Gravitee APIM) Gravitee.io API Management (далее по тексту – APIM) – это гибкое, легкое и быстрое решение, предназначенное для управления API с открытым исходным кодом. Решение позволяет создавать, управлять, контролировать и анализировать использование API.
+Задачи характерные для организаций обладающих большой клиентской базой Сокращение времени регистрации новых партнеров.
+Идентификация партнеров и управление их использованием API.
+Измерение использования API с точки зрения пользователя и/или производителя.
+Предоставление API внешним потребителям и их мониторинг.</description>
+    </item>
+    
+    <item>
+      <title>MDM</title>
+      <link>https://example.com/02_architecture/01_front/04_mdm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/04_mdm/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>One ROLF DB</title>
+      <link>https://example.com/02_architecture/02_back/03_onerolfdb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/03_onerolfdb/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Продажа Финуслуг / страховок</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/04_salefinancialservicesinsurance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/04_salefinancialservicesinsurance/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>DB Redis</title>
+      <link>https://example.com/02_architecture/02_back/04_db-redis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/04_db-redis/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Продажа запчастей</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/05_salespareparts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/05_salespareparts/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Active Derectory</title>
+      <link>https://example.com/02_architecture/02_back/05_activedirectory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/05_activedirectory/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Продажа Услуг сервиса</title>
+      <link>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/06_saleservices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/01_front/01_onerolf/01_closedeal/06_saleservices/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>IDM</title>
+      <link>https://example.com/02_architecture/02_back/06_idm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/06_idm/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>ROSE 1C</title>
+      <link>https://example.com/02_architecture/02_back/07_rose-1c/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/07_rose-1c/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Сервис очередей Rabbit MQ</title>
+      <link>https://example.com/02_architecture/02_back/08_rabbitmq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/08_rabbitmq/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>MDM</title>
+      <link>https://example.com/02_architecture/02_back/09_mdm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/09_mdm/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>WMS</title>
+      <link>https://example.com/02_architecture/02_back/10_wms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/10_wms/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Сервис очередей Kafka</title>
+      <link>https://example.com/02_architecture/02_back/11_kafka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/11_kafka/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Хранилище договоров (подписанные договоры)</title>
+      <link>https://example.com/02_architecture/02_back/12_contractsstore/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/12_contractsstore/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Сервис ЭДО (подписание договоров)</title>
+      <link>https://example.com/02_architecture/02_back/13_edo-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/13_edo-service/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Генератор печатных форм</title>
+      <link>https://example.com/02_architecture/02_back/14_printformgenerator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/14_printformgenerator/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Коммуникационный сервис</title>
+      <link>https://example.com/02_architecture/02_back/15_communicationservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/15_communicationservice/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>CDP</title>
+      <link>https://example.com/02_architecture/02_back/16_cdp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/16_cdp/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Логирование</title>
+      <link>https://example.com/02_architecture/02_back/17_logs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/17_logs/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Витрины данных</title>
+      <link>https://example.com/02_architecture/02_back/18_datalens/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/18_datalens/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Data Lake</title>
+      <link>https://example.com/02_architecture/02_back/19_datalake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/19_datalake/</guid>
+      <description>Описание…​ Описание…​</description>
+    </item>
+    
+    <item>
+      <title>Platformeco</title>
+      <link>https://example.com/02_architecture/02_back/20_platformeco/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/02_architecture/02_back/20_platformeco/</guid>
+      <description>Что такое Platformeco? Platformeco это распространяемая облачная (опционально) платформа, которая позволяет командам продукта и проекта с легкостью строить и управлять микросервисами, APIs, интеграционными задачами &amp;amp; бизнес потоками используя Low-Code интерфейс в self-service режиме.
+Platformeco предоставляет уровень абстракции поверх корпоративной сложности систем, что позволяет быстро создавать и использовать любые функции.
+Это дает продуктовым командам некие сверхспособности, позволяющие значительно повысить гибкость предприятия и скорость изменений, позволяя превратить предприятие в компанию новой эры:</description>
+    </item>
+    
+  </channel>
+</rss>
