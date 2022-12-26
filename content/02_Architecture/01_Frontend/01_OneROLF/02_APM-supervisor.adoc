@@ -1,6 +1,5 @@
 ---
-title: "Выкуп АСП"
-description: "Выкуп АСП"
+title: АРМ руководителя
 weight: 4
 ---
 

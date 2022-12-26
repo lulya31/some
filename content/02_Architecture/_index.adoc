@@ -1,10 +1,33 @@
 ---
-title: "Верхнеуровневая архитектура системы"
-description: "Верхнеуровневая архитектура системы"
+title: Структура One ROLF в Miro
 weight: 2
 date: 2022-09-22T00:00:00+03:00
 lastmod: 2022-09-22T00:00:00+03:00
 ---
 
-Архитектура ПО *Rolf*
-...
+= Структура One ROLF в Miro
+
+{empty} +
+
+Ниже показана структура проекта One ROLF.
+
+link:/02_02_20_img/introduction_pic_1.jpg[Hello.java, role="red", window="_new"]
+
+++++
+<!--iframe src="https://miro.com/app/board/uXjVObkhdAg=/" width="100%" height="500px"></iframe-->
+
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+   jQuery('a[target^="_new"]').click(function(e) {
+       var width = 600;
+       var height = 400;
+       window.open(this.href, 'newwindow', 'width=' + width + ', height=' + height + ', top=0, left=0');
+       return false; 
+   });
+});
+</script>
+++++
+
+{empty} +
