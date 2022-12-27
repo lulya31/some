@@ -1,6 +1,5 @@
 ---
-title: API Gateway
-description: API Gateway
+title: API Gateway (Gravitee APIM)
 weight: 5
 ---
 
@@ -23,7 +22,7 @@ endif::[]
 
 :imagesoutdir: ./static/02_06_img/
 
-== Описание API Management (Gravitee APIM)
+= API Gateway (Gravitee APIM)
 
 {empty} +
 
