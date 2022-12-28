@@ -1,6 +1,5 @@
 ---
-title: "WMS"
-description: "WMS"
+title: WMS
 weight: 12
 ---
 

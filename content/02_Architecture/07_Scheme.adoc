@@ -1,0 +1,269 @@
+---
+title: Схемы проекта One ROLF
+weight: 6
+---
+
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
+
+:imgdir: /02_07_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_07_img/
+
+= Схемы проекта One ROLF
+
+{empty} +
+
+Ниже показаны схемы и диаграмма проекта *One Rolf*:
+
+{empty} +
+
+****
+- *Программа Run проектов R&D*
+- Компонентный состав проекта *One ROLF*
+- Диаграмма *Yandex Cloud*
+****
+
+== Программа Run проектов R&D
+
+.*Программа Run проектов R&D (Отобразить/Скрыть)*
+[%collapsible%close]
+====
+++++
+<iframe src="https://miro.com/app/board/uXjVObkhdAg=/" width="100%" height="1000"></iframe>
+++++
+====
+
+== Компонентный состав проекта One ROLF
+
+.*Компонентный состав проекта One ROLF (Отобразить/Скрыть)*
+[%collapsible%close]
+====
+++++
+<iframe src="https://miro.com/app/board/uXjVOwO8lPY=/" width="100%" height="1000"></iframe>
+++++
+====
+
+== Диаграмма Yandex Cloud
+
+.*Диаграмма Yandex Cloud (Отобразить/Скрыть)*
+[%collapsible%close]
+====
+[mermaid, width=5000, target=yandexcloud]
+....
+%%{init: { 'securitylevel': 'loose', 'theme': 'base' }}%%
+
+graph LR
+
+	%% Class styles %%
+        linkStyle default stroke-width:2px,fill:none,stroke:pink
+		classDef white fill:white,stroke:#000,stroke-width:1px,color:#000
+		classDef yellow fill:#fffd75,stroke:#000,stroke-width:2px,color:#000
+		classDef green fill:#93ff75,stroke:#000,stroke-width:2px,color:#000
+	
+	%% Nodes %%
+		nexus-prod("<img src='http://localhost:1313/02_07_img/node.png'; height='60'; width='50' /></br>nexus-prod"):::white
+		dns-forwarder-prod("<img src='http://localhost:1313/02_07_img/node.png'; height='60'; width='50' /></br>dns-forwarder-prod"):::white
+        keycloak-dev("<img src='http://localhost:1313/02_07_img/node.png'; height='60'; width='50' /></br>keycloak-dev"):::white
+        kafka-common-dev("<img src='http://localhost:1313/02_07_img/node.png'; height='60'; width='50' /></br>kafka-common-dev"):::white
+		kafka-common-prod("<img src='http://localhost:1313/02_07_img/node.png'; height='60'; width='50' /></br>kafka-common-prod"):::white
+        mongodb-platformeco-scheduler-prod("<img src='http://localhost:1313/02_07_img/node.png'; height='60'; width='50' /></br>mongodb-platformeco-scheduler-prod"):::white
+		cassandra-dev("<img src='http://localhost:1313/02_07_img/node.png'; height='60'; width='50' /></br>cassandra-dev"):::white
+        cassandra-prod("<img src='http://localhost:1313/02_07_img/node.png'; height='60'; width='50' /></br>cassandra-prod"):::white
+
+	%% Databases %%
+        postgresql-vault-prod("<img src='http://localhost:1313/02_07_img/database.png'; height='60'; width='50' /></br>postgresql-vault-prod"):::white
+        postgresql-common-prod("<img src='http://localhost:1313/02_07_img/database.png'; height='60'; width='50' /></br>postgresql-common-prod"):::white
+        postgresql-common-dev("<img src='http://localhost:1313/02_07_img/database.png'; height='60'; width='50' /></br>postgresql-common-dev"):::white
+        postgresql-platformeco-auth-prod("<img src='http://localhost:1313/02_07_img/database.png'; height='60'; width='50' /></br>postgresql-platformeco-auth-prod"):::white
+
+    %% Clusters %%
+        cluster_yc_com_dev_int_rolfcorp_ru("<img src='http://localhost:1313/02_07_img/cluster.png'; height='60'; width='50' /></br>cluster_yc_com_dev_int_rolfcorp_ru"):::white
+        cluster_yc_com_int_rolfcorp_ru("<img src='http://localhost:1313/02_07_img/cluster.png'; height='60'; width='50' /></br>cluster_yc_com_int_rolfcorp_ru"):::white
+        cluster_yc_plf_dev_int_rolfcorp_ru("<img src='http://localhost:1313/02_07_img/cluster.png'; height='60'; width='50' /></br>cluster_yc_plf_dev_int_rolfcorp_ru"):::white
+        cluster_yc_plf_int_rolfcorp_ru("<img src='http://localhost:1313/02_07_img/cluster.png'; height='60'; width='50' /></br>cluster_yc_plf_int_rolfcorp_ru"):::white
+
+        N1(rolf_CIDR vpnplus</br>10.50.0.0-16</br>10.53.0.0-16):::white
+        
+        N2(dp-dc1.int.rolfcorp.ru</br>10.53.200.203/32</br>dp-dc2.int.rolfcorp.ru</br>10.53.200.202/32</br>dp-dc3.int.rolfcorp.ru</br>10.54.71.22/32</br>dl-dc1.int.rolfcorp.ru</br>10.54.71.40/32</br>dl-dc2.int.rolfcorp.ru</br>10.54.71.41/32</br>dp-asw3.int.rolfcorp.ru</br>10.53.240.217/32</br>dp-test-backup.int.rolfcorp.ru</br>10.54.71.42/32):::white
+
+        N3(cr-as-stend-4.int.rolfcorp.ru</br>- 10.53.240.186/32</br>rolf-ts32.int.rolfcorp.ru</br>- 10.53.240.110/32</br>dp-aswt.int.rolfcorp.ru</br>- 10.53.240.11/32):::white
+
+    %% Links %%
+        nexus-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_com_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_com_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_com_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        nexus-prod <----> dns-forwarder-prod
+        nexus-prod <----> dns-forwarder-prod
+        nexus-prod <----> keycloak-dev
+        dns-forwarder-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_com_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_com_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_com_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        dns-forwarder-prod <----> keycloak-dev
+        keycloak-dev <----> cluster_yc_com_dev_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_com_dev_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_com_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_com_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_plf_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_plf_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_com_dev_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_com_dev_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_com_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_plf_int_rolfcorp_ru
+        kafka-common-dev <----> postgresql-common-dev
+        kafka-common-dev <----> postgresql-common-dev
+        kafka-common-prod <----> cluster_yc_com_int_rolfcorp_ru
+        kafka-common-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        cassandra-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        cassandra-dev <----> cassandra-prod
+        cassandra-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        postgresql-vault-prod <----> cluster_yc_com_int_rolfcorp_ru
+        postgresql-common-prod <----> cluster_yc_com_int_rolfcorp_ru
+        postgresql-common-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        postgresql-common-dev <----> cluster_yc_com_dev_int_rolfcorp_ru
+        postgresql-common-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        mongodb-platformeco-scheduler-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        mongodb-platformeco-scheduler-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        postgresql-platformeco-auth-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        N1 <----> postgresql-common-dev
+        N1 <----> kafka-common-dev
+        N1 <----> cluster_yc_plf_int_rolfcorp_ru
+        N1 <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        N1 <----> cluster_yc_com_int_rolfcorp_ru
+        N1 <----> cluster_yc_com_dev_int_rolfcorp_ru
+        N1 <----> dns-forwarder-prod
+        N1 <----> nexus-prod
+        N2 <----> cluster_yc_com_dev_int_rolfcorp_ru
+        N2 <----> nexus-prod
+        N2 <----> cluster_yc_com_int_rolfcorp_ru
+        N2 <----> dns-forwarder-prod
+        N2 <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        N2 <----> keycloak-dev
+        N2 <----> cluster_yc_plf_int_rolfcorp_ru
+        N2 <----> cassandra-dev
+        N2 <----> cassandra-prod
+        N3 <----> postgresql-common-dev
+        N3 <----> kafka-common-dev
+        N3 <----> cluster_yc_com_dev_int_rolfcorp_ru
+        N3 <----> cluster_yc_com_int_rolfcorp_ru
+        N3 <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        N3 <----> cluster_yc_plf_int_rolfcorp_ru
+
+    %% linkStyles %%
+
+        linkStyle 0 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 1 stroke-width:2px,fill:none,stroke:red
+        linkStyle 2 stroke-width:2px,fill:none,stroke:black
+        linkStyle 3 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 4 stroke-width:2px,fill:none,stroke:red
+        linkStyle 5 stroke-width:2px,fill:none,stroke:black
+        linkStyle 6 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 7 stroke-width:2px,fill:none,stroke:red
+        linkStyle 8 stroke-width:2px,fill:none,stroke:black
+        linkStyle 9 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 10 stroke-width:2px,fill:none,stroke:red
+        linkStyle 11 stroke-width:2px,fill:none,stroke:black
+        linkStyle 12 stroke-width:2px,fill:none,stroke:red
+        linkStyle 13 stroke-width:2px,fill:none,stroke:black
+        linkStyle 14 stroke-width:2px,fill:none,stroke:red
+        linkStyle 15 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 16 stroke-width:2px,fill:none,stroke:red
+        linkStyle 17 stroke-width:2px,fill:none,stroke:black
+        linkStyle 18 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 19 stroke-width:2px,fill:none,stroke:red
+        linkStyle 20 stroke-width:2px,fill:none,stroke:black
+        linkStyle 21 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 22 stroke-width:2px,fill:none,stroke:red
+        linkStyle 23 stroke-width:2px,fill:none,stroke:black
+        linkStyle 24 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 25 stroke-width:2px,fill:none,stroke:red
+        linkStyle 26 stroke-width:2px,fill:none,stroke:black
+        linkStyle 27 stroke-width:2px,fill:none,stroke:red
+        linkStyle 28 stroke-width:2px,fill:none,stroke:navy
+        linkStyle 29 stroke-width:2px,fill:none,stroke:red
+        linkStyle 30 stroke-width:2px,fill:none,stroke:red
+        linkStyle 31 stroke-width:2px,fill:none,stroke:navy
+        linkStyle 32 stroke-width:2px,fill:none,stroke:red
+        linkStyle 33 stroke-width:2px,fill:none,stroke:navy
+        linkStyle 34 stroke-width:2px,fill:none,stroke:red
+        linkStyle 35 stroke-width:2px,fill:none,stroke:navy
+        linkStyle 36 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 37 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 38 stroke-width:2px,fill:none,stroke:green
+        linkStyle 39 stroke-width:2px,fill:none,stroke:green
+        linkStyle 40 stroke-width:2px,fill:none,stroke:green
+        linkStyle 41 stroke-width:2px,fill:none,stroke:green
+        linkStyle 42 stroke-width:2px,fill:none,stroke:green
+        linkStyle 43 stroke-width:2px,fill:none,stroke:black
+        linkStyle 44 stroke-width:2px,fill:none,stroke:darkolivegreen
+        linkStyle 45 stroke-width:2px,fill:none,stroke:darkolivegreen
+        linkStyle 46 stroke-width:2px,fill:none,stroke:gainsboro
+        linkStyle 47 stroke-width:2px,fill:none,stroke:red
+        linkStyle 48 stroke-width:2px,fill:none,stroke:magenta
+        linkStyle 49 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 50 stroke-width:2px,fill:none,stroke:greenyellow
+        linkStyle 51 stroke-width:2px,fill:none,stroke:greenyellow
+        linkStyle 52 stroke-width:2px,fill:none,stroke:fuchsia
+        linkStyle 53 stroke-width:2px,fill:none,stroke:fuchsia
+        linkStyle 54 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 55 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 56 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 57 stroke-width:2px,fill:none,stroke:black
+        linkStyle 58 stroke-width:2px,fill:none,stroke:black
+        linkStyle 59 stroke-width:2px,fill:none,stroke:black
+        linkStyle 60 stroke-width:2px,fill:none,stroke:black
+        linkStyle 61 stroke-width:2px,fill:none,stroke:black
+        linkStyle 62 stroke-width:2px,fill:none,stroke:black
+        linkStyle 63 stroke-width:2px,fill:none,stroke:black
+        linkStyle 64 stroke-width:2px,fill:none,stroke:black
+        linkStyle 65 stroke-width:2px,fill:none,stroke:red
+        linkStyle 66 stroke-width:2px,fill:none,stroke:red
+        linkStyle 67 stroke-width:2px,fill:none,stroke:red
+        linkStyle 68 stroke-width:2px,fill:none,stroke:red
+        linkStyle 69 stroke-width:2px,fill:none,stroke:red
+        linkStyle 70 stroke-width:2px,fill:none,stroke:red
+        linkStyle 71 stroke-width:2px,fill:none,stroke:red
+        linkStyle 72 stroke-width:2px,fill:none,stroke:red
+        linkStyle 73 stroke-width:2px,fill:none,stroke:red
+        linkStyle 74 stroke-width:2px,fill:none,stroke:darkslategray
+        linkStyle 75 stroke-width:2px,fill:none,stroke:darkslategray
+        linkStyle 76 stroke-width:2px,fill:none,stroke:darkslategray
+        linkStyle 77 stroke-width:2px,fill:none,stroke:darkslategray
+        linkStyle 78 stroke-width:2px,fill:none,stroke:darkslategray
+        linkStyle 79 stroke-width:2px,fill:none,stroke:darkslategray
+....
+====
