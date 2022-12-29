@@ -1,5 +1,5 @@
 ---
-title: Сервис очередей Rabbit MQ
+title: Rabbit MQ - Сервис очередей
 weight: 10
 ---
 

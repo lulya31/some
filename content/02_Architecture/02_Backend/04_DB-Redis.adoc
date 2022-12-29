@@ -1,5 +1,5 @@
 ---
-title: База данных Redis
+title: Redis - База данных
 weight: 6
 ---
 

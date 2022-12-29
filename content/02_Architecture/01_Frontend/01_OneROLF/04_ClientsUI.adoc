@@ -1,0 +1,58 @@
+---
+title: Список клиентов / Карточка клиента
+weight: 6
+---
+
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
+
+:imgdir: /02_01_01_04_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_01_01_04_img/
+
+{empty} +
+
+*Управление базой клиентов: контакт, клиент*
+
+Работа с базой клиентов
+
+* табличное отображение записей icon:check-circle[role=green]
+* фильтрация по выбранным параметрам icon:check-circle[role=green]
+* сортировка icon:check-circle[role=green]
+* сегментирование (создание и сохранение результата и условий фильтра) icon:minus-circle[role=red]
+* поиск дубликатов icon:check-circle[role=green]
+* слияние дубликатов icon:minus-circle[role=red]
+* поиск клиента icon:check-circle[role=green]
+* синхронизация в обе стороны с Оракл icon:check-circle[role=green]
+
+
+Работа с карточкой клиента или контакта
+
+* создание icon:check-circle[role=green]
+* просмотр icon:check-circle[role=green]
+* редактирование icon:check-circle[role=green]
+* удаление (архивация) icon:check-circle[role=green]
+* верификация телефона icon:check-circle[role=green]
+* проверка адреса по КЛАДР icon:check-circle[role=green]
+* верификация имейла icon:minus-circle[role=red]
+* верификация физ. лица icon:minus-circle[role=red]
+* хранение документов клиента icon:check-circle[role=green]
+* смена статуса с контакт на клиент icon:check-circle[role=green]
+* создание связи с сущностью сотрудник icon:check-circle[role=green]
+* создание связи с сущностью клиент icon:minus-circle[role=red]
+* создание связи с сущностью авто icon:check-circle[role=green]
+* создание связи с сущностью компания/юр. лицо icon:minus-circle[role=red]
+* возможность связаться с клиентом по телефону, почте или иному каналу icon:minus-circle[role=red]
+* блокировка клиента СБ icon:check-circle[role=green]

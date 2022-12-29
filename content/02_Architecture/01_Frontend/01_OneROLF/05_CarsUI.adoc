@@ -1,6 +1,6 @@
 ---
-title: АРМ руководителя
-weight: 4
+title: Список авто / Карточка авто
+weight: 7
 ---
 
 :toc: auto
@@ -13,15 +13,15 @@ weight: 4
 :pygments-style: monokai
 :includedir: ./content/
 
-:imgdir: /02_01_01_02_img/
+:imgdir: /02_01_01_05_img/
 :imagesdir: {imgdir}
 ifeval::[{exp2pdf} == 1]
 :imagesdir: static{imgdir}
 :includedir: ../
 endif::[]
 
-:imagesoutdir: ./static/02_01_01_02_img/
+:imagesoutdir: ./static/02_01_01_05_img/
 
 {empty} +
 
-АРМ руководителя
+Список авто / Карточка авто
