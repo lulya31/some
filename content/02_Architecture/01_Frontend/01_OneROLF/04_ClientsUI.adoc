@@ -24,35 +24,40 @@ endif::[]
 
 {empty} +
 
-*Управление базой клиентов: контакт, клиент*
+*ID-1. Управление базой клиентов: контакт, клиент*
 
 Работа с базой клиентов
 
-* табличное отображение записей icon:check-circle[role=green]
-* фильтрация по выбранным параметрам icon:check-circle[role=green]
-* сортировка icon:check-circle[role=green]
-* сегментирование (создание и сохранение результата и условий фильтра) icon:minus-circle[role=red]
-* поиск дубликатов icon:check-circle[role=green]
-* слияние дубликатов icon:minus-circle[role=red]
-* поиск клиента icon:check-circle[role=green]
-* синхронизация в обе стороны с Оракл icon:check-circle[role=green]
+* Табличное отображение записей icon:check-circle[role=green]
+* Фильтрация по выбранным параметрам icon:check-circle[role=green]
+* Сортировка icon:check-circle[role=green]
+* Сегментирование (создание и сохранение результата и условий фильтра) icon:minus-circle[role=red]
+* Поиск дубликатов icon:check-circle[role=green]
+* Слияние дубликатов icon:minus-circle[role=red]
+* Поиск клиента icon:check-circle[role=green]
+* Синхронизация в обе стороны с Оракл icon:check-circle[role=green]
 
 
 Работа с карточкой клиента или контакта
 
-* создание icon:check-circle[role=green]
-* просмотр icon:check-circle[role=green]
-* редактирование icon:check-circle[role=green]
-* удаление (архивация) icon:check-circle[role=green]
-* верификация телефона icon:check-circle[role=green]
-* проверка адреса по КЛАДР icon:check-circle[role=green]
-* верификация имейла icon:minus-circle[role=red]
-* верификация физ. лица icon:minus-circle[role=red]
-* хранение документов клиента icon:check-circle[role=green]
-* смена статуса с контакт на клиент icon:check-circle[role=green]
-* создание связи с сущностью сотрудник icon:check-circle[role=green]
-* создание связи с сущностью клиент icon:minus-circle[role=red]
-* создание связи с сущностью авто icon:check-circle[role=green]
-* создание связи с сущностью компания/юр. лицо icon:minus-circle[role=red]
-* возможность связаться с клиентом по телефону, почте или иному каналу icon:minus-circle[role=red]
-* блокировка клиента СБ icon:check-circle[role=green]
+* Создание icon:check-circle[role=green]
+* Просмотр icon:check-circle[role=green]
+* Редактирование icon:check-circle[role=green]
+* Удаление (архивация) icon:check-circle[role=green]
+* Верификация телефона icon:check-circle[role=green]
+* Проверка адреса по КЛАДР icon:check-circle[role=green]
+* Верификация имейла icon:minus-circle[role=red]
+* Верификация физ. лица icon:minus-circle[role=red]
+* Хранение документов клиента icon:check-circle[role=green]
+* Смена статуса с контакт на клиент icon:check-circle[role=green]
+* Создание связи с сущностью сотрудник icon:check-circle[role=green]
+* Создание связи с сущностью клиент icon:minus-circle[role=red]
+* Создание связи с сущностью авто icon:check-circle[role=green]
+* Создание связи с сущностью компания/юр. лицо icon:minus-circle[role=red]
+* Возможность связаться с клиентом по телефону, почте или иному каналу icon:minus-circle[role=red]
+* Блокировка клиента СБ icon:check-circle[role=green]
+
+*Интеграции внешние и внутренние:*
+
+* *ЕКБ \ ЕКК* (Oracle)
+* *QuickPick* icon:minus-circle[role=red]

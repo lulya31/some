@@ -1,5 +1,5 @@
 ---
-title: Active Derectory каталоги
+title: Active Derectory (Службы каталогов)
 weight: 7
 ---
 
@@ -22,7 +22,49 @@ endif::[]
 
 :imagesoutdir: ./static/02_02_05_img/
 
-= Каталоги Active Derectory
+= Active Derectory (Службы каталогов)
+
+{empty} +
+
+*ID-4. Управление пользователями системы.*
+
+Работа с базой пользователей
+
+* табличное отображение icon:check-circle[role=green]
+* фильтрация по выбранным параметрам icon:minus-circle[role=red]
+* сортировка icon:minus-circle[role=red]
+* создание/редактирование/удаление рабочих групп icon:question-circle[role=blue]
+
+Работа с карточкой пользователя.
+
+* получение и вывод данных о пользователе icon:check-circle[role=green]
+* редактирование части данных о пользователе  icon:minus-circle[role=red]
+* просмотр и редактирование ролей пользователя icon:minus-circle[role=red]
+* добавление пользователя в рабочие группы One Rolf icon:question-circle[role=blue]
+* Привязка сотрудника к ДЦ icon:check-circle[role=green] (если нельзя ориентироваться на SAP) 
+* Привязка сотрудника к отделу icon:check-circle[role=green] (если нельзя ориентироваться на SAP)
+* Создание и редактирование рабочего графика пользователя icon:check-circle[role=green]
+* Доверенность на продажу ТМЦ: создание именной доверенности и загрузка в КП icon:check-circle[role=green]
+
+Права доступа One Rolf 
+
+* Реестр ролей One Rolf с указанием условий и соответствующих кодов должности icon:minus-circle[role=red]
+* Создание и редактирование ролей доступа icon:check-circle[role=green]
+* Добавление пользователя к одной или более роли icon:check-circle[role=green]
+* Просмотр всех пользователей в разрезе выбранной роли icon:minus-circle[role=red]
+* Аттестация для доступа к выделенному модулю icon:minus-circle[role=red]
+
+{empty} +
+
+*Интеграции внешние и внутренние*
+
+* SAP HR
+* AD (Active Directory)
+* Web Сервис (графики мастеров)
+* ARMS icon:question-circle[role=blue]
+* новый сервис распределения ролей: на MVP *AD* + *Keyclock* в итоговом продукте: пишем новый модуль в Onerolf icon:minus-circle[role=red]
+* WEB Tutor icon:minus-circle[role=red]
+* ССД icon:question-circle[role=blue]
 
 {empty} +
 

@@ -1,9 +1,0 @@
----
-title: "IDM"
-description: "IDM"
-weight: 8
----
-
-== Описание...
-
-Описание...

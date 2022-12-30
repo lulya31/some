@@ -24,4 +24,45 @@ endif::[]
 
 {empty} +
 
-Список авто / Карточка авто
+*ID-2. Управление базой автомобилей: на продажу(новые, АСП и Диллер трейд), клиентские, автопарк РОЛЬФ*
+
+Работа с базой автомобилей
+
+* Табличное отображение icon:check-circle[role=green]
+* Фильтрация по выбранным параметрам icon:check-circle[role=green]
+* Сортировка icon:check-circle[role=green]
+* Поиск дубликатов icon:minus-circle[role=red]
+* Слияние дубликатов icon:minus-circle[role=red]
+* Поиск авто icon:check-circle[role=green]
+* Сегментирование (создание и сохранение результата и условий фильтра)) icon:minus-circle[role=red]
+* Двусторонняя интеграция с базами: новые авто icon:check-circle[role=green], асп выкуп icon:check-circle[role=green], асп продажа icon:check-circle[role=green], клиентские авто icon:check-circle[role=green], диллер трейд icon:check-circle[role=green], база автопарка РОЛЬФ (тест драйв, служебные, подменные) icon:minus-circle[role=red] 
+
+
+Работа с карточкой автомобиля
+
+* Создание icon:check-circle[role=green]
+* Ппросмотр icon:check-circle[role=green]
+* Редактирование icon:check-circle[role=green]
+* Удаление icon:check-circle[role=green]
+* Создание связи с сущностью клиент (клиентский авто) icon:check-circle[role=green]
+* Создание связи с сущностью ДЦ/юр лицо (авто на продажу) icon:question-circle[role=blue]
+* Фиксация авто за местом стоянки в WMS icon:check-circle[role=green]
+* Создание связи с сущностью компания/юр. лицо icon:minus-circle[role=red]
+* Типизация авто icon:check-circle[role=green]
+* Связь авто со справочником марка/модель в MDM icon:check-circle[role=green]
+
+_База охватывает все АМ с которыми происходит взаимодействие по любому из БП РОЛЬФ: НА, АСП, F&I и сервис_
+
+*Интеграции внешние и внутренние*
+
+* Сток клиентских авто -  Web автомобили
+* Сток НА - Шторм
+* Сток АСП - ФишБлю
+* АC Рольф 
+* Сток РОЛЬФ автопарка - Web Автопрокат icon:minus-circle[role=red]
+* WMS 
+* MDM
+* MES
+* API Госавтоинспекция icon:minus-circle[role=red]
+* Car Inspect
+* Сток Диллер трейд - icon:question-circle[role=blue]
