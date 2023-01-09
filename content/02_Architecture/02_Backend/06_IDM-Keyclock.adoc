@@ -68,6 +68,38 @@ endif::[]
 
 {empty} +
 
+*SERV-1. Авторизация | Личный кабинет*
+
+* Авторизация и выход из системы icon:check-circle[role=green]
+* КС глазами авторизованного пользователя. Просмотр своего профиля в котором указаны:
+. ФИО icon:check-circle[role=green]
+. Должность icon:check-circle[role=green]
+. Руководитель icon:check-circle[role=green]
+. Подчиненные icon:check-circle[role=green]
+. Ууровень доступа в системе icon:minus-circle[role=red]
+. Рабочие группы icon:check-circle[role=green]
+. Город icon:check-circle[role=green]
+. Локация icon:check-circle[role=green]
+. ДЦ icon:check-circle[role=green]
+. Привязанные бренды icon:minus-circle[role=red]
+. Статус: работает, отпуск, больничный, декрет, уволен. icon:minus-circle[role=red]
+. Рабочий день: активен, не активен icon:check-circle[role=green]
+. Пройденные аттестации из Web Tutor icon:minus-circle[role=red]
+* Добавление, редактирование и удаление фото в своём профиле. icon:minus-circle[role=red]
+* Добавление, редактирование и удаление личного телефона в своём профиле. icon:minus-circle[role=red]
+* Статус "Онлайн" / "Офлайн" icon:check-circle[role=green]
+* Уведомления о новых задачах (браузер или веб пуши или альтернатива) icon:check-circle[role=green]
+
+*Интеграции внешние и внутренние*
+
+{empty} +
+
+* AD icon:check-circle[role=green]
+* Sap HR icon:check-circle[role=green]
+* Web Tutor icon:minus-circle[role=red]
+
+{empty} +
+
 link:http://keycloak.jboss.org/[Keycloak, window=_blank] — это сервер аутентификации и управления учетными записями (*IDM*) от *JBoss*, построенный на базе спецификаций *OAuth 2.0*, *Open ID Connect*, *JSON Web Token (JWT)* и *SAML 2.0*.
 Список возможностей KeyCloak достаточно большой и включает поддержку *SSO*, *Social Login*, интеграцию с *LDAP* серверами, управление пользователями, группами и ролями, и многе другое.
 

@@ -3,6 +3,109 @@ title: Новые автомобили. Заказ / Продажа
 weight: 2
 ---
 
-== Описание...
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
 
-Описание...
+:imgdir: /02_01_01_01_01_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_01_01_01_01_img/
+
+= Новые автомобили. Заказ / Продажа
+
+{empty} +
+
+*BP-1. БП Модуль - Управление продажей Новых Авто + ЭПТС для Физ. лиц и Юр. лиц*
+
+. Подбор ТС icon:check-circle[role=green]
+.. Поиск и фильтрация автомобиля по стоку локации, компании, классифайдов icon:check-circle[role=green]
+.. Резервирование ТС icon:check-circle[role=green]
+.. Единый сток icon:check-circle[role=green]
+. Формирование КП icon:check-circle[role=green]
+.. Передача клиента в смежные отделы icon:check-circle[role=green]
+... ОПФУ (страховка, кредит) icon:check-circle[role=green]
+... Опционы icon:check-circle[role=green]
+.... "Елки". отображение и учет заранее установленного ДО  icon:check-circle[role=green]
+.... Продажа Опционов для Клиента icon:check-circle[role=green]
+.. Получение стоимости услуг смежных отделов icon:check-circle[role=green]
+.. Отправка уведомлений icon:check-circle[role=green]
+.. Учет Маржи КП icon:check-circle[role=green]
+. Оформление сделки (фиксация - согласование условий). задачи смежным подразделениям icon:check-circle[role=green]
+. Оформление документов (печатные формы) icon:check-circle[role=green]
+.. ПДКП icon:check-circle[role=green]
+.. ДКП icon:check-circle[role=green]
+.. Акт ПП icon:check-circle[role=green]
+. Оплата ТС icon:check-circle[role=green]
+.. Выставление счета icon:check-circle[role=green]
+.. Отражение факта оплаты в сделке icon:check-circle[role=green]
+. Выдача ТС icon:check-circle[role=green]
+.. Планирование выдачи АМ icon:check-circle[role=green]
+.. Отправка на установку опционов icon:check-circle[role=green]
+.. Фиксация даты выписки АМ icon:check-circle[role=green]
+. Этапы сделки icon:check-circle[role=green]
+.. Отображение этапов icon:check-circle[role=green]
+.. Логика зависимости этапов icon:check-circle[role=green]
+. СОПД icon:check-circle[role=green]
+.. Печать \ подписание \ загрузка в систему icon:check-circle[role=green]
+.. Отображение СОПД как этапа сделки icon:check-circle[role=green]
+
+*Не входит в состав MVP:* icon:minus-circle[role=red]
+
+. Ценообразование: icon:minus-circle[role=red]
+.. Калькулятор Железа (стока). Калькулятор Железа (стока)» включает в себя: icon:minus-circle[role=red]
+... Управление ценами, а не только их автоприсвоение icon:minus-circle[role=red]
+... Импорт  icon:minus-circle[role=red]
+... Иные интеграции с дистрибьюторами по прайс-листам icon:minus-circle[role=red]
+... Поддержки icon:minus-circle[role=red]
+... Компенсации icon:minus-circle[role=red]
+... Настройка специальных акций дистрибьютора и РОЛЬФ icon:minus-circle[role=red]
+... Групповая политика изменения цен на модели\комплектации icon:minus-circle[role=red]
+.. Калькулятор сделки icon:minus-circle[role=red]
+. Подбор ТС icon:minus-circle[role=red]
+.. Создание задач на показ на другой локации icon:minus-circle[role=red]
+.. Отображение аналитической информации по (место стоянки, диагностика) icon:minus-circle[role=red]
+.. Согласование резерва \ бронирования icon:minus-circle[role=red]
+. Заказ ТС icon:minus-circle[role=red]
+.. Интеграция с WMS icon:minus-circle[role=red]
+.. Интеграции с OEM icon:minus-circle[role=red]
+.. Блок логистика карточки АМ icon:minus-circle[role=red]
+. Формирование КП icon:minus-circle[role=red]
+.. Trade-in icon:minus-circle[role=red]
+.. Работа с юридическими лицами icon:minus-circle[role=red]
+. Оформление сделки icon:minus-circle[role=red]
+.. Trade-in icon:minus-circle[role=red]
+. Выдача ТС icon:minus-circle[role=red]
+.. АРМ делопроизводителя icon:minus-circle[role=red]
+. Доставка ТС icon:minus-circle[role=red]
+. Передача воронки импортерам (OEM) icon:minus-circle[role=red]
+. CRM icon:minus-circle[role=red]
+.. Планирование звонков - встреч icon:minus-circle[role=red]
+.. Уведомление Клиента о событиях icon:minus-circle[role=red]
+.. Работа с сущностями CRM (карточки клиента, ТС, юр лица, компании) icon:minus-circle[role=red]
+.. График работы сотрудников (учет времени) icon:minus-circle[role=red]
+. Отчеты и метрики. отчеты по icon:minus-circle[role=red]
+.. Воронке продаж icon:minus-circle[role=red]
+.. Трафик icon:minus-circle[role=red]
+.. Продажи icon:minus-circle[role=red]
+.. Для импортеров icon:minus-circle[role=red]
+. АРМ - рабочие столы icon:minus-circle[role=red]
+
+*Интеграции внешние и внутренние*
+
+* Oracle icon:check-circle[role=green]
+* Забирать Сток icon:check-circle[role=green]
+* Передавать и получать инфо о резерве АМ icon:check-circle[role=green]
+* Передавать инфо по сделке icon:check-circle[role=green]
+* WMS авто icon:check-circle[role=green]
+* MDM icon:check-circle[role=green]

@@ -1,9 +1,42 @@
 ---
-title: "Хранилище договоров (подписанные договоры)"
-description: "Хранилище договоров (подписанные договоры)"
+title: Хранилище договоров (подписанные договоры)
 weight: 14
 ---
 
-== Описание...
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
 
-Описание...
+:imgdir: /02_02_12_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_02_12_img/
+
+= Хранилище договоров (подписанные договоры)
+
+{empty} +
+
+*ONEROLF-FL-1. Модуль Договоры. Хранилище заключенных договоров*
+
+Хранение документов по сделке:
+
+* Организация ссылок на места хранения предварительных форм документов icon:minus-circle[role=red]
+* Организация ссылок на места хранения сканов подписанных документов icon:minus-circle[role=red]
+* Интеграция с 1С ДО icon:minus-circle[role=red]
+* Интеграция с 1С ROSE icon:minus-circle[role=red]
+
+*Интеграции внешние и внутренние*
+
+* 1С ДО
+* 1C ROSE icon:question-circle[role=blue]
+* S3

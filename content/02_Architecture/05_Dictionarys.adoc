@@ -3,6 +3,37 @@ title: Справочники
 weight: 4
 ---
 
-== Описание...
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
 
-Описание...
+:imgdir: /02_05_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_05_img/
+
+= Коммуникационный сервис
+
+{empty} +
+
+*SERV-3 Управление справочниками*
+
+Создание и редактирование справочников используемых в *One Rolf*
+
+* Справочник брендов icon:check-circle[role=green]
+* Справочник городов icon:check-circle[role=green]
+* Справочник статусов icon:question-circle[role=blue]
+* Справочник доверенностей icon:question-circle[role=blue]
+* Справочник типов потребностей icon:check-circle[role=green]
+* Справочник типов обращений icon:check-circle[role=green]
+* Справочник типов коммуникации icon:check-circle[role=green]

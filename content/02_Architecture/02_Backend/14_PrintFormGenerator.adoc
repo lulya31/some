@@ -1,9 +1,77 @@
 ---
-title: "Генератор печатных форм"
-description: "Генератор печатных форм"
+title: Генератор печатных форм
 weight: 16
 ---
 
-== Описание...
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
 
-Описание...
+:imgdir: /02_02_14_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_02_14_img/
+
+= Генератор печатных форм
+
+{empty} +
+
+*ONEROLF-FL-2. Модуль Шаблоны и печатные формы*
+
+Функционал модуля:
+
+. Шаблоны печатных форм общих документов:
+
+* СОПД Рольф icon:check-circle[role=green]
+* СОПД Импортеров icon:minus-circle[role=red]
+* Печатные формы документов на оплатуicon:check-circle[role=green] (В MVP - направления на оплату, Счет (безнал), квитанция для ККМ - остальное после MVP)
+
+. Шаблоны печатных форм по направлениям:
+
+* Печатные формы НА icon:check-circle[role=green] 
+* Печатные формы АСПП icon:check-circle[role=green]
+* Печатные формы АСПВ icon:check-circle[role=green]  
+* Печатные формы Сервис icon:check-circle[role=green]
+* Печатные формы F&I icon:check-circle[role=green] (ПФ калькулятора расчета + формы  документов продуктов страхования для МСК, для СПБ формы будут настраиваться после MVP)
+* Печатные формы Fleeticon:minus-circle[role=red]
+* Печатные формы Продажи ЗЧicon:minus-circle[role=red]
+
+* В рамках MVP будут настроены HTML шаблоны для ограниченного согласованного списка документов печатных форм с автозаполнением печатных форм данными из системы.icon:check-circle[role=green]
+
+. Генератор печатных форм:icon:minus-circle[role=red]
+
+* Визуализатор печатных форм icon:minus-circle[role=red]
+* Динамическое формирование печатной формы документа в зависимости от выбранных опций в систем icon:minus-circle[role=red]
+
+. Модуль управления и корректировка шаблонов печатных форм:
+
+* Редактор шаблонов печатных форм icon:check-circle[role=green]
+* Предпросмотр шаблонов печатных форм icon:check-circle[role=green]
+* Конструктор шаблонов печатных форм icon:minus-circle[role=red]
+* Инструмент согласования изменения контента печатной формы icon:minus-circle[role=red]
+
+. Групповая печать:icon:minus-circle[role=red]
+
+* Правила пакетной печати icon:minus-circle[role=red]
+* Мастер настройки пакетной печати icon:minus-circle[role=red]
+
+// 86 ПФ
+
+[.red.background]
+*_Админка печатных форм (создание, удаление и редактирование шаблона ПФ) будет находится отдельно_*
+
+{empty} +
+
+*Интеграции внешние и внутренние*
+
+ГПФ icon:minus-circle[role=red]

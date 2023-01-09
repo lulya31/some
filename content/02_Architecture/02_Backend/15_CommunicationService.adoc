@@ -1,9 +1,54 @@
 ---
-title: "Коммуникационный сервис"
-description: "Коммуникационный сервис"
+title: Коммуникационный сервис
 weight: 17
 ---
 
-== Описание...
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
 
-Описание...
+:imgdir: /02_02_15_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_02_15_img/
+
+= Коммуникационный сервис
+
+{empty} +
+
+*SERV-4. Телефония: Входящий и исходящий траффик и его интеграция с БП*
+
+* Прием входящих звонков в *OneRolf* icon:minus-circle[role=red]
+. Авто определение ФИО по номеру звонящего  icon:minus-circle[role=red]
+. создание новой или выбор существующей потребности icon:minus-circle[role=red]
+. Создание нового клиента в процессе icon:minus-circle[role=red]
+. Доступ к скриптам и вики icon:minus-circle[role=red] 
+* Интеграция *ЕРЛ* с *OneRolf* с передачей в *OneRolf* созданного обращения с вложенной потребностью icon:check-circle[role=green]
+* Запрос за исходящие звонки из *OneRolf*, вкл. выбор Карусель или номер РОЛЬФ icon:check-circle[role=green]
+* Регистрация внутреннего номера сотрудника icon:check-circle[role=green]
+* Логи контактов с клиентами icon:check-circle[role=green]
+* Запись тел звонков и доступ к ним из обращения icon:check-circle[role=green]
+
+*Интеграции внешние и внутренние*
+
+* Астериск
+* *ЕРЛ* icon:check-circle[role=green]
+
+{empty} +
+
+*SERV-5. Коммуникации между сотрудниками*
+
+. Почта - интеграция с аутлук.
+. Коммуникатор (чат)
+
+*_Сделать интеграцию с аутлуком и добавить базовый внутренний чат (коммуникатор), для упрощения коммуникации между сотрудниками в процессах работы_*
