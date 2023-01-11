@@ -1,6 +1,5 @@
 ---
-title: "One CAR ID"
-description: "One CAR ID"
+title: One CAR ID
 weight: 4
 ---
 

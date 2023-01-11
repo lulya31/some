@@ -3,6 +3,36 @@ title: Продажа запчастей
 weight: 6
 ---
 
-== Описание...
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
 
-Описание...
+:imgdir: /02_01_01_01_05_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_01_01_01_05_img/
+
+= Продажа запчастей
+
+{empty} +
+
+*BP-7. БП Модуль - Управление продажей запчастей включая доп. оборудование и шины (новые) Физ. лицам и Юр. Лицам*
+
+. Создание заказ-наряда: Вид="Опцион", Тип="Внутренний" icon:check-circle[role=green]
+. Создание заказ-наряда: Вид="Опцион", Тип="Клиентский" icon:check-circle[role=green]
+. Создание функционала продаж ТМЦ (запчастей) без услуг icon:minus-circle[role=red]
+. Ведение единого справочника по доп. оборудованию icon:minus-circle[role=red]
+. Продажа опциона из сделки АСП и НА icon:check-circle[role=green]
+. Юр. Лица icon:minus-circle[role=red]
+
+*BP-8. БП Модуль - Управление сделками на опт портале запчастей Юр. Лицам*

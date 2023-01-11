@@ -25,3 +25,94 @@ endif::[]
 = Продажа АСП
 
 {empty} +
+
+. *WMS-4. Выдача автомобиля с пробегом*
++
+====
+* Ключ #Уточнить и описать серверную функциональность участвующую в этой активности!# +
+* Электронная ключная #Уточнить и описать серверную функциональность участвующую в этой активности!# icon:minus-circle[role=red]
+* Мойка #Уточнить и описать серверную функциональность участвующую в этой активности!#
+* Химчистка #Уточнить и описать серверную функциональность участвующую в этой активности!#
+* Внутреннее перемещение #Уточнить и описать серверную функциональность участвующую в этой активности!#
+====
+
+{empty} +
+
+*BP-2. БП Модуль - Управление продажей АСП + Предпродажная подготовка АСП для Физ. лиц и Юр. лиц*
+
+. Предпродажная подготовка icon:check-circle[role=green]
+* Создание задач на смежные подразделения для проведения работ по подготовке выкупленного автомобиля к продаже icon:check-circle[role=green]
+* Отчет по готовности автомобиля к продаже icon:minus-circle[role=red]
+* Расчет уровня гарантии icon:minus-circle[role=red]
+* Отображение аналитической информации для ценообразования АСП (MDS) icon:minus-circle[role=red]
+* Установка цены продажи АСП icon:minus-circle[role=red] 
+* Создание печатной формы ценника АСП icon:minus-circle[role=red]
+* Указание комментариев по проделанным работам icon:minus-circle[role=red]
+* Прикрепление фотографий в карточку автомобиля icon:minus-circle[role=red]
+* Выгрузка АСП на сайт продаж icon:minus-circle[role=red]
+* Выгрузка АСП на классифайды icon:minus-circle[role=red]
+. Подбор АСП icon:check-circle[role=green]
+* Поиск и фильтрация автомобиля icon:check-circle[role=green]
+* Создание задач на показ АСП на другой локации icon:minus-circle[role=red]
+* Отображение аналитической информации по АСП (место стоянки - фиш блю, диагностика - фиш блю) icon:check-circle[role=green]
+* Знакомство клиента со специалистом по выкупу  icon:minus-circle[role=red]
+* Единый сток
+. Формирование КП
+* Проверка клиента на перекупа icon:minus-circle[role=red]
+* Опцион (Услуги, Шины, Запчасти) icon:check-circle[role=green]
+* Проверка СОПД, подписание с клиентом и загрузка в систему icon:check-circle[role=green]
+* Прикрепление сканов документов icon:check-circle[role=green]
+* Передача клиента в смежные отделы (запуск вложенной потребности в смежные подразделения) icon:check-circle[role=green]
+* Получение стоимости услуг смежных отделов  icon:check-circle[role=green]
+* Формирование и согласование скидок на АСП icon:check-circle[role=green] 
+* Отправка уведомлений специалисту по выкупу, старшему ПК, в отдел F&I icon:check-circle[role=green] 
+* Формирование КП icon:check-circle[role=green]
+* Продажа и оформление услуг ЭПТС icon:minus-circle[role=red]
+* Продажа услуг гос. регистрации АСП icon:minus-circle[role=red]
+. Перенос сделки icon:minus-circle[role=red]
+* Формирование и распечатка предварительного ДКП icon:minus-circle[role=red]
+* Формирование и отправка ссылки на оплату icon:minus-circle[role=red]
+* Резервация АСП в системе icon:minus-circle[role=red]
+* Формирование чеков на предоплату АСП icon:minus-circle[role=red]
+* Снятие АСП с продажи на сайте и на классифайдах icon:minus-circle[role=red]
+. Оформление документов icon:check-circle[role=green]
+* Внесение данных в ручном режиме по статусам лизинговых сделок icon:minus-circle[role=red]
+* Формирование и распечатка ДКП и сопутствующих документов по набранной корзине услуг icon:check-circle[role=green]
+* Отправка уведомлений icon:check-circle[role=green]
+. Оплата АСП клиентом icon:check-circle[role=green] (В.Островский)
+* ККМ icon:check-circle[role=green]
+* Оперкасса icon:check-circle[role=green]
+* Оплата по ссылке банка icon:check-circle[role=green]
+* Гарантийное письмо icon:check-circle[role=green]
+* Зачет ВТД/Trade-in icon:minus-circle[role=red]
+* Безналичная оплата icon:check-circle[role=green]
+. Выдача АСП 
+* Передача ключей и документов от АСП клиенту icon:check-circle[role=green]
+* Передать документы в делопроизводство icon:check-circle[role=green]
+* Формирование электронного пропуска на выезд АСП с территории ДЦ icon:minus-circle[role=red]
+* Отправка уведомлений специалисту по выкупу или охраннику на выезде icon:minus-circle[role=red]
+. Продажа Шин отдельно от а/м icon:minus-circle[role=red] 
+. Аукцион icon:minus-circle[role=red]
+. Гарантия icon:minus-circle[role=red]
+
+*Интеграции внешние и внутренние*
+
+Системные FishBlue:
+
+* ROSE Поступление/Реализация icon:minus-circle[role=red]
+* ROSE Олата icon:minus-circle[role=red]
+* MDS (Market Dynamic System) icon:minus-circle[role=red]
+* CarInspect icon:check-circle[role=green] 
+* Автотека icon:check-circle[role=green]
+* MBR icon:minus-circle[role=red]
+* NDB (BMW) icon:minus-circle[role=red]
+* JLR icon:minus-circle[role=red]
+
+* WMS авто 
+* MDM
+
+*Внутренняя интеграция One Rolf - Oracle*
+
+* Получение стока а/м АСП icon:check-circle[role=green]
+* Получение стока шин icon:check-circle[role=green]
+* Обратная интеграция (разложить все текущие сущности системы One Rolf и FishBlue) icon:check-circle[role=green]

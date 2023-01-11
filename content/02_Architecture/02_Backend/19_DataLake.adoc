@@ -1,6 +1,5 @@
 ---
-title: "Data Lake"
-description: "Data Lake"
+title: Data Lake
 weight: 21
 ---
 
