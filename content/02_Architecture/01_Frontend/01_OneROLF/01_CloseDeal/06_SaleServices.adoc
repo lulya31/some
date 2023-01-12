@@ -5,6 +5,7 @@ weight: 7
 
 :toc: auto
 :toc-title: Содержание
+:toclevels: 5
 :doctype: book
 :icons: font
 :figure-caption: Рисунок
@@ -26,96 +27,151 @@ endif::[]
 
 {empty} +
 
-*BP-5. БП Модуль - Управление продажами услуг сервиса: слесарка, кузов и УУУ Физ. лицам и Юр. лицам*
+****
+В модуле *Продажа Услуг сервиса* реализован Бизнес-Процесс footnote:BP1[] по управлению услуг сервиса.
+****
+
+IMPORTANT: Знаком icon:check-circle[role=green] отмечены активности которые *войдут. в *MVP на МАРТ 2023 года!!!. +
+Знаком icon:minus-circle[role=red] отмечены активности которые *[red]#НЕ# войдут. в *MVP на МАРТ 2023 года!!!*
 
 {empty} +
 
-*_В рамках MVP будет проработан процесс формирования клиентского заказ-наряда_*
+== Шаги Бизнес-Процесса footnote:BP1[Документ в Confluence ROLF: [blue]#*MVP Функционал Продукта One Rolf + MDM + MES + WMS|TMS (Новая версия Ноябрь 2022)*#, Название модуля системы: [blue]#*BP-5. БП Модуль - Управление продажами услуг сервиса: слесарка, кузов и УУУ Физ. лицам и Юр. лицам*#.] по продажам запчастей, доп. оборудования и шин
+
+NOTE: *В рамках MVP будет проработан процесс формирования клиентского заказ-наряда*
 
 {empty} +
 
+****
+[.green.background]
+====
 *Запись клиента:*
 
-* Создание заказ-наряда: Вид="Слесарный", Тип="Клиентский" icon:check-circle[role=green]
-* Создание заказ-наряда: Вид="Опцион", Тип="Внутренний" icon:check-circle[role=green]
-* Наполнение заказ-наряда данными из карточки авто и карточки клиента icon:check-circle[role=green]
-* Создание календаря icon:check-circle[role=green]
-* Наполнение заказ-наряда работами и запчастями из внутреннего справочника и справочника Audatex icon:check-circle[role=green]
-* Запись клиента icon:check-circle[role=green]
-* Управлению записью: создание, перенос, подтверждение, удаление icon:check-circle[role=green]
-* Заказ запчастей icon:minus-circle[role=red]
-* Резервирование запчастей icon:check-circle[role=green]
-* Работа с ценой (MVP - ручное применение скидки) icon:check-circle[role=green] 
-* Напоминание клиента через смс, push icon:minus-circle[role=red]
-* Бронирование подменного авто icon:minus-circle[role=red]
-
+. Создание заказ-наряда: Вид="Слесарный", Тип="Клиентский" icon:check-circle[role=green]
+. Создание заказ-наряда: Вид="Опцион", Тип="Внутренний" icon:check-circle[role=green]
+. Наполнение заказ-наряда данными из карточки авто и карточки клиента icon:check-circle[role=green]
+. Создание календаря icon:check-circle[role=green]
+. Наполнение заказ-наряда работами и запчастями из внутреннего справочника и справочника Audatex icon:check-circle[role=green]
+. Запись клиента icon:check-circle[role=green]
+. Управлению записью: создание, перенос, подтверждение, удаление icon:check-circle[role=green]
+. Резервирование запчастей icon:check-circle[role=green]
+. Работа с ценой (MVP - ручное применение скидки) icon:check-circle[role=green] 
+====
+[.green.background]
+====
 *Прием т/с:*
 
-* Рабочий стол мастера-консультанта icon:check-circle[role=green]
-* Создание заданий на смежные подразделения icon:check-circle[role=green]
-* Прием авто по чек-листу icon:check-circle[role=green]
-* Планшетная приемка icon:minus-circle[role=red] (icon:warning[role=yellow] - по остаточному принципу)
-* Фиксация видео и фото авто icon:minus-circle[role=red]
-* Управление мойкой: выдача заданий на мойку, подтверждение мойки icon:check-circle[role=green]
-* Работа с рекомендациями icon:minus-circle[role=red]
-* Подтверждение заказ-наряда icon:check-circle[role=green]
-* Работа с подрядными организациями: согласование заказа и стоимости, передача авто подрядчику, прием авто, оплата за работы, работа с закрывающими документами. icon:minus-circle[role=red]
-* СОПД icon:check-circle[role=green]
-* Формирование печатных форм icon:check-circle[role=green]
-* Отправка документов по почте icon:check-circle[role=green]
-* Загрузка сканов документов icon:check-circle[role=green]
-* ПЭП (электронная подпись) icon:minus-circle[role=red]
-* Выдача подменного авто icon:minus-circle[role=red]
-
+. Рабочий стол мастера-консультанта icon:check-circle[role=green]
+. Создание заданий на смежные подразделения icon:check-circle[role=green]
+. Прием авто по чек-листу icon:check-circle[role=green]
+. Управление мойкой: выдача заданий на мойку, подтверждение мойки icon:check-circle[role=green]
+. Подтверждение заказ-наряда icon:check-circle[role=green]
+. СОПД icon:check-circle[role=green]
+. Формирование печатных форм icon:check-circle[role=green]
+. Отправка документов по почте icon:check-circle[role=green]
+. Загрузка сканов документов icon:check-circle[role=green]
+====
+[.green.background]
+====
 *Работа в цеху:*
 
-* Планирование постов в разрезе постов, механиков и нормо-часов icon:check-circle[role=green]
-* Рабочий стол мастера-цеха icon:check-circle[role=green]
-* Календарь загрузки цеха icon:check-circle[role=green]
-* Управление постами цеха: создание, удаление, привязка механика, резервирование, работа со записью icon:check-circle[role=green]
-* Прием авто в цех icon:check-circle[role=green]
-* Работа с чек-листом  icon:check-circle[role=green]
-* Заказ запчастей icon:minus-circle[role=red] (WMS запчасти)
-* Рабочий стол механика: прием авто, выдача авто, создание рекомендаций, прикрепление фото и видео, выдача заданий icon:check-circle[role=green] (icon:warning[role=yellow] - по остаточному принципу)
-
+. Планирование постов в разрезе постов, механиков и нормо-часов icon:check-circle[role=green]
+. Рабочий стол мастера-цеха icon:check-circle[role=green]
+. Календарь загрузки цеха icon:check-circle[role=green]
+. Управление постами цеха: создание, удаление, привязка механика, резервирование, работа со записью icon:check-circle[role=green]
+. Прием авто в цех icon:check-circle[role=green]
+. Работа с чек-листом  icon:check-circle[role=green]
+. Рабочий стол механика: прием авто, выдача авто, создание рекомендаций, прикрепление фото и видео, выдача заданий icon:check-circle[role=green] (icon:warning[role=yellow] - по остаточному принципу)
+====
+[.green.background]
+====
 *Выдача авто:*
 
-* Прием авто из цеха по чек-листу icon:check-circle[role=green]
-* Работа с рекомендациями, подтверждение их. Передача рекомендаций в карточку клиента icon:minus-circle[role=red]
-* Формирование печатных форм icon:check-circle[role=green] 
-* Отправка документов по почте icon:check-circle[role=green]
-* Загрузка сканов документов icon:check-circle[role=green]
-* Прием подменного авто icon:minus-circle[role=red]
-* Оплата icon:check-circle[role=green]
-
+. Прием авто из цеха по чек-листу icon:check-circle[role=green]
+. Формирование печатных форм icon:check-circle[role=green] 
+. Отправка документов по почте icon:check-circle[role=green]
+. Загрузка сканов документов icon:check-circle[role=green]
+. Оплата icon:check-circle[role=green]
+====
+[.green.background]
+====
 *Работа с АС Рольф:*
 
-* Создание заказ-наряда из One Rolficon:check-circle[role=green]
-* Работа с запчастями: резервирование запчастей, передача запчастей в цех, получение цен и наличия. icon:check-circle[role=green]
-* Закрытие заказ-нарядаicon:check-circle[role=green] 
-* Передача инфо по заказ-наряду в АС Рольфicon:check-circle[role=green]
-
+. Создание заказ-наряда из One Rolficon:check-circle[role=green]
+. Работа с запчастями: резервирование запчастей, передача запчастей в цех, получение цен и наличия. icon:check-circle[role=green]
+. Закрытие заказ-нарядаicon:check-circle[role=green] 
+. Передача инфо по заказ-наряду в АС Рольфicon:check-circle[role=green]
+====
+[.green.background]
+====
 *Работа с заданиями:*
 
-* Создание заданий icon:check-circle[role=green] (icon:warning[role=yellow] - по остаточному принципу)
-* Статусы заданий icon:check-circle[role=green] (icon:warning[role=yellow] - по остаточному принципу)
-* Закрытие заданий icon:check-circle[role=green] (icon:warning[role=yellow] - по остаточному принципу)
-* Учет тайминга icon:check-circle[role=green] (icon:warning[role=yellow] - по остаточному принципу)
-* Создание заказ-наряда: Вид="Кузовной", Тип="Клиентский" icon:minus-circle[role=red]
-* Создание заказ-наряда: Вид="Кузовной", Тип="Страховой" icon:minus-circle[role=red]
-* Создание заказ-наряда: Вид="Кузовной", Тип="Внутренний" icon:minus-circle[role=red]
-* Создание заказ-наряда: Вид="Кузовной", Тип="Гарантийный" icon:minus-circle[role=red]
-* Создание заказ-наряда: Вид="Слесарный", Тип="Внутренний" icon:minus-circle[role=red]
-* Создание заказ-наряда: Вид="Слесарный", Тип="Гарантийный" icon:minus-circle[role=red]
-* Функционал УУУ: заявление на убыток, получение направлений icon:minus-circle[role=red]
-* Договор хранения шин icon:minus-circle[role=red]
+. Создание заданий icon:check-circle[role=green] (icon:warning[role=yellow] - по остаточному принципу)
+. Статусы заданий icon:check-circle[role=green] (icon:warning[role=yellow] - по остаточному принципу)
+. Закрытие заданий icon:check-circle[role=green] (icon:warning[role=yellow] - по остаточному принципу)
+. Учет тайминга icon:check-circle[role=green] (icon:warning[role=yellow] - по остаточному принципу)
+====
+****
 
+****
+[.red.background]
+====
+*Запись клиента:*
+
+. Заказ запчастей icon:minus-circle[role=red]
+. Напоминание клиента через смс, push icon:minus-circle[role=red]
+. Бронирование подменного авто icon:minus-circle[role=red]
+====
+[.red.background]
+====
+*Прием т/с:*
+
+. Планшетная приемка icon:minus-circle[role=red] (icon:warning[role=yellow] - по остаточному принципу)
+. Фиксация видео и фото авто icon:minus-circle[role=red]
+. Работа с рекомендациями icon:minus-circle[role=red]
+. Работа с подрядными организациями: согласование заказа и стоимости, передача авто подрядчику, прием авто, оплата за работы, работа с закрывающими документами. icon:minus-circle[role=red]
+. ПЭП (электронная подпись) icon:minus-circle[role=red]
+. Выдача подменного авто icon:minus-circle[role=red]
+====
+[.red.background]
+====
+*Работа в цеху:*
+
+. Заказ запчастей icon:minus-circle[role=red] (WMS запчасти)
+====
+[.red.background]
+====
+*Выдача авто:*
+
+. Работа с рекомендациями, подтверждение их. Передача рекомендаций в карточку клиента icon:minus-circle[role=red]
+. Прием подменного авто icon:minus-circle[role=red]
+====
+[.red.background]
+====
+*Работа с заданиями:*
+
+. Создание заказ-наряда: Вид="Кузовной", Тип="Клиентский" icon:minus-circle[role=red]
+. Создание заказ-наряда: Вид="Кузовной", Тип="Страховой" icon:minus-circle[role=red]
+. Создание заказ-наряда: Вид="Кузовной", Тип="Внутренний" icon:minus-circle[role=red]
+. Создание заказ-наряда: Вид="Кузовной", Тип="Гарантийный" icon:minus-circle[role=red]
+. Создание заказ-наряда: Вид="Слесарный", Тип="Внутренний" icon:minus-circle[role=red]
+. Создание заказ-наряда: Вид="Слесарный", Тип="Гарантийный" icon:minus-circle[role=red]
+. Функционал УУУ: заявление на убыток, получение направлений icon:minus-circle[role=red]
+. Договор хранения шин icon:minus-circle[role=red]
+====
+****
+
+****
+[.green.background]
+====
 *Интеграции внешние и внутренние*
 
-* Audatex
-* Мир Хендай
-* АС Рольф
-* One Rolf
-* MDM (работы, запчасти)
-* Платёжный шлюз
-* Печатные формы
+. Audatex icon:check-circle[role=green]
+. Мир Хендай icon:check-circle[role=green]
+. АС Рольф icon:check-circle[role=green]
+. One Rolf icon:check-circle[role=green]
+. MDM (работы, запчасти) icon:check-circle[role=green]
+. Платёжный шлюз icon:check-circle[role=green]
+. Печатные формы icon:check-circle[role=green]
+====
+****
