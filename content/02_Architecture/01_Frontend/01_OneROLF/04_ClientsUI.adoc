@@ -5,6 +5,7 @@ weight: 6
 
 :toc: auto
 :toc-title: Содержание
+:toclevels: 5
 :doctype: book
 :icons: font
 :figure-caption: Рисунок
@@ -26,40 +27,66 @@ endif::[]
 
 {empty} +
 
-*ID-1. Управление базой клиентов: контакт, клиент*
+****
+В модуле *Список клиентов / Карточка клиента* реализован функционал footnote:ID1[] управления базой клиентов
+****
 
-Работа с базой клиентов
+====
+IMPORTANT: Знаком icon:check-circle[role=green] отмечены активности которые *ВОЙДУТ* в MVP на МАРТ 2023 года!!! +
+Знаком icon:minus-circle[role=red] отмечены активности которые *[red]#НЕ# ВОЙДУТ в* MVP на МАРТ 2023 года!!!
+====
 
-* Табличное отображение записей icon:check-circle[role=green]
-* Фильтрация по выбранным параметрам icon:check-circle[role=green]
-* Сортировка icon:check-circle[role=green]
-* Сегментирование (создание и сохранение результата и условий фильтра) icon:minus-circle[role=red]
-* Поиск дубликатов icon:check-circle[role=green]
-* Слияние дубликатов icon:minus-circle[role=red]
-* Поиск клиента icon:check-circle[role=green]
-* Синхронизация в обе стороны с Оракл icon:check-circle[role=green]
+== Задачи решаемые модулем ID-1 footnote:ID1[Документ в Confluence ROLF: [blue]#*MVP Функционал Продукта One Rolf + MDM + MES + WMS|TMS (Новая версия Ноябрь 2022)*#, Название модуля системы: [blue]#*ID-1. Управление базой клиентов: контакт, клиент*#.] по управлению базой клиентов
 
+****
+*Работа с базой клиентов*
+[.green.background]
+====
+. Табличное отображение записей icon:check-circle[role=green]
+. Фильтрация по выбранным параметрам icon:check-circle[role=green]
+. Сортировка icon:check-circle[role=green]
+. Поиск дубликатов icon:check-circle[role=green]
+. Поиск клиента icon:check-circle[role=green]
+. Синхронизация в обе стороны с Оракл icon:check-circle[role=green]
+====
+[.red.background]
+====
+. Сегментирование (создание и сохранение результата и условий фильтра) icon:minus-circle[role=red]
+. Слияние дубликатов icon:minus-circle[role=red]
+====
 
-Работа с карточкой клиента или контакта
-
-* Создание icon:check-circle[role=green]
-* Просмотр icon:check-circle[role=green]
-* Редактирование icon:check-circle[role=green]
-* Удаление (архивация) icon:check-circle[role=green]
-* Верификация телефона icon:check-circle[role=green]
-* Проверка адреса по КЛАДР icon:check-circle[role=green]
-* Верификация имейла icon:minus-circle[role=red]
-* Верификация физ. лица icon:minus-circle[role=red]
-* Хранение документов клиента icon:check-circle[role=green]
-* Смена статуса с контакт на клиент icon:check-circle[role=green]
-* Создание связи с сущностью сотрудник icon:check-circle[role=green]
-* Создание связи с сущностью клиент icon:minus-circle[role=red]
-* Создание связи с сущностью авто icon:check-circle[role=green]
-* Создание связи с сущностью компания/юр. лицо icon:minus-circle[role=red]
-* Возможность связаться с клиентом по телефону, почте или иному каналу icon:minus-circle[role=red]
-* Блокировка клиента СБ icon:check-circle[role=green]
-
+*Работа с карточкой клиента или контакта*
+[.green.background]
+====
+. Создание icon:check-circle[role=green]
+. Просмотр icon:check-circle[role=green]
+. Редактирование icon:check-circle[role=green]
+. Удаление (архивация) icon:check-circle[role=green]
+. Верификация телефона icon:check-circle[role=green]
+. Проверка адреса по КЛАДР icon:check-circle[role=green]
+. Хранение документов клиента icon:check-circle[role=green]
+. Смена статуса с контакт на клиент icon:check-circle[role=green]
+. Создание связи с сущностью сотрудник icon:check-circle[role=green]
+. Создание связи с сущностью авто icon:check-circle[role=green]
+. Блокировка клиента СБ icon:check-circle[role=green]
+====
+[.red.background]
+====
+. Верификация имейла icon:minus-circle[role=red]
+. Верификация физ. лица icon:minus-circle[role=red]
+. Создание связи с сущностью клиент icon:minus-circle[role=red]
+. Создание связи с сущностью компания/юр. лицо icon:minus-circle[role=red]
+. Возможность связаться с клиентом по телефону, почте или иному каналу icon:minus-circle[role=red]
+====
+****
+****
 *Интеграции внешние и внутренние:*
-
-* *ЕКБ \ ЕКК* (Oracle)
+[.green.background]
+====
+* *ЕКБ \ ЕКК* (Oracle) icon:check-circle[role=green]
+====
+[.red.background]
+====
 * *QuickPick* icon:minus-circle[role=red]
+====
+****
