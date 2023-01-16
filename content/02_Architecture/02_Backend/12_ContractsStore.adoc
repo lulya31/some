@@ -26,19 +26,37 @@ endif::[]
 
 {empty} +
 
-== Реализовано на PostgreSQL
+****
+Хранилище договоров в проекте *Rolf* использует в качестве базы данных *PostgreSQL*.
+****
 
-*ONEROLF-FL-1. Модуль Договоры. Хранилище заключенных договоров*
+====
+IMPORTANT: Знаком icon:check-circle[role=green] отмечены активности которые *ВОЙДУТ* в MVP на МАРТ 2023 года!!! +
+Знаком icon:minus-circle[role=red] отмечены активности которые *[red]#НЕ# ВОЙДУТ в* MVP на МАРТ 2023 года!!!
+====
 
-Хранение документов по сделке:
+[[ONEROLF-FL-1]]
+== Задачи решаемые модулем ONEROLF-FL-1 footnote:ONEROLF-FL-1[Документ в Confluence ROLF: [blue]#*MVP Функционал Продукта One Rolf + MDM + MES + WMS|TMS (Новая версия Ноябрь 2022)*#, Название модуля системы: [blue]#*ONEROLF-FL-1. Модуль Договоры. Хранилище заключенных договоров*#] по управлению хранилищем договоров
 
-* Организация ссылок на места хранения предварительных форм документов icon:minus-circle[role=red]
-* Организация ссылок на места хранения сканов подписанных документов icon:minus-circle[role=red]
-* Интеграция с 1С ДО icon:minus-circle[role=red]
-* Интеграция с 1С ROSE icon:minus-circle[role=red]
-
+*Хранение документов по сделке:*
+****
+[.red.background]
+====
+. Организация ссылок на места хранения предварительных форм документов icon:minus-circle[role=red]
+. Организация ссылок на места хранения сканов подписанных документов icon:minus-circle[role=red]
+. Интеграция с 1С ДО icon:minus-circle[role=red]
+. Интеграция с 1С ROSE icon:minus-circle[role=red]
+====
+****
 *Интеграции внешние и внутренние*
-
-* 1С ДО
+****
+[.green.background]
+====
+. 1С ДО icon:check-circle[role=green]
+. S3 icon:check-circle[role=green]
+====
+[.red.background]
+====
 * 1C ROSE icon:question-circle[role=blue]
-* S3
+====
+****

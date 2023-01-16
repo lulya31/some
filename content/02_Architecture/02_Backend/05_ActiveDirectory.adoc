@@ -12,7 +12,6 @@ weight: 7
 :pygments-css: style
 :pygments-style: monokai
 :includedir: ./content/
-
 :imgdir: /02_02_05_img/
 :imagesdir: {imgdir}
 ifeval::[{exp2pdf} == 1]
@@ -26,77 +25,125 @@ endif::[]
 
 {empty} +
 
-*ID-4. Управление пользователями системы.*
+****
+Служба *Active Directory* используется в проекте *Rolf* совместно c link:/02_architecture/02_backend/04_db-redis/[*Redis*, window=_blank] и link:/02_architecture/02_backend/06_idm-keycloak/[*IDM KeyCloak*, window=_blank] для управления учетными записями.
+****
 
-Работа с базой пользователей
+====
+IMPORTANT: Знаком icon:check-circle[role=green] отмечены активности которые *ВОЙДУТ* в MVP на МАРТ 2023 года!!! +
+Знаком icon:minus-circle[role=red] отмечены активности которые *[red]#НЕ# ВОЙДУТ в* MVP на МАРТ 2023 года!!!
+====
 
-* табличное отображение icon:check-circle[role=green]
-* фильтрация по выбранным параметрам icon:minus-circle[role=red]
-* сортировка icon:minus-circle[role=red]
-* создание/редактирование/удаление рабочих групп icon:question-circle[role=blue]
+[[ID-4]]
+== Задачи решаемые модулем ID-4 footnote:ID-4[Документ в Confluence ROLF: [blue]#*MVP Функционал Продукта One Rolf + MDM + MES + WMS|TMS (Новая версия Ноябрь 2022)*#, Название модуля системы: [blue]#*ID-4. Управление пользователями системы*#] по управлению пользователями системы
 
-Работа с карточкой пользователя.
-
-* получение и вывод данных о пользователе icon:check-circle[role=green]
-* редактирование части данных о пользователе  icon:minus-circle[role=red]
-* просмотр и редактирование ролей пользователя icon:minus-circle[role=red]
-* добавление пользователя в рабочие группы One Rolf icon:question-circle[role=blue]
-* Привязка сотрудника к ДЦ icon:check-circle[role=green] (если нельзя ориентироваться на SAP) 
-* Привязка сотрудника к отделу icon:check-circle[role=green] (если нельзя ориентироваться на SAP)
-* Создание и редактирование рабочего графика пользователя icon:check-circle[role=green]
-* Доверенность на продажу ТМЦ: создание именной доверенности и загрузка в КП icon:check-circle[role=green]
-
-Права доступа One Rolf 
-
-* Реестр ролей One Rolf с указанием условий и соответствующих кодов должности icon:minus-circle[role=red]
-* Создание и редактирование ролей доступа icon:check-circle[role=green]
-* Добавление пользователя к одной или более роли icon:check-circle[role=green]
-* Просмотр всех пользователей в разрезе выбранной роли icon:minus-circle[role=red]
-* Аттестация для доступа к выделенному модулю icon:minus-circle[role=red]
-
-{empty} +
-
+****
+*Работа с базой пользователей*
+[.green.background]
+====
+* Табличное отображение icon:check-circle[role=green]
+====
+[.red.background]
+====
+. Фильтрация по выбранным параметрам icon:minus-circle[role=red]
+. Сортировка icon:minus-circle[role=red]
+. Создание / Редактирование / Удаление рабочих групп icon:question-circle[role=blue]
+====
+****
+****
+*Работа с карточкой пользователя*
+[.green.background]
+====
+. Получение и вывод данных о пользователе icon:check-circle[role=green]
+. Привязка сотрудника к ДЦ icon:check-circle[role=green] (если нельзя ориентироваться на SAP) 
+. Привязка сотрудника к отделу icon:check-circle[role=green] (если нельзя ориентироваться на SAP)
+. Создание и редактирование рабочего графика пользователя icon:check-circle[role=green]
+. Доверенность на продажу ТМЦ: создание именной доверенности и загрузка в КП icon:check-circle[role=green]
+====
+[.red.background]
+====
+. Редактирование части данных о пользователе  icon:minus-circle[role=red]
+. Просмотр и редактирование ролей пользователя icon:minus-circle[role=red]
+. Добавление пользователя в рабочие группы One Rolf icon:question-circle[role=blue]
+====
+****
+****
+*Права доступа One Rolf*
+[.green.background]
+====
+. Создание и редактирование ролей доступа icon:check-circle[role=green]
+. Добавление пользователя к одной или более роли icon:check-circle[role=green]
+====
+[.red.background]
+====
+. Реестр ролей One Rolf с указанием условий и соответствующих кодов должности icon:minus-circle[role=red]
+. Просмотр всех пользователей в разрезе выбранной роли icon:minus-circle[role=red]
+. Аттестация для доступа к выделенному модулю icon:minus-circle[role=red]
+====
+****
+****
 *Интеграции внешние и внутренние*
+[.green.background]
+====
+. SAP HR icon:check-circle[role=green]
+. AD (Active Directory) icon:check-circle[role=green]
+. Web Сервис (графики мастеров) icon:check-circle[role=green]
+====
+[.red.background]
+====
+. ARMS icon:question-circle[role=blue]
+. новый сервис распределения ролей: на MVP *AD* + *Keyclock* в итоговом продукте: пишем новый модуль в Onerolf icon:minus-circle[role=red]
+. WEB Tutor icon:minus-circle[role=red]
+. ССД icon:question-circle[role=blue]
+====
+****
 
-* SAP HR
-* AD (Active Directory)
-* Web Сервис (графики мастеров)
-* ARMS icon:question-circle[role=blue]
-* новый сервис распределения ролей: на MVP *AD* + *Keyclock* в итоговом продукте: пишем новый модуль в Onerolf icon:minus-circle[role=red]
-* WEB Tutor icon:minus-circle[role=red]
-* ССД icon:question-circle[role=blue]
+[[SERV-1]]
+== Задачи решаемые модулем SERV-1 footnote:SERV-1[Документ в Confluence ROLF: [blue]#*MVP Функционал Продукта One Rolf + MDM + MES + WMS|TMS (Новая версия Ноябрь 2022)*#, Название модуля системы: [blue]#*SERV-1. Авторизация | Личный кабинет*#] по управлению авторизацией и личным кабинетом
 
-{empty} +
-
-*SERV-1. Авторизация | Личный кабинет*
-
+****
+[.green.background]
+====
 * Авторизация и выход из системы icon:check-circle[role=green]
 * КС глазами авторизованного пользователя. Просмотр своего профиля в котором указаны:
 . ФИО icon:check-circle[role=green]
 . Должность icon:check-circle[role=green]
 . Руководитель icon:check-circle[role=green]
 . Подчиненные icon:check-circle[role=green]
-. Ууровень доступа в системе icon:minus-circle[role=red]
 . Рабочие группы icon:check-circle[role=green]
 . Город icon:check-circle[role=green]
 . Локация icon:check-circle[role=green]
 . ДЦ icon:check-circle[role=green]
+. Рабочий день: активен, не активен icon:check-circle[role=green]
+. Статус "Онлайн" / "Офлайн" icon:check-circle[role=green]
+. Уведомления о новых задачах (браузер или веб пуши или альтернатива) icon:check-circle[role=green]
+====
+[.red.background]
+====
+* КС глазами авторизованного пользователя. Просмотр своего профиля в котором указаны:
+. Уровень доступа в системе icon:minus-circle[role=red]
 . Привязанные бренды icon:minus-circle[role=red]
 . Статус: работает, отпуск, больничный, декрет, уволен. icon:minus-circle[role=red]
-. Рабочий день: активен, не активен icon:check-circle[role=green]
 . Пройденные аттестации из Web Tutor icon:minus-circle[role=red]
-* Добавление, редактирование и удаление фото в своём профиле. icon:minus-circle[role=red]
-* Добавление, редактирование и удаление личного телефона в своём профиле. icon:minus-circle[role=red]
-* Статус "Онлайн" / "Офлайн" icon:check-circle[role=green]
-* Уведомления о новых задачах (браузер или веб пуши или альтернатива) icon:check-circle[role=green]
-
+. Добавление, редактирование и удаление фото в своём профиле. icon:minus-circle[role=red]
+. Добавление, редактирование и удаление личного телефона в своём профиле. icon:minus-circle[role=red]
+====
+****
+****
 *Интеграции внешние и внутренние*
-
-{empty} +
-
-* AD icon:check-circle[role=green]
-* Sap HR icon:check-circle[role=green]
+[.green.background]
+====
+. AD icon:check-circle[role=green]
+. Sap HR icon:check-circle[role=green]
+====
+[.red.background]
+====
 * Web Tutor icon:minus-circle[role=red]
+====
+****
+
+== Active Derectory (Службы каталогов)
+---
 
 {empty} +
 
