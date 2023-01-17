@@ -3,6 +3,72 @@ title: ROSE 1C
 weight: 9
 ---
 
-== Описание...
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
 
-Описание...
+:imgdir: /02_02_07_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_02_07_img/
+
+= ROSE 1C
+
+{empty} +
+
+****
+ROSE 1C в проекте *Rolf* ... 
+****
+
+====
+IMPORTANT: Знаком icon:check-circle[role=green] отмечены активности которые *ВОЙДУТ* в MVP на МАРТ 2023 года!!! +
+Знаком icon:minus-circle[role=red] отмечены активности которые *[red]#НЕ# ВОЙДУТ в* MVP на МАРТ 2023 года!!!
+====
+
+[[ONEROLF-FL-1]]
+== Задачи решаемые модулем ID-6 footnote:ID-6[Документ в Confluence ROLF: [blue]#*MVP Функционал Продукта One Rolf + MDM + MES + WMS|TMS (Новая версия Ноябрь 2022)*#, Название модуля системы: [blue]#*ID-6. Управление точками продаж: Город, кластер, локация, шоурум, ДЦ*#] по управлению точками продаж
+
+*Хранение документов по сделке:*
+****
+[.green.background]
+====
+. Создание /  просмотр / редактирование / удаление новой точки продажи  - ДЦ icon:check-circle[role=green]
+. Создание /  просмотр / редактирование / удаление новой локации icon:check-circle[role=green]
+. Возможность связывания вложенностей дц-шоурум-локация-город icon:check-circle[role=green]
+. Возможность связывания дружественных (максимально близких территориально) отделов а разных ДЦ icon:check-circle[role=green]
+. Справочник бизнес доменов/юнитов/вертикалей: создание, редактирование icon:check-circle[role=green]
+. Отделы в ДЦ: создание, редактирование icon:check-circle[role=green]
+. ЦФО  в ДЦ: создание, редактирование icon:check-circle[role=green]
+====
+[.red.background]
+====
+. Создание /  просмотр / редактирование / удаление нового шоурума icon:minus-circle[role=red]
+. Создание /  просмотр / редактирование / удаление  кластера icon:minus-circle[role=red]
+. Создание /  просмотр / редактирование / удаление нового города в справочнике icon:minus-circle[role=red]
+. Создание /  просмотр / редактирование / удаление рем зоны на локации icon:minus-circle[role=red]
+. Создание /  просмотр / редактирование / удаление рем склада ЗЧ на локации icon:minus-circle[role=red]
+. Возможность объединения локаций в кластеры icon:minus-circle[role=red]
+====
+****
+*Интеграции внешние и внутренние*
+****
+[.green.background]
+====
+. SAPHR icon:check-circle[role=green]
+. АС РОЛЬФ icon:check-circle[role=green]
+====
+[.red.background]
+====
+* 1C icon:question-circle[role=blue]
+====
+****
