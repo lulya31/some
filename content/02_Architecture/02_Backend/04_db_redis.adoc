@@ -1,5 +1,6 @@
 ---
-title: Redis - База данных
+title: "Redis - База данных"
+slug: "04_db_redis"
 weight: 6
 ---
 

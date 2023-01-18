@@ -1,5 +1,6 @@
 ---
-title: MDM - Мастер данные
+title: "MDM - Мастер данные"
+slug: "09_mdm"
 weight: 11
 ---
 

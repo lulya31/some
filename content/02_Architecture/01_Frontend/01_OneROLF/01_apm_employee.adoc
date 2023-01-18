@@ -1,5 +1,6 @@
 ---
-title: АРМ сотрудника
+title: "АРМ сотрудника"
+slug: "01_apm_employee"
 weight: 3
 ---
 

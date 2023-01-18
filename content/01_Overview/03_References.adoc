@@ -1,5 +1,6 @@
 ---
-title: Полезные ссылки
+title: "Полезные ссылки"
+slug: "03_references"
 weight: 4
 ---
 

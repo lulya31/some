@@ -1,5 +1,6 @@
 ---
-title: PostgreSQL
+title: "PostgreSQL"
+slug: "21_postgresql"
 weight: 23
 ---
 

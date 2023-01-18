@@ -1,5 +1,6 @@
 ---
-title: Схемы проекта One ROLF
+title: "Схемы проекта One ROLF"
+slug: "07_scheme"
 weight: 6
 ---
 

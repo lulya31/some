@@ -1,5 +1,6 @@
 ---
-title: Коммуникационный сервис
+title: "Коммуникационный сервис"
+slug: "15_communication_service"
 weight: 17
 ---
 

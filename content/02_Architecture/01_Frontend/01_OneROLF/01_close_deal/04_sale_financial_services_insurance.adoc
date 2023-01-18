@@ -1,5 +1,6 @@
 ---
-title: Продажа Финуслуг/Страховок
+title: "Продажа Финуслуг/Страховок"
+slug: "04_sale_financial_services_insurance"
 weight: 5
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Продажа Услуг сервиса
+title: "Продажа Услуг сервиса"
+slug: "06_sale_services"
 weight: 7
 ---
 

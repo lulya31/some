@@ -1,5 +1,6 @@
 ---
-title: Витрины данных
+title: "Витрины данных"
+slug: "18_datalens"
 weight: 20
 ---
 

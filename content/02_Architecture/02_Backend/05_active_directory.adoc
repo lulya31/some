@@ -1,5 +1,6 @@
 ---
-title: Active Derectory (Службы каталогов)
+title: "Active Derectory (Службы каталогов)"
+slug: "05_active_directory"
 weight: 7
 ---
 

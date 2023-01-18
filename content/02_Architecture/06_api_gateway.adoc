@@ -1,5 +1,6 @@
 ---
-title: API Gateway (Gravitee APIM)
+title: "API Gateway (Gravitee APIM)"
+slug: "06_api_gateway"
 weight: 5
 ---
 

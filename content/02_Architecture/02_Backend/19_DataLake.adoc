@@ -1,5 +1,6 @@
 ---
-title: Data Lake
+title: "Data Lake"
+slug: "19_datalake"
 weight: 21
 ---
 

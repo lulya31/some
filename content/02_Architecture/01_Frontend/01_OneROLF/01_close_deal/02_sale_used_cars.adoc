@@ -1,5 +1,6 @@
 ---
-title: Продажа АСП
+title: "Продажа АСП"
+slug: "02_sale_used_cars"
 weight: 3
 ---
 

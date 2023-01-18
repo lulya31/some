@@ -1,5 +1,6 @@
 ---
-title: Kafka - Сервис очередей
+title: "Kafka - Сервис очередей"
+slug: "11_kafka"
 weight: 13
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Продажа запчастей
+title: "Продажа запчастей"
+slug: "05_sale_spare_parts"
 weight: 6
 ---
 

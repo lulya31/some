@@ -1,5 +1,6 @@
 ---
-title: АРМ руководителя
+title: "АРМ руководителя"
+slug: "02_apm_supervisor"
 weight: 4
 ---
 

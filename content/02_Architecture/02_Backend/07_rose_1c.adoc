@@ -1,5 +1,6 @@
 ---
-title: ROSE 1C
+title: "ROSE 1C"
+slug: "07_rose_1c"
 weight: 9
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: RabbitMQ - Сервис очередей
+title: "RabbitMQ - Сервис очередей"
+slug: "08_rabbitmq"
 weight: 10
 ---
 

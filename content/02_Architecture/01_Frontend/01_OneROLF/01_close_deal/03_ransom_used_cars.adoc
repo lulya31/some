@@ -1,5 +1,6 @@
 ---
-title: Выкуп АСП
+title: "Выкуп АСП"
+slug: "03_ransom_used_cars"
 weight: 4
 ---
 

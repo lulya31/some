@@ -1,5 +1,6 @@
 ---
-title: Platformeco
+title: "Platformeco"
+slug: "20_platformeco"
 weight: 22
 ---
 

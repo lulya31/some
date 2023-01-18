@@ -1,5 +1,6 @@
 ---
-title: Справочники
+title: "Справочники"
+slug: "05_dictionarys"
 weight: 4
 ---
 
