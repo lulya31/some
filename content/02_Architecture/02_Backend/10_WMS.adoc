@@ -24,6 +24,8 @@ endif::[]
 
 :imagesoutdir: ./static/02_02_10_img/
 
+= WMS - Система управления складом
+
 {empty} +
 
 ====

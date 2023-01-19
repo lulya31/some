@@ -23,6 +23,8 @@ endif::[]
 
 :imagesoutdir: ./static/02_02_09_img/
 
+= MDM - Мастер данные
+
 {empty} +
 
 ====

@@ -38,7 +38,7 @@ endif::[]
 |link:/02_architecture/02_backend/10_wms/[*WMS*, window=_blank]
 |link:/02_architecture/02_backend/12_contractsstore/[*Хранилище договоров (подписанные договоры)*, window=_blank]
 |link:/02_architecture/02_backend/13_edo-service/[*Сервис ЭДО (подписание договоров)*, window=_blank]
-|link:/02_architecture/02_backend/15_communicationservice/[*Коммуникационный сервис*, window=_blank]
+|link:/02_architecture/02_backend/15_communication_service/[*Коммуникационный сервис*, window=_blank]
 |link:/02_architecture/02_backend/16_cdp/[*CDP*, window=_blank]
 |===
 ****
