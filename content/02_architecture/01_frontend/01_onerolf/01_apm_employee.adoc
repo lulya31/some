@@ -93,7 +93,7 @@ NOTE: Рассматриваем вариант вендора: *Loymax или M
 [.red.background]
 ====
 . Возможность вывода виджетов необходимых для работы (не MVP) icon:minus-circle[role=red]
-. Возможность коммуникации с коллегами (link:/02_architecture/02_backend/15_communicationservice/#SERV-5[*SERV-5*, window=_blank]) icon:minus-circle[role=red] и с клиентами (link:/02_architecture/01_frontend/01_onerolf/04_clientsui/#ID-1[*ID-1*, window=_blank]) (некое отдельное решение закрывающее вопрос коммуникаций по выбранному каналу) icon:minus-circle[role=red]
+. Возможность коммуникации с коллегами (link:/02_architecture/02_backend/15_communication_service/#SERV-5[*SERV-5*, window=_blank]) icon:minus-circle[role=red] и с клиентами (link:/02_architecture/01_frontend/01_onerolf/04_clients_ui/#ID-1[*ID-1*, window=_blank]) (некое отдельное решение закрывающее вопрос коммуникаций по выбранному каналу) icon:minus-circle[role=red]
 . Получение важных уведомлений и новостей, влияющих на работу (срочные уведомления) icon:minus-circle[role=red]
 . Стандарты, скрипты и чек листы (база знаний) icon:minus-circle[role=red]
 . Основные показатели KPI icon:minus-circle[role=red]
