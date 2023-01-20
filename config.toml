@@ -2,7 +2,7 @@ baseURL = "https://example.com"
 
 languageCode = "RU-ru"
 DefaultContentLanguage = "ru"
-title = "Документация OneROLF"
+title = "Архитектура ПО Rolf"
 theme = "template"
 
 hasCJKLanguage = true
@@ -66,6 +66,19 @@ enableGitInfo = true
         startLevel = 2
         endLevel = 6
         ordered = false
+    [markup.asciidocExt]
+        backend = 'html5'
+        extensions = ["asciidoctor-html5s", "asciidoctor-diagram", "asciidoctor-pdf"]
+        # extensions = ["asciidoctor-html5s", "asciidoctor-diagram", "asciidoctor-rouge", "asciidoctor-pdf"]
+        # extensions = ["asciidoctor-diagram"]
+        # failureLevel = 'fatal'
+        # noHeaderOrFooter = true
+        # preserveTOC = false
+        # safeMode = 'unsafe'
+        # sectionNumbers = false
+        # trace = false
+        # verbose = false
+        # workingFolderCurrent = false
 
 [outputs]
     home = ["HTML", "RSS", "Algolia"]
@@ -87,3 +100,15 @@ enableGitInfo = true
         "tags",
         "categories",
     ]
+[security]
+  enableInlineShortcodes = false
+  [security.exec]
+    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^pandoc$', '^asciidoctor$']
+    osEnv = ["(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|RUBYLIB)$"]
+
+  [security.funcs]
+    getenv = ['^HUGO_']
+
+  [security.http]
+    methods = ['(?i)GET|POST']
+    urls = ['.*']

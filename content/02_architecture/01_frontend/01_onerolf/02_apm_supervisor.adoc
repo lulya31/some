@@ -1,0 +1,73 @@
+---
+title: "АРМ руководителя"
+slug: "02_apm_supervisor"
+weight: 4
+---
+
+:toc: auto
+:toc-title: Содержание
+:toclevels: 5
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
+
+:imgdir: /02_01_01_02_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_01_01_02_img/
+
+= АРМ руководителя
+
+{empty} +
+
+====
+IMPORTANT: Знаком icon:check-circle[role=green] отмечены активности которые *ВОЙДУТ* в MVP на МАРТ 2023 года!!! +
+Знаком icon:minus-circle[role=red] отмечены активности которые *[red]#НЕ# ВОЙДУТ в* MVP на МАРТ 2023 года!!!
+====
+
+== Задачи решаемые модулем CRM-4 footnote:CRM-4[Документ в Confluence ROLF: [blue]#*MVP Функционал Продукта One Rolf + MDM + MES + WMS|TMS (Новая версия Ноябрь 2022)*#, Название модуля системы: [blue]#*CRM-4. Рабочее место сотрудника: задачи, график. Линейный перс. и руководители*#.] по управлению задачами руководителя и графиком его загруженности
+
+****
+[.green.background]
+====
+. Отображение всех активных и архивных задач/обращений, потребностей, клиентов, авто с которыми работает сотрудник с возможностью поиска и фильтрации icon:check-circle[role=green]
+. Отображение задач/обращений, потребностей, клиентов, авто с которыми работают починенные (способ соотношения рук-подчиненный уточняется) icon:check-circle[role=green]
+. Отображение графика работ icon:check-circle[role=green]
+. Функционал включения и завершения рабочего дня  icon:check-circle[role=green] с выбором ДЦ будет после MVP
+. Уведомления о новых задачах icon:check-circle[role=green]
+====
+[.red.background]
+====
+. Возможность вывода виджетов необходимых для работы (не MVP)icon:minus-circle[role=red]
+. Возможность коммуникации с коллегами (link:/02_architecture/02_backend/15_communication_service/#SERV-5[*SERV-5*, window=_blank]) icon:minus-circle[role=red] и с клиентами (link:/02_architecture/01_frontend/01_onerolf/04_clients_ui/#ID-1[*ID-1*, window=_blank]) (некое отдельное решение закрывающее вопрос коммуникаций по выбранному каналу)icon:minus-circle[role=red]
+. Получение важных уведомлений и новостей, влияющих на работу (срочные уведомления)icon:minus-circle[role=red]
+. Стандарты, скрипты и чек листы (база знаний) icon:minus-circle[role=red]
+. Основные показатели KPI icon:minus-circle[role=red]
+====
+*Интеграции внешние и внутренние*
+[.green.background]
+====
+. Контакты и задачи в оракле icon:check-circle[role=green]
+. АС Рольф icon:check-circle[role=green]
+. Web Сервис icon:check-circle[role=green]
+====
+****
+
+== Задачи решаемые модулем CRM-5 footnote:CRM-5[Документ в Confluence ROLF: [blue]#*MVP Функционал Продукта One Rolf + MDM + MES + WMS|TMS (Новая версия Ноябрь 2022)*#, Название модуля системы: [blue]#*CRM-5. Панель руководителя: сотрудники, эффективность, планирование.*#.] по работе с административной панелью руководителя
+
+****
+[.red.background]
+====
+. Формирование целевой модели и допустимых отклонений для дальнейшего сравнения её с фактической моделью работы и анализа эффективности. icon:minus-circle[role=red]
+. Планирование загрузки работы сотрудника/отдела/локации. icon:minus-circle[role=red]
+. Список подчиненных с визуализацией их загрузки и эффективности icon:minus-circle[role=red]
+====
+****

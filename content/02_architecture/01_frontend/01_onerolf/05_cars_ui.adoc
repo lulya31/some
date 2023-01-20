@@ -1,0 +1,101 @@
+---
+title: "Список авто / Карточка авто"
+slug: "05_cars_ui"
+weight: 7
+---
+
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
+
+:imgdir: /02_01_01_05_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_01_01_05_img/
+
+= Список авто / Карточка авто
+
+{empty} +
+
+****
+В модуле *Список клиентов / Карточка клиента* реализован функционал footnote:ID-2[] управления базой автомобилей
+****
+
+====
+IMPORTANT: Знаком icon:check-circle[role=green] отмечены активности которые *ВОЙДУТ* в MVP на МАРТ 2023 года!!! +
+Знаком icon:minus-circle[role=red] отмечены активности которые *[red]#НЕ# ВОЙДУТ в* MVP на МАРТ 2023 года!!!
+====
+
+== Задачи решаемые модулем ID-2 footnote:ID-2[Документ в Confluence ROLF: [blue]#*MVP Функционал Продукта One Rolf + MDM + MES + WMS|TMS (Новая версия Ноябрь 2022)*#, Название модуля системы: [blue]#*ID-2. Управление базой автомобилей: на продажу(новые, АСП и Диллер трейд), клиентские, автопарк РОЛЬФ*#.] по управлению базой автомобилей
+
+****
+*Работа с базой автомобилей*
+[.green.background]
+====
+. Табличное отображение icon:check-circle[role=green]
+. Фильтрация по выбранным параметрам icon:check-circle[role=green]
+. Сортировка icon:check-circle[role=green]
+. Поиск авто icon:check-circle[role=green]
+. Двусторонняя интеграция с базами:
+* Новые авто icon:check-circle[role=green]
+* АСП выкуп icon:check-circle[role=green]
+* АСП продажа icon:check-circle[role=green]
+* Клиентские авто icon:check-circle[role=green]
+* Диллер трейд icon:check-circle[role=green]
+====
+[.red.background]
+====
+. Двусторонняя интеграция с базами:
+* База автопарка *РОЛЬФ* (тест драйв, служебные, подменные) icon:minus-circle[role=red] 
+====
+*Работа с карточкой автомобиля*
+[.green.background]
+====
+. Создание icon:check-circle[role=green]
+. Просмотр icon:check-circle[role=green]
+. Редактирование icon:check-circle[role=green]
+. Удаление icon:check-circle[role=green]
+. Создание связи с сущностью клиент (клиентский авто) icon:check-circle[role=green]
+. Фиксация авто за местом стоянки в WMS icon:check-circle[role=green]
+. Типизация авто icon:check-circle[role=green]
+. Связь авто со справочником марка/модель в MDM icon:check-circle[role=green]
+====
+[.red.background]
+====
+. Создание связи с сущностью компания/юр. лицо icon:minus-circle[role=red]
+====
+====
+NOTE: База охватывает все *АМ* с которыми происходит взаимодействие по любому из *БП РОЛЬФ*: *НА*, *АСП*, *F&I* и сервис
+====
+****
+
+****
+*Интеграции внешние и внутренние*
+[.green.background]
+====
+. Сток клиентских авто - Web автомобили icon:check-circle[role=green]
+. Сток НА - Шторм icon:check-circle[role=green]
+. Сток АСП - ФишБлю icon:check-circle[role=green]
+. АC Рольф icon:check-circle[role=green]
+. *WMS* icon:check-circle[role=green]
+. *MDM* icon:check-circle[role=green]
+. *MES* icon:check-circle[role=green]
+. Car Inspect icon:check-circle[role=green]
+====
+[.red.background]
+====
+. Сток РОЛЬФ автопарка - Web Автопрокат icon:minus-circle[role=red]
+. API Госавтоинспекция icon:minus-circle[role=red]
+. Сток Диллер трейд - icon:question-circle[role=blue]
+====
+****

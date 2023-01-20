@@ -1,0 +1,33 @@
+---
+title: "Витрины данных"
+slug: "18_datalens"
+weight: 20
+---
+
+:toc: auto
+:toc-title: Содержание
+:toclevels: 5
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
+
+:imgdir: /02_02_18_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_02_18_img/
+
+= Витрины данных
+
+{empty} +
+
+====
+NOTE: Описание раздела *Витрины данных* будет добавлено позднее.
+====

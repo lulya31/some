@@ -1,0 +1,33 @@
+---
+title: "Внешние сервисы"
+slug: "04_external_services"
+weight: 3
+---
+
+:toc: auto
+:toc-title: Содержание
+:toclevels: 5
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
+
+:imgdir: /02_04_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_04_img/
+
+= Внешние сервисы
+
+{empty} +
+
+====
+NOTE: Описание раздела *Внешние сервисы* будет добавлено позднее.
+====
