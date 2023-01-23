@@ -4,9 +4,29 @@ slug: "01_overview"
 weight: 2
 ---
 
-== Назначение проекта
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
 
-Описание основного предназначения проекта *ROLF*
+:imgdir: /01_03_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
 
-// Данная документация предназначена для хранения является точкой входой для документации по всем направлениям, каналам и приложениям *OneROLF*.
-// Также в документации содержатся обучающие статьи, ссылк и так далее.
+:imagesoutdir: ./static/01_03_img/
+
+= Описание
+
+{empty} +
+
+====
+NOTE: Данный документ описывает верхнеуровневую архитектуру проекта *Rolf*
+====
