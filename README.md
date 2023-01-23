@@ -223,7 +223,11 @@ sh generate-indexes.sh
 * Hugo: https://gohugo.io/
 * Markdown: https://www.markdownguide.org/basic-syntax/
 * Asciidoc: https://docs.asciidoctor.org/
-* Asciidoc writers guide: https://asciidoctor.org/docs/asciidoc-writers-guide/
+* Asciidoc: writers guide: https://asciidoctor.org/docs/asciidoc-writers-guide/
+* Asciidoctor-diagram installation: https://docs.asciidoctor.org/diagram-extension/latest/
+* Asciidoctor-PDF installation: https://docs.asciidoctor.org/pdf-converter/latest/install/
+* Pygments: https://pygments.org/download/
+* Mermaid installation: https://mermaid.js.org/intro/#installation
 * Mermaid: https://mermaid.live/
 * GitLab OneRolf: https://gitlab.int.rolfcorp.ru/one-rolf/doc
 * Команды GIT: https://git-scm.com/book/en/v2
