@@ -4,6 +4,30 @@ slug: "02_one_car_id"
 weight: 4
 ---
 
-== Описание...
+:toc: auto
+:toc-title: Содержание
+:toclevels: 5
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
 
-Описание...
+:imgdir: /02_02_02_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_02_02_img/
+
+= One CAR ID
+
+{empty} +
+
+====
+NOTE: Описание раздела *One CAR ID* будет добавлено позднее.
+====
