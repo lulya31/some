@@ -22,6 +22,7 @@ ifeval::[{exp2pdf} == 1]
 endif::[]
 
 :imagesoutdir: ./static/02_07_img/
+:mermaid-puppeteer-config: ./themes/template/puppeteer-config.json
 
 = Схемы проекта One ROLF
 
