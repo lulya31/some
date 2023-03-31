@@ -33,10 +33,22 @@ endif::[]
 {empty} +
 
 ****
+- Компонентая схема *Flora*
 - *Программа Run проектов R&D*
 - Компонентный состав проекта *One ROLF*
 - Диаграмма *Yandex Cloud*
 ****
+
+== Компонентая схема  Flora
+
+.*Компонентая схема *Flora* (Отобразить/Скрыть)*
+[%collapsible%close]
+====
+++++
+<iframe src="https://app.diagrams.net/#G1VU9raY2FAviEGuuNUEk2RcPv8U6wUjMw" width="100%" height="1000"></iframe>
+++++
+====
+
 
 == Программа Run проектов R&D
 
