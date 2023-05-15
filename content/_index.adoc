@@ -1,9 +1,9 @@
 ---
 title: "Архитектура ПО Rolf"
-slug: ""
+description: "Архитектура ПО Rolf"
 weight: 1
-date: 2020-11-04T09:19:42+01:00
-lastmod: 2020-11-04T09:19:42+01:00
+draft: false
+slug: ""
 ---
 
 == Назначение документа
