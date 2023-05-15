@@ -1,0 +1,44 @@
+---
+title: "One CLIENT ID"
+description: "One CLIENT ID"
+weight: 3
+draft: false
+---
+
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
+
+:imgdir: /02_02_03_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_02_03_img/
+
+= One ROLF DB
+
+{empty} +
+
+****
+Модуль *One ROLF DB* реализует единую базу клиентов и автомобилей *One Rolf*
+****
+
+.*Верхнеуровневые требования к модулю:*
+****
+. Интеграция с мастер-данными (*MDS*), *One Rolf ID*, *MES* системой, *CDP* платформой, *WMS* и *TMS*.
+. Единая карточка клиента, автомобиля, компании, партнёра и юр. лица
+. Единый сток Новых Авто *НА* (все бренды) и автомобилей с пробегом *АСП*, для возможности продажи клиенту автомобиля любого сегмента или бренда из любого *ДЦ*.
+. Единая клиентская база по всем *ДЦ*, брендам и направлениям бизнеса.
+. Единая база автомобилей по аналогии к клиентской базой.
+. Дедубликация
+. Сегментация
+****

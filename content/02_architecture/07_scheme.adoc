@@ -76,7 +76,7 @@ endif::[]
 [%collapsible%close]
 ====
 // [mermaid, width=5000, target=yandexcloud, background=#0000000F]
-[mermaid, width=5000, target=yandexcloud]
+[mermaid, width=5000, target=yandexcloud, format=svg, opts=interactive]
 ....
 %%{init: { 'securitylevel': 'loose', 'theme': 'base' }}%%
 

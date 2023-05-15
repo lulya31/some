@@ -1,9 +1,9 @@
 ---
 title: "Внутренняя логика (Backend)"
-slug: ""
+description: "Описание внутренней логики (Backend)"
 weight: 2
-date: 2022-09-22T00:00:00+03:00
-lastmod: 2022-09-22T00:00:00+03:00
+draft: false
+slug: ""
 ---
 
 = Внутренняя логика (Backend)
