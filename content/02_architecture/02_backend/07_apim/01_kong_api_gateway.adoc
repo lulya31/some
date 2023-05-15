@@ -1,0 +1,42 @@
+---
+title: "API Gateway (Kong APIM)"
+description: "API Gateway (Kong APIM)"
+weight: 1
+draft: false
+---
+
+:toc: auto
+:toc-title: Содержание
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
+
+:imgdir: /02_02_07_01_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_02_07_01_img/
+
+= API Gateway (Gravitee APIM)
+
+== Реализация API Gateway в проекте Rolf
+
+****
+В проекте *Rolf* в качестве шлюза *API Gateway* принято решение использовать продукт link:https://konghq.com/products/api-gateway-platform[*Kong*, window=_blank]
+****
+
+== О продукте Kong
+
+****
+Одна из наиболее важных задач при разделении системы на микросервисы - обеспечить надежный механизм их репликации и обнаружения и создать набор правил для маршрутизации входящих запросов к соответствующим контейнерам или сетевым узлам. Идеальная система также должна уметь отслеживать состояние доступности и исключать недоступные реплики из маршрутизации. В этой статье мы поговорим об использовании маршрутизатора link:https://konghq.com/products/api-gateway-platform[*Kong*, window=_blank], который принимает на себя не только задачи умной маршрутизации, но и возможности по протоколированию и трансформации запросов, контролю доступа, мониторингу запросов, а также может быть расширен с использованием плагинов.
+****
+****
+Маршрутизатор *Kong Gateway* существует в свободном и коммерческом варианте, может быть запущен как самостоятельное приложение (например, через *docker*-контейнер link:https://hub.docker.com/_/kong[*kong*, window=_blank]), либо установлен в *Kubernetes* (в этом случае он представляется как специализированный *Ingress*-контроллер). Для управления link:https://konghq.com/products/api-gateway-platform[*Kong*, window=_blank] можно использовать как запросы к *API*, так и веб-интерфейсы *Kong Manager* или link:https://hub.docker.com/r/pantsel/konga[*Konga*, window=_blank]. Многие расширения предустановлены в официальном контейнере, но они также могут быть найдены в link:https://docs.konghq.com/hub/[*Kong Plugin Hub*, window=_blank].
+****
