@@ -24,12 +24,12 @@ endif::[]
 
 :imagesoutdir: ./static/02_02_03_img/
 
-= One ROLF DB
+= One CLIENT ID
 
 {empty} +
 
 ****
-Модуль *One ROLF DB* реализует единую базу клиентов и автомобилей *One Rolf*
+Модуль *One CLIENT ID* реализует единую базу клиентов и автомобилей *One Rolf*
 ****
 
 .*Верхнеуровневые требования к модулю:*

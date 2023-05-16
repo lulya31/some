@@ -1,6 +1,6 @@
 ---
-title: "Рольф"
-description: "Рольф"
+title: "АС Рольф"
+description: "АС Рольф"
 weight: 3
 draft: false
 ---
@@ -25,7 +25,7 @@ endif::[]
 
 :imagesoutdir: ./static/02_02_05_02_03_img/
 
-= Рольф
+= АС Рольф
 
 {empty} +
 
