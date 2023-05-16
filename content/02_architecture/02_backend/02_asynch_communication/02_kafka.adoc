@@ -35,12 +35,11 @@ endif::[]
 .Сервис очередей *Kafka* реализует в проекте *Rolf* обмен данными между модулями:
 ****
 |===
-|link:/02_architecture/02_backend/09_mdm/[*MDM*, window=_blank] .6+^.^| +++ <p style="font-size:72px;">И</p> +++ .6+^.^| link:/02_architecture/02_backend/20_platformeco/[*Platformeco*, window=_blank]
-|link:/02_architecture/02_backend/10_wms/[*WMS*, window=_blank]
-|link:/02_architecture/02_backend/12_contractsstore/[*Хранилище договоров (подписанные договоры)*, window=_blank]
-|link:/02_architecture/02_backend/13_edo-service/[*Сервис ЭДО (подписание договоров)*, window=_blank]
-|link:/02_architecture/02_backend/15_communication_service/[*Коммуникационный сервис*, window=_blank]
-|link:/02_architecture/02_backend/16_cdp/[*CDP*, window=_blank]
+|link:/02_architecture/02_backend/05_internal_systems_rolf/03_mdm/[*MDM*, window=_blank] .5+^.^| +++ <p style="font-size:72px;">И</p> +++ .5+^.^| link:/02_architecture/02_backend/11_platformeco/[*Platformeco*, window=_blank]
+|link:/02_architecture/02_backend/05_internal_systems_rolf/04_wms/[*WMS*, window=_blank]
+|link:/02_architecture/02_backend/05_internal_systems_rolf/05_edo_service/[*Сервис ЭДО (подписание договоров)*, window=_blank]
+|link:/02_architecture/02_backend/08_communication_service/[*Коммуникационный сервис*, window=_blank]
+|link:/02_architecture/02_backend/09_cdp/[*CDP*, window=_blank]
 |===
 ****
 ****

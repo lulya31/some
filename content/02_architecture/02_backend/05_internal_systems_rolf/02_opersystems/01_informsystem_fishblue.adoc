@@ -1,6 +1,6 @@
 ---
-title: "Fishblue"
-description: "Fishblue"
+title: "ИС Fishblue"
+description: "ИС Fishblue"
 weight: 1
 draft: false
 ---
@@ -25,7 +25,7 @@ endif::[]
 
 :imagesoutdir: ./static/02_02_05_02_01_img/
 
-= Fishblue
+= ИС Fishblue
 
 {empty} +
 
