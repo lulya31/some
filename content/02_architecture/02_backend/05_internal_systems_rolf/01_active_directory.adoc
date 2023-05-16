@@ -29,7 +29,7 @@ endif::[]
 {empty} +
 
 ****
-Служба *Active Directory* используется в проекте *Rolf* совместно c link:/02_architecture/02_backend/04_db-redis/[*Redis*, window=_blank] и link:/02_architecture/02_backend/06_idm-keycloak/[*IDM KeyCloak*, window=_blank] для управления учетными записями.
+Служба *Active Directory* используется в проекте *Rolf* совместно c link:/02_architecture/02_backend/01_databases/01_db_redis/[*Redis*, window=_blank] и link:/02_architecture/02_backend/04_infrastructure/01_idm_keycloak/[*IDM KeyCloak*, window=_blank] для управления учетными записями.
 ****
 
 ====

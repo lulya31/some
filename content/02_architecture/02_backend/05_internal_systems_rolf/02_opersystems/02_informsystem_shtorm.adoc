@@ -1,6 +1,6 @@
 ---
-title: "Шторм"
-description: "Шторм"
+title: "ИС Шторм"
+description: "ИС Шторм"
 weight: 2
 draft: false
 ---
@@ -25,7 +25,7 @@ endif::[]
 
 :imagesoutdir: ./static/02_02_05_02_02_img/
 
-= Шторм
+= ИС Шторм
 
 {empty} +
 

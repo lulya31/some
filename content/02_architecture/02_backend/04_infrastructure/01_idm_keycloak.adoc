@@ -30,7 +30,7 @@ endif::[]
 
 ****
 *Keycloak* продукт с открытым кодом для реализации *single sign-on* с возможностью управления доступом, нацелен на современные приложения и сервисы. +
-*Keycloak* используется в проекте *Rolf* совместно c link:/02_architecture/02_backend/04_db-redis/[*Redis*, window=_blank] и link:/02_architecture/02_backend/05_activedirectory/[*Active Directory*, window=_blank] для управления учетными записями.
+*Keycloak* используется в проекте *Rolf* совместно c link:/02_architecture/02_backend/01_databases/01_db_redis/[*Redis*, window=_blank] и link:/02_architecture/02_backend/05_internal_systems_rolf/01_active_directory/[*Active Directory*, window=_blank] для управления учетными записями.
 ****
 
 ====
