@@ -33,7 +33,7 @@ build:
         --build-arg DOCKER_CUSTOM_PROXY_HOST=$DOCKER_PROXY_HOST \
         --image-name-tag-with-digest-file=docker-image-full-name \
         --skip-tls-verify \
-        --push-retry=-5 \
+        --push-retry=5 \
         --image-fs-extract-retry=5 \
         $@
     }
