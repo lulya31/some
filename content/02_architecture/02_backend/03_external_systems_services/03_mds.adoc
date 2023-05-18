@@ -1,7 +1,8 @@
 ---
-title: "OEM"
-slug: "03_oem"
-weight: 2
+title: "MDS сервис - расчет цены продажи авто"
+description: "MDS сервис - расчет цены продажи авто"
+weight: 3
+draft: false
 ---
 
 :toc: auto
@@ -15,19 +16,15 @@ weight: 2
 :pygments-style: monokai
 :includedir: ./content/
 
-:imgdir: /02_03_img/
+:imgdir: /02_02_03_03_img/
 :imagesdir: {imgdir}
 ifeval::[{exp2pdf} == 1]
 :imagesdir: static{imgdir}
 :includedir: ../
 endif::[]
 
-:imagesoutdir: ./static/02_03_img/
+:imagesoutdir: ./static/02_02_03_03_img/
 
-= OEM
+= MDS сервис - расчет цены продажи авто
 
 {empty} +
-
-====
-NOTE: Описание раздела *OEM* будет добавлено позднее.
-====
