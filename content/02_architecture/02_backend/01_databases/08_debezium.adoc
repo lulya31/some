@@ -1,0 +1,124 @@
+---
+title: "Debezium"
+description: "Debezium"
+weight: 7
+draft: false
+---
+
+:toc: auto
+:toc-title: Содержание
+:table-caption: Таблица
+:toclevels: 5
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
+
+:imgdir: /02_02_01_08_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_02_01_08_img/
+
+= Debezium
+
+{empty} +
+
+== Debezium и CDC
+
+****
+link:https://debezium.io/[*Debezium*, window=_blank] - это распределенная платформа, которая преобразует информацию из ваших существующих баз данных в потоки событий, позволяя приложениям обнаруживать и немедленно реагировать на изменения данных на уровне строк в базах данных. +
+*Debezium* построен на основе *Apache Kafka* и предоставляет набор совместимых с *Kafka Connect* коннекторов. Каждый из коннекторов работает с определенной базой данных (*СУБД*). Коннекторы записывают историю изменений данных в *СУБД*, обнаруживая изменения по мере их возникновения и отправляя запись о каждом событии изменения в *Kafka*. Затем потребляющие приложения могут считывать результирующие записи событий из *Kafka*.
+****
+
+****
+Используя преимущества надежной потоковой платформы *Kafka*, *Debezium* позволяет приложениям правильно и полностью использовать изменения, происходящие в базе данных. Даже если ваше приложение неожиданно остановится или потеряет соединение, оно не пропустит события, происходящие во время простоя. После перезапуска приложение возобновляет чтение темы с того места, где оно было остановлено.
+****
+
+****
+*Debezium* - это link:https://github.com/debezium/debezium[Open Source-проект, window=_blank], использующий лицензию *Apache License v2.0* и спонсируемый компанией *Red Hat*. Разработка ведётся с *2016* года и сейчас в нем представлена официальная поддержка следующих *СУБД*:
+====
+* link:https://debezium.io/documentation/reference/stable/connectors/cassandra.html#debezium-connector-for-cassandra[*Cassandra*, window=_blank]
+* link:https://debezium.io/documentation/reference/stable/connectors/db2.html#debezium-connector-for-db2[*Db2*, window=_blank]
+* link:https://debezium.io/documentation/reference/stable/connectors/mongodb.html#debezium-connector-for-mongodb[*MongoDB*, window=_blank]
+* link:https://debezium.io/documentation/reference/stable/connectors/mysql.html#debezium-connector-for-mysql[*MySQL*, window=_blank]
+* link:https://debezium.io/documentation/reference/stable/connectors/oracle.html#debezium-connector-for-oracle[*Oracle*, window=_blank]
+* link:https://debezium.io/documentation/reference/stable/connectors/postgresql.html#debezium-connector-for-postgresql[*PostgreSQL*, window=_blank]
+* link:https://debezium.io/documentation/reference/stable/connectors/sqlserver.html#debezium-connector-for-sql-server[*SQL Server*, window=_blank]
+* link:https://debezium.io/documentation/reference/stable/connectors/vitess.html#debezium-connector-for-vitess[*Vitess*, window=_blank]
+====
+****
+
+****
+Если сравнивать *CDC* с традиционным подходом (когда приложение читает данные из *СУБД* напрямую), то к его главным преимуществам относят реализацию стриминга изменения данных на уровне строк с низкой задержкой, высокой надежностью и доступностью. Последние два пункта достигаются благодаря использованию кластера *Kafka* в качестве хранилища *CDC*-событий.
+****
+
+****
+Также к достоинствам можно отнести тот факт, что для хранения событий используется единая модель, поэтому конечному приложению не придётся беспокоиться о нюансах эксплуатации различных *СУБД*.
+****
+
+****
+Наконец, благодаря использованию брокера сообщений открывается простор для горизонтального масштабирования приложений, отслеживающих изменения в данных. При этом влияние на источник данных сводится к минимуму, поскольку получение данных происходит не напрямую из *СУБД*, а из кластера *Kafka*.
+****
+
+== Архитектура Debezium
+
+****
+Использование *Debezium* сводится к такой простой схеме:
+
+{empty} +
+
+[.white.green-background]#*СУБД* (ИСТОЧНИК ДАННЫХ)# → [.white.gray-background]#КОННЕКТОР в *Kafka Connect*# → [.white.blue-background]#*Apache Kafka* → *консьюмер*#
+
+{empty} +
+
+****
+
+****
+Пример проекта представлен на link:#Debezium_anchor[рисунке 1]
+****
+
+****
+.Архитектура *Debezium*
+[[Debezium_anchor]]
+[%collapsible%open]
+====
+image::Debezium.png[title="Архитектура *Debezium*", align=center]
+====
+****
+
+****
+Наполнение *Data Lake* (последнее звено на схеме выше) ­— не единственный способ применения *Debezium*. События, отправленные в *Apache Kafka*, могут быть использованы приложениями для решения различных ситуаций. +
+Например:
+====
+* Удаление неактуальных данных из кэша
+* Отправка уведомлений
+* Обновления поисковых индексов
+* Некое подобие логов аудита
+====
+****
+
+== Конфигурация коннектора
+
+****
+****
+
+=== Kafka Connect
+
+=== Настройка фреймворка Kafka Connect
+
+==== Примечание про Avro
+
+=== Настройка самого коннектора
+
+==== PostgreSQL
+
+==== MongoDB
+
+=== Заключение
