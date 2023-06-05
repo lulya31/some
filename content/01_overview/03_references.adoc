@@ -1,7 +1,8 @@
 ---
 title: "Полезные ссылки"
-slug: "03_references"
-weight: 4
+description: "Полезные ссылки"
+weight: 3
+draft: false
 ---
 
 :toc: auto

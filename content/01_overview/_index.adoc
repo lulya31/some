@@ -1,9 +1,9 @@
 ---
 title: "Общая информация о системе"
-slug: ""
+description: "Общая информация о системе"
 weight: 1
-date: 2022-09-22T00:00:00+03:00
-lastmod: 2022-09-22T00:00:00+03:00
+draft: false
+slug: ""
 ---
 
 :icons: font

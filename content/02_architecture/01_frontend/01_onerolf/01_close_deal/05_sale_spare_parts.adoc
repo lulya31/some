@@ -1,7 +1,7 @@
 ---
 title: "Продажа запчастей"
 slug: "05_sale_spare_parts"
-weight: 6
+weight: 5
 ---
 
 :toc: auto

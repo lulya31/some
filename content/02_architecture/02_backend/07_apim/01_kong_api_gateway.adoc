@@ -26,6 +26,8 @@ endif::[]
 
 = API Gateway (Gravitee APIM)
 
+{empty} +
+
 == Реализация API Gateway в проекте Rolf
 
 ****

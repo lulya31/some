@@ -1,7 +1,7 @@
 ---
 title: "MDM - Мастер данные"
 description: "MDM - Мастер данные"
-weight: 3
+weight: 4
 draft: false
 ---
 
@@ -15,14 +15,14 @@ draft: false
 :pygments-style: monokai
 :includedir: ./content/
 
-:imgdir: /02_02_05_03_img/
+:imgdir: /02_02_05_04_img/
 :imagesdir: {imgdir}
 ifeval::[{exp2pdf} == 1]
 :imagesdir: static{imgdir}
 :includedir: ../
 endif::[]
 
-:imagesoutdir: ./static/02_02_05_03_img/
+:imagesoutdir: ./static/02_02_05_04_img/
 
 = MDM - Мастер данные
 
