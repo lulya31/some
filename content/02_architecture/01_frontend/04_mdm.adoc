@@ -1,7 +1,8 @@
 ---
 title: "MDM - Мастер данные"
-slug: "04_mdm"
-weight: 5
+description: "MDM - Мастер данные"
+weight: 4
+draft: false
 ---
 
 :toc: auto

@@ -1,7 +1,8 @@
 ---
 title: "WMS - Система управления складом"
-slug: "03_wms"
-weight: 4
+description: "WMS - Система управления складом"
+weight: 3
+draft: false
 ---
 
 :toc: auto

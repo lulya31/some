@@ -1,9 +1,9 @@
 ---
 title: "Mobile"
+description: "Mobile"
+weight: 2
+draft: false
 slug: ""
-weight: 3
-date: 2022-09-22T00:00:00+03:00
-lastmod: 2022-09-22T00:00:00+03:00
 ---
 
 :toc: auto
