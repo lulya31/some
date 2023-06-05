@@ -1,7 +1,7 @@
 ---
 title: "Выкуп АСП"
 slug: "03_ransom_used_cars"
-weight: 4
+weight: 3
 ---
 
 :toc: auto

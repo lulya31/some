@@ -1,7 +1,8 @@
 ---
 title: "Описание"
-slug: "01_overview"
-weight: 2
+description: "Описание"
+weight: 1
+draft: false
 ---
 
 :toc: auto
