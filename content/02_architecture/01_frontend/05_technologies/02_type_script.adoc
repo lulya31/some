@@ -340,7 +340,7 @@ image::typescript_7.png[title="Создание множества", align=cente
 
 [source, typescript]
 ----
-type1 cardsByCurrencies = "USD_prepaid_visa" | "USD_prepaid_mastercard" | "USD_credit_visa" | "USD_credit_mastercard" | "EUR_prepaid_visa" | "EUR_prepaid_mastercard" | "EUR_credit_visa" | "EUR_credit_mastercard"
+type cardsByCurrencies = "USD_prepaid_visa" | "USD_prepaid_mastercard" | "USD_credit_visa" | "USD_credit_mastercard" | "EUR_prepaid_visa" | "EUR_prepaid_mastercard" | "EUR_credit_visa" | "EUR_credit_mastercard"
 ----
 
 ****
@@ -398,7 +398,7 @@ class Person {
 
     // Функция
     logFullName(): void {
-        console.log(`[.red]#${this.firstName} ${this.lastName}#`);
+        console.log(${this.firstName} ${this.lastName});
     }
 }
 ----
@@ -465,13 +465,13 @@ class Person {
 
     // Функция
     logFullName(): void {
-        console.log(`[.red]#${this.firstName} ${this.lastName}#`);
+        console.log({this.firstName} ${this.lastName});
     }
 }
 
 var p = new Person('Mickey', 'Mouse');
-console.log(`[.red]#Имя:     ${p.firstName}#`);
-console.log(`[.red]#Фамилия: ${p.lastName}#`);
+console.log(Имя:     ${p.firstName});
+console.log(Фамилия: ${p.lastName});
 console.log('Полное имя:');
 p.logFullName();
 ----
@@ -741,7 +741,7 @@ import * as mymodule from "./myfile.js";
 
 {empty} +
 
-Объявления окружения (`[.red]#ambient#`) помогают беспроблемно встраивать библиотеки JS в TypeScript. Определения окружений по соглашению помещаются в файл определения типов в расширением `[.red]#d.ts#`, например ThirdPartyLib.d.ts. Этот файл не компилируется в JavaScript.
+Объявления окружения (`[.red]#ambient#`) помогают беспроблемно встраивать библиотеки *JS* в *TypeScript*. Определения окружений по соглашению помещаются в файл определения типов в расширением `[.red]#d.ts#`, например `[.red]#ThirdPartyLib.d.ts#`. Этот файл не компилируется в *JavaScript*.
 ****
 
 .Переменные и модули определяются так:
