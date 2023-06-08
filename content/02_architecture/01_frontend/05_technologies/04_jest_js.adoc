@@ -28,3 +28,1026 @@ endif::[]
 = Jest JS
 
 {empty} +
+
+****
+link:https://jestjs.io/ru/docs/getting-started[*Jest*, window=_blank] — это фреймворк для тестирования *JavaScript* с акцентом на простоту. Работает с проектами, использующими *Babel*, *TypeScript*, *Node*, *React*, *Angular*, *Vue* и многое другое.
+****
+
+== Использование сопоставлений
+
+****
+*Jest* использует «cопоставления» для тестирования значений разными способами. На этой странице будут представлены сопоставления, которые чаще всего используются. Полный список смотрите в описании link:https://jestjs.io/ru/docs/expect[expect API, window=_blank].
+****
+
+=== Стандартные сопоставления
+
+****
+Самый простой способ проверить значение — при помощи точного равенства.
+****
+
+[source, javascript]
+----
+test('два плюс два равно четыре', () => {
+    expect(2 + 2).toBe(4);
+});
+----
+
+****
+В этом коде `[.red]#expect(2+2)#` возвращает объект `"ожиданий"`. Обычно вам не придется делать с этими объектами ожиданий ничего кроме как вызывать их вычислители. В этом примере кода `[.red]#.toBe(4)#` это вычислитель. При запуске, *Jest* отслеживает все провалившиеся вычислители для того, чтобы он мог напечатать для вас сообщения об ошибках.
+
+{empty} +
+
+`[.red]#toBe#` использует `[.red]#Object.is#` для проверки точного совпадения. Если вы хотите проверить значение объекта, используйте `[.red]#toEqual#`:
+****
+
+[source, javascript]
+----
+test('присваивание объекту', () => {
+    const data = {один: 1};
+    data['два'] = 2;
+    expect(data).toEqual({один: 1, два: 2});
+});
+----
+
+****
+`[.red]#toEqual#` рекурсивно проверяет каждое поле объекта или массива.
+****
+
+====
+TIP: `[.red]#toEqual#` игнорирует ключи объектов с неопределенными свойствами, неопределенными элементами массива, разреженностью массива или несоответствием типов объектов. Чтобы принять это во внимание, используйте вместо этого `[.red]#toStrictEqual#`.
+====
+
+****
+Вы также можете проверить обратное сопоставление, используя `[.red]#not#`:
+****
+
+[source, javascript]
+----
+test('сложение положительных чисел не равно нулю', () => {
+    for (let a = 1; a < 10; a++) {
+        for (let b = 1; b < 10; b++) {
+            expect(a + b).not.toBe(0);
+        }
+    }
+});
+----
+
+=== Истина
+
+****
+При тестировании иногда необходимо различать `[.red]#undefined#`, `[.red]#null#` и `[.red]#false#`, но в некоторых ситуациях это не требуется. *Jest* содержит вспомогательные функции позволяющие явно указывать, что вам нужно.
+
+`[.red]#toBeNull#` соответствует только `[.red]#null#`
+`[.red]#toBeUndefined#` соответствует только `[.red]#undefined#`
+`[.red]#toBeDefined#` является противоположностью `[.red]#toBeUndefined#`
+`[.red]#toBeTruthy#` соответствует всему, что `[.red]#if#` инструкция рассматривает как `[.red]#true#`
+`[.red]#toBeFalsy#` соответствует всему, что `[.red]#if#` инструкция рассматривает как `[.red]#false#`
+Например:
+
+[source, javascript]
+----
+test('null', () => {
+    const n = null;
+    expect(n).toBeNull();
+    expect(n).toBeDefined();
+    expect(n).not.toBeUndefined();
+    expect(n).not.toBeTruthy();
+    expect(n).toBeFalsy();
+});
+
+test('ноль', () => {
+    const z = 0;
+    expect(z).not.toBeNull();
+    expect(z).toBeDefined();
+    expect(z).not.toBeUndefined();
+    expect(z).not.toBeTruthy();
+    expect(z).toBeFalsy();
+});
+----
+
+{empty} +
+
+Следует использовать вычислитель, который наиболее точно отражает то, что код должен делать.
+****
+
+=== Числа
+
+****
+Большинство способов сравнения чисел имеют эквивалентные вычислители.
+****
+
+[source, javascript]
+----
+test('два плюс два', () => {
+    const value = 2 + 2;
+    expect(value).toBeGreaterThan(3);
+    expect(value).toBeGreaterThanOrEqual(3.5);
+    expect(value).toBeLessThan(5);
+    expect(value).toBeLessThanOrEqual(4.5);
+
+    // toBe и toEqual эквивалентны по отношению к числам
+    expect(value).toBe(4);
+    expect(value).toEqual(4);
+});
+----
+
+****
+Для проверки равенства чисел с плавающей запятой, используйте `[.red]#toBeCloseTo#` вместо `[.red]#toEqual#` потому, что вы не хотите, чтобы тест полагался на небольшую ошибку округления.
+****
+
+[source, javascript]
+----
+test('сложение чисел с плавающей запятой', () => {
+    const value = 0.1 + 0.2;
+    //expect(value).toBe(0.3);         Это не будет работать из-за ошибки округления
+    expect(value).toBeCloseTo(0.3); // А это сработает.
+});
+----
+
+=== Строки
+
+****
+Для сопоставления строк с регулярными выражениями, используйте `[.red]#toMatch#`:
+****
+
+[source, javascript]
+----
+test('в команде нет места Я', () => {
+    expect('команда').not.toMatch(/Я/);
+});
+
+test('но есть "ася" в Васе', () => {
+    expect('Вася').toMatch(/ася/);
+});
+----
+
+=== Массивы и перебираемые объекты
+
+****
+Вы можете проверить, содержит ли массив или итерируемый объект конкретное значение, используя `[.red]#toContain#`:
+****
+
+[source, javascript]
+----
+const shoppingList = [
+    'diapers',
+    'kleenex',
+    'trash bags',
+    'paper towels',
+    'milk',
+];
+
+test('the shopping list has milk on it', () => {
+    expect(shoppingList).toContain('milk');
+    expect(new Set(shoppingList)).toContain('milk');
+});
+----
+
+=== Исключения
+
+****
+Для проверки возврата ошибки конкретной функцией при её вызове, используйте `[.red]#toThrow#`.
+****
+
+[source, javascript]
+----
+function compileAndroidCode() {
+    throw new Error('вы должны использовать JDK версии 10 или выше!');
+}
+
+test('compiling android goes as expected', () => {
+    expect(() => compileAndroidCode()).toThrow();
+    expect(() => compileAndroidCode()).toThrow(Error);
+
+    // Вы также можете использовать строку, которая должна содержаться в сообщении об ошибке, или регулярное выражение.
+    expect(() => compileAndroidCode()).toThrow('you are using the wrong JDK');
+    expect(() => compileAndroidCode()).toThrow(/JDK/);
+
+    // Или вы можете сопоставить точное сообщение об ошибке, используя регулярное выражение, как показано ниже.
+    expect(() => compileAndroidCode()).toThrow(/^you are using the wrong JDK$/); // Тест провален
+    expect(() => compileAndroidCode()).toThrow(/^you are using the wrong JDK!$/); // Тест пройден
+});
+----
+
+====
+TIP: Функцию, выбрасывающую исключение, необходимо вызывать внутри функции-оболочки, иначе `[.red]#toThrow#` завершится ошибкой.
+====
+
+====
+NOTE: Для ознакомления с полным списком сопоставлений, ознакомьтесь со link:https://jestjs.io/ru/docs/expect[справочной документацией, window=_blank].
+====
+
+== Тестирование асинхронного кода
+
+****
+Зачастую *JavaScript* код выполняется асинхронно. При работе с асинхронным кодом, *Jest* нужно знать когда тестируемый код завершен, до того, как он сможет перейти к следующему тесту. В *Jest* этого можно добиться несколькими способами.
+****
+
+=== Промисы
+
+****
+Возвращайте промис в своем тесте, и *Jest* будет ждать `[.red]#resolve#` — успешного завершения промиса. Если промис отклонён (reject), то утверждение не будет выполнено.
+
+{empty} +
+
+Например, представьте что `[.red]#fetchData#` вместо использования коллбэка возвращает промис, который должен в случае успешного выполнения вернуть строку `[.red]#peanut butter#'. Мы можем протестировать это поведение так:
+****
+
+[source, javascript]
+----
+test('the data is peanut butter', () => {
+    return fetchData().then(data => {
+        expect(data).toBe('peanut butter');
+    });
+});
+----
+
+=== Async/Await
+
+****
+Кроме того, Вы можете использовать `[.red]#async#` и `[.red]#await#` в Ваших тестах. Чтобы написать асинхронный тест, просто используйте async перед определением функции передаваемой в `[.red]#test#`. Например, тот же `[.red]#fetchData#` сценарий может быть протестирован следующим образом:
+****
+
+[source, javascript]
+----
+test('the data is peanut butter', async () => {
+    const data = await fetchData();
+    expect(data).toBe('peanut butter');
+});
+
+test('the fetch fails with an error', async () => {
+    expect.assertions(1);
+    try {
+        await fetchData();
+    } catch (e) {
+        expect(e).toMatch('error');
+    }
+});
+----
+
+****
+Вы можете комбинировать async и await вместе с `[.red]#.resolves#` или `[.red]#.rejects#`.
+****
+
+[source, javascript]
+----
+test('данные являются арахисовым маслом', async () => {
+    await expect(fetchData()).resolves.toBe('арахисовое масло');
+});
+
+test('fetch вернёт ошибку', async () => {
+    await expect(fetchData()).rejects.toMatch('error');
+});
+----
+
+****
+В этих случаях, `[.red]#async#` и `[.red]#await#` удобный синтаксический сахар для той же самой логики, что использовалась с примерами на промисах.
+****
+
+====
+CAUTION: Убедитесь, что вы возвращаете промис или ожидаете его завершения. Если вы пропустите выражение return/await, ваш тест будет завершён до того, как промис, полученный от `[.red]#fetchData#` разрешит (resolve) или отклонит (reject) его.
+====
+
+****
+Если Вы ожидаете, что промис будет отклонён, используйте метод `[.red]#.catch#`. Убедитесь, что добавлены `[.red]#expect.assertions#`, чтобы убедиться, что вызвано определенное количество утверждений. В противном случае, завершённый промис не провалит тест.
+****
+
+[source, javascript]
+----
+test('the fetch fails with an error', () => {
+    expect.assertions(1);
+    return fetchData().catch(e => expect(e).toMatch('error'));
+});
+----
+
+=== Обратные вызовы
+
+****
+Если вы не используете промисы, вы можете использовать обратные вызовы. Например, предположим, что `[.red]#fetchData#` вместо возврата промиса ожидает коллбек, т.е. извлекает некоторые данные и вызывает `[.red]#callback(null, data)#` по завершении. И вы хотите проверить, что возвращаемые данные это строка `[.red]#арахисовое масло#'.
+
+{empty} +
+
+По умолчанию *Jest* тесты завершаются, как только они достигают конца их исполнения. Это значит, что этот тест не будет работать как предполагается:
+****
+
+[source, javascript]
+----
+// Не делайте так!
+test('the data is peanut butter', () => {
+    function callback(error, data) {
+        if (error) {
+            throw error;
+        }
+        expect(data).toBe('peanut butter');
+    }
+
+    fetchData(callback);
+});
+----
+
+****
+Проблема в том, что тест завершится, как только завершится выполнение `[.red]#fetchData#`, прежде чем будет вызван `[.red]#callback#`.
+
+{empty} +
+
+Существует альтернативная форма `[.red]#test#`, которая исправляет это. Вместо того чтобы помещать тест в функцию с пустым аргументом, передавайте в нее аргумент с именем `[.red]#done#`. Перед завершением теста *Jest* будет ждать вызова `[.red]#done#`, и только потом тест завершится.
+****
+
+[source, javascript]
+----
+test('the data is peanut butter', done => {
+    function callback(error, data) {
+        if (error) {
+            done(error);
+            return;
+        }
+        try {
+            expect(data).toBe('peanut butter');
+            done();
+        } catch (error) {
+            done(error);
+        }
+    }
+
+    fetchData(callback);
+});
+----
+
+****
+Если `[.red]#done()#` никогда не вызовется, тест упадет (по тайм-ауту), а это как раз то, чего мы хотим.
+
+{empty} +
+
+Если expect завершится неудачно, то он выбросит ошибку и `[.red]#done()#` не будет вызван. Если мы хотим логгировать ошибку, мы должны обернуть expect в блок `[.red]#try#` и передать ошибку в блоке `[.red]#catch#` в `[.red]#done#`. В противном случае мы закончим с ошибкой непрозрачного тайм-аута, которая не показывает какое значение было получено `[.red]#expect(data)#`.
+****
+
+====
+CAUTION: *Jest* выдаст ошибку, если той же тестовой функции будет передан обратный вызов `[.red]#done()#` и она вернет promise. Это сделано в качестве меры предосторожности, чтобы избежать утечек памяти в ваших тестах.
+====
+
+=== .resolves / .rejects
+
+****
+Вы также можете использовать `[.red]#.resolves#` в выражении `[.red]#expext#` и *Jest* будет ожидать что промис будет выполнен. Если промис будет выполнен, то тест автоматически прервётся.
+****
+
+[source, javascript]
+----
+test('the data is peanut butter', () => {
+    return expect(fetchData()).resolves.toBe('peanut butter');
+});
+----
+
+****
+Обязательно убедитесь, что вы возвращаете успешное исполнение промиса — если забыть про этот return, то тест завершится еще до того как успешно завершится промис, вернувшийся из `[.red]#fetchData#`, и у `[.red]#then()#` появится возможность выполнить обратный вызов.
+
+{empty} +
+
+Если Вы ожидаете, что промис будет отклонён, используйте `[.red]#.rejects#`. Он работает аналогично `[.red]#.resolves#`. Если промис будет выполнен, то тест автоматически прервётся.
+****
+
+[source, javascript]
+----
+test('the fetch fails with an error', () => {
+    return expect(fetchData()).rejects.toMatch('error');
+});
+----
+
+****
+Ни одна их этих форм не обладает серьезными преимуществами перед остальными, и вы можете смешивать и сопоставлять их во всем своем коде или даже в рамках одного файла. Все зависит только от того, в каком стиле вам легче писать тесты.
+****
+
+== Подготовка и очистка
+
+****
+Часто при написании тестов вам нужно проделать некоторую работу до того, как запустится тест, и некоторую работу по его завершению. *Jest* предоставляет вспомогательные функции для этих целей.
+****
+
+=== Повторяющаяся настройка
+
+****
+Если у вас есть какая-то работа, которую вам нужно повторно выполнять для множества тестов, то вы можете использовать хуки `[.red]#beforeEach#` и `[.red]#afterEach#`.
+
+{empty} +
+
+К примеру, допустим, что несколько тестов взаимодействуют с базой городов. У вас есть метод `[.red]#initializeCityDatabase()#`, который должен быть вызван перед каждым тестом, а также метод `[.red]#clearCityDatabase()#`, который должен быть вызван после каждого из них. Это можно сделать следующим образом:
+****
+
+[source, javascript]
+----
+beforeEach(() => {
+    initializeCityDatabase();
+});
+
+afterEach(() => {
+    clearCityDatabase();
+});
+
+test('city database has Vienna', () => {
+    expect(isCity('Vienna')).toBeTruthy();
+});
+
+test('city database has San Juan', () => {
+    expect(isCity('San Juan')).toBeTruthy();
+});
+----
+
+****
+`[.red]#beforeEach#` и `[.red]#afterEach#` могут работать с асинхронным кодом также, как это делают асинхронные тесты - они могут либо принимать функцию done в качестве параметра, либо возвращать promise. К примеру, если `[.red]#initializeCityDatabase()#` возвращает promise, который вызывает resolve, когда база данных инициализирована, нам бы хотелось вернуть этот promise:
+****
+
+[source, javascript]
+----
+beforeEach(() => {
+    return initializeCityDatabase();
+});
+----
+
+=== Единовременная настройка
+
+****
+В некоторых случаях, подготовительные работы нужны единожды в начале файла. Особенно это касается случаев, когда подготовительный код исполняется асинхронно, и вы не можете просто заинлайнить его. *Jest* предоставляет хуки `[.red]#beforeAll#` и `[.red]#afterAll#` для таких случаев.
+
+{empty} +
+
+Например, если бы обе функции `[.red]#initializeCityDatabase()#` и `[.red]#clearCityDatabase()#` возвращали promises, а база данных могла быть повторно использована между тестами, мы могли бы изменить наш тестовый код:
+****
+
+[source, javascript]
+----
+beforeAll(() => {
+    return initializeCityDatabase();
+});
+
+afterAll(() => {
+    return clearCityDatabase();
+});
+
+test('city database has Vienna', () => {
+    expect(isCity('Vienna')).toBeTruthy();
+});
+
+test('city database has San Juan', () => {
+    expect(isCity('San Juan')).toBeTruthy();
+});
+----
+
+=== Определение контекста
+
+****
+Хуки верхнего уровня `[.red]#before*#` и `[.red]#after*#` применяются к каждому тесту в файле. Хуки, объявленные внутри блока описания, применяются только к тестам в этом блоке описания. +
+К примеру, допустим у нас есть не только база городов, но и база продовольствия. Мы могли бы организовать различную подготовку к разным тестам:
+****
+
+[source, javascript]
+----
+// Применяется ко всем тестам в этом файле
+beforeEach(() => {
+    return initializeCityDatabase();
+});
+
+test('city database has Vienna', () => {
+    expect(isCity('Vienna')).toBeTruthy();
+});
+
+test('city database has San Juan', () => {
+    expect(isCity('San Juan')).toBeTruthy();
+});
+
+describe('matching cities to foods', () => {
+    // Применяется только к тестам в этом describe блоке
+    beforeEach(() => {
+        return initializeFoodDatabase();
+    });
+
+    test('Vienna <3 veal', () => {
+        expect(isValidCityFoodPair('Vienna', 'Wiener Schnitzel')).toBe(true);
+    });
+
+    test('San Juan <3 plantains', () => {
+        expect(isValidCityFoodPair('San Juan', 'Mofongo')).toBe(true);
+    });
+});
+----
+
+****
+Обратите внимание, что `[.red]#beforeEach#`, находящийся уровнем выше, выполнится до `[.red]#beforeEach#`, находящегося внутри `[.red]#describe#` блока. Пример ниже иллюстрирует последовательность выполнения всех блоков (хуков).
+****
+
+[source, javascript]
+----
+beforeAll(() => console.log('1 - beforeAll'));
+afterAll(() => console.log('1 - afterAll'));
+beforeEach(() => console.log('1 - beforeEach'));
+afterEach(() => console.log('1 - afterEach'));
+test('', () => console.log('1 - test'));
+describe('Scoped / Nested block', () => {
+    beforeAll(() => console.log('2 - beforeAll'));
+    afterAll(() => console.log('2 - afterAll'));
+    beforeEach(() => console.log('2 - beforeEach'));
+    afterEach(() => console.log('2 - afterEach'));
+    test('', () => console.log('2 - test'));
+});
+
+// 1 - beforeAll
+// 1 - beforeEach
+// 1 - test
+// 1 - afterEach
+// 2 - beforeAll
+// 1 - beforeEach
+// 2 - beforeEach
+// 2 - test
+// 2 - afterEach
+// 1 - afterEach
+// 2 - afterAll
+// 1 - afterAll
+----
+
+=== Порядок выполнения
+
+****
+*Jest* выполняет все обработчики `[.red]#describe#` внутри одного файла до того, как будет запущен какой-либо тест. Это еще одна причина, чтобы проводить подготовительные и завершающие работы внутри обработчиков `[.red]#before*#` и `[.red]#after*#`, вместо того, чтобы описывать их внутри блоков `[.red]#describe#`. Как только завершатся все `[.red]#describe#` блоки, по умолчанию *Jest* запустит все тесты последовательно в том порядке, в котором они были обнаружены на этапе сбора, ожидая, пока каждый из них завершится и будет убран, прежде чем двигаться дальше.
+
+{empty} +
+
+Рассмотрим следующий пример тестового файла и результат его выполнения:
+****
+
+[source, javascript]
+----
+describe('describe outer', () => {
+    console.log('describe outer-a');
+
+    describe('describe inner 1', () => {
+    console.log('describe inner 1');
+
+    test('test 1', () => console.log('test 1'));
+    });
+
+    console.log('describe outer-b');
+
+    test('test 2', () => console.log('test 2'));
+
+    describe('describe inner 2', () => {
+    console.log('describe inner 2');
+
+    test('test 3', () => console.log('test 3'));
+    });
+
+    console.log('describe outer-c');
+});
+
+// describe outer-a
+// describe inner 1
+// describe outer-b
+// describe inner 2
+// describe outer-c
+// test 1
+// test 2
+// test 3
+----
+
+****
+*Jest* вызывает хуки `[.red]#before*#` и `[.red]#after*#` в порядке их объявления, точно так же, как блоки `[.red]#describe#` и `[.red]#test#`. Обратите внимание, что сначала вызываются хуки `[.red]#after*#` области видимости. Например, вот как вы можете настроить и отключить ресурсы, которые зависят друг от друга:
+****
+
+[source, javascript]
+----
+beforeEach(() => console.log('connection setup'));
+beforeEach(() => console.log('database setup'));
+
+afterEach(() => console.log('database teardown'));
+afterEach(() => console.log('connection teardown'));
+
+test('test 1', () => console.log('test 1'));
+
+describe('extra', () => {
+    beforeEach(() => console.log('extra database setup'));
+    afterEach(() => console.log('extra database teardown'));
+
+    test('test 2', () => console.log('test 2'));
+});
+
+// connection setup
+// database setup
+// test 1
+// database teardown
+// connection teardown
+
+// connection setup
+// database setup
+// extra database setup
+// test 2
+// extra database teardown
+// database teardown
+// connection teardown
+----
+
+====
+NOTE: Если вы используете средство запуска тестов `[.red]#jasmine2#`, учтите, что он вызывает хуки `[.red]#after*#` в порядке, обратном объявлению. Чтобы получить идентичный результат, приведенный выше пример следует изменить следующим образом:
+====
+
+****
+beforeEach( () => console.log('connection setup') ); +
+[.lime-background]#+ afterEach( () => console.log('connection teardown') );#
+
+{empty} +
+
+beforeEach( () => console.log('database setup') ); +
+[.lime-background]#+ afterEach( () => console.log('database teardown') );#
+
+{empty} +
+
+[.red]#- afterEach( () => console.log('database teardown') );# +
+[.red]#- afterEach( () => console.log('connection teardown') );#
+****
+
+=== Общие рекомендации
+
+****
+Если тест падает, в первую очередь нужно проверить, что он падает, будучи запущенным в одиночку. В *Jest* это легко сделать: временно поменяйте команду `[.red]#test#` на `[.red]#test.only#`:
+****
+
+[source, javascript]
+----
+test.only('это будет единственный тест, который выполняется', () => {
+    expect(true).toBe(false);
+});
+
+test('этот тест не пройдет', () => {
+    expect('A').toBe('A');
+});
+----
+
+****
+Если у вас есть тест, который часто падает при выполнении внутри набора тестов, но не падает будучи запущенным в одиночку, значит, что-то из другого теста мешает текущему. Часто это легко исправить, очищая общее состояние внутри функции `[.red]#beforeEach#`. Если нет уверенности, нужно ли очищать общее для тестов состояние, можно воспользоваться `[.red]#beforeEach#` для записи логов выполнения.
+****
+
+////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////
+
+== Mock-функции
+
+****
+*Mock*-функции позволяют тестировать связи между кодом, удаляя фактическую реализацию функции, перехватывая вызовы функции (и параметры, передаваемые в этих вызовах), перехватывая экземпляры функций-конструкторов при создании экземпляра с помощью new и разрешая настройку во время тестирования. возвращаемых значений.
+
+{empty} +
+
+Есть два способа имитировать функции: либо создать фиктивную функцию для использования в тестовом коде, либо написать фиктивную функцию вручную, чтобы переопределить зависимость модуля.
+****
+
+=== Использование mock-функции
+
+Давайте представим, что мы тестируем реализацию функции `[.red]#forEach#`, которая выполняет обратный вызов для каждого элемента предоставленного массива.
+
+.forEach.js
+[source, javascript]
+----
+export function forEach(items, callback) {
+    for (let index = 0; index < items.length; index++) {
+        callback(items[index]);
+    }
+}
+----
+
+****
+Чтобы протестировать эту функцию, мы можем использовать *mock*-функцию, и посмотреть на состояние мока чтобы убедиться, что функция была вызвана как ожидалось.
+****
+
+.forEach.test.js
+[source, javascript]
+----
+const forEach = require('./forEach');
+
+const mockCallback = jest.fn(x => 42 + x);
+
+test('forEach mock function', () => {
+    forEach([0, 1], mockCallback);
+
+    // The mock function was called twice
+    expect(mockCallback.mock.calls).toHaveLength(2);
+
+    // The first argument of the first call to the function was 0
+    expect(mockCallback.mock.calls[0][0]).toBe(0);
+
+    // The first argument of the second call to the function was 1
+    expect(mockCallback.mock.calls[1][0]).toBe(1);
+
+    // The return value of the first call to the function was 42
+    expect(mockCallback.mock.results[0].value).toBe(42);
+});
+----
+
+=== `[.red]#.mock#` свойство
+
+****
+У всех mock-функций есть особое свойство .mock, где хранятся данные о том как функция была вызвана и что она вернула. Свойство `[.red]#.mock#` также отслеживает значение this для каждого вызова, так что как правило это можно посмотреть:
+****
+
+[source, javascript]
+----
+const myMock1 = jest.fn();
+const a = new myMock1();
+console.log(myMock1.mock.instances);
+// > [ <a> ]
+
+const myMock2 = jest.fn();
+const b = {};
+const bound = myMock2.bind(b);
+bound();
+console.log(myMock2.mock.contexts);
+// > [ <b> ]
+----
+
+****
+Эти свойства мока очень полезны в тестах чтобы указывать как эти функции вызываются, наследуются, или что они возвращают:
+****
+
+[source, javascript]
+----
+// Функция была вызвана ровно один раз
+expect(someMockFunction.mock.calls).toHaveLength(1);
+
+// Первым аргументом первого вызова функции был 'first arg'
+expect(someMockFunction.mock.calls[0][0]).toBe('first arg');
+
+// Вторым аргументом первого вызова функции был 'second arg'
+expect(someMockFunction.mock.calls[0][1]).toBe('second arg');
+
+// Возвращаемое значение первого вызова функции было 'return value'
+expect(someMockFunction.mock.results[0].value).toBe('return value');
+
+// Функция была вызвана с определенным контекстом `this`: объектом element.
+expect(someMockFunction.mock.contexts[0]).toBe(element);
+
+// Эта функция была создана ровно дважды
+expect(someMockFunction.mock.instances.length).toBe(2);
+
+// Объект, возвращаемый первым экземпляром этой функции
+// имел свойство `name`, значение которого было установлено на 'test'
+expect(someMockFunction.mock.instances[0].name).toBe('test');
+
+// Первым аргументом последнего вызова функции был 'test'.
+expect(someMockFunction.mock.lastCall[0]).toBe('test');
+----
+
+****
+Значения возвращаемые имитаторами mock-функции также могут использоваться для внедрения тестовых значений в ваш код во время тестирования:
+****
+
+[source, javascript]
+----
+const myMock = jest.fn();
+console.log(myMock());
+// > undefined
+
+myMock.mockReturnValueOnce(10).mockReturnValueOnce('x').mockReturnValue(true);
+
+console.log(myMock(), myMock(), myMock(), myMock());
+// > 10, 'x', true, true
+----
+
+****
+*Mock*-функции также очень эффективны в коде, использующем функциональный стиль передачи продолжения. Код, написанный в этом стиле, помогает избежать необходимости в сложных заглушках, которые воссоздают поведение реального компонента, который они заменяют, в пользу ввода значений непосредственно в тест непосредственно перед их использованием.
+****
+
+[source, javascript]
+----
+const filterTestFn = jest.fn();
+
+// Make the mock return `true` for the first call,
+// and `false` for the second call
+filterTestFn.mockReturnValueOnce(true).mockReturnValueOnce(false);
+
+const result = [11, 12].filter(num => filterTestFn(num));
+
+console.log(result);
+// > [11]
+console.log(filterTestFn.mock.calls[0][0]); // 11
+console.log(filterTestFn.mock.calls[1][0]); // 12
+----
+
+****
+Большинство реальных примеров на самом деле включают в себя получение фиктивной функции для зависимого компонента и ее настройку, но метод тот же. В этих случаях старайтесь избегать соблазна реализовать логику внутри любой функции, которая не тестируется напрямую.
+****
+
+=== Мокинг (имитации) модулей
+
+****
+Предположим, у нас есть класс, который получает пользователей из нашего API. Этот класс использует axios для вызова API, а затем возвращает атрибут data, который содержит всех пользователей:
+****
+
+.users.js
+[source, javascript]
+----
+import axios from 'axios';
+
+class Users {
+    static all() {
+        return axios.get('/users.json').then(resp => resp.data);
+    }
+}
+
+export default Users;
+----
+
+Now, in order to test this method without actually hitting the API (and thus creating slow and fragile tests), we can use the jest.mock(...) function to automatically mock the axios module.
+
+Once we mock the module we can provide a mockResolvedValue for .get that returns the data we want our test to assert against. In effect, we are saying that we want axios.get('/users.json') to return a fake response.
+
+.users.test.js
+[source, javascript]
+----
+import axios from 'axios';
+import Users from './users';
+
+jest.mock('axios');
+
+test('should fetch users', () => {
+  const users = [{name: 'Bob'}];
+  const resp = {data: users};
+  axios.get.mockResolvedValue(resp);
+
+  // or you could use the following depending on your use case:
+  // axios.get.mockImplementation(() => Promise.resolve(resp))
+
+  return Users.all().then(data => expect(data).toEqual(users));
+});
+----
+
+Mocking Partials
+Subsets of a module can be mocked and the rest of the module can keep their actual implementation:
+
+.foo-bar-baz.js
+[source, javascript]
+----
+export const foo = 'foo';
+export const bar = () => 'bar';
+export default () => 'baz';
+
+//test.js
+import defaultExport, {bar, foo} from '../foo-bar-baz';
+
+jest.mock('../foo-bar-baz', () => {
+  const originalModule = jest.requireActual('../foo-bar-baz');
+
+  //Mock the default export and named export 'foo'
+  return {
+    __esModule: true,
+    ...originalModule,
+    default: jest.fn(() => 'mocked baz'),
+    foo: 'mocked foo',
+  };
+});
+
+test('should do a partial mock', () => {
+  const defaultExportResult = defaultExport();
+  expect(defaultExportResult).toBe('mocked baz');
+  expect(defaultExport).toHaveBeenCalled();
+
+  expect(foo).toBe('mocked foo');
+  expect(bar()).toBe('bar');
+});
+----
+
+=== Реализации имитаторов
+
+Still, there are cases where it's useful to go beyond the ability to specify return values and full-on replace the implementation of a mock function. This can be done with jest.fn or the mockImplementationOnce method on mock functions.
+
+[source, javascript]
+----
+const myMockFn = jest.fn(cb => cb(null, true));
+
+myMockFn((err, val) => console.log(val));
+// > true
+----
+
+The mockImplementation method is useful when you need to define the default implementation of a mock function that is created from another module:
+
+.foo.js
+[source, javascript]
+----
+module.exports = function () {
+  // some implementation;
+};
+----
+
+.test.js
+[source, javascript]
+----
+jest.mock('../foo'); // this happens automatically with automocking
+const foo = require('../foo');
+
+// foo is a mock function
+foo.mockImplementation(() => 42);
+foo();
+// > 42
+----
+
+When you need to recreate a complex behavior of a mock function such that multiple function calls produce different results, use the mockImplementationOnce method:
+
+[source, javascript]
+----
+const myMockFn = jest
+  .fn()
+  .mockImplementationOnce(cb => cb(null, true))
+  .mockImplementationOnce(cb => cb(null, false));
+
+myMockFn((err, val) => console.log(val));
+// > true
+
+myMockFn((err, val) => console.log(val));
+// > false
+----
+
+When the mocked function runs out of implementations defined with mockImplementationOnce, it will execute the default implementation set with jest.fn (if it is defined):
+
+[source, javascript]
+----
+const myMockFn = jest
+  .fn(() => 'default')
+  .mockImplementationOnce(() => 'first call')
+  .mockImplementationOnce(() => 'second call');
+
+console.log(myMockFn(), myMockFn(), myMockFn(), myMockFn());
+// > 'first call', 'second call', 'default', 'default'
+----
+
+For cases where we have methods that are typically chained (and thus always need to return this), we have a sugary API to simplify this in the form of a .mockReturnThis() function that also sits on all mocks:
+
+[source, javascript]
+----
+const myObj = {
+  myMethod: jest.fn().mockReturnThis(),
+};
+
+// is the same as
+
+const otherObj = {
+  myMethod: jest.fn(function () {
+    return this;
+  }),
+};
+----
+
+Mock Names
+You can optionally provide a name for your mock functions, which will be displayed instead of 'jest.fn()' in the test error output. Use .mockName() if you want to be able to quickly identify the mock function reporting an error in your test output.
+
+[source, javascript]
+----
+const myMockFn = jest
+  .fn()
+  .mockReturnValue('default')
+  .mockImplementation(scalar => 42 + scalar)
+  .mockName('add42');
+----
+
+=== Пользовательские матчеры
+
+Finally, in order to make it less demanding to assert how mock functions have been called, we've added some custom matcher functions for you:
+
+[source, javascript]
+----
+// The mock function was called at least once
+expect(mockFunc).toHaveBeenCalled();
+
+// The mock function was called at least once with the specified args
+expect(mockFunc).toHaveBeenCalledWith(arg1, arg2);
+
+// The last call to the mock function was called with the specified args
+expect(mockFunc).toHaveBeenLastCalledWith(arg1, arg2);
+
+// All calls and the name of the mock is written as a snapshot
+expect(mockFunc).toMatchSnapshot();
+----
+
+These matchers are sugar for common forms of inspecting the .mock property. You can always do this manually yourself if that's more to your taste or if you need to do something more specific:
+
+[source, javascript]
+----
+// The mock function was called at least once
+expect(mockFunc.mock.calls.length).toBeGreaterThan(0);
+
+// The mock function was called at least once with the specified args
+expect(mockFunc.mock.calls).toContainEqual([arg1, arg2]);
+
+// The last call to the mock function was called with the specified args
+expect(mockFunc.mock.calls[mockFunc.mock.calls.length - 1]).toEqual([
+  arg1,
+  arg2,
+]);
+
+// The first arg of the last call to the mock function was `42`
+// (note that there is no sugar helper for this specific of an assertion)
+expect(mockFunc.mock.calls[mockFunc.mock.calls.length - 1][0]).toBe(42);
+
+// A snapshot will check that a mock was invoked the same number of times,
+// in the same order, with the same arguments. It will also assert on the name.
+expect(mockFunc.mock.calls).toEqual([[arg1, arg2]]);
+expect(mockFunc.getMockName()).toBe('a mock name');
+----
+
+****
+Для ознакомления с полным списком сопоставлений, обратите внимание на link:https://jestjs.io/ru/docs/expect[справочную документацию, window=_blank].
+****
