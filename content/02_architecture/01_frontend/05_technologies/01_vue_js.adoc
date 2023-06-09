@@ -264,7 +264,7 @@ var app6 = new Vue({
 [[example_3_anchor]]
 [%collapsible%open]
 ====
-image::example_3.png[title=".Пример (обновременно с пользовательским вводом меняется текст выше поля ввода) - видим default-ое значение: Привет!", align=center]
+image::example_3.png[title="Пример (обновременно с пользовательским вводом меняется текст выше поля ввода) - видим default-ое значение: Привет!", align=center]
 ====
 ****
 
