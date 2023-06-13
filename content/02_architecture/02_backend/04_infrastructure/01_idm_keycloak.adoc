@@ -23,6 +23,7 @@ ifeval::[{exp2pdf} == 1]
 endif::[]
 
 :imagesoutdir: ./static/02_02_04_01_img/
+:mermaid-puppeteer-config: ./themes/template/puppeteer-config.json
 
 = IDM KeyCloak
 
