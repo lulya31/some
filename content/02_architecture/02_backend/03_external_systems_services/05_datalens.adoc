@@ -1,0 +1,45 @@
+---
+title: "Yandex DataLens - сервис для бизнес-аналитики"
+description: "Yandex DataLens - сервис для бизнес-аналитики"
+weight: 5
+draft: false
+---
+
+:toc: auto
+:toc-title: Содержание
+:toclevels: 5
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+:includedir: ./content/
+
+:imgdir: /02_02_03_05_img/
+:imagesdir: {imgdir}
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
+
+:imagesoutdir: ./static/02_02_03_05_img/
+
+= Yandex DataLens - сервис для бизнес-аналитики
+
+{empty} +
+
+== Yandex DataLens
+
+****
+*Yandex DataLens* — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами.
+
+{empty} +
+
+С помощью *Yandex DataLens* вы можете отслеживать продуктовые и бизнес-метрики напрямую из источников, чтобы принимать решения, основанные на данных.
+****
+
+=== Начало работы
+
+****
+****
