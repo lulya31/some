@@ -1,6 +1,6 @@
 ---
-title: "Архитектура ПО Rolf"
-description: "Архитектура ПО Rolf"
+title: "Архитектура ПО FLORA"
+description: "Архитектура ПО FLORA"
 weight: 1
 draft: false
 slug: ""
