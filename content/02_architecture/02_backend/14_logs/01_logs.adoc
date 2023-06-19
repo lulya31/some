@@ -1,7 +1,7 @@
 ---
-title: "Логирование"
-description: "Логирование"
-weight: 10
+title: "Grafana"
+description: "Grafana"
+weight: 1
 draft: false
 ---
 
@@ -17,14 +17,14 @@ draft: false
 :pygments-style: monokai
 :includedir: ./content/
 
-:imgdir: /02_02_10_img/
+:imgdir: /02_02_14_01_img/
 :imagesdir: {imgdir}
 ifeval::[{exp2pdf} == 1]
 :imagesdir: static{imgdir}
 :includedir: ../
 endif::[]
 
-:imagesoutdir: ./static/02_02_10_img/
+:imagesoutdir: ./static/02_02_14_01_img/
 
 = Логирование
 
