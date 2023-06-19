@@ -1,7 +1,8 @@
 ---
 title: "Схемы проекта One ROLF"
-slug: "07_scheme"
-weight: 4
+description: "Схемы проекта One ROLF"
+weight: 2
+draft: false
 ---
 
 :toc: auto
@@ -14,14 +15,14 @@ weight: 4
 :pygments-style: monokai
 :includedir: ./content/
 
-:imgdir: /02_04_img/
+:imgdir: /03_img/
 :imagesdir: {imgdir}
 ifeval::[{exp2pdf} == 1]
 :imagesdir: static{imgdir}
 :includedir: ../
 endif::[]
 
-:imagesoutdir: ./static/02_04_img/
+:imagesoutdir: ./static/03_img/
 :mermaid-puppeteer-config: ./themes/template/puppeteer-config.json
 
 = Схемы проекта One ROLF
