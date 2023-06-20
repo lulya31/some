@@ -1,7 +1,7 @@
 ---
 title: "Platformeco"
 description: "Platformeco"
-weight: 11
+weight: 2
 draft: false
 ---
 
@@ -15,14 +15,14 @@ draft: false
 :pygments-style: monokai
 :includedir: ./content/
 
-:imgdir: /02_02_11_img/
+:imgdir: /02_02_12_02_img/
 :imagesdir: {imgdir}
 ifeval::[{exp2pdf} == 1]
 :imagesdir: static{imgdir}
 :includedir: ../
 endif::[]
 
-:imagesoutdir: ./static/02_02_11_img/
+:imagesoutdir: ./static/02_02_12_02_img/
 
 = Platformeco
 

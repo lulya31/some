@@ -16,14 +16,14 @@ draft: false
 :pygments-style: monokai
 :includedir: ./content/
 
-:imgdir: /02_02_05_02_04_img/
+:imgdir: /02_02_13_04_img/
 :imagesdir: {imgdir}
 ifeval::[{exp2pdf} == 1]
 :imagesdir: static{imgdir}
 :includedir: ../
 endif::[]
 
-:imagesoutdir: ./static/02_02_05_02_04_img/
+:imagesoutdir: ./static/02_02_13_04_img/
 
 = АС Рольф Web страхование
 
