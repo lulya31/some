@@ -1,0 +1,19 @@
+:toc: auto
+:toc-title: Содержание
+:toclevels: 5
+
+:table-caption: Таблица
+:doctype: book
+:icons: font
+:figure-caption: Рисунок
+:source-highlighter: pygments
+:pygments-css: style
+:pygments-style: monokai
+
+:includedir: ./content/
+:imagesdir: {imgdir}
+
+ifeval::[{exp2pdf} == 1]
+:imagesdir: static{imgdir}
+:includedir: ../
+endif::[]
