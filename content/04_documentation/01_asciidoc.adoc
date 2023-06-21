@@ -213,7 +213,7 @@ link:https://docs.asciidoctor.org/asciidoctor/latest/install/linux-packaging/[С
 == Базовые элементы синтаксиса AsciiDoc
 
 ****
-В данном разделе описаны основные (наиболее часто используемые) языковые конструкции и блоки языка разметки **AsciiDoc**, которые были использованы в проектах **Ingos** и **Rolf**. Полная документация по языку **AsciiDoc** доступна по [ссылке](https://docs.asciidoctor.org/).
+В данном разделе описаны основные (наиболее часто используемые) языковые конструкции и блоки языка разметки **AsciiDoc**, которые были использованы в проектах **Ingos** и **Rolf**. Полная документация по языку **AsciiDoc** доступна по link:https://docs.asciidoctor.org/[*ссылке*, window=_blank].
 ****
 
 
@@ -985,7 +985,7 @@ image::screenshot20230417at121016.png[align=center, width=70%]
 ****
 
 ****
-Строку заголовка также можно идентифицировать, назначив [заголовок атрибуту options](https://docs.asciidoctor.org/asciidoc/latest/tables/add-header-row/) .
+Строку заголовка также можно идентифицировать, назначив link:https://docs.asciidoctor.org/asciidoc/latest/tables/add-header-row/[*заголовок атрибуту options*, window=_blank] .
 
 {empty} +
 
@@ -1025,7 +1025,7 @@ image::screenshot20230417at121538.png[align=center]
 ****
 
 ****
-Вы заметите в приведенном выше результате, что процессор автоматически добавил *Table 1.* перед заголовком таблицы. Эту метку заголовка можно [настроить](https://docs.asciidoctor.org/asciidoc/latest/tables/customize-title-label/) или [отключить](https://docs.asciidoctor.org/asciidoc/latest/tables/turn-off-title-label/). Установка префикса нумерации таблиц происходит установлением атрибута `:table-caption:` (см. ниже):
+Вы заметите в приведенном выше результате, что процессор автоматически добавил *Table 1.* перед заголовком таблицы. Эту метку заголовка можно link:https://docs.asciidoctor.org/asciidoc/latest/tables/customize-title-label/[*настроить*, window=_blank] или link:https://docs.asciidoctor.org/asciidoc/latest/tables/turn-off-title-label/[*отключить*, window=_blank]. Установка префикса нумерации таблиц происходит установлением атрибута `:table-caption:` (см. ниже):
 
 {empty} +
 
@@ -1060,7 +1060,7 @@ image::screenshot20230417at121538.png[align=center]
 ----
 
 ****
-В примере присвоенное значение `cols` содержит четыре спецификатора столбца. Количество записей в списке значений определяет количество столбцов в таблице. Это означает, что таблица в приведенном выше примере будет содержать четыре столбца. Если спецификатор является числом, например `1` или `50`, целое число представляет [ширину столбца относительно других столбцов в таблице](https://docs.asciidoctor.org/asciidoc/latest/tables/adjust-column-widths/) . В примере каждый столбец будет иметь одинаковую ширину, потому что целое число в каждом спецификаторе одинаково. Давайте посмотрим на спецификаторы столбцов в следующем примере и сравним их с предыдущим.
+В примере присвоенное значение `cols` содержит четыре спецификатора столбца. Количество записей в списке значений определяет количество столбцов в таблице. Это означает, что таблица в приведенном выше примере будет содержать четыре столбца. Если спецификатор является числом, например `1` или `50`, целое число представляет link:https://docs.asciidoctor.org/asciidoc/latest/tables/adjust-column-widths/[*ширину столбца относительно других столбцов в таблице*, window=_blank] . В примере каждый столбец будет иметь одинаковую ширину, потому что целое число в каждом спецификаторе одинаково. Давайте посмотрим на спецификаторы столбцов в следующем примере и сравним их с предыдущим.
 ****
 
 [source, php]
@@ -1505,7 +1505,7 @@ image::screenshot20230417at114310.png[align=center, width=70%]
 === Центрировать содержимое по вертикали в столбце
 
 ****
-Чтобы центрировать содержимое столбца по вертикали, поместите `.^`оператор прямо перед [шириной столбца](https://docs.asciidoctor.org/asciidoc/latest/tables/adjust-column-widths/) .
+Чтобы центрировать содержимое столбца по вертикали, поместите `.^` оператор прямо перед link:https://docs.asciidoctor.org/asciidoc/latest/tables/adjust-column-widths/[*шириной столбца*, window=_blank].
 
 {empty} +
 
@@ -1994,7 +1994,7 @@ image::screenshot20230417at162433.png[align=center, width=70%]
 ==== Выровнять содержимое ячейки по правому краю
 
 ****
-Чтобы выровнять содержимое ячейки по правому краю, поместите `>`оператор перед [разделителем ячеек](https://docs.asciidoctor.org/asciidoc/latest/tables/add-cells-and-rows/#cell-separator) (`|`), но после оператора span (`<n>+`) или дублирования (`<n>*`) (если он есть). Не вставляйте пробелы между `|`операторами и.
+Чтобы выровнять содержимое ячейки по правому краю, поместите `>` оператор перед link:https://docs.asciidoctor.org/asciidoc/latest/tables/add-cells-and-rows/#cell-separator[*разделителем ячеек*, window=_blank] (`|`), но после оператора span (`<n>+`) или дублирования (`<n>*`) (если он есть). Не вставляйте пробелы между `|`операторами и.
 
 {empty} +
 
@@ -2037,7 +2037,7 @@ image::screenshot20230417at162536.png[align=center, width=70%]
 ==== Выровнять содержимое по нижнему краю ячейки
 
 ****
-Чтобы выровнять содержимое по нижнему краю ячейки, поместите `.>`оператор перед [разделителем ячеек](https://docs.asciidoctor.org/asciidoc/latest/tables/add-cells-and-rows/#cell-separator) (`|`). Не вставляйте пробелы между `|`и оператором.
+Чтобы выровнять содержимое по нижнему краю ячейки, поместите `.>` оператор перед link:https://docs.asciidoctor.org/asciidoc/latest/tables/add-cells-and-rows/#cell-separator[*разделителем ячеек*, window=_blank] (`|`). Не вставляйте пробелы между `|`и оператором.
 
 {empty} +
 
@@ -2351,7 +2351,7 @@ image::screenshot20230417at170231.png[align=center, width=70%]
 ==== Охват нескольких столбцов
 
 ****
-Чтобы иметь ячейку, охватывающую последовательные столбцы, введите [коэффициент охвата столбца](https://docs.asciidoctor.org/asciidoc/latest/tables/span-cells/#col-factor) и оператор охвата (`<n>+`) в спецификаторе ячейки. Не вставляйте пробелы между диапазоном, любыми операторами выравнивания или стиля (если они есть) и link:https://docs.asciidoctor.org/asciidoc/latest/tables/add-cells-and-rows/#cell-separator[разделителем ячеек, window=_blank] (`|`).
+Чтобы иметь ячейку, охватывающую последовательные столбцы, введите link:https://docs.asciidoctor.org/asciidoc/latest/tables/span-cells/#col-factor[*коэффициент охвата столбца*, window=_blank] и оператор охвата (`<n>+`) в спецификаторе ячейки. Не вставляйте пробелы между диапазоном, любыми операторами выравнивания или стиля (если они есть) и link:https://docs.asciidoctor.org/asciidoc/latest/tables/add-cells-and-rows/#cell-separator[разделителем ячеек, window=_blank] (`|`).
 
 {empty} +
 
