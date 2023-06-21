@@ -4,24 +4,10 @@ slug: "05_sale_spare_parts"
 weight: 5
 ---
 
-:toc: auto
-:toc-title: Содержание
-:doctype: book
-:icons: font
-:figure-caption: Рисунок
-:source-highlighter: pygments
-:pygments-css: style
-:pygments-style: monokai
-:includedir: ./content/
-
 :imgdir: /02_01_01_01_05_img/
-:imagesdir: {imgdir}
-ifeval::[{exp2pdf} == 1]
-:imagesdir: static{imgdir}
-:includedir: ../
-endif::[]
-
 :imagesoutdir: ./static/02_01_01_01_05_img/
+
+include::content/init.adoc[]
 
 = Продажа запчастей
 
