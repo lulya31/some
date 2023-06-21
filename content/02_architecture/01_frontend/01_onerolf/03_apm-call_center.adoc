@@ -4,24 +4,10 @@ slug: "03_apm-call_center"
 weight: 3
 ---
 
-:toc: auto
-:toc-title: Содержание
-:doctype: book
-:icons: font
-:figure-caption: Рисунок
-:source-highlighter: pygments
-:pygments-css: style
-:pygments-style: monokai
-:includedir: ./content/
-
 :imgdir: /02_01_01_03_img/
-:imagesdir: {imgdir}
-ifeval::[{exp2pdf} == 1]
-:imagesdir: static{imgdir}
-:includedir: ../
-endif::[]
-
 :imagesoutdir: ./static/02_01_01_03_img/
+
+include::content/init.adoc[]
 
 = Call Центр
 

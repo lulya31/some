@@ -1,29 +1,14 @@
 ---
 title: "AsciiDoc"
-description: "AsciiDoc"
+description: "Язык разметки текста AsciiDoc"
 weight: 1
 draft: false
 ---
 
-:toc: auto
-:toc-title: Содержание
-:table-caption: Таблица
-:doctype: book
-:icons: font
-:figure-caption: Рисунок
-:source-highlighter: pygments
-:pygments-css: style
-:pygments-style: monokai
-:includedir: ./content/
-
 :imgdir: /04_01_img/
-:imagesdir: {imgdir}
-ifeval::[{exp2pdf} == 1]
-:imagesdir: static{imgdir}
-:includedir: ../
-endif::[]
-
 :imagesoutdir: ./static/04_01_img/
+
+include::content/init.adoc[]
 
 = AsciiDoc
 
