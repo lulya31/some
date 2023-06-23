@@ -1,0 +1,45 @@
+---
+title: "Open Telemetry"
+description: "Open Telemetry"
+weight: 1
+draft: false
+---
+
+:imgdir: /02_02_14_02_01_img/
+:imagesoutdir: ./static/02_02_14_02_01_img/
+
+include::content/init.adoc[]
+
+= Open Telemetry
+
+{empty} +
+
+== Что такое OpenTelemetry?
+
+****
+*OpenTelemetry* — это платформа и набор инструментов link:https://opentelemetry.io/docs/concepts/observability-primer/#what-is-observability[*Observability* - от англ. - *"Наблюдать"*, window=_blank], предназначенных для создания данных телеметрии, таких как link:https://opentelemetry.io/docs/concepts/signals/traces/[*трассировки*, window=_blank], link:https://opentelemetry.io/docs/concepts/signals/metrics/[*метрики*, window=_blank] и link:https://opentelemetry.io/docs/concepts/signals/logs/[*журналы*, window=_blank], и управления ими. Важно отметить, что *OpenTelemetry* не зависит от поставщика и инструмента, а это означает, что его можно использовать с широким спектром бэкендов *Observability*, включая инструменты с открытым исходным кодом, такие как link:https://www.jaegertracing.io/[*Jaeger*, window=_blank] и link:https://prometheus.io/[*Prometheus*, window=_blank], а также коммерческие предложения. *OpenTelemetry* — это проект link:https://www.cncf.io/[*Cloud Native Computing Foundation* (*CNCF*), window=_blank].
+****
+
+=== Основные компоненты
+
+****
+*OpenTelemetry* состоит из следующих основных компонентов:
+====
+* Спецификация для всех компонентов
+* Стандартный протокол , определяющий форму данных телеметрии.
+* Семантические соглашения, определяющие стандартную схему именования для распространенных типов данных телеметрии.
+* API, которые определяют, как генерировать данные телеметрии
+* Библиотечная экосистема , которая реализует инструментарий для общих библиотек и фреймворков.
+* Компоненты автоматического инструментария, которые генерируют данные телеметрии без необходимости изменения кода
+* Языковые SDK, реализующие спецификацию, API и экспорт данных телеметрии.
+* Сборщик OpenTelemetry — прокси-сервер, который получает, обрабатывает и экспортирует данные телеметрии.
+* Различные другие инструменты, такие как оператор OpenTelemetry для Kubernetes.
+====
+OpenTelemetry совместим с широким спектром интегрированных экосистем с открытым исходным кодом. +
+OpenTelemetry поддерживается огромным количеством поставщиков , многие из которых обеспечивают коммерческую поддержку OpenTelemetry и напрямую участвуют в проекте.
+****
+
+=== Расширяемость
+
+****
+****

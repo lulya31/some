@@ -1,0 +1,15 @@
+---
+title: "Jaeger"
+description: "Jaeger"
+weight: 2
+draft: false
+---
+
+:imgdir: /02_02_14_02_02_img/
+:imagesoutdir: ./static/02_02_14_02_02_img/
+
+include::content/init.adoc[]
+
+= Jaeger
+
+{empty} +
