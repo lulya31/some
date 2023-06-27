@@ -1,0 +1,71 @@
+---
+title: "Open Telemetry"
+description: "Open Telemetry"
+weight: 1
+draft: false
+---
+
+:imgdir: /02_02_14_02_01_img/
+:imagesoutdir: ./static/02_02_14_02_01_img/
+
+include::content/init.adoc[]
+
+= Open Telemetry
+
+{empty} +
+
+== Что такое OpenTelemetry?
+
+****
+*OpenTelemetry* — это платформа и набор инструментов link:https://opentelemetry.io/docs/concepts/observability-primer/#what-is-observability[*Observability* - от англ. - *"Наблюдать"*, window=_blank], предназначенных для создания данных телеметрии, таких как link:https://opentelemetry.io/docs/concepts/signals/traces/[*трассировки*, window=_blank], link:https://opentelemetry.io/docs/concepts/signals/metrics/[*метрики*, window=_blank] и link:https://opentelemetry.io/docs/concepts/signals/logs/[*журналы*, window=_blank], и управления ими. Важно отметить, что *OpenTelemetry* не зависит от поставщика и инструмента, а это означает, что его можно использовать с широким спектром бэкендов *Observability*, включая инструменты с открытым исходным кодом, такие как link:https://www.jaegertracing.io/[*Jaeger*, window=_blank] и link:https://prometheus.io/[*Prometheus*, window=_blank], а также коммерческие предложения. *OpenTelemetry* — это проект link:https://www.cncf.io/[*Cloud Native Computing Foundation* (*CNCF*), window=_blank].
+****
+
+=== Основные компоненты
+
+****
+*OpenTelemetry* состоит из следующих основных компонентов:
+====
+* Спецификация для всех link:https://opentelemetry.io/docs/specs/otel/[*компонентов*, window=_blank]
+* Стандартный link:https://opentelemetry.io/docs/specs/otlp/[*протокол*, window=_blank], определяющий форму данных телеметрии.
+* Семантические соглашения, определяющие стандартную схему именования для распространенных типов данных телеметрии.
+* *API*, которые определяют, как генерировать данные телеметрии
+* Библиотечная link:https://opentelemetry.io/ecosystem/registry/[*экосистема*, window=_blank], которая реализует инструментарий для общих библиотек и фреймворков.
+* Компоненты автоматического инструментария, которые генерируют данные телеметрии без необходимости изменения кода
+* Языковые *SDK*, реализующие спецификацию, *API* и экспорт данных телеметрии.
+* Сборщик link:https://opentelemetry.io/docs/collector/[*OpenTelemetry*, window=_blank] — прокси-сервер, который получает, обрабатывает и экспортирует данные телеметрии.
+* Различные другие инструменты, такие как link:https://opentelemetry.io/docs/k8s-operator/[*оператор OpenTelemetry для Kubernetes*, window=_blank].
+====
+*OpenTelemetry* совместим с широким спектром link:https://opentelemetry.io/ecosystem/integrations/[*интегрированных экосистем*, window=_blank] с открытым исходным кодом. +
+*OpenTelemetry* поддерживается огромным количеством link:https://opentelemetry.io/ecosystem/vendors/[*поставщиков*, window=_blank], многие из которых обеспечивают коммерческую поддержку OpenTelemetry и напрямую участвуют в проекте.
+****
+
+=== Расширяемость
+
+****
+*OpenTelemetry* предназначен для расширения. Некоторые примеры того, как его можно расширить, включают:
+====
+* Добавление приемника в *OpenTelemetry Collector* для поддержки данных телеметрии из пользовательского источника
+* Загрузка пользовательского инструментария в *SDK*
+* Создание дистрибутива *SDK* или *Collector*, адаптированного к конкретному варианту использования
+* Создание нового экспортера для пользовательской серверной части, которая еще не поддерживает протокол *OpenTelemetry* (*OTLP*).
+* Создание пользовательского распространителя для нестандартного формата распространения контекста
+====
+Хотя большинству пользователей не потребуется расширять *OpenTelemetry*, проект разработан таким образом, чтобы сделать это возможным практически на каждом уровне.
+****
+
+== Почему OpenTelemetry?
+
+****
+С появлением облачных вычислений, архитектур микросервисов и все более сложных бизнес-требований потребность в link:https://opentelemetry.io/docs/concepts/observability-primer/#what-is-observability[*Observability*, window=_blank] как никогда высока. Наблюдаемость — это способность понять внутреннее состояние системы, изучая ее выходные данные. В контексте программного обеспечения это означает возможность понять внутреннее состояние системы путем изучения ее данных телеметрии, включая трассировки, метрики и журналы.
+
+{empty} +
+
+Для того, чтобы сделать систему наблюдаемой, она должна быть оснащена инструментами. То есть код должен выдавать link:https://opentelemetry.io/docs/concepts/observability-primer/#distributed-traces[*трассировки*, window=_blank], link:https://opentelemetry.io/docs/concepts/observability-primer/#reliability--metrics[*метрики*, window=_blank] и link:https://opentelemetry.io/docs/concepts/observability-primer/#logs[*логи*, window=_blank]. Затем инструментированные данные должны быть отправлены на серверную часть *Observability*.
+
+*OpenTelemetry* делает две важные вещи:
+====
+. Позволяет *вам владеть данными, которые вы создаете,* вместо того, чтобы зацикливаться на проприетарном формате данных или инструменте
+. Позволяет изучить единый набор *API* и соглашений
+====
+Сочетание этих двух вещей обеспечивает командам и организациям необходимую гибкость в современном компьютерном мире.
+****

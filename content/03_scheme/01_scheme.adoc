@@ -7,9 +7,10 @@ draft: false
 
 :imgdir: /03_01_img/
 :imagesoutdir: ./static/03_01_img/
-:mermaid-puppeteer-config: ./themes/template/puppeteer-config.json
 
 include::content/init.adoc[]
+
+:mermaid-puppeteer-config: ./themes/template/puppeteer-config.json
 
 = Схемы проекта One ROLF
 
@@ -35,7 +36,6 @@ include::content/init.adoc[]
 <iframe frameborder="0" style="width:100%;height:1000px;" src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=000000&edit=_blank&layers=1&nav=1#G1VU9raY2FAviEGuuNUEk2RcPv8U6wUjMw"></iframe>
 ++++
 ====
-
 
 == Программа Run проектов R&D
 
