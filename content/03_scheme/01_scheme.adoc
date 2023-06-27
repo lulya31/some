@@ -59,6 +59,20 @@ include::content/init.adoc[]
 
 == Диаграмма Yandex Cloud
 
+.Приложение определяет первую часть наименования *endpoint* метода
+[mermaid, target=yandexcloud2, format=svg, opts=interactive]
+----
+graph TD
+    A[FLORA] --> C(core)
+    A --> R(rolfid)
+    A --> CR(crm)
+    A --> I(integration)
+    A --> P(printservice)
+    A --> M(mes)
+    A --> PA(printanalyze)
+    A --> N(notifs)
+----
+
 .*Диаграмма Yandex Cloud (Отобразить/Скрыть)*
 [%collapsible%close]
 ====
