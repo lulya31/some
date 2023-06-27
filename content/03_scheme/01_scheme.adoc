@@ -63,7 +63,8 @@ include::content/init.adoc[]
 [%collapsible%close]
 ====
 // [mermaid, width=5000, target=yandexcloud, background=#0000000F]
-[mermaid, width=5000, target=yandexcloud, format=svg, opts=interactive]
+// [mermaid, width=5000, target=yandexcloud, format=svg, opts=interactive]
+[mermaid, width=5000, target=yandexcloud, format=png, opts=interactive]
 ....
 %%{init: { 'securitylevel': 'loose', 'theme': 'base' }}%%
 
@@ -76,7 +77,7 @@ graph LR
 		classDef green fill:#93ff75,stroke:#000,stroke-width:2px,color:#000
 	
 	%% Nodes %%
-		nexus-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>nexus-prod"):::white
+		nexus-prod("<img src='http://localhost:60806/03_01_img/node.png'; height='60'; width='50'></img></br>nexus-prod"):::white
 		dns-forwarder-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>dns-forwarder-prod"):::white
         keycloak-dev("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>keycloak-dev"):::white
         kafka-common-dev("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>kafka-common-dev"):::white
