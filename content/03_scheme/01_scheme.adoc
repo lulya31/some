@@ -76,26 +76,26 @@ graph LR
 		classDef green fill:#93ff75,stroke:#000,stroke-width:2px,color:#000
 	
 	%% Nodes %%
-		nexus-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></br>nexus-prod"):::white
-		dns-forwarder-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></br>dns-forwarder-prod"):::white
-        keycloak-dev("<img src='/03_01_img/node.png'; height='60'; width='50'></br>keycloak-dev"):::white
-        kafka-common-dev("<img src='/03_01_img/node.png'; height='60'; width='50'></br>kafka-common-dev"):::white
-		kafka-common-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></br>kafka-common-prod"):::white
-        mongodb-platformeco-scheduler-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></br>mongodb-platformeco-scheduler-prod"):::white
-		cassandra-dev("<img src='/03_01_img/node.png'; height='60'; width='50'></br>cassandra-dev"):::white
-        cassandra-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></br>cassandra-prod"):::white
+		nexus-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>nexus-prod"):::white
+		dns-forwarder-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>dns-forwarder-prod"):::white
+        keycloak-dev("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>keycloak-dev"):::white
+        kafka-common-dev("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>kafka-common-dev"):::white
+		kafka-common-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>kafka-common-prod"):::white
+        mongodb-platformeco-scheduler-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>mongodb-platformeco-scheduler-prod"):::white
+		cassandra-dev("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>cassandra-dev"):::white
+        cassandra-prod("<img src='/03_01_img/node.png'; height='60'; width='50'></img></br>cassandra-prod"):::white
 
 	%% Databases %%
-        postgresql-vault-prod("<img src='/03_01_img/database.png'; height='60'; width='50'></br>postgresql-vault-prod"):::white
-        postgresql-common-prod("<img src='/03_01_img/database.png'; height='60'; width='50'></br>postgresql-common-prod"):::white
-        postgresql-common-dev("<img src='/03_01_img/database.png'; height='60'; width='50'></br>postgresql-common-dev"):::white
-        postgresql-platformeco-auth-prod("<img src='/03_01_img/database.png'; height='60'; width='50'></br>postgresql-platformeco-auth-prod"):::white
+        postgresql-vault-prod("<img src='/03_01_img/database.png'; height='60'; width='50'></img></br>postgresql-vault-prod"):::white
+        postgresql-common-prod("<img src='/03_01_img/database.png'; height='60'; width='50'></img></br>postgresql-common-prod"):::white
+        postgresql-common-dev("<img src='/03_01_img/database.png'; height='60'; width='50'></img></br>postgresql-common-dev"):::white
+        postgresql-platformeco-auth-prod("<img src='/03_01_img/database.png'; height='60'; width='50'></img></br>postgresql-platformeco-auth-prod"):::white
 
     %% Clusters %%
-        cluster_yc_com_dev_int_rolfcorp_ru("<img src='/03_01_img/cluster.png'; height='60'; width='50'></br>cluster_yc_com_dev_int_rolfcorp_ru"):::white
-        cluster_yc_com_int_rolfcorp_ru("<img src='/03_01_img/cluster.png'; height='60'; width='50'></br>cluster_yc_com_int_rolfcorp_ru"):::white
-        cluster_yc_plf_dev_int_rolfcorp_ru("<img src='/03_01_img/cluster.png'; height='60'; width='50'></br>cluster_yc_plf_dev_int_rolfcorp_ru"):::white
-        cluster_yc_plf_int_rolfcorp_ru("<img src='/03_01_img/cluster.png'; height='60'; width='50'></br>cluster_yc_plf_int_rolfcorp_ru"):::white
+        cluster_yc_com_dev_int_rolfcorp_ru("<img src='/03_01_img/cluster.png'; height='60'; width='50'></img></br>cluster_yc_com_dev_int_rolfcorp_ru"):::white
+        cluster_yc_com_int_rolfcorp_ru("<img src='/03_01_img/cluster.png'; height='60'; width='50'></img></br>cluster_yc_com_int_rolfcorp_ru"):::white
+        cluster_yc_plf_dev_int_rolfcorp_ru("<img src='/03_01_img/cluster.png'; height='60'; width='50'></img></br>cluster_yc_plf_dev_int_rolfcorp_ru"):::white
+        cluster_yc_plf_int_rolfcorp_ru("<img src='/03_01_img/cluster.png'; height='60'; width='50'></img></br>cluster_yc_plf_int_rolfcorp_ru"):::white
 
         N1(rolf_CIDR vpnplus</br>10.50.0.0-16</br>10.53.0.0-16):::white
         
