@@ -14,6 +14,50 @@ include::content/init.adoc[]
 
 {empty} +
 
+== Коллекция Postman
+
+====
+IMPORTANT: В *коллекции Postman* для *Debezium* и *OpenSearch* все учётные данные проставлены для *dev* !!!
+====
+
+****
+.Коллекция *Postman*
+[[collection_postman_anchor]]
+[%collapsible%close]
+====
+[source, json]
+----
+include::static/02_02_01_08_img/rolf_logging.postman_collection.json[]
+----
+====
+****
+
+== Доступы Debezium
+
+****
+.Доступы *Debezium*
+[%collapsible%open]
+====
+[cols=".^50,.^50"]
+|===
+^.^| Dev ^.^| Prod
+
+2+| `*DBZ Host*`
+| `link:http://debezium.com-prod.int.rolfcorp.ru[window=_blank]` | `link:http://debezium.com-dev.int.rolfcorp.ru[window=_blank]`
+2+| `*OPS Host*`
+| `10.124.11.6:9200` | `10.124.21.47:9200`
+|===
+
+[cols="^.^100h"]
+|===
+| Полезные ссылки
+| `link:https://doc-core-main.com-dev.int.rolfcorp.ru/06_rnd/01_versions/[*Описание архитектуры целевого решения*, window=_blank]`
+| `link:https://doc-core-main.com-dev.int.rolfcorp.ru/06_rnd/01_versions/02_versiondefinitions/01_client/[*Описание дефиниций для работы с сущностью "Клиент"*, window=_blank]`
+| `link:https://kafka.apache.org/documentation/#connect_rest[*Kafka REST API*, window=_blank]`
+|===
+====
+****
+
 == Debezium и CDC
 
 ****
