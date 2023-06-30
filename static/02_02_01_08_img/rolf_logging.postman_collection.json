@@ -1,0 +1,562 @@
+{
+	"info": {
+		"_postman_id": "b1574bd0-08cd-4324-bad8-b62eb1ac16d5",
+		"name": "rolf logging",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17979898"
+	},
+	"item": [
+		{
+			"name": "opensearch",
+			"item": [
+				{
+					"name": "new index",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_env}}",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_env}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add item to index",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"111bf685-51a8-4271-bf06-fef3e0162252\",\n    \"version\": 1,\n    \"object\": {\n        \"uuid\": \"121bf685-51a8-4271-bf06-fef3e0162252\",\n        \"hide_personal_data\": null,\n        \"archived\": false,\n        \"blocked\": false,\n        \"is_client\": true,\n        \"ui_id\": \"8925009\",\n        \"person\": {\n            \"uuid\": \"111bf685-51a8-4271-bf06-fef3e0162252\",\n            \"person_type\": {},\n            \"date_begin\": \"2016-11-11T21:00:00.000Z\",\n            \"date_finish\": null,\n            \"surname\": \"оусвекочнрт\",\n            \"name\": \"диляр\",\n            \"middlename\": \"шухайло\",\n            \"gender_is_female\": false,\n            \"birth_date\": \"1954-04-02T00:00:00.000Z\",\n            \"driving_begin_date\": null,\n            \"driving_begin_date_is_calc\": null,\n            \"photo_url\": null,\n            \"citizenship\": null,\n            \"is_married\": false,\n            \"famous_person_type\": null,\n            \"hide_personal_data\": null,\n            \"ui_id\": \"8925009\",\n            \"children\": null,\n            \"comments\": null\n        },\n        \"addresses\": [\n            {\n                \"uuid\": \"109949fd-bfc5-4b4a-b696-cc77e27c96da\",\n                \"address_type\": {},\n                \"date_begin\": \"2016-11-11T21:00:00.000Z\",\n                \"date_finish\": \"2200-12-30T21:00:00.000Z\",\n                \"postal_index\": null,\n                \"fias_code\": null,\n                \"address_string\": \"г. Санкт-Петербург ул. Десантников  190000  кв. 92  дом 14 \",\n                \"address_as_single_text_string\": null,\n                \"dadata_json\": null\n            }\n        ],\n        \"telephones\": [\n            {\n                \"uuid\": \"31bdc6ae-9c0c-4235-ab4c-0a06f0a99124\",\n                \"is_main\": true,\n                \"persons_or_org_s_uuid\": \"111bf685-51a8-4271-bf06-fef3e0162252\",\n                \"telephone_number\": \"13219612289\",\n                \"is_verified\": false,\n                \"comments\": null\n            }\n        ],\n        \"messengers\": null,\n        \"socials\": null,\n        \"emails\": null,\n        \"discount_cards\": null,\n        \"documents\": null,\n        \"bank_accounts\": null,\n        \"consent_to_pers_data_processing_documents\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_vehicles_debug/_doc/00015ca3-5648-43be-84b2-cfe0647c71b3",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_vehicles_debug",
+								"_doc",
+								"00015ca3-5648-43be-84b2-cfe0647c71b3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get client by uuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_vehicles_debug/_doc/00015ca3-5648-43be-84b2-cfe0647c71b3",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_vehicles_debug",
+								"_doc",
+								"00015ca3-5648-43be-84b2-cfe0647c71b3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete index",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{ops_host}}/clients_{{ops_env}}",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"clients_{{ops_env}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"bool\": {\n      \"should\": [\n        {\n            \"match_phrase_prefix\": {\n                \"object.person.name\": {\n                \"query\": \"Кофтун\",\n                \"slop\": 3\n                }\n            }\n        },\n        {\n            \"match_phrase_prefix\": {\n                \"object.person.surname\": {\n                \"query\": \"Кофтун\",\n                \"slop\": 3\n                }\n            }\n        }\n      ]\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_env}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_env}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search for dups",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"bool\": {\n        \"must\"\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/clients_{{ops_env}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"clients_{{ops_env}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": 0,\r\n    \"size\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_vehicles_{{ops_env}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_vehicles_{{ops_env}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "R8bPD4Rk1n0t6TVQ",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "platformeco_user",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ged dbz connectors Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://debezium.com-dev.int.rolfcorp.ru/connectors",
+					"protocol": "http",
+					"host": [
+						"debezium",
+						"com-dev",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"connectors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create dbz connector Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"pg-flora_persons_or_org-prod-connector\",\n    \"config\": {\n        \"connector.class\": \"io.debezium.connector.postgresql.PostgresConnector\",\n        \"publication.autocreate.mode\": \"filtered\",\n        \"database.user\": \"debezium\",\n        \"database.dbname\": \"onerolf-prod\",\n        \"slot.drop.on.stop\": \"false\",\n        \"slot.name\": \"dbz_flora_persons_or_org_prod\",\n        \"publication.name\": \"dbz_flora_persons_or_org\",\n        \"database.server.name\": \"onerolf-prod\",\n        \"schema.include.list\": \"flora_persons_or_org\",\n        \"heartbeat.interval.ms\": \"1000\",\n        \"plugin.name\": \"pgoutput\",\n        \"database.port\": \"6432\",\n        \"topic.prefix\": \"dbz.prod\",\n        \"heartbeat.action.query\": \"UPDATE flora_persons_or_org.debezium_heartbeat set last_heartbeat_ts = now();\",\n        \"task.class\": \"io.debezium.connector.postgresql.PostgresConnectorTask\",\n        \"table.exclude.list\": \"flora_persons_or_org.persons_or_org_address_attribute_b,flora_persons_or_org.persons_or_org_address_attribute_type_d,flora_persons_or_org.persons_or_org_messenger_d,flora_persons_or_org.persons_or_org_document_class_d,flora_persons_or_org.persons_or_org_padeg_d,flora_persons_or_org.persons_or_org_padeg_data_b,flora_persons_or_org.persons_or_org_social_net_d,flora_persons_or_org.persons_or_org_address_type_d\",\n        \"database.hostname\": \"c-c9q78q89b7uqg831ek9l.rw.mdb.yandexcloud.net\",\n        \"database.password\": \"MryXVPJK48uN\",\n        \"name\": \"pg-flora_persons_or_org-prod-connector\",\n        \"snapshot.mode\": \"initial\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://debezium.com-prod.int.rolfcorp.ru/connectors",
+					"protocol": "http",
+					"host": [
+						"debezium",
+						"com-prod",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"connectors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get specific dbz connector Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://debezium.com-dev.int.rolfcorp.ru/connectors/pg-flora_collected_vehicle_data-debug-connector-ops-upload",
+					"protocol": "http",
+					"host": [
+						"debezium",
+						"com-dev",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"connectors",
+						"pg-flora_collected_vehicle_data-debug-connector-ops-upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change config Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"connector.class\": \"io.debezium.connector.postgresql.PostgresConnector\",\n        \"publication.autocreate.mode\": \"filtered\",\n        \"database.user\": \"debezium\",\n        \"database.dbname\": \"onerolf-prod\",\n        \"slot.drop.on.stop\": \"false\",\n        \"slot.name\": \"dbz_flora_persons_or_org_prod\",\n        \"publication.name\": \"dbz_flora_persons_or_org_prod\",\n        \"database.server.name\": \"onerolf-prod\",\n        \"schema.include.list\": \"flora_persons_or_org\",\n        \"heartbeat.interval.ms\": \"1000\",\n        \"plugin.name\": \"pgoutput\",\n        \"database.port\": \"6432\",\n        \"topic.prefix\": \"dbz.prod\",\n        \"heartbeat.action.query\": \"UPDATE flora_persons_or_org.debezium_heartbeat set last_heartbeat_ts = now();\",\n        \"task.class\": \"io.debezium.connector.postgresql.PostgresConnectorTask\",\n        \"table.include.list\": \"flora_persons_or_org.persons_or_org_data_b\",\n        \"database.hostname\": \"c-c9q78q89b7uqg831ek9l.rw.mdb.yandexcloud.net\",\n        \"database.password\": \"MryXVPJK48uN\",\n        \"name\": \"pg-flora_persons_or_org-prod-connector\",\n        \"snapshot.mode\": \"initial\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://debezium.com-prod.int.rolfcorp.ru/connectors/pg-flora_persons_or_org-prod-connector/config",
+					"protocol": "http",
+					"host": [
+						"debezium",
+						"com-prod",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"connectors",
+						"pg-flora_persons_or_org-prod-connector",
+						"config"
+					]
+				},
+				"description": "поменать на\n\n{ \"connector.class\": \"io.debezium.connector.postgresql.PostgresConnector\", \"publication.autocreate.mode\": \"filtered\", \"database.user\": \"debezium\", \"database.dbname\": \"onerolf-prod\", \"slot.drop.on.stop\": \"false\", \"slot.name\": \"dbz_flora_persons_or_org_prod\", \"publication.name\": \"dbz_flora_persons_or_org_prod\", \"database.server.name\": \"onerolf-prod\", \"schema.include.list\": \"flora_persons_or_org\", \"heartbeat.interval.ms\": \"1000\", \"plugin.name\": \"pgoutput\", \"database.port\": \"6432\", \"topic.prefix\": \"dbz.prod\", \"heartbeat.action.query\": \"UPDATE flora_persons_or_org.debezium_heartbeat set last_heartbeat_ts = now();\", \"task.class\": \"io.debezium.connector.postgresql.PostgresConnectorTask\", \"table.exclude.list\": \"flora_persons_or_org.persons_or_org_address_attribute_b,flora_persons_or_org.persons_or_org_address_attribute_type_d,flora_persons_or_org.persons_or_org_messenger_d,flora_persons_or_org.persons_or_org_document_class_d,flora_persons_or_org.persons_or_org_padeg_d,flora_persons_or_org.persons_or_org_padeg_data_b,flora_persons_or_org.persons_or_org_social_net_d,flora_persons_or_org.persons_or_org_address_type_d\", \"database.hostname\": \"c-c9q78q89b7uqg831ek9l.rw.mdb.yandexcloud.net\", \"database.password\": \"MryXVPJK48uN\", \"name\": \"pg-flora_persons_or_org-prod-connector\", \"snapshot.mode\": \"initial\"}\n\nпосле окончания выгрузки"
+			},
+			"response": []
+		},
+		{
+			"name": "pause connector Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"connector.class\": \"io.debezium.connector.postgresql.PostgresConnector\",\n    \"publication.autocreate.mode\": \"filtered\",\n    \"database.user\": \"transfer-test\",\n    \"database.dbname\": \"onerolf-dev\",\n    \"slot.drop.on.stop\": \"true\",\n    \"publication.name\": \"testingmail\",\n    \"database.server.name\": \"onerolf-dev\",\n    \"schema.include.list\": \"flora_persons_or_org\",\n    \"plugin.name\": \"pgoutput\",\n    \"database.port\": \"6432\",\n    \"topic.prefix\": \"dbz\",\n    \"database.hostname\": \"c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net\",\n    \"database.password\": \"transfer-test\",\n    \"name\": \"pg-email-dev-connector\",\n    \"heartbeat.interval.ms\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://debezium.com-dev.int.rolfcorp.ru/connectors/pg-flora_collected_vehicle_data-{{dbz_env}}-connector/pause",
+					"protocol": "http",
+					"host": [
+						"debezium",
+						"com-dev",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"connectors",
+						"pg-flora_collected_vehicle_data-{{dbz_env}}-connector",
+						"pause"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume connector Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"connector.class\": \"io.debezium.connector.postgresql.PostgresConnector\",\n    \"publication.autocreate.mode\": \"filtered\",\n    \"database.user\": \"transfer-test\",\n    \"database.dbname\": \"onerolf-dev\",\n    \"slot.drop.on.stop\": \"true\",\n    \"publication.name\": \"testingmail\",\n    \"database.server.name\": \"onerolf-dev\",\n    \"schema.include.list\": \"flora_persons_or_org\",\n    \"plugin.name\": \"pgoutput\",\n    \"database.port\": \"6432\",\n    \"topic.prefix\": \"dbz\",\n    \"database.hostname\": \"c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net\",\n    \"database.password\": \"transfer-test\",\n    \"name\": \"pg-email-dev-connector\",\n    \"heartbeat.interval.ms\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://debezium.com-dev.int.rolfcorp.ru/connectors/pg-flora_vehicles-debug-connector/resume",
+					"protocol": "http",
+					"host": [
+						"debezium",
+						"com-dev",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"connectors",
+						"pg-flora_vehicles-debug-connector",
+						"resume"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get dbz connector status Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://debezium.com-prod.int.rolfcorp.ru/connectors/pg-flora_persons_or_org-prod-connector/status",
+					"protocol": "http",
+					"host": [
+						"debezium",
+						"com-prod",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"connectors",
+						"pg-flora_persons_or_org-prod-connector",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get dbz connector tasks Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://debezium.com-dev.int.rolfcorp.ru/connectors/pg-flora_persons_or_org-{{dbz_env}}-connector/tasks",
+					"protocol": "http",
+					"host": [
+						"debezium",
+						"com-dev",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"connectors",
+						"pg-flora_persons_or_org-{{dbz_env}}-connector",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete connector Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://debezium.com-dev.int.rolfcorp.ru/connectors/pg-flora_collected_vehicle_data-develop-connector",
+					"protocol": "http",
+					"host": [
+						"debezium",
+						"com-dev",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"connectors",
+						"pg-flora_collected_vehicle_data-develop-connector"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset topics Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{dbz_host}}/connectors/pg-flora_collected_vehicle_data-debug-connector/topics/reset",
+					"host": [
+						"{{dbz_host}}"
+					],
+					"path": [
+						"connectors",
+						"pg-flora_collected_vehicle_data-debug-connector",
+						"topics",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "debezium!",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "debezium",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ops_host",
+			"value": "10.124.21.47:9200"
+		},
+		{
+			"key": "dbz_host",
+			"value": "http://debezium.com-dev.int.rolfcorp.ru"
+		},
+		{
+			"key": "ops_env",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
