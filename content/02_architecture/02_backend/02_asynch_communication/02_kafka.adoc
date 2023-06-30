@@ -14,17 +14,112 @@ include::content/init.adoc[]
 
 {empty} +
 
+== Коннектор Kafka
+
+****
+.Коннектор *Kafka*
+[[connector_kafka_anchor]]
+[%collapsible%close]
+====
+[source, json]
+----
+{
+    "id": "kafka-connector",
+    "name": "kafka-connector",
+    "enabled": true,
+    "settings": {
+        "connection": {
+            "group.id": "debug",
+            "bootstrap.servers": [
+            "rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net:9092",
+            "rc1b-lrbevic6utt4cieb.mdb.yandexcloud.net:9092",
+            "rc1c-69p753bljfrnb752.mdb.yandexcloud.net:9092"
+            ]
+        },
+        "parameters": [
+            {
+                "key": "security.protocol",
+                "value": "SASL_PLAINTEXT"
+            },
+            {
+                "key": "sasl.jaas.config",
+                "value": "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"integration\" password=\"cHgnNu2tRNG9yd8n\";"
+            },
+            {
+                "key": "auto.offset.reset",
+                "value": "earliest"
+            },
+            {
+                "key": "max.poll.records",
+                "value": "1"
+            },
+            {
+                "key": "sasl.mechanism",
+                "value": "SCRAM-SHA-512"
+            }
+        ],
+        "nats": {
+            "servers": [
+            "nats://localhost:4222"
+            ]
+        },
+        "tracing": {
+            "enabled": true,
+            "meta": true,
+            "messages": true,
+            "batch": true
+        }
+    }
+}
+----
+====
+****
+
+== Доступы Kafka
+
+****
+.Доступы *Kafka*
+[%collapsible%open]
+====
+[cols="^.^25,^.^25,^.^50"]
+[.center, width=100%]
+|===
+| Контур | Канал | Rest Proxy для Oracle
+
+| `dev` | `demo1` |
+| `prod` | `demo1` |
+| `dev` | `integration` | `dp-aswt:8082`
+| `prod` | `integration` | `dp-aswt:8085`
+| `dev` | `coreapp` | `dp-aswt:8080`
+| `prod` | `coreapp` | `dp-aswt:8083`
+| `dev` | `rolfid` | `dp-aswt:8090`
+| `prod` | `rolfid` | `dp-aswt:8095 (резервный dp-aswt:8096)`
+| `dev` | `clientid` | `dp-aswt:8086`
+| `prod` | `clientid` | `dp-aswt:8097(резервный dp-aswt:8098)`
+|===
+
+[cols=".^50,.^50"]
+|===
+^.^| Dev ^.^| Prod
+
+| `[.blue]#rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net:9091\9092#` | `[.blue]#rc1a-h4rbtpg2rorgpibp.mdb.yandexcloud.net:9091\9092#`
+| `[.blue]#rc1b-lrbevic6utt4cieb.mdb.yandexcloud.net:9091\9092#` | `[.blue]#rc1b-1vnkpqa7usddb6ln.mdb.yandexcloud.net:9091\9092#`
+| `[.blue]#rc1c-69p753bljfrnb752.mdb.yandexcloud.net:9091\9092#` | `[.blue]#rc1c-u98jcrniich8h520.mdb.yandexcloud.net:9091\9092#`
+|===
+====
+****
+
 ****
 *Kafka Apache* — распределенная система обмена сообщениями между серверными приложениями в режиме реального времени. Благодаря высокой пропускной способности, масштабируемости и надежности применяется в компаниях, работающих с большими объемами данных. Написана на языках *Java* и *Scala*.
 ****
 .Сервис очередей *Kafka* реализует в проекте *Rolf* обмен данными между модулями:
 ****
 |===
-|link:/02_architecture/02_backend/05_internal_systems_rolf/03_mdm/[*MDM*, window=_blank] .5+^.^| +++ <p style="font-size:72px;">И</p> +++ .5+^.^| link:/02_architecture/02_backend/11_platformeco/[*Platformeco*, window=_blank]
-|link:/02_architecture/02_backend/05_internal_systems_rolf/04_wms/[*WMS*, window=_blank]
-|link:/02_architecture/02_backend/05_internal_systems_rolf/05_edo_service/[*Сервис ЭДО (подписание договоров)*, window=_blank]
-|link:/02_architecture/02_backend/08_communication_service/[*Коммуникационный сервис*, window=_blank]
-|link:/02_architecture/02_backend/09_cdp/[*CDP*, window=_blank]
+| link:/02_architecture/02_backend/05_internal_systems_rolf/04_mdm/[*MDM*, window=_blank] .5+^.^| +++ <p style="font-size:72px;">И</p> +++ .5+^.^| link:/02_architecture/02_backend/12_technologies/02_platformeco/[*Platformeco*, window=_blank]
+| link:/02_architecture/02_backend/05_internal_systems_rolf/05_wms/[*WMS*, window=_blank]
+| link:/02_architecture/02_backend/05_internal_systems_rolf/06_edo_service/[*Сервис ЭДО (подписание договоров)*, window=_blank]
+| link:/02_architecture/02_backend/06_separate_microservices/05_communication_service/[*Коммуникационный сервис*, window=_blank]
+| link:/02_architecture/02_backend/09_cdp/[*CDP*, window=_blank]
 |===
 ****
 ****
