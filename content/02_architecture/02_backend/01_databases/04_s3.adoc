@@ -14,6 +14,47 @@ include::content/init.adoc[]
 
 {empty} +
 
+== Подключения к S3 в Platformeco
+
+****
+.Подключения *Platformeco* по протоколу *HTTP*
+[%collapsible%open]
+====
+[cols=".^100"]
+|===
+| Настройки подключения через *CyberDuck* | link:https://cyberduck.io/[window=_blank]
+| Connection type | *Amazon S3*
+| Server and port | link:storage.yandexcloud.net:443[window=_blank]
+| Access Key ID | The id that you received when generating the static key: `*YCAJEdgDFj9JbYDaWB2HdTK5i*`
+| Password | The secretKey that you received when generating the static key: `*YCP9tmRKlfsB0rKavPJ28PotWBfaamhT6N9BLSpS*`
+|===
+====
+****
+
+=== Настройки коннектора в Platformeco
+
+****
+.Настройки коннектора в *Platformeco*
+[[settings_anchor]]
+[%collapsible%open]
+====
+image::settings.png[title="Настройки коннектора в *Platformeco*", align=center]
+====
+****
+
+=== Получение файла по ключу
+
+****
+.Получение файла по ключу
+[[simple_storage_service_anchor]]
+[%collapsible%open]
+====
+image::simple_storage_service.png[title="Получение файла по ключу", align=center]
+====
+****
+
+== Хранилище данных S3
+
 .Что такое объектное хранилище данных (*S3*)?
 ****
 Объектным хранилищем (*object storage*) называют масштабируемое решение для хранения различных данных. Оно подходит как для высоконагруженных сервисов, которым требуется надежный и быстрый доступ к данным, так и для проектов с невысокими требованиями к инфраструктуре хранения. Можно хранить данные произвольного формата в виде объектов с доступом по идентификатору.

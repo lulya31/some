@@ -14,6 +14,45 @@ include::content/init.adoc[]
 
 {empty} +
 
+== Подключения Platformeco по протоколу HTTP
+
+****
+.Подключения *Platformeco* по протоколу *HTTP*
+[%collapsible%open]
+====
+[cols=".^100"]
+|===
+^.^| *Cloud Studio*
+| `*link:https://cloud-studio.plf-dev.int.rolfcorp.ru/[window=_blank]*` - `*link:http://dp-asw3:20030[window=_blank]*`
+^.^| *COREAPP*
+| `*link:https://orchestrator-coreapp-test.plf-dev.int.rolfcorp.ru/[window=_blank]*` - `*link:http://dp-asw3:20040[window=_blank]*`
+| `*link:https://orchestrator-coreapp-develop.plf-dev.int.rolfcorp.ru/[window=_blank]*` - `*link:http://dp-asw3:20050[window=_blank]*`
+| `*link:https://orchestrator-coreapp-preprod.plf-dev.int.rolfcorp.ru/[window=_blank]*` - `*link:http://dp-asw3:20060[window=_blank]*`
+| `*link:https://orchestrator-coreapp.plf.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw4:20060[window=_blank]*`
+^.^| *ROLFID*
+| `*link:https://orchestrator-rolfid-test.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:30040[window=_blank]*`
+| `*link:https://orchestrator-rolfid-develop.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:30050[window=_blank]*`
+| `*link:https://orchestrator-rolfid-preprod.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:30060[window=_blank]*`
+| `*link:https://orchestrator-rolfid.plf.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw4:30060[window=_blank]*`
+^.^| *CLIENTID*
+| `*link:https://orchestrator-clientid-test.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:40040[window=_blank]*`
+| `*link:https://orchestrator-clientid-develop.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:40050[window=_blank]*`
+| `*link:https://orchestrator-clientid-preprod.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:40060[window=_blank]*`
+| `*link:https://orchestrator-clientid.plf.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw4:40060[window=_blank]*`
+^.^| *INTEGRATION*
+| `*link:https://orchestrator-integration-test.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:50040[window=_blank]*`
+| `*link:https://orchestrator-integration-develop.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:50050[window=_blank]*`
+| `*link:https://orchestrator-integration-preprod.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:50060[window=_blank]*`
+| `*link:https://orchestrator-integration.plf.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw4:50060[window=_blank]*`
+^.^| *API.PLF*
+| `*link:https://api-test.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:60040[window=_blank]*`
+| `*link:https://api-dev.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:60050[window=_blank]*`
+| `*link:https://api-preprod.plf-dev.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw3:60060[window=_blank]*`
+| `*link:https://api.plf.int.rolfcorp.ru[window=_blank]*` - `*link:http://dp-asw4:60060[window=_blank]*`
+|===
+====
+****
+
 == Что такое Platformeco?
 
 ****
