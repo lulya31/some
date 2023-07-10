@@ -14,6 +14,21 @@ include::content/init.adoc[]
 
 {empty} +
 
+== Доступы OpenTelemetry
+
+.*Телеметрия мониторинг*
+****
+[cols="^.^30h,.^70"]
+|===
+| Окружение ^.^| URL
+
+| Development | link:https://telemetry-ui-<channel>-develop.plf-dev.int.rolfcorp.ru[window=_blank]
+| Preproduction | link:https://telemetry-ui-<channel>-preprod.plf-dev.int.rolfcorp.ru[window=_blank]
+| Production | link:https://telemetry-ui-<channel>.plf.int.rolfcorp.ru[window=_blank]
+| Test | link:https://telemetry-ui-<channel>-test.plf-dev.int.rolfcorp.ru[window=_blank]
+|===
+****
+
 == Что такое OpenTelemetry?
 
 ****
