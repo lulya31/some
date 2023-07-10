@@ -14,6 +14,21 @@ include::content/init.adoc[]
 
 {empty} +
 
+== Доступы Jeager
+
+.*Трейсинг*
+****
+[cols="^.^30h,.^70"]
+|===
+| Окружение ^.^| URL
+
+| Development | link:https://jaeger-query-<channel>-develop.plf-dev.int.rolfcorp.ru[window=_blank]
+| Preproduction | link:https://jaeger-query-<channel>-preprod.plf-dev.int.rolfcorp.ru[window=_blank]
+| Production | link:https://jaeger-query-<channel>.plf.int.rolfcorp.ru[window=_blank]
+| Test | link:https://jaeger-query-<channel>-test.plf-dev.int.rolfcorp.ru[window=_blank]
+|===
+****
+
 == О системе Jaeger
 
 ****

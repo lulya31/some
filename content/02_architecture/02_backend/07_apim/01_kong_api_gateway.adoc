@@ -14,6 +14,21 @@ include::content/init.adoc[]
 
 {empty} +
 
+== Доступы Kong APIM
+
+****
+[cols="^.^10h,90"]
+|===
+| Окружение ^.^| URL
+
+| Dev | `*link:https://api-dev.plf-dev.int.rolfcorp.ru/[window=_blank]*`
+| Stage | `*link:https://api-stage.plf-dev.int.rolfcorp.ru/[window=_blank]*`
+| PreProd | `*link:https://api-preprod.plf-dev.int.rolfcorp.ru/[window=_blank]*`
+| Test | `*link:https://api-test.plf-dev.int.rolfcorp.ru/[window=_blank]*`
+| Prod | `*link:https://api.plf.int.rolfcorp.ru/[window=_blank]*`
+|===
+****
+
 == Реализация API Gateway в проекте Rolf
 
 ****

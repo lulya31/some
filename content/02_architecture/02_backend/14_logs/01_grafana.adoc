@@ -14,6 +14,26 @@ include::content/init.adoc[]
 
 {empty} +
 
+== Доступы Grafana
+
+.*Мониторинг*
+****
+* `*link:https://monitoring.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://monitoring.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://monitoring.com-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://monitoring.com-prod.int.rolfcorp.ru/*`[window=_blank]
+****
+
+.*Логирование*
+****
+* `*link:https://logging.plf.int.rolfcorp.ru/login*`[window=_blank]
+* `*link:https://logging.com-dev.int.rolfcorp.ru/login*`[window=_blank]
+* `*link:https://logging.plf-dev.int.rolfcorp.ru/login*`[window=_blank]
+* `*link:https://logging.com-prod.int.rolfcorp.ru/login*`[window=_blank]
+****
+
+== Grafana
+
 ****
 Логирование в проекте *Rolf* реализуется с использованием продукта link:https://grafana.com/oss/loki/[*Grafana Loki*, window=_blank].
 *Grafana* — универсальный инструмент мониторинга, с помощью которого аналитики и менеджеры могут самостоятельно анализировать метрики, строить сложные графики с учетом множества разных параметров.

@@ -14,6 +14,29 @@ include::content/init.adoc[]
 
 {empty} +
 
+== Доступы к системе OpenSearch
+
+****
+[cols=".^30,.^10,.^60"]
+|===
+^.^| Окружение | |
+
+.2+^| `log-search-dev` | Data | `[.blue]#rc1a-12u3pgq5ognod27k.mdb.yandexcloud.net#`
+| Dashboard | `[.blue]#c-c9qepe1trei5f7imkupm.rw.mdb.yandexcloud.net#`
+.2+^| `log-search-prod` | Data | `[.blue]#rc1a-jk4vs9uauikf93f7.mdb.yandexcloud.net#`
+| Dashboard | `[.blue]#c-c9q5kgmketek2uod6tip.rw.mdb.yandexcloud.net#`
+.2+^| `telemetry-plf-dev` +
+(_тут хрянится трейсы из **PL**_) | Data | `[.blue]#rc1a-o9irn5kf3rgj031l.mdb.yandexcloud.net#`
+| Dashboard | `[.blue]#c-c9qsi4u2n12opfh8b4g0.rw.mdb.yandexcloud.net#`
+.2+^| `telemetry-plf-prod` +
+(_тут хрянится трейсы из **PL**_) | Data | `[.blue]#rc1a-s94res1o5kd4q59s.mdb.yandexcloud.net#` +
+`[.blue]#rc1b-m1mr87j2426hlhal.mdb.yandexcloud.net#`
+| Dashboard | `[.blue]#c-c9q8o1hr0j5go2ovukur.rw.mdb.yandexcloud.net#`
+|===
+****
+
+== Система OpenSearch
+
 ****
 *OpenSearch* — это система поиска и аналитики с открытым исходным кодом, используемая разработчиками для получения, поиска, визуализации и анализа данных. *OpenSearch* состоит из хранилища данных и поисковой системы (*OpenSearch*), визуализации и пользовательского интерфейса (*OpenSearch Dashboards*), а так же сборщика данных на стороне сервера (*Data Prepper*). Пользователи могут предоставить доступ к функциональности *OpenSearch* с помощью набора подключаемых модулей, улучшающих поиск, аналитику, безопасность и многое другое.
 ****

@@ -14,6 +14,40 @@ include::content/init.adoc[]
 
 {empty} +
 
+== Доступы Leroy API Management
+
+.*Prod* микросервисы
+****
+* `*link:https://meta-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://appeng-apim.plf.int.rolfcorp.ru*`[window=_blank]
+* `*link:https://rbac-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://spec-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://oauth-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://validator.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://docs-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+****
+
+.*Prod* UI
+****
+* `*link:https://ui-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+****
+
+.*Dev* микросервисы
+****
+* `*link:https://meta-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://appeng-apim.plf-dev.int.rolfcorp.ru*`[window=_blank]
+* `*link:https://rbac-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://spec-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://oauth-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://validator.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://docs-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+****
+
+.*Dev* UI
+****
+* `*link:https://ui-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+****
+
 == API Management
 
 ****
