@@ -1,0 +1,1945 @@
+{
+	"info": {
+		"_postman_id": "8966e198-e7f6-4955-a002-1a9f23756d06",
+		"name": "OpenSearch Platformeco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25543017",
+		"_collection_link": "https://winter-shuttle-769386.postman.co/workspace/My-Workspace~739064c0-3bcc-49a8-8761-5aef270e01c5/collection/25543017-8966e198-e7f6-4955-a002-1a9f23756d06?action=share&creator=25543017&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "opensearch",
+			"item": [
+				{
+					"name": "add item to index",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"111bf685-51a8-4271-bf06-fef3e0162252\",\n    \"version\": 1,\n    \"object\": {\n        \"uuid\": \"121bf685-51a8-4271-bf06-fef3e0162252\",\n        \"hide_personal_data\": null,\n        \"archived\": false,\n        \"blocked\": false,\n        \"is_client\": true,\n        \"ui_id\": \"8925009\",\n        \"person\": {\n            \"uuid\": \"111bf685-51a8-4271-bf06-fef3e0162252\",\n            \"person_type\": {},\n            \"date_begin\": \"2016-11-11T21:00:00.000Z\",\n            \"date_finish\": null,\n            \"surname\": \"оусвекочнрт\",\n            \"name\": \"диляр\",\n            \"middlename\": \"шухайло\",\n            \"gender_is_female\": false,\n            \"birth_date\": \"1954-04-02T00:00:00.000Z\",\n            \"driving_begin_date\": null,\n            \"driving_begin_date_is_calc\": null,\n            \"photo_url\": null,\n            \"citizenship\": null,\n            \"is_married\": false,\n            \"famous_person_type\": null,\n            \"hide_personal_data\": null,\n            \"ui_id\": \"8925009\",\n            \"children\": null,\n            \"comments\": null\n        },\n        \"addresses\": [\n            {\n                \"uuid\": \"109949fd-bfc5-4b4a-b696-cc77e27c96da\",\n                \"address_type\": {},\n                \"date_begin\": \"2016-11-11T21:00:00.000Z\",\n                \"date_finish\": \"2200-12-30T21:00:00.000Z\",\n                \"postal_index\": null,\n                \"fias_code\": null,\n                \"address_string\": \"г. Санкт-Петербург ул. Десантников  190000  кв. 92  дом 14 \",\n                \"address_as_single_text_string\": null,\n                \"dadata_json\": null\n            }\n        ],\n        \"telephones\": [\n            {\n                \"uuid\": \"31bdc6ae-9c0c-4235-ab4c-0a06f0a99124\",\n                \"is_main\": true,\n                \"persons_or_org_s_uuid\": \"111bf685-51a8-4271-bf06-fef3e0162252\",\n                \"telephone_number\": \"13219612289\",\n                \"is_verified\": false,\n                \"comments\": null\n            }\n        ],\n        \"messengers\": null,\n        \"socials\": null,\n        \"emails\": null,\n        \"discount_cards\": null,\n        \"documents\": null,\n        \"bank_accounts\": null,\n        \"consent_to_pers_data_processing_documents\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_env}}/_doc/1112bf685-51a8-4271-bf06-fef7331",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_env}}",
+								"_doc",
+								"1112bf685-51a8-4271-bf06-fef7331"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get client by uuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_/_doc/c5f4c36a-eef0-4d9b-861e-f0566de43bdd",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_",
+								"_doc",
+								"c5f4c36a-eef0-4d9b-861e-f0566de43bdd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"bool\": {\n      \"should\": [\n        {\n            \"match_phrase_prefix\": {\n                \"object.person.name\": {\n                \"query\": \"Кофтун\",\n                \"slop\": 3\n                }\n            }\n        },\n        {\n            \"match_phrase_prefix\": {\n                \"object.person.surname\": {\n                \"query\": \"Кофтун\",\n                \"slop\": 3\n                }\n            }\n        }\n      ]\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_env}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_env}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search for dups",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"bool\": {\n        \"must\"\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/clients_{{ops_env}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"clients_{{ops_env}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": 0,\r\n    \"size\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_env}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_env}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all data debug",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": 0,\r\n    \"size\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_debug/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_debug",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all indices",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/_cat/indices?format=json",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"_cat",
+								"indices"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "json"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search develop",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"bool\": {\n      \"should\": [\n        {\n            \"match_phrase_prefix\": {\n                \"object.person.name\": {\n                \"query\": \"К\",\n                \"slop\": 3\n                }\n            }\n        },\n        {\n            \"match_phrase_prefix\": {\n                \"object.person.surname\": {\n                \"query\": \"К\",\n                \"slop\": 3\n                }\n            }\n        }\n      ]\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_develop/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_develop",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all data develop",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"from\": 0,\n    \"size\": 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_develop/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_develop",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all data develop with gave_organization_name",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"query\" : {\n      \"constant_score\" : {\n         \"filter\" : {\n            \"exists\" : {\n               \"field\" : \"object.documents.gave_organization_name\"\n            }\n         }\n      }\n   }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_develop/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_develop",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "********",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "platformeco_user",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "examples",
+			"item": [
+				{
+					"name": "add 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"0368dc9e-44fc-411a-a2ca-4729916cdd35\",\n    \"version\": 2,\n    \"object\": {\n        \"uuid\": \"0368dc9e-44fc-411a-a2ca-4729916cdd35\",\n        \"hide_personal_data\": null,\n        \"archived\": false,\n        \"is_forbidden\": {\n            \"status\": false,\n            \"reason\": null\n        },\n        \"is_client\": true,\n        \"ui_id\": \"44700090\",\n        \"general_consent_to_advertising_communications\": false,\n        \"general_consent_to_advertising_communications_date\": null,\n        \"general_consent_to_personal_data_processing\": false,\n        \"general_consent_to_personal_data_processing_date\": null,\n        \"general_consent_to_non_advertising_communications\": false,\n        \"general_consent_to_non_advertising_communications_date\": null,\n        \"person\": {\n            \"uuid\": \"0368dc9e-44fc-411a-a2ca-4729916cdd35\",\n            \"person_type\": {},\n            \"date_begin\": \"2018-12-24T21:00:00.000Z\",\n            \"date_finish\": null,\n            \"surname\": \"Маеров\",\n            \"name\": \"Антон\",\n            \"middlename\": null,\n            \"gender_is_female\": false,\n            \"birth_date\": \"0000-01-01T00:00:00.000Z\",\n            \"driving_begin_date\": null,\n            \"driving_begin_date_is_calc\": null,\n            \"photo_url\": null,\n            \"citizenship\": null,\n            \"is_married\": false,\n            \"famous_person_type\": null,\n            \"hide_personal_data\": null,\n            \"ui_id\": \"44700090\",\n            \"children\": null,\n            \"comments\": null\n        },\n        \"addresses\": null,\n        \"telephones\": [\n            {\n                \"uuid\": \"8145875f-234d-4506-b25f-da3fdf54f638\",\n                \"is_main\": true,\n                \"persons_or_org_s_uuid\": \"0368dc9e-44fc-411a-a2ca-4729916cdd35\",\n                \"telephone_number\": \"89006962222\",\n                \"is_verified\": false,\n                \"comments\": null\n            }\n        ],\n        \"messengers\": null,\n        \"socials\": null,\n        \"emails\": null,\n        \"discount_cards\": null,\n        \"documents\": null,\n        \"bank_accounts\": null,\n        \"consent_to_pers_data_processing_documents\": null\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_debug}}/_doc/0368dc9e-44fc-411a-a2ca-4729916cdd35",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_debug}}",
+								"_doc",
+								"0368dc9e-44fc-411a-a2ca-4729916cdd35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search example",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"bool\": {\n      \"must\": [\n        {\n            \"match_phrase_prefix\": {\n                \"object.documents.gave_organization_name\": {\n                \"query\": \"Рязань\",\n                \"slop\": 3\n                }\n            }\n        }\n      ],\n      \"should\": [\n        {\n            \"match_phrase_prefix\": {\n                \"object.person.surname\": {\n                \"query\": \"М\",\n                \"slop\": 3\n                }\n            }\n        }\n      ]\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_dev}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_dev}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "analyze example",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/_analyze?pretty&analyzer=standard&text=%D0%92%D0%B5%D1%81%D0%B5%D0%BB%D1%8B%D0%B5%20%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20%D0%BF%D1%80%D0%BE%20%D0%BA%D0%BE%D1%82%D1%8F%D1%82\"",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"_analyze"
+							],
+							"query": [
+								{
+									"key": "pretty",
+									"value": null
+								},
+								{
+									"key": "analyzer",
+									"value": "standard"
+								},
+								{
+									"key": "text",
+									"value": "%D0%92%D0%B5%D1%81%D0%B5%D0%BB%D1%8B%D0%B5%20%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20%D0%BF%D1%80%D0%BE%20%D0%BA%D0%BE%D1%82%D1%8F%D1%82\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create index and new doc",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdateSubscription\": {\n        \"Endpoint\": \"demo\",\n        \"Originator\": \"platformeco\",\n        \"Token\": \"eZfi$6D\",\n        \"Subscribe\": [\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"Работа\"\n                    }\n                ]\n            },\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"ЗапаснаяЧасть\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_tmp/_doc",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_tmp",
+								"_doc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete index",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_debug2/",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_debug2",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "********",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "platformeco_user",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "rolf_clients_debug",
+			"item": [
+				{
+					"name": "add 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"915f6ab5-21cd-4319-9654-a13f6c78be71\",\n    \"version\": 2,\n    \"object\": {\n        \"uuid\": \"915f6ab5-21cd-4319-9654-a13f6c78be71\",\n        \"hide_personal_data\": null,\n        \"archived\": false,\n        \"is_forbidden\": {\n            \"status\": false,\n            \"reason\": null\n        },\n        \"is_client\": true,\n        \"ui_id\": \"38192699\",\n        \"general_consent_to_advertising_communications\": false,\n        \"general_consent_to_advertising_communications_date\": null,\n        \"general_consent_to_personal_data_processing\": false,\n        \"general_consent_to_personal_data_processing_date\": null,\n        \"general_consent_to_non_advertising_communications\": false,\n        \"general_consent_to_non_advertising_communications_date\": null,\n        \"person\": {\n            \"uuid\": \"915f6ab5-21cd-4319-9654-a13f6c78be71\",\n            \"person_type\": {},\n            \"date_begin\": \"2019-01-15T21:00:00.000Z\",\n            \"date_finish\": null,\n            \"surname\": \"Лисик\",\n            \"name\": \"Антон\",\n            \"middlename\": null,\n            \"gender_is_female\": false,\n            \"birth_date\": \"0000-01-01T00:00:00.000Z\",\n            \"driving_begin_date\": null,\n            \"driving_begin_date_is_calc\": null,\n            \"photo_url\": null,\n            \"citizenship\": null,\n            \"is_married\": false,\n            \"famous_person_type\": null,\n            \"hide_personal_data\": null,\n            \"ui_id\": \"38192699\",\n            \"children\": null,\n            \"comments\": null\n        },\n        \"addresses\": null,\n        \"telephones\": [\n            {\n                \"uuid\": \"926d16b8-70f7-475a-a861-6ad7d6f52652\",\n                \"is_main\": true,\n                \"persons_or_org_s_uuid\": \"915f6ab5-21cd-4319-9654-a13f6c78be71\",\n                \"telephone_number\": \"89217979466\",\n                \"is_verified\": false,\n                \"comments\": null\n            }\n        ],\n        \"messengers\": null,\n        \"socials\": null,\n        \"emails\": null,\n        \"discount_cards\": null,\n        \"documents\": [\n            {\n                \"uuid\": \"3f8933bf-8716-448e-8ee0-ea426ad847e1\",\n                \"class\": {\n                    \"name\": \"Удост-е личности\",\n                    \"persons_or_org_document_class_d_uuid\": \"b4b13802-8173-4be6-8207-196fe0f9d1fc\"\n                },\n                \"type\": {\n                    \"persons_or_org_document_type_d_uuid\": \"Паспорт гражданина Российской Федерации\"\n                },\n                \"subtype\": null,\n                \"series\": \"4009\",\n                \"number\": \"886102\",\n                \"gave_organization_name\": \"тп №24 отдела уфмс россии пр санкт-петербургу и ленинградской обл в кировском р-не гор санкт-петербурга\",\n                \"gave_department_code\": \"780-024\",\n                \"valid_since_date\": \"2009-12-03T00:00:00.000Z\",\n                \"expired_date\": null,\n                \"date_begin\": \"2022-01-30T21:00:00.000Z\",\n                \"date_finish\": \"2200-12-30T21:00:00.000Z\",\n                \"is_verified\": true,\n                \"is_hidden_for_mobile_application\": false,\n                \"vin\": null,\n                \"vehicle_state_registration_number\": null,\n                \"legal_user_uuid\": \"915f6ab5-21cd-4319-9654-a13f6c78be71\",\n                \"principal_for_power_of_attorney_uuid\": null,\n                \"account_number_for_transponder\": null\n            }\n        ],\n        \"bank_accounts\": null,\n        \"consent_to_pers_data_processing_documents\": [\n            {\n                \"uuid\": \"44a211c3-7217-4801-bd80-37cbe5eeef08\",\n                \"is_revocation_of_consent\": false,\n                \"sopd_date\": \"2022-01-30T21:00:00.000Z\",\n                \"consent_to_personal_data_processing\": false,\n                \"consent_to_advertising_communications\": false,\n                \"consent_to_non_advertising_communications\": false,\n                \"paper_scan_image_url\": \"f24869d6-bc09-11ed-82c6-0050568a78dc\",\n                \"electronic_address_ip\": null,\n                \"electronic_google_id\": null,\n                \"electronic_yandex_id\": null,\n                \"electronic_operating_system\": null,\n                \"electronic_screen_resolution\": null,\n                \"electronic_browser\": null,\n                \"electronic_browser_version\": null,\n                \"electronic_is_in_mobile_application\": false,\n                \"electronic_sms_code_sent\": null,\n                \"electronic_sms_code_received\": null,\n                \"sopd_comments\": null,\n                \"persons_or_org_consent_to_pers_data_process_template_d_uuid\": null\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_debug}}/_doc/915f6ab5-21cd-4319-9654-a13f6c78be71",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_debug}}",
+								"_doc",
+								"915f6ab5-21cd-4319-9654-a13f6c78be71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"2c2fb1d9-dc03-468a-b96c-70b99301ae2e\",\n    \"version\": 3,\n    \"object\": {\n        \"uuid\": \"2c2fb1d9-dc03-468a-b96c-70b99301ae2e\",\n        \"hide_personal_data\": null,\n        \"archived\": false,\n        \"is_forbidden\": {\n            \"status\": false,\n            \"reason\": null\n        },\n        \"is_client\": true,\n        \"ui_id\": \"35093029\",\n        \"general_consent_to_advertising_communications\": false,\n        \"general_consent_to_advertising_communications_date\": null,\n        \"general_consent_to_personal_data_processing\": false,\n        \"general_consent_to_personal_data_processing_date\": null,\n        \"general_consent_to_non_advertising_communications\": false,\n        \"general_consent_to_non_advertising_communications_date\": null,\n        \"person\": {\n            \"uuid\": \"2c2fb1d9-dc03-468a-b96c-70b99301ae2e\",\n            \"person_type\": {},\n            \"date_begin\": \"2018-08-12T21:00:00.000Z\",\n            \"date_finish\": null,\n            \"surname\": \"Поварницин\",\n            \"name\": \"Сергей\",\n            \"middlename\": \"Николаевич\",\n            \"gender_is_female\": false,\n            \"birth_date\": \"0000-01-01T00:00:00.000Z\",\n            \"driving_begin_date\": null,\n            \"driving_begin_date_is_calc\": null,\n            \"photo_url\": null,\n            \"citizenship\": null,\n            \"is_married\": false,\n            \"famous_person_type\": null,\n            \"hide_personal_data\": null,\n            \"ui_id\": \"35093029\",\n            \"children\": null,\n            \"comments\": null\n        },\n        \"addresses\": null,\n        \"telephones\": [\n            {\n                \"uuid\": \"24afac9b-da2b-4c77-9f24-0d5e9df4d791\",\n                \"is_main\": true,\n                \"persons_or_org_s_uuid\": \"2c2fb1d9-dc03-468a-b96c-70b99301ae2e\",\n                \"telephone_number\": \"89052726504\",\n                \"is_verified\": false,\n                \"comments\": null\n            }\n        ],\n        \"messengers\": null,\n        \"socials\": null,\n        \"emails\": [\n            {\n                \"uuid\": \"99c8010c-9013-4f47-bc4f-c4f98d3f972a\",\n                \"email_address\": \"Povarnitsin.S@baltlease.ru\",\n                \"is_verified\": false,\n                \"is_main\": true\n            }\n        ],\n        \"discount_cards\": null,\n        \"documents\": [\n            {\n                \"uuid\": \"911ee63a-73d3-4de6-b93e-5e162a021d32\",\n                \"class\": {\n                    \"name\": \"Удост-е личности\",\n                    \"persons_or_org_document_class_d_uuid\": \"b4b13802-8173-4be6-8207-196fe0f9d1fc\"\n                },\n                \"type\": {\n                    \"persons_or_org_document_type_d_uuid\": \"Паспорт гражданина Российской Федерации\"\n                },\n                \"subtype\": null,\n                \"series\": \"5705\",\n                \"number\": \"855803\",\n                \"gave_organization_name\": \"Чайковским ГОВД Пермского края\",\n                \"gave_department_code\": null,\n                \"valid_since_date\": \"2006-03-13T00:00:00.000Z\",\n                \"expired_date\": null,\n                \"date_begin\": \"2021-11-01T21:00:00.000Z\",\n                \"date_finish\": \"2200-12-30T21:00:00.000Z\",\n                \"is_verified\": true,\n                \"is_hidden_for_mobile_application\": false,\n                \"vin\": null,\n                \"vehicle_state_registration_number\": null,\n                \"legal_user_uuid\": \"2c2fb1d9-dc03-468a-b96c-70b99301ae2e\",\n                \"principal_for_power_of_attorney_uuid\": null,\n                \"account_number_for_transponder\": null\n            }\n        ],\n        \"bank_accounts\": null,\n        \"consent_to_pers_data_processing_documents\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_debug}}/_doc/2c2fb1d9-dc03-468a-b96c-70b99301ae2e",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_debug}}",
+								"_doc",
+								"2c2fb1d9-dc03-468a-b96c-70b99301ae2e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"73bb4c4d-10d4-4934-861d-9ebd64aab6e4\",\n    \"version\": 3,\n    \"object\": {\n        \"uuid\": \"73bb4c4d-10d4-4934-861d-9ebd64aab6e4\",\n        \"hide_personal_data\": null,\n        \"archived\": false,\n        \"is_forbidden\": {\n            \"status\": false,\n            \"reason\": null\n        },\n        \"is_client\": true,\n        \"ui_id\": \"86846393\",\n        \"general_consent_to_advertising_communications\": false,\n        \"general_consent_to_advertising_communications_date\": null,\n        \"general_consent_to_personal_data_processing\": false,\n        \"general_consent_to_personal_data_processing_date\": null,\n        \"general_consent_to_non_advertising_communications\": false,\n        \"general_consent_to_non_advertising_communications_date\": null,\n        \"person\": {\n            \"uuid\": \"73bb4c4d-10d4-4934-861d-9ebd64aab6e4\",\n            \"person_type\": {},\n            \"date_begin\": \"2018-08-06T21:00:00.000Z\",\n            \"date_finish\": null,\n            \"surname\": \"Котков\",\n            \"name\": \"Алексей\",\n            \"middlename\": \"Владимирович\",\n            \"gender_is_female\": false,\n            \"birth_date\": \"0000-01-01T00:00:00.000Z\",\n            \"driving_begin_date\": null,\n            \"driving_begin_date_is_calc\": null,\n            \"photo_url\": null,\n            \"citizenship\": null,\n            \"is_married\": false,\n            \"famous_person_type\": null,\n            \"hide_personal_data\": null,\n            \"ui_id\": \"86846393\",\n            \"children\": null,\n            \"comments\": null\n        },\n        \"addresses\": null,\n        \"telephones\": [\n            {\n                \"uuid\": \"f5dd1be6-0fc6-423e-aa5f-bacdaa76a3b2\",\n                \"is_main\": true,\n                \"persons_or_org_s_uuid\": \"73bb4c4d-10d4-4934-861d-9ebd64aab6e4\",\n                \"telephone_number\": \"89152035354\",\n                \"is_verified\": false,\n                \"comments\": null\n            }\n        ],\n        \"messengers\": null,\n        \"socials\": null,\n        \"emails\": [\n            {\n                \"uuid\": \"ad0902bd-64c9-4b3f-b007-7819dc51c0a6\",\n                \"email_address\": \"4604349@mail.ru\",\n                \"is_verified\": false,\n                \"is_main\": true\n            }\n        ],\n        \"discount_cards\": null,\n        \"documents\": [\n            {\n                \"uuid\": \"dd9cd67f-a76b-4918-9071-c8eefc9e290d\",\n                \"class\": {\n                    \"name\": \"Удост-е личности\",\n                    \"persons_or_org_document_class_d_uuid\": \"b4b13802-8173-4be6-8207-196fe0f9d1fc\"\n                },\n                \"type\": {\n                    \"persons_or_org_document_type_d_uuid\": \"Паспорт гражданина Российской Федерации\"\n                },\n                \"subtype\": null,\n                \"series\": \"0304\",\n                \"number\": \"515788\",\n                \"gave_organization_name\": \"СЛАВЯНСКИМ ОВД КРАСНОДАРСКОГО КРАЯ\",\n                \"gave_department_code\": \"232-023\",\n                \"valid_since_date\": \"2003-05-14T00:00:00.000Z\",\n                \"expired_date\": null,\n                \"date_begin\": \"2022-09-25T21:00:00.000Z\",\n                \"date_finish\": \"2200-12-30T21:00:00.000Z\",\n                \"is_verified\": true,\n                \"is_hidden_for_mobile_application\": false,\n                \"vin\": null,\n                \"vehicle_state_registration_number\": null,\n                \"legal_user_uuid\": \"73bb4c4d-10d4-4934-861d-9ebd64aab6e4\",\n                \"principal_for_power_of_attorney_uuid\": null,\n                \"account_number_for_transponder\": null\n            }\n        ],\n        \"bank_accounts\": null,\n        \"consent_to_pers_data_processing_documents\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_debug}}/_doc/73bb4c4d-10d4-4934-861d-9ebd64aab6e4",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_debug}}",
+								"_doc",
+								"73bb4c4d-10d4-4934-861d-9ebd64aab6e4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get info",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_debug}}",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_debug}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all data debug",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": 0,\r\n    \"size\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_debug}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_debug}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search example",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"bool\": {\n      \"must\": [\n        {\n            \"match\": {\n                \"object.documents.type.persons_or_org_document_type_d_uuid\": {\n                    \"query\": \"паспорт гражданина\"\n                }\n            }\n        }\n      ],\n      \"should\": [\n        {\n            \"match\": {\n                \"object.documents.gave_organization_name\": {\n                    \"query\": \"ГОВД края\"\n                }\n            }\n        },\n        {\n            \"match_phrase_prefix\": {\n                \"object.person.surname\": {\n                    \"query\": \"М\",\n                    \"slop\": 3\n                }\n            }\n        }\n      ]\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_{{ops_debug}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_{{ops_debug}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create index and new doc",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdateSubscription\": {\n        \"Endpoint\": \"demo\",\n        \"Originator\": \"platformeco\",\n        \"Token\": \"eZfi$6D\",\n        \"Subscribe\": [\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"Работа\"\n                    }\n                ]\n            },\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"ЗапаснаяЧасть\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_tmp/_doc",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_tmp",
+								"_doc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "settings",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdateSubscription\": {\n        \"Endpoint\": \"demo\",\n        \"Originator\": \"platformeco\",\n        \"Token\": \"eZfi$6D\",\n        \"Subscribe\": [\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"Работа\"\n                    }\n                ]\n            },\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"ЗапаснаяЧасть\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_debug/_settings",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_debug",
+								"_settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete index",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_debug2/",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_debug2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unlock settings",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"index.blocks.read_only_allow_delete\": null}"
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_debug/_settings",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_debug",
+								"_settings"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "********",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "platformeco_user",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "rolf_clients_shukan",
+			"item": [
+				{
+					"name": "create index",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"aliases\": {},\n    \"mappings\": {\n        \"properties\": {\n            \"object\": {\n                \"properties\": {\n                    \"consent_to_pers_data_processing_documents\": {\n                        \"properties\": {\n                            \"consent_to_advertising_communications\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"consent_to_non_advertising_communications\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"consent_to_personal_data_processing\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"electronic_is_in_mobile_application\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"is_revocation_of_consent\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"paper_scan_image_url\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"sopd_date\": {\n                                \"type\": \"date\"\n                            },\n                            \"uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    \"documents\": {\n                        \"properties\": {\n                            \"class\": {\n                                \"properties\": {\n                                    \"name\": {\n                                        \"type\": \"text\",\n                                        \"fields\": {\n                                            \"keyword\": {\n                                                \"type\": \"keyword\",\n                                                \"ignore_above\": 256\n                                            }\n                                        }\n                                    },\n                                    \"persons_or_org_document_class_d_uuid\": {\n                                        \"type\": \"text\",\n                                        \"fields\": {\n                                            \"keyword\": {\n                                                \"type\": \"keyword\",\n                                                \"ignore_above\": 256\n                                            }\n                                        }\n                                    }\n                                }\n                            },\n                            \"date_begin\": {\n                                \"type\": \"date\"\n                            },\n                            \"date_finish\": {\n                                \"type\": \"date\"\n                            },\n                            \"gave_department_code\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"gave_organization_name\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"is_hidden_for_mobile_application\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"is_verified\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"legal_user_uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"number\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"series\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"type\": {\n                                \"properties\": {\n                                    \"persons_or_org_document_type_d_uuid\": {\n                                        \"type\": \"text\",\n                                        \"fields\": {\n                                            \"keyword\": {\n                                                \"type\": \"keyword\",\n                                                \"ignore_above\": 256\n                                            }\n                                        }\n                                    }\n                                }\n                            },\n                            \"uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"valid_since_date\": {\n                                \"type\": \"date\"\n                            }\n                        }\n                    },\n                    \"emails\": {\n                        \"properties\": {\n                            \"email_address\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"is_main\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"is_verified\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    \"general_consent_to_advertising_communications\": {\n                        \"type\": \"boolean\"\n                    },\n                    \"general_consent_to_non_advertising_communications\": {\n                        \"type\": \"boolean\"\n                    },\n                    \"general_consent_to_personal_data_processing\": {\n                        \"type\": \"boolean\"\n                    },\n                    \"is_client\": {\n                        \"type\": \"boolean\"\n                    },\n                    \"is_forbidden\": {\n                        \"properties\": {\n                            \"status\": {\n                                \"type\": \"boolean\"\n                            }\n                        }\n                    },\n                    \"person\": {\n                        \"properties\": {\n                            \"birth_date\": {\n                                \"type\": \"date\"\n                            },\n                            \"date_begin\": {\n                                \"type\": \"date\"\n                            },\n                            \"gender_is_female\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"is_married\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"middlename\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"name\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"person_type\": {\n                                \"type\": \"object\"\n                            },\n                            \"surname\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"ui_id\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    \"telephones\": {\n                        \"properties\": {\n                            \"is_main\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"is_verified\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"persons_or_org_s_uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"telephone_number\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    \"ui_id\": {\n                        \"type\": \"text\",\n                        \"fields\": {\n                            \"keyword\": {\n                                \"type\": \"keyword\",\n                                \"ignore_above\": 256\n                            }\n                        }\n                    },\n                    \"uuid\": {\n                        \"type\": \"text\",\n                        \"fields\": {\n                            \"keyword\": {\n                                \"type\": \"keyword\",\n                                \"ignore_above\": 256\n                            }\n                        }\n                    }\n                }\n            },\n            \"uuid\": {\n                \"type\": \"text\",\n                \"fields\": {\n                    \"keyword\": {\n                        \"type\": \"keyword\",\n                        \"ignore_above\": 256\n                    }\n                }\n            },\n            \"version\": {\n                \"type\": \"long\"\n            }\n        }\n    },\n    \"settings\": {\n        \"analysis\": {\n            \"filter\": {\n                \"ru_stop\": {\n                    \"type\": \"stop\",\n                    \"stopwords\": \"_russian_\"\n                },\n                \"ru_stemmer\": {\n                    \"type\": \"stemmer\",\n                    \"language\": \"russian\"\n                }\n            },\n            \"analyzer\": {\n                \"default\": {\n                    \"char_filter\": [\n                        \"html_strip\"\n                    ],\n                    \"tokenizer\": \"standard\",\n                    \"filter\": [\n                        \"lowercase\",\n                        \"ru_stop\",\n                        \"ru_stemmer\"\n                    ]\n                }\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create index Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"aliases\": {},\n    \"mappings\": {\n        \"properties\": {\n            \"object\": {\n                \"properties\": {\n                    \"consent_to_pers_data_processing_documents\": {\n                        \"properties\": {\n                            \"consent_to_advertising_communications\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"consent_to_non_advertising_communications\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"consent_to_personal_data_processing\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"electronic_is_in_mobile_application\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"is_revocation_of_consent\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"paper_scan_image_url\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"sopd_date\": {\n                                \"type\": \"date\"\n                            },\n                            \"uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    \"documents\": {\n                        \"properties\": {\n                            \"class\": {\n                                \"properties\": {\n                                    \"name\": {\n                                        \"type\": \"text\",\n                                        \"fields\": {\n                                            \"keyword\": {\n                                                \"type\": \"keyword\",\n                                                \"ignore_above\": 256\n                                            }\n                                        }\n                                    },\n                                    \"persons_or_org_document_class_d_uuid\": {\n                                        \"type\": \"text\",\n                                        \"fields\": {\n                                            \"keyword\": {\n                                                \"type\": \"keyword\",\n                                                \"ignore_above\": 256\n                                            }\n                                        }\n                                    }\n                                }\n                            },\n                            \"date_begin\": {\n                                \"type\": \"date\"\n                            },\n                            \"date_finish\": {\n                                \"type\": \"date\"\n                            },\n                            \"gave_department_code\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"gave_organization_name\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"is_hidden_for_mobile_application\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"is_verified\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"legal_user_uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"number\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"series\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"type\": {\n                                \"properties\": {\n                                    \"persons_or_org_document_type_d_uuid\": {\n                                        \"type\": \"text\",\n                                        \"fields\": {\n                                            \"keyword\": {\n                                                \"type\": \"keyword\",\n                                                \"ignore_above\": 256\n                                            }\n                                        }\n                                    }\n                                }\n                            },\n                            \"uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"valid_since_date\": {\n                                \"type\": \"date\"\n                            }\n                        }\n                    },\n                    \"emails\": {\n                        \"properties\": {\n                            \"email_address\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"is_main\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"is_verified\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    \"general_consent_to_advertising_communications\": {\n                        \"type\": \"boolean\"\n                    },\n                    \"general_consent_to_non_advertising_communications\": {\n                        \"type\": \"boolean\"\n                    },\n                    \"general_consent_to_personal_data_processing\": {\n                        \"type\": \"boolean\"\n                    },\n                    \"is_client\": {\n                        \"type\": \"boolean\"\n                    },\n                    \"is_forbidden\": {\n                        \"properties\": {\n                            \"status\": {\n                                \"type\": \"boolean\"\n                            }\n                        }\n                    },\n                    \"person\": {\n                        \"properties\": {\n                            \"birth_date\": {\n                                \"type\": \"date\"\n                            },\n                            \"date_begin\": {\n                                \"type\": \"date\"\n                            },\n                            \"gender_is_female\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"is_married\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"middlename\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"name\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"person_type\": {\n                                \"type\": \"object\"\n                            },\n                            \"surname\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"ui_id\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    \"telephones\": {\n                        \"properties\": {\n                            \"is_main\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"is_verified\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"persons_or_org_s_uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"telephone_number\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            },\n                            \"uuid\": {\n                                \"type\": \"text\",\n                                \"fields\": {\n                                    \"keyword\": {\n                                        \"type\": \"keyword\",\n                                        \"ignore_above\": 256\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    \"ui_id\": {\n                        \"type\": \"text\",\n                        \"fields\": {\n                            \"keyword\": {\n                                \"type\": \"keyword\",\n                                \"ignore_above\": 256\n                            }\n                        }\n                    },\n                    \"uuid\": {\n                        \"type\": \"text\",\n                        \"fields\": {\n                            \"keyword\": {\n                                \"type\": \"keyword\",\n                                \"ignore_above\": 256\n                            }\n                        }\n                    }\n                }\n            },\n            \"uuid\": {\n                \"type\": \"text\",\n                \"fields\": {\n                    \"keyword\": {\n                        \"type\": \"keyword\",\n                        \"ignore_above\": 256\n                    }\n                }\n            },\n            \"version\": {\n                \"type\": \"long\"\n            }\n        }\n    },\n    \"settings\": {\n        \"analysis\": {\n            \"filter\": {\n                \"ru_stop\": {\n                    \"type\": \"stop\",\n                    \"stopwords\": \"_russian_\"\n                },\n                \"ru_stemmer\": {\n                    \"type\": \"stemmer\",\n                    \"language\": \"russian\"\n                }\n            },\n            \"analyzer\": {\n                \"default\": {\n                    \"char_filter\": [\n                        \"html_strip\"\n                    ],\n                    \"tokenizer\": \"standard\",\n                    \"filter\": [\n                        \"lowercase\",\n                        \"ru_stop\",\n                        \"ru_stemmer\"\n                    ]\n                }\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add 1 Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"915f6ab5-21cd-4319-9654-a13f6c78be71\",\n    \"version\": 2,\n    \"object\": {\n        \"uuid\": \"915f6ab5-21cd-4319-9654-a13f6c78be71\",\n        \"hide_personal_data\": null,\n        \"archived\": false,\n        \"is_forbidden\": {\n            \"status\": false,\n            \"reason\": null\n        },\n        \"is_client\": true,\n        \"ui_id\": \"38192699\",\n        \"general_consent_to_advertising_communications\": false,\n        \"general_consent_to_advertising_communications_date\": null,\n        \"general_consent_to_personal_data_processing\": false,\n        \"general_consent_to_personal_data_processing_date\": null,\n        \"general_consent_to_non_advertising_communications\": false,\n        \"general_consent_to_non_advertising_communications_date\": null,\n        \"person\": {\n            \"uuid\": \"915f6ab5-21cd-4319-9654-a13f6c78be71\",\n            \"person_type\": {},\n            \"date_begin\": \"2019-01-15T21:00:00.000Z\",\n            \"date_finish\": null,\n            \"surname\": \"Лисик\",\n            \"name\": \"Антон\",\n            \"middlename\": null,\n            \"gender_is_female\": false,\n            \"birth_date\": \"0000-01-01T00:00:00.000Z\",\n            \"driving_begin_date\": null,\n            \"driving_begin_date_is_calc\": null,\n            \"photo_url\": null,\n            \"citizenship\": null,\n            \"is_married\": false,\n            \"famous_person_type\": null,\n            \"hide_personal_data\": null,\n            \"ui_id\": \"38192699\",\n            \"children\": null,\n            \"comments\": null\n        },\n        \"addresses\": null,\n        \"telephones\": [\n            {\n                \"uuid\": \"926d16b8-70f7-475a-a861-6ad7d6f52652\",\n                \"is_main\": true,\n                \"persons_or_org_s_uuid\": \"915f6ab5-21cd-4319-9654-a13f6c78be71\",\n                \"telephone_number\": \"89217979466\",\n                \"is_verified\": false,\n                \"comments\": null\n            }\n        ],\n        \"messengers\": null,\n        \"socials\": null,\n        \"emails\": null,\n        \"discount_cards\": null,\n        \"documents\": [\n            {\n                \"uuid\": \"3f8933bf-8716-448e-8ee0-ea426ad847e1\",\n                \"class\": {\n                    \"name\": \"Удост-е личности\",\n                    \"persons_or_org_document_class_d_uuid\": \"b4b13802-8173-4be6-8207-196fe0f9d1fc\"\n                },\n                \"type\": {\n                    \"persons_or_org_document_type_d_uuid\": \"Паспорт гражданина Российской Федерации\"\n                },\n                \"subtype\": null,\n                \"series\": \"4009\",\n                \"number\": \"886102\",\n                \"gave_organization_name\": \"тп №24 отдела уфмс россии пр санкт-петербургу и ленинградской обл в кировском р-не гор санкт-петербурга\",\n                \"gave_department_code\": \"780-024\",\n                \"valid_since_date\": \"2009-12-03T00:00:00.000Z\",\n                \"expired_date\": null,\n                \"date_begin\": \"2022-01-30T21:00:00.000Z\",\n                \"date_finish\": \"2200-12-30T21:00:00.000Z\",\n                \"is_verified\": true,\n                \"is_hidden_for_mobile_application\": false,\n                \"vin\": null,\n                \"vehicle_state_registration_number\": null,\n                \"legal_user_uuid\": \"915f6ab5-21cd-4319-9654-a13f6c78be71\",\n                \"principal_for_power_of_attorney_uuid\": null,\n                \"account_number_for_transponder\": null\n            }\n        ],\n        \"bank_accounts\": null,\n        \"consent_to_pers_data_processing_documents\": [\n            {\n                \"uuid\": \"44a211c3-7217-4801-bd80-37cbe5eeef08\",\n                \"is_revocation_of_consent\": false,\n                \"sopd_date\": \"2022-01-30T21:00:00.000Z\",\n                \"consent_to_personal_data_processing\": false,\n                \"consent_to_advertising_communications\": false,\n                \"consent_to_non_advertising_communications\": false,\n                \"paper_scan_image_url\": \"f24869d6-bc09-11ed-82c6-0050568a78dc\",\n                \"electronic_address_ip\": null,\n                \"electronic_google_id\": null,\n                \"electronic_yandex_id\": null,\n                \"electronic_operating_system\": null,\n                \"electronic_screen_resolution\": null,\n                \"electronic_browser\": null,\n                \"electronic_browser_version\": null,\n                \"electronic_is_in_mobile_application\": false,\n                \"electronic_sms_code_sent\": null,\n                \"electronic_sms_code_received\": null,\n                \"sopd_comments\": null,\n                \"persons_or_org_consent_to_pers_data_process_template_d_uuid\": null\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}/_doc/915f6ab5-21cd-4319-9654-a13f6c78be71",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}",
+								"_doc",
+								"915f6ab5-21cd-4319-9654-a13f6c78be71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"2c2fb1d9-dc03-468a-b96c-70b99301ae2e\",\n    \"version\": 3,\n    \"object\": {\n        \"uuid\": \"2c2fb1d9-dc03-468a-b96c-70b99301ae2e\",\n        \"hide_personal_data\": null,\n        \"archived\": false,\n        \"is_forbidden\": {\n            \"status\": false,\n            \"reason\": null\n        },\n        \"is_client\": true,\n        \"ui_id\": \"35093029\",\n        \"general_consent_to_advertising_communications\": false,\n        \"general_consent_to_advertising_communications_date\": null,\n        \"general_consent_to_personal_data_processing\": false,\n        \"general_consent_to_personal_data_processing_date\": null,\n        \"general_consent_to_non_advertising_communications\": false,\n        \"general_consent_to_non_advertising_communications_date\": null,\n        \"person\": {\n            \"uuid\": \"2c2fb1d9-dc03-468a-b96c-70b99301ae2e\",\n            \"person_type\": {},\n            \"date_begin\": \"2018-08-12T21:00:00.000Z\",\n            \"date_finish\": null,\n            \"surname\": \"Поварницин\",\n            \"name\": \"Сергей\",\n            \"middlename\": \"Николаевич\",\n            \"gender_is_female\": false,\n            \"birth_date\": \"0000-01-01T00:00:00.000Z\",\n            \"driving_begin_date\": null,\n            \"driving_begin_date_is_calc\": null,\n            \"photo_url\": null,\n            \"citizenship\": null,\n            \"is_married\": false,\n            \"famous_person_type\": null,\n            \"hide_personal_data\": null,\n            \"ui_id\": \"35093029\",\n            \"children\": null,\n            \"comments\": null\n        },\n        \"addresses\": null,\n        \"telephones\": [\n            {\n                \"uuid\": \"24afac9b-da2b-4c77-9f24-0d5e9df4d791\",\n                \"is_main\": true,\n                \"persons_or_org_s_uuid\": \"2c2fb1d9-dc03-468a-b96c-70b99301ae2e\",\n                \"telephone_number\": \"89052726504\",\n                \"is_verified\": false,\n                \"comments\": null\n            }\n        ],\n        \"messengers\": null,\n        \"socials\": null,\n        \"emails\": [\n            {\n                \"uuid\": \"99c8010c-9013-4f47-bc4f-c4f98d3f972a\",\n                \"email_address\": \"Povarnitsin.S@baltlease.ru\",\n                \"is_verified\": false,\n                \"is_main\": true\n            }\n        ],\n        \"discount_cards\": null,\n        \"documents\": [\n            {\n                \"uuid\": \"911ee63a-73d3-4de6-b93e-5e162a021d32\",\n                \"class\": {\n                    \"name\": \"Удост-е личности\",\n                    \"persons_or_org_document_class_d_uuid\": \"b4b13802-8173-4be6-8207-196fe0f9d1fc\"\n                },\n                \"type\": {\n                    \"persons_or_org_document_type_d_uuid\": \"Паспорт гражданина Российской Федерации\"\n                },\n                \"subtype\": null,\n                \"series\": \"5705\",\n                \"number\": \"855803\",\n                \"gave_organization_name\": \"Чайковским ГОВД Пермского края\",\n                \"gave_department_code\": null,\n                \"valid_since_date\": \"2006-03-13T00:00:00.000Z\",\n                \"expired_date\": null,\n                \"date_begin\": \"2021-11-01T21:00:00.000Z\",\n                \"date_finish\": \"2200-12-30T21:00:00.000Z\",\n                \"is_verified\": true,\n                \"is_hidden_for_mobile_application\": false,\n                \"vin\": null,\n                \"vehicle_state_registration_number\": null,\n                \"legal_user_uuid\": \"2c2fb1d9-dc03-468a-b96c-70b99301ae2e\",\n                \"principal_for_power_of_attorney_uuid\": null,\n                \"account_number_for_transponder\": null\n            }\n        ],\n        \"bank_accounts\": null,\n        \"consent_to_pers_data_processing_documents\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}/_doc/2c2fb1d9-dc03-468a-b96c-70b99301ae2e",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}",
+								"_doc",
+								"2c2fb1d9-dc03-468a-b96c-70b99301ae2e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"73bb4c4d-10d4-4934-861d-9ebd64aab6e4\",\n    \"version\": 3,\n    \"object\": {\n        \"uuid\": \"73bb4c4d-10d4-4934-861d-9ebd64aab6e4\",\n        \"hide_personal_data\": null,\n        \"archived\": false,\n        \"is_forbidden\": {\n            \"status\": false,\n            \"reason\": null\n        },\n        \"is_client\": true,\n        \"ui_id\": \"86846393\",\n        \"general_consent_to_advertising_communications\": false,\n        \"general_consent_to_advertising_communications_date\": null,\n        \"general_consent_to_personal_data_processing\": false,\n        \"general_consent_to_personal_data_processing_date\": null,\n        \"general_consent_to_non_advertising_communications\": false,\n        \"general_consent_to_non_advertising_communications_date\": null,\n        \"person\": {\n            \"uuid\": \"73bb4c4d-10d4-4934-861d-9ebd64aab6e4\",\n            \"person_type\": {},\n            \"date_begin\": \"2018-08-06T21:00:00.000Z\",\n            \"date_finish\": null,\n            \"surname\": \"Котков\",\n            \"name\": \"Алексей\",\n            \"middlename\": \"Владимирович\",\n            \"gender_is_female\": false,\n            \"birth_date\": \"0000-01-01T00:00:00.000Z\",\n            \"driving_begin_date\": null,\n            \"driving_begin_date_is_calc\": null,\n            \"photo_url\": null,\n            \"citizenship\": null,\n            \"is_married\": false,\n            \"famous_person_type\": null,\n            \"hide_personal_data\": null,\n            \"ui_id\": \"86846393\",\n            \"children\": null,\n            \"comments\": null\n        },\n        \"addresses\": null,\n        \"telephones\": [\n            {\n                \"uuid\": \"f5dd1be6-0fc6-423e-aa5f-bacdaa76a3b2\",\n                \"is_main\": true,\n                \"persons_or_org_s_uuid\": \"73bb4c4d-10d4-4934-861d-9ebd64aab6e4\",\n                \"telephone_number\": \"89152035354\",\n                \"is_verified\": false,\n                \"comments\": null\n            }\n        ],\n        \"messengers\": null,\n        \"socials\": null,\n        \"emails\": [\n            {\n                \"uuid\": \"ad0902bd-64c9-4b3f-b007-7819dc51c0a6\",\n                \"email_address\": \"4604349@mail.ru\",\n                \"is_verified\": false,\n                \"is_main\": true\n            }\n        ],\n        \"discount_cards\": null,\n        \"documents\": [\n            {\n                \"uuid\": \"dd9cd67f-a76b-4918-9071-c8eefc9e290d\",\n                \"class\": {\n                    \"name\": \"Удост-е личности\",\n                    \"persons_or_org_document_class_d_uuid\": \"b4b13802-8173-4be6-8207-196fe0f9d1fc\"\n                },\n                \"type\": {\n                    \"persons_or_org_document_type_d_uuid\": \"Паспорт гражданина Российской Федерации\"\n                },\n                \"subtype\": null,\n                \"series\": \"0304\",\n                \"number\": \"515788\",\n                \"gave_organization_name\": \"СЛАВЯНСКИМ ОВД КРАСНОДАРСКОГО КРАЯ\",\n                \"gave_department_code\": \"232-023\",\n                \"valid_since_date\": \"2003-05-14T00:00:00.000Z\",\n                \"expired_date\": null,\n                \"date_begin\": \"2022-09-25T21:00:00.000Z\",\n                \"date_finish\": \"2200-12-30T21:00:00.000Z\",\n                \"is_verified\": true,\n                \"is_hidden_for_mobile_application\": false,\n                \"vin\": null,\n                \"vehicle_state_registration_number\": null,\n                \"legal_user_uuid\": \"73bb4c4d-10d4-4934-861d-9ebd64aab6e4\",\n                \"principal_for_power_of_attorney_uuid\": null,\n                \"account_number_for_transponder\": null\n            }\n        ],\n        \"bank_accounts\": null,\n        \"consent_to_pers_data_processing_documents\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}/_doc/73bb4c4d-10d4-4934-861d-9ebd64aab6e4",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}",
+								"_doc",
+								"73bb4c4d-10d4-4934-861d-9ebd64aab6e4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get info",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all data debug",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\": 0,\r\n    \"size\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search example",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"bool\": {\n      \"must\": [\n        {\n            \"match\": {\n                \"object.documents.type.persons_or_org_document_type_d_uuid\": {\n                    \"query\": \"паспорт гражданина\"\n                }\n            }\n        }\n      ],\n      \"should\": [\n        {\n            \"match\": {\n                \"object.documents.gave_organization_name\": {\n                    \"query\": \"ГОВД края\"\n                }\n            }\n        },\n        {\n            \"match_phrase_prefix\": {\n                \"object.person.surname\": {\n                    \"query\": \"М\",\n                    \"slop\": 3\n                }\n            }\n        }\n      ]\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create index and new doc",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdateSubscription\": {\n        \"Endpoint\": \"demo\",\n        \"Originator\": \"platformeco\",\n        \"Token\": \"eZfi$6D\",\n        \"Subscribe\": [\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"Работа\"\n                    }\n                ]\n            },\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"ЗапаснаяЧасть\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}/_doc",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}",
+								"_doc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "settings",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdateSubscription\": {\n        \"Endpoint\": \"demo\",\n        \"Originator\": \"platformeco\",\n        \"Token\": \"eZfi$6D\",\n        \"Subscribe\": [\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"Работа\"\n                    }\n                ]\n            },\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"ЗапаснаяЧасть\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}/_settings",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}",
+								"_settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mappings",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdateSubscription\": {\n        \"Endpoint\": \"demo\",\n        \"Originator\": \"platformeco\",\n        \"Token\": \"eZfi$6D\",\n        \"Subscribe\": [\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"Работа\"\n                    }\n                ]\n            },\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"ЗапаснаяЧасть\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}/_mappings",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}",
+								"_mappings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete index",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}/",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "********",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "platformeco_user",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "rolf_clients_preprod",
+			"item": [
+				{
+					"name": "preprod get info",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_preprod}}",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_preprod}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "********",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "platformeco_user",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "rolf_fi_test",
+			"item": [
+				{
+					"name": "Add document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"33333\",\n    \"ui_id\": \"7f272ac9\",\n    \"status\": \"in_progress\",\n    \"status_ui\": \"В работе\",\n    \"cross_selling_order\": {\n        \"uuid\": \"d6e48335-f0c6-4489-b45f-e55137009fd4\"\n    },\n    \"legal_execution_stage\": {\n        \"uuid\": \"49bf13c7-cf51-4615-b2c1-0e2eb41f87c7\",\n        \"name\": \"Исполнено\",\n        \"is_for_orders\": true,\n        \"is_for_payment\": true,\n        \"description\": null\n    },\n    \"sale_is_stopped\": false,\n    \"business_domain\": {\n        \"uuid\": \"3c3398f4-986d-4bd4-831e-4955ef56547f\",\n        \"name\": \"АСП\"\n    },\n    \"business_subdomain\": {\n        \"uuid\": \"efd7fab7-f340-4944-b420-332b5c524fd1\",\n        \"business_domain\": {\n            \"uuid\": \"3c3398f4-986d-4bd4-831e-4955ef56547f\"\n        },\n        \"name\": \"Продажа АСП физ. лицам\",\n        \"description\": null\n    },\n    \"good_ref_type\": {\n        \"uuid\": \"02d41636-4ca4-45da-a8eb-c88de38a0a90\",\n        \"name\": \"Обобщающая потребность\"\n    },\n    \"needs_and_orders_good_type\": {\n        \"uuid\": \"038c39fb-a743-48a8-9847-a394b5a89c67\",\n        \"name\": \"Покупка АСП\",\n        \"good_ref_type\": {\n            \"uuid\": \"02d41636-4ca4-45da-a8eb-c88de38a0a90\"\n        },\n        \"is_general\": true,\n        \"is_detail\": false,\n        \"may_be_paid\": false,\n        \"sequence_number_in_user_interface\": 1,\n        \"f_and_i_product\": null,\n        \"business_domain\": {\n            \"uuid\": \"3c3398f4-986d-4bd4-831e-4955ef56547f\"\n        },\n        \"good_class\": {\n            \"uuid\": \"20214e1c-4b8e-401b-ae64-74bb07b3a5ee\"\n        },\n        \"business_subdomain\": null\n    },\n    \"needs_and_orders_class\": {\n        \"uuid\": \"82109a9a-409a-11ed-b878-0242ac120002\",\n        \"name\": \"Продажа\",\n        \"operation_direction\": 1,\n        \"is_return\": false\n    },\n    \"sale_stop_reason\": {\n        \"uuid\": \"2c9c81f7-9762-4c11-b812-183fe6ff4192\",\n        \"name\": \"Аут\"\n    },\n    \"good_class\": {\n        \"uuid\": \"8b75b439-c9d2-4028-b2a0-ed60a371d8b4\",\n        \"business_domain\": {\n            \"uuid\": \"8094c426-5085-4e7f-8d56-f961ed874929\"\n        },\n        \"name\": \"Не импортёрские (Dealer Trade)\"\n    },\n    \"client_class\": {\n        \"uuid\": \"eb4becee-37a5-4292-bb69-4cd600ce0f4d\",\n        \"needs_and_orders_class\": {\n            \"uuid\": \"82109a9a-409a-11ed-b878-0242ac120002\"\n        },\n        \"name\": \"Физ. лицо или единичная продажа юр. лицо\"\n    },\n    \"priority_for_recommendation_of_service\": {\n        \"uuid\": \"6c4fc676-50c7-4322-80f8-34ff417cedd7\",\n        \"name\": \"Высокий\",\n        \"sort_priority\": \"1\"\n    },\n    \"accounting_category\": {\n        \"uuid\": \"c8581f67-e821-402f-92a1-06805fd2eced\",\n        \"name\": \"Гарантия сервиса\"\n    },\n    \"client\": {\n        \"uuid\": \"7bbce7ff-3423-4318-8c3e-e8e4637aba26\"\n    },\n    \"source_vehicle\": {\n        \"uuid\": \"0015416d-00e8-4f82-9927-413d3d2c5f65\"\n    },\n    \"dealership\": {\n        \"uuid\": \"2b441b9a-26fe-4548-8c96-5e819e1cc6ab\"\n    },\n    \"salesman\": {\n        \"uuid\": \"8378c902-5b43-11ed-9b6a-0242ac120002\"\n    },\n    \"power_of_attorney\": {\n        \"uuid\": null\n    },\n    \"client_side_proxy\": {\n        \"uuid\": null\n    },\n    \"is_obligatory_safety_recommendation_of_service\": null,\n    \"quantity\": 1,\n    \"needs_returned\": {\n        \"uuid\": null\n    },\n    \"movements_of_goods_counterparty\": {\n        \"uuid\": null\n    },\n    \"cash_movement_counterparty\": {\n        \"uuid\": null\n    },\n    \"payment_alternative_counterparty\": {\n        \"uuid\": null\n    },\n    \"insert_date\": \"2023-03-27 16:26:25.383 +0300\",\n    \"attached_files_list_json\": null,\n    \"finish_date\": \"2023-05-04 10:57:49.566 +0300\",\n    \"date_of_last_stage_change\": null,\n    \"orders\": null,\n    \"carts\": [\n        {\n            \"uuid\": \"05a0fcda-6383-4944-b179-1de89e8bff8c\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_fi_test/_doc/33333",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_fi_test",
+								"_doc",
+								"33333"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update existing document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"doc\": {\n    \"orders\": [\n        {\n            \"uuid\": \"d14ab03f-03b1-4c59-8ade-938a96de67e6\",\n            \"ui_id\": \"d14ab03f\",\n            \"status_ui\": \"Коммерческое предложение\",\n            \"general_need\": {\n                \"uuid\": \"60eac159-2d07-4ac6-886f-a9269cc105f7\"\n            },\n            \"cross_selling_order\": {\n                \"uuid\": \"8c75f9d6-2f97-4c23-9b6f-aa450a53b91e\"\n            },\n            \"legal_execution_stage\": {\n                \"uuid\": \"80e0e1b4-8fe9-4249-ad0a-f9e57b82682b\",\n                \"name\": \"Коммерческое предложение\",\n                \"is_for_orders\": true,\n                \"is_for_payment\": false,\n                \"description\": null\n            },\n            \"sale_is_stopped\": false,\n            \"sale_stop_reason\": null,\n            \"source_vehicle\": {\n                \"uuid\": \"0015416d-00e8-4f82-9927-413d3d2c5f65\"\n            },\n            \"good\": {\n                \"vehicle_uuid\": \"bd70c51d-a581-4ac1-9fb7-4e6417effe2b\"\n            },\n            \"business_domain\": {\n                \"uuid\": \"3c3398f4-986d-4bd4-831e-4955ef56547f\",\n                \"name\": \"АСП\"\n            },\n            \"business_subdomain\": {\n                \"uuid\": \"efd7fab7-f340-4944-b420-332b5c524fd1\",\n                \"business_domain\": {\n                    \"uuid\": \"3c3398f4-986d-4bd4-831e-4955ef56547f\"\n                },\n                \"name\": \"Продажа АСП физ. лицам\",\n                \"description\": null\n            },\n            \"good_ref_type\": {\n                \"uuid\": \"6a84c833-9b0f-479c-b13b-ee774f75b7a1\",\n                \"name\": \"Ссылка на Автомобиль\"\n            },\n            \"needs_and_orders_good_type\": {\n                \"uuid\": \"d2053433-2589-4d48-a20b-f6f88cbcc8e8\",\n                \"name\": \"Конкретное предложение покупки АСП\",\n                \"good_ref_type\": {\n                    \"uuid\": \"6a84c833-9b0f-479c-b13b-ee774f75b7a1\"\n                },\n                \"is_general\": true,\n                \"is_detail\": true,\n                \"may_be_paid\": true,\n                \"sequence_number_in_user_interface\": 3,\n                \"f_and_i_product\": null,\n                \"business_domain\": {\n                    \"uuid\": \"3c3398f4-986d-4bd4-831e-4955ef56547f\"\n                },\n                \"good_class\": {\n                    \"uuid\": \"20214e1c-4b8e-401b-ae64-74bb07b3a5ee\"\n                },\n                \"business_subdomain\": null\n            },\n            \"needs_and_orders_class\": {\n                \"uuid\": \"82109a9a-409a-11ed-b878-0242ac120002\",\n                \"name\": \"Продажа\",\n                \"operation_direction\": 1,\n                \"is_return\": false\n            },\n            \"good_class\": {\n                \"uuid\": \"20214e1c-4b8e-401b-ae64-74bb07b3a5ee\",\n                \"business_domain\": {\n                    \"uuid\": \"3c3398f4-986d-4bd4-831e-4955ef56547f\"\n                },\n                \"name\": \"АМ\"\n            },\n            \"client_class\": {\n                \"uuid\": \"eb4becee-37a5-4292-bb69-4cd600ce0f4d\",\n                \"needs_and_orders_class\": {\n                    \"uuid\": \"82109a9a-409a-11ed-b878-0242ac120002\"\n                },\n                \"name\": \"Физ. лицо или единичная продажа юр. лицо\"\n            },\n            \"priority_for_recommendation_of_service\": {\n                \"uuid\": \"6c4fc676-50c7-4322-80f8-34ff417cedd7\",\n                \"name\": \"Высокий\",\n                \"sort_priority\": \"1\"\n            },\n            \"accounting_category\": null,\n            \"client\": {\n                \"uuid\": \"7bbce7ff-3423-4318-8c3e-e8e4637aba26\"\n            },\n            \"dealership\": {\n                \"uuid\": \"664480c9-67e8-375f-f8b2-2d3a0fa4cde3\"\n            },\n            \"salesman\": {\n                \"uuid\": \"3dad60ce-8a42-406d-8b0e-c49561256997\"\n            },\n            \"power_of_attorney\": null,\n            \"client_side_proxy\": null,\n            \"needs_and_orders_b4returned_uuid\": null,\n            \"movements_of_goods_counterparty\": {\n                \"uuid\": \"a9acd9fb-4784-4393-a680-4dfa820ba04a\"\n            },\n            \"cash_movement_counterparty\": {\n                \"uuid\": \"a9acd9fb-4784-4393-a680-4dfa820ba04a\"\n            },\n            \"payment_alternative_counterparty\": null,\n            \"attached_files_list_json\": null,\n            \"sale\": {\n                \"sale_value_including_vat\": 1297000,\n                \"sale_vat_amount\": 68666.67,\n                \"sale_value_excluding_vat\": 1228333.33,\n                \"sale_vat_rate_as_percentage\": 20,\n                \"vat_from_price_difference\": true\n            },\n            \"recommended_retail_price\": 1297000,\n            \"quantity\": 1,\n            \"cost_price\": 885000,\n            \"negotiated_price\": 1297000,\n            \"standard_hours_for_work\": null,\n            \"is_obligatory_safety_recommendation_of_service\": false,\n            \"is_included_in_single_document_with_vehicle_of_cross_selling\": false,\n            \"on_credit\": null,\n            \"insert_date\": \"2023-03-27 16:42:28.073 +0300\",\n            \"finish_date\": null,\n            \"date_of_last_stage_change\": null\n        }\n    ]\n  },\n  \"doc_as_upsert\": true // Флаг, который говорит при обновлении данных менять структуру документа\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_fi_test/_update/33333",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_fi_test",
+								"_update",
+								"33333"
+							]
+						},
+						"description": "[https://opensearch.org/docs/latest/api-reference/document-apis/update-document/](https://opensearch.org/docs/latest/api-reference/document-apis/update-document/)"
+					},
+					"response": []
+				},
+				{
+					"name": "create index and new doc Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdateSubscription\": {\n        \"Endpoint\": \"demo\",\n        \"Originator\": \"platformeco\",\n        \"Token\": \"eZfi$6D\",\n        \"Subscribe\": [\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"Работа\"\n                    }\n                ]\n            },\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"ЗапаснаяЧасть\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_tmp/_doc",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_tmp",
+								"_doc"
+							]
+						},
+						"description": "[https://opensearch.org/docs/latest/api-reference/index-apis/create-index/](https://opensearch.org/docs/latest/api-reference/index-apis/create-index/)"
+					},
+					"response": []
+				},
+				{
+					"name": "delete index Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_clients_debug2/",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_clients_debug2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get mapping",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"UpdateSubscription\": {\n        \"Endpoint\": \"demo\",\n        \"Originator\": \"platformeco\",\n        \"Token\": \"eZfi$6D\",\n        \"Subscribe\": [\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"Работа\"\n                    }\n                ]\n            },\n            {\n                \"BrokerCode\": \"rolf-kafka\",\n                \"Host\": \"rc1a-1bhooh14ikvacksl.mdb.yandexcloud.net\",\n                \"Port\": \"9092\",\n                \"Login\": \"coreapp-service-mdm\",\n                \"Password\": \"********\",\n                \"Queue\": \"coreapp-debug-int-serviceMdm-v1\",\n                \"Delayed\": \"0\",\n                \"Objects\": \"1\",\n                \"ObjectType\": [\n                    {\n                        \"Code\": \"ЗапаснаяЧасть\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/{{ops_shukan}}/_mappings",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"{{ops_shukan}}",
+								"_mappings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DSL search example",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"bool\": {\n      \"should\": [\n        {\n            \"match_phrase_prefix\": {\n                \"needs_and_orders_good_type.name\": {\n                \"query\": \"Покупка\"\n                }\n            }\n        }\n      ]\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/rolf_fi_test/_search",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"rolf_fi_test",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SQL search example",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\" : \"SELECT * FROM rolf_fi_test WHERE uuid = '33333'\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/_plugins/_sql?format=json",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"_plugins",
+								"_sql"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "json"
+								}
+							]
+						},
+						"description": "[https://opensearch.org/docs/latest/search-plugins/sql/sql/basic/](https://opensearch.org/docs/latest/search-plugins/sql/sql/basic/)"
+					},
+					"response": []
+				},
+				{
+					"name": "SQL complex-search example",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\" : \"SELECT * FROM rolf_fi_test WHERE priority_for_recommendation_of_service.name = MATCH_QUERY('Высокий')\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ops_host}}/_plugins/_sql?format=json",
+							"protocol": "https",
+							"host": [
+								"{{ops_host}}"
+							],
+							"path": [
+								"_plugins",
+								"_sql"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "json"
+								}
+							]
+						},
+						"description": "[https://opensearch.org/docs/latest/search-plugins/sql/sql/functions/](https://opensearch.org/docs/latest/search-plugins/sql/sql/functions/)"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "********",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "platformeco_user",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ops_env",
+			"value": "debug",
+			"type": "string"
+		},
+		{
+			"key": "ops_host",
+			"value": "10.124.21.47:9200",
+			"type": "string"
+		},
+		{
+			"key": "ops_dev",
+			"value": "develop",
+			"type": "string"
+		},
+		{
+			"key": "ops_debug",
+			"value": "debug",
+			"type": "string"
+		},
+		{
+			"key": "ops_preprod",
+			"value": "rolf_clients_preprod",
+			"type": "string"
+		},
+		{
+			"key": "ops_shukan",
+			"value": "rolf_clients_shukan",
+			"type": "string"
+		}
+	]
+}
