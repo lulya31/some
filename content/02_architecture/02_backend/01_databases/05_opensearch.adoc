@@ -14,6 +14,22 @@ include::content/init.adoc[]
 
 {empty} +
 
+====
+IMPORTANT: В *коллекции Postman* для *Debezium* и *OpenSearch* все учётные данные проставлены для *dev* !!!
+====
+
+****
+.Коллекция *Postman*
+[[collection_postman_anchor]]
+[%collapsible%close]
+====
+[source, json]
+----
+include::static/02_02_01_05_img/opensearch_postman_collection.json[]
+----
+====
+****
+
 == Доступы к системе OpenSearch
 
 ****

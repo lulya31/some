@@ -27,7 +27,7 @@ IMPORTANT: В *коллекции Postman* для *Debezium* и *OpenSearch* в�
 ====
 [source, json]
 ----
-include::static/02_02_01_08_img/rolf_logging.postman_collection.json[]
+include::static/02_02_01_08_img/debezium_postman_collection.json[]
 ----
 ====
 ****
