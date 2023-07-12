@@ -1,0 +1,19 @@
+---
+title: "One CAR ID"
+description: "One CAR ID"
+weight: 2
+draft: false
+---
+
+:imgdir: /02_02_02_img/
+:imagesoutdir: ./static/02_02_01_02_img/
+
+include::content/init.adoc[]
+
+= One CAR ID
+
+{empty} +
+
+====
+NOTE: Описание раздела *One CAR ID* будет добавлено позднее.
+====

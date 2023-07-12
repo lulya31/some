@@ -1,7 +1,7 @@
 ---
 title: "Паттерны"
 description: "Паттерны"
-weight: 1
+weight: 3
 draft: false
 slug: ""
 ---
@@ -13,5 +13,3 @@ slug: ""
 ****
 Паттерны
 ****
-
-{empty} +
