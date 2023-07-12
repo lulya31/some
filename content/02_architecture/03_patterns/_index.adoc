@@ -1,0 +1,15 @@
+---
+title: "Паттерны"
+description: "Паттерны"
+weight: 3
+draft: false
+slug: ""
+---
+
+= Паттерны
+
+{empty} +
+
+****
+Паттерны
+****

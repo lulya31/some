@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "c5b75fab-1d57-40c7-8949-f63f76f63e6c",
+		"name": "KeyCloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23325148",
+		"_collection_link": "https://orange-rocket-89881.postman.co/workspace/Rolf-Workspace~3e8846c8-1eca-4441-8cd7-5fce4d8ac634/collection/23325148-c5b75fab-1d57-40c7-8949-f63f76f63e6c?action=share&creator=23325148&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlQTJ4dFEwaDhHdU9fVHNDVG02SVRpU1J5cmlZRVRqVmkxMjB1WmQ1UU5RIn0.eyJleHAiOjE2Nzc3NjUwOTIsImlhdCI6MTY3Nzc2NDc5MiwianRpIjoiZDFhZjRkOWUtNWVmMy00ZDA1LTkxNzgtNGVlYWNhZDg3MDEzIiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay5pbnQucm9sZmNvcnAucnUvcmVhbG1zL0NPUkVBUFAtREVWIiwic3ViIjoiNTUyZjI1NjItYmM4NC00YTE2LWE0NzgtZDFmMDQyNDQ1OTIyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYWRtaW4tY2xpIiwic2Vzc2lvbl9zdGF0ZSI6Ijg4MTQxNDAxLTEwMTEtNDA2ZC05MjBjLTNhZTBkMDM2YTkxMiIsImFjciI6IjEiLCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiI4ODE0MTQwMS0xMDExLTQwNmQtOTIwYy0zYWUwZDAzNmE5MTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InNlcnZpY2VfdXNlciIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImVtYWlsIjoiZ2dwYXB5YW5Acm9sZi5ydSJ9.WvZLbIsspBZ8KJ5-WwfvaJA_0iyLX8cUqWX36r7-HywOKKxegK8EJn8MfmtOpVhZPNlQMC5V9t4fIS4pcoH0zj2Tq4ER0XQQqZG-GzqxIYFLtbjqc4h0vjVvwqhdcOXrVBcZXBEPf-CY8uWb1S7r8JylDOiOd-nHKRFdSO1rI2JpyBls-Scpipgxxnc9tV6DnXW25ZuBdhEnqvIeoLB1-5J26Qb8iJF_hmL6LaVISGFa2pIATZtYPGxuUcB6YPw1RjIsCePwTNyoLrTe9PXf5S_-xINgIsb9RSPfw43wwxnBGcuqBV0jOqgnNXL587_XyaJb4l6Wv1zr76evYfplNA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://keycloak.int.rolfcorp.ru/admin/realms/COREAPP-DEV/users?max=1000",
+					"protocol": "https",
+					"host": [
+						"keycloak",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"admin",
+						"realms",
+						"COREAPP-DEV",
+						"users"
+					],
+					"query": [
+						{
+							"key": "max",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "groups",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ6OTJwRG42R0Q1OWRhWGdYTjlZU0QyMWR5N1d3UTktR19qRlZHNlhhQ0tZIn0.eyJleHAiOjE2Njc4MzQzODUsImlhdCI6MTY2NzgzNDA4NSwianRpIjoiZWEyMWI4YjQtN2JjYS00MjViLWE1YzUtZDg2NTI2OTJlNzhhIiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay5jb20tZGV2LmludC5yb2xmY29ycC5ydS9yZWFsbXMvREVWLUNPUkVBUFAiLCJzdWIiOiIwZmI3NjYwNC01YjBkLTQ3MjctOTNmNi02MGM5Y2I1ZTZjOTAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiN2NmODliZDQtNzUxMC00YWU4LWJjZjgtOTRhNjE5OGJlYmM4IiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjdjZjg5YmQ0LTc1MTAtNGFlOC1iY2Y4LTk0YTYxOThiZWJjOCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoi0J_QsNC90LDRgdGO0Log0J_QsNC90LDRgdGO0LoiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzcGFuYXNpdWsiLCJnaXZlbl9uYW1lIjoi0J_QsNC90LDRgdGO0LoiLCJmYW1pbHlfbmFtZSI6ItCf0LDQvdCw0YHRjtC6IiwiZW1haWwiOiJzcGFuYXNpdWtAcm9sZi5ydSJ9.X_9ba37jb1DjseRPc98oGVN1LbHeszMqZARBx3iJS3-9CUecDeWHLsLE83fiuWu9Ai6ff7vPvYOEW-btkzFS7FWtkbgpYWAUnbAyjX1eT1wzbwa11xWMxeMt6wo2sDm8KpeB0yt-XgsUJYP1917LhHcQGnnAKcJNeoyD8dYcitwWXgA0BV2DE3GkkGXDw4MrQj2VUx8HJH60c03ETS3XexOVfQgQWPL8t1IG8qdA2rTiGQ8NHm2anHGTLXMs1QMKt8JiUpqikaVv7K8wLOXHUDmCfnvumhpdE5806QDO_NsiQ0Wme3TkhoXe2Zgmv0g7fLJx6NTJxYCD9zvaZbCfBg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://keycloak.com-dev.int.rolfcorp.ru/admin/realms/DEV-COREAPP/groups?max=10000",
+					"protocol": "https",
+					"host": [
+						"keycloak",
+						"com-dev",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"admin",
+						"realms",
+						"DEV-COREAPP",
+						"groups"
+					],
+					"query": [
+						{
+							"key": "max",
+							"value": "10000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "group_mapping",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ6OTJwRG42R0Q1OWRhWGdYTjlZU0QyMWR5N1d3UTktR19qRlZHNlhhQ0tZIn0.eyJleHAiOjE2Njc4MzU3NDEsImlhdCI6MTY2NzgzNTQ0MSwianRpIjoiYjU0OWE2MzYtOGVhNi00NjAwLTllZGUtOWY4NTM4N2Q4MGE4IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay5jb20tZGV2LmludC5yb2xmY29ycC5ydS9yZWFsbXMvREVWLUNPUkVBUFAiLCJzdWIiOiIwZmI3NjYwNC01YjBkLTQ3MjctOTNmNi02MGM5Y2I1ZTZjOTAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiNmY0NGQxYzctMDJhMy00YzVmLWIwMTctOWY2YTFlMGVlYWM3IiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjZmNDRkMWM3LTAyYTMtNGM1Zi1iMDE3LTlmNmExZTBlZWFjNyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoi0J_QsNC90LDRgdGO0Log0J_QsNC90LDRgdGO0LoiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzcGFuYXNpdWsiLCJnaXZlbl9uYW1lIjoi0J_QsNC90LDRgdGO0LoiLCJmYW1pbHlfbmFtZSI6ItCf0LDQvdCw0YHRjtC6IiwiZW1haWwiOiJzcGFuYXNpdWtAcm9sZi5ydSJ9.RI3ugvYxGyJJ6Ms6Kt_G6v_-_XpjjvSlEr1qPCebPhWPIt3boudc33yclPa5AojSM3fTOFHekK-FO9DMUTnHGHfvQHhbqdfJIG6IvHPBaetNOvCkdRnWR7mu1TJ80G3U598Gr46WExRekWKrhl3Fgl3d8KGPxosdIs9HNW8GVfiHEdLjylKwyEtQBh7cFRPYeF6Ax3LG0zHI5XAjWWrIjyuY0iRsMJClowYX4xKoz1QtGtJhy54VYpIlfS8mpS_lw4Dc8Ckp4zzXPGSpBjiXU16FUfMD1bPbTHRYgFcLyVHPyEA5oXHZcjyKwN1wfy58zpozRfyHcKz1ICSwu1lOGQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://keycloak.com-dev.int.rolfcorp.ru/admin/realms/DEV-COREAPP/groups/ff949002-d86a-4daf-9273-d7a0c9701c4d/members",
+					"protocol": "https",
+					"host": [
+						"keycloak",
+						"com-dev",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"admin",
+						"realms",
+						"DEV-COREAPP",
+						"groups",
+						"ff949002-d86a-4daf-9273-d7a0c9701c4d",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/userinfo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": ".eyJleHAiOjE2NjUzMzczNTUsImlhdCI6MTY2NTMzNzA1NSwianRpIjoiNGVmYjc2NWYtMTI3Yi00ZmE5LWExZTItZDBiZmE1ZDg4YTVjIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrLmludC5yb2xmY29ycC5ydS9hdXRoL3JlYWxtcy9ST0xGIiwic3ViIjoiOGJjZTcxMzctYTcwNy00Njg0LTkzM2UtNDc5MDFhYTk2ZjQwIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYWRtaW4tY2xpIiwic2Vzc2lvbl9zdGF0ZSI6ImIxNTE5MWFhLThjODctNDg2YS04OTczLWViMGEzMTk5NzE0MSIsImFjciI6IjEiLCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiJiMTUxOTFhYS04Yzg3LTQ4NmEtODk3My1lYjBhMzE5OTcxNDEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRlc3R1c2VyIn0.hQNoSmU7csq8-_GkeaeYoq-G3eKxNKwh2xsZQJBm9Cv9Q9nr_AjQNf71Zsq4DUAK7aFIQUUp3weyKEV0oF3Kqgmqj1RqBrJjii9yalbGwjGOawRxzDMnT3YhUso5LLg9aj4NKDbEzjfwFW_lVAEFJtGPLzpPI3IllTjaWOaAnPy6dyBsb06BuYBMJ8gUy6BTOsVTWgrGHhIdrVtHg6mgwMnRKwmccBHmdKdpni5dpP5yxcQ97YjtzX3ClW1irNXDWImpCpBjkqk4bRlV7SBeTynbAqc74yr_U6ZinRa_E6PUxtRcgg_0q4-_pxaarIWqmaYAGMgoeihfiTQev8pzXg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ6OTJwRG42R0Q1OWRhWGdYTjlZU0QyMWR5N1d3UTktR19qRlZHNlhhQ0tZIn0.eyJleHAiOjE2Njc4MTc5NzIsImlhdCI6MTY2NzgxNzY3MiwianRpIjoiMjVmM2M1MDAtNGE5Ni00NGYzLWI1YzQtOTQxYWE4MjIxZGEzIiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay5jb20tZGV2LmludC5yb2xmY29ycC5ydS9yZWFsbXMvREVWLUNPUkVBUFAiLCJzdWIiOiIwZmI3NjYwNC01YjBkLTQ3MjctOTNmNi02MGM5Y2I1ZTZjOTAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiMWYyZDE2ZTAtNmI4Ny00MGNmLWEyM2QtYTJmZGY3YzVkNjNhIiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjFmMmQxNmUwLTZiODctNDBjZi1hMjNkLWEyZmRmN2M1ZDYzYSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoi0J_QsNC90LDRgdGO0Log0J_QsNC90LDRgdGO0LoiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzcGFuYXNpdWsiLCJnaXZlbl9uYW1lIjoi0J_QsNC90LDRgdGO0LoiLCJmYW1pbHlfbmFtZSI6ItCf0LDQvdCw0YHRjtC6IiwiZW1haWwiOiJzcGFuYXNpdWtAcm9sZi5ydSJ9.NmlhRT7A-Or08JLeUa7sE5jrKe9EyP3wC1V5LSDN6OZeMoXKHdGt1sri538LmWOCX2DUmII6VIZMiekgjw8JmY807i4mZhEeuXsp-qs9RLYLQNGtcz_G9bd4aAdHPGRrFkVMiElE9CRTsHGeFYAuYq9ebri17DJ31Le6I3HSf0Kt4t56CaZAoJZiKeAWyCkYsUi2vfTytpz4Bi4V2Q_FFa4rmidxXNUQyZczFp1UHlMpb3EpPnAIfN5NYnqAfLqFEdiL74pw21iJ3jE24fmolItwdR94GbSXXuD_QqSkzxq0HTe56vbhT0bh-0faEtqulkPUppPYhLBe44XlJ5_khA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://keycloak.int.rolfcorp.ru/auth/realms/ROLF/protocol/openid-connect/userinfo",
+					"protocol": "http",
+					"host": [
+						"keycloak",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"auth",
+						"realms",
+						"ROLF",
+						"protocol",
+						"openid-connect",
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/get_token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "admin-cli",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "service_user",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "********",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://keycloak.int.rolfcorp.ru/realms/COREAPP-DEV/protocol/openid-connect/token",
+					"protocol": "https",
+					"host": [
+						"keycloak",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"realms",
+						"COREAPP-DEV",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/get_token_test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "admin-cli",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "aakalustov_t",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "********",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://keycloak.com-dev.int.rolfcorp.ru/realms/DEV-COREAPP/protocol/openid-connect/token",
+					"protocol": "https",
+					"host": [
+						"keycloak",
+						"com-dev",
+						"int",
+						"rolfcorp",
+						"ru"
+					],
+					"path": [
+						"realms",
+						"DEV-COREAPP",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
