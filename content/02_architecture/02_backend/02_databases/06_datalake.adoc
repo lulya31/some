@@ -1,0 +1,19 @@
+---
+title: "Data Lake"
+description: "Data Lake"
+weight: 7
+draft: false
+---
+
+:imgdir: /02_02_01_06_img/
+:imagesoutdir: ./static/02_02_01_06_img/
+
+include::content/init.adoc[]
+
+= Data Lake
+
+{empty} +
+
+====
+NOTE: Описание раздела *Data Lake* будет добавлено позднее.
+====

@@ -1,0 +1,20 @@
+---
+title: "SMTP сервер"
+description: "SMTP сервер"
+weight: 8
+draft: false
+---
+
+:imgdir: /02_02_05_09_img/
+:imagesoutdir: ./static/02_02_05_09_img/
+
+include::content/init.adoc[]
+
+= SMTP сервер
+
+{empty} +
+
+== SMTP сервер
+
+****
+****

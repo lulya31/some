@@ -1,0 +1,183 @@
+---
+title: "Leroy API Management"
+description: "Leroy API Management"
+weight: 2
+draft: false
+---
+
+:imgdir: /02_02_04_03_02_img/
+:imagesoutdir: ./static/02_02_04_03_02_img/
+
+include::content/init.adoc[]
+
+= Leroy API Management
+
+{empty} +
+
+== Доступы Leroy API Management
+
+.*Prod* микросервисы
+****
+* `*link:https://meta-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://appeng-apim.plf.int.rolfcorp.ru*`[window=_blank]
+* `*link:https://rbac-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://spec-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://oauth-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://validator.plf.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://docs-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+****
+
+.*Prod* UI
+****
+* `*link:https://ui-apim.plf.int.rolfcorp.ru/*`[window=_blank]
+****
+
+.*Dev* микросервисы
+****
+* `*link:https://meta-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://appeng-apim.plf-dev.int.rolfcorp.ru*`[window=_blank]
+* `*link:https://rbac-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://spec-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://oauth-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://validator.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+* `*link:https://docs-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+****
+
+.*Dev* UI
+****
+* `*link:https://ui-apim.plf-dev.int.rolfcorp.ru/*`[window=_blank]
+****
+
+== API Management
+
+****
+*API Management* - это процесс создания и публикации программных интерфейсов *WEB*-приложений (*API*), обеспечения соблюдения их политик использования, контроля доступа, поддержки сообщества подписчиков, сбора и анализа статистики использования и отчетности о производительности.
+
+{empty} +
+
+С другой стороны, *API Management* - это набор инструментов и сервисов, которые позволяют разработчикам и компаниям создавать, анализировать, применять и масштабировать интерфейсы *API* в безопасных средах. В данных вариантах определения понятия "*API Management*" мы видим, что это процессы и системы позволяющие публиковать внутренние *API* сервиы, прописывать им определенные политики обработки запросов и ответов, контролировать доступ и анализировать статистику использования и производительности. Также рядом могут располагаться несколько подсистем, которые организуют выполнение необязательных функций, но интересных с точки зрения других подразделений, например монетизация *API*.
+****
+
+=== Цель
+
+****
+В архитектуру сервиса *API Management* обычно входят (см. link:#architecture_apim_anchor[рисунок 1]):
+====
+. *Management Core*: ядро системы, которое отвечает за формирование политик, планов, работу точками входа и выхода, настроек *API Gateways* и *API*, настройку *CORS*, *Failover*, *Healthcheck*, формирование запросов на отображение статистики использования *API* и логов.
+. *Web/Development Portal*: отвечает за *UI*, отображение настроек, статистики использования API, healthcheck и логов, а также позволяет общаться разработчикам, администраторам и владельцам *API*.
+. *API Gateways*: шлюзы или прокси, они отвечают за обработку запросов от клиентов сервиса согласно установленных настроек и политик, ведение логов запросов и ответов, а также запуск *healthcheck* по *Backend API*.
+. *Backend API*: отвечает за обработку запросов согласно бизнес-логике конечного сервиса.
+. *Databases*: в части сервиса *API Management*, хранят данные по настройке *API*, *API Gateways*, логи запросов клиентов и ответы *backend*, *healthcheck*, данные мониторинга практически всех компонентов *API Management*.
+====
+****
+
+****
+.Архитектура сервиса *API Management*
+[[architecture_apim_anchor]]
+[%collapsible%open]
+====
+image::architecture_apim.png[title="Архитектура сервиса *API Management*", align=center, width="50%"]
+====
+****
+
+=== Плюсы и минусы систем API Management
+
+****
+*У данных систем есть несколько преимуществ:*
+====
+. *Абстракция*: система упрощает сложность сервисов под ним и предоставляет клиентам единый опыт.
+. *Аутентификация*: система позволяет пройти аутентификацию, в том числе и через сторонние службы, например *Keycloak*.
+. *Управление трафиком*: система регулирует входящий и исходящий трафик *API*.
+. *Мониторинг API*: система может помочь в мониторинге запросов/ответов клиента.
+. *Преобразования*: система позволяет преобразовать запросы/ответы *API*.
+====
+****
+
+****
+*К минусам можно отнести:*
+====
+. *Увеличение Latency*: шлюзу необходимо время для обработки запросов/ответов согласно настроенным политикам.
+. *TCO*: Совокупная стоимость владения для всей цепочки поставки ценности, естественно будет больше, чем просто установить *nginx* и выставить его наружу. 
+====
+****
+
+=== API Gateways
+
+****
+*API Gateways* работают как единая точка входа в *ЦОД* (центр обработки данных), группу распределенных служб или сервисов (см. link:#groups_services_apim_anchor[рисунок 2]). Также *API Gateways* могут использоваться для связи между двумя продуктами/сервисами, развернутыми в одном *ЦОД*. *API Gateways* принимают вызовы от клиентов, обрабатывают их согласно политикам/правилам и направляют их в соответствующие сервисы. Чтобы *API Gateways* могли максимально быстро обрабатывать запросы от клиентов их делают максимально легковесными, с использованием асинхронных фреймворков. *API Gateways*, как правило, работают только на седьмом уровне (*L7*) модели *OSI*.
+****
+
+****
+.Группы распределенных служб или сервисов
+[[groups_services_apim_anchor]]
+[%collapsible%open]
+====
+image::groups_services_apim.png[title="Группы распределенных служб или сервисов", align=center, width="50%"]
+====
+****
+
+== Leroy API Management
+
+****
+В компании *Рольф* выбрана для использования система link:https://docs-apim.plf.int.rolfcorp.ru/[*Leroy APIM*, window=_blank]. +
+В таблице ниже даны ссылки на разделы технической документации системы *Leroy APIM*.
+****
+
+****
+[cols=".^50,.^50"]
+|===
+2+^.^|  *Tutorials*
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/api-draft-creation-process/[Создание проекта *API*, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/management-api-proxy-or-product/[Управление *API Proxy/Product*, window=_blank]
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/api-publication-process[Публикация *API*, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/approve-product-subscription/[Подтверждение/отклонение подписки на продукт, window=_blank]
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/api-subscription-process/[Подписка на *API*, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/topic-creation-process[Создание *Kafka topic*, window=_blank]
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/api-version-creation-process/[Создание новой версии *API*, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/topic-subscription-process[Подпишитесь на *события Kafka*, window=_blank]
+2+^.^| *Инструкции*
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/how-tos/target-servers[Настройка целевого сервера, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/how-tos/manage-your-account[Настройка своего аккаунта, window=_blank]
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/how-tos/markdown-files-requirements[Подготовка *Markdown* файла, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/how-tos/get-swagger[Как получить *Swagger* из *Control Center*, window=_blank]
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/how-tos/postman-collection-requirements[Подготовка *Postman* коллекции, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/how-tos/apply-kong-transformations[Применение политик *Kong*, window=_blank]
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/how-tos/swagger-file-requirements[Подготовка *Swagger* файла, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/how-tos/copy-policies[Копировать политики из *env* в *env*, window=_blank]
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/how-tos/manage-users-group[Управление командой пользователей, window=_blank] |
+2+^.^| *Базовые концепты*
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/Useful_information/api-tech-debt[Технический долг *API*, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/Useful_information/sync-design-principles[Принципы синхронного проектирования, window=_blank]
+| link:https://docs-apim.plf.int.rolfcorp.ru/docs/Useful_information/async-design-principles[Принципы асинхронного проектирования, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/Useful_information/vocabulary[Словарь, window=_blank]
+|===
+****
+
+== Основной концепт для анализа и проектирования архитектуры APIM
+
+****
+Как правило, бизнес-процессы большинства компаний можно разделить на несколько категорий:
+
+[cols="^.^20h,.^80"]
+|===
+^.^| Группа ^.^| Описание
+
+| image:finance.png[title="Финансы", align="center"] | Справочники расходов, информация для клиентов, партнеры, история поступлений, управленческий учет и бухгалтерская информация.
+| image:customers.png[title="Клиенты", align="center"] | Клиенты *B2C* и *B2B*, контактная информация клиентов, идентификационные данные и данные учетной записи, каналы связи (электронная почта, смс и т. д.), история общения и взаимодействий.
+| image:partners.png[title="Партнеры", align="center"] | Информация о партнерах и поставщиках, информацией о логистике, ссылки на магазины и склады.
+| image:products.png[title="Продукты", align="center"] | Информация о продукте (вес, объемы, штрих-коды и т. д.), его технические и логистические характеристики, маркетинговое описание, ссылки на магазины, ссылки на отделы и подотделы, ссылки на поставщиков, ссылки на медиа-контент, информация о сертификации.
+| image:prices.png[title="Цены", align="center"] | Цена покупки, цена продажи, для продуктов и услуг, компоненты затрат, цены *DPAC*. Ссылки на регионы и магазины, ссылки на поставщиков, чтобы узнать цену покупки, единицы цены и т. д.
+| image:services.png[title="Услуги", align="center"] | Информация об услугах – описание, категории услуг, номенклатура, ссылки на магазины и поставщиков услуг (партнеров).
+| image:stocks.png[title="Остатки", align="center"] | Информация об акциях для продажи, магазинах и поставщиках. Остатки могут рассчитываться по разным формулам (фактический запас на складе (без витрин в магазине), запас в ВН для магазина и т.д.). Ссылки на регионы, ссылки на магазины и ссылки на поставщиков.
+| image:locations.png[title="Локация", align="center"] | Клиенты, партнеры и местоположения, типы объектов, адреса, часы работы, контактная информация, *GPS* и геокоды.
+| image:company.png[title="Компания", align="center"] | Структура компании, отделы, сотрудники и их контактные данные, отпуска, зарплаты, данные о часах, справочники (валюты, НДС, страны, графики, праздники и т. д.).
+| image:orders.png[title="Заказы", align="center"] | Заказы клиентов и поставщиков по различным каналам (EDI, электронная почта, магазины и т. д.). Строки выполнения заказов, объемы заказов, цены и т. д. Фактические даты доставки и подробная информация о доставке.
+| image:offers.png[title="Предложения", align="center"] | Ассортимент товаров и услуг с прайс-ссылками, геоссылками, описанием коммерческих товаров и услуг, каталогом и мерчандайзингом.
+| image:technical.png[title="Технические службы", align="center"] | Внутренние технические службы, информация о приложениях и технических активах, заявки, BPM и системы совместной работы, идентификация приложений, ошибки, события, API и т. д.
+|===
+
+{empty} +
+
+====
+NOTE: Основной посыл заключается в том, чтобы разные типы бизнес-процессов компании накладывались на соответствующие домены *APIM* системы.
+====
+****
+
+****
+.Категории Бизнес-Процессов предприятия
+[[domains_anchor]]
+[%collapsible%close]
+====
+image::domains.png[title="Категории Бизнес-Процессов предприятия", align=center]
+====
+****
