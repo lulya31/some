@@ -20,13 +20,19 @@ include::content/init.adoc[]
 .Подключения *Platformeco* по протоколу *HTTP*
 [%collapsible%open]
 ====
-[cols=".^100"]
+[cols=".^30h,.^70"]
 |===
-| Настройки подключения через *CyberDuck* | link:https://cyberduck.io/[window=_blank]
-| Connection type | *Amazon S3*
-| Server and port | link:storage.yandexcloud.net:443[window=_blank]
-| Access Key ID | The id that you received when generating the static key: `*YCAJEdgDFj9JbYDaWB2HdTK5i*`
-| Password | The secretKey that you received when generating the static key: `*YCP9tmRKlfsB0rKavPJ28PotWBfaamhT6N9BLSpS*`
+| Настройки подключения через CyberDuck | `*link:https://cyberduck.io/[window=_blank]*`
+| Тип соединения | *Amazon S3*
+| Сервер и порт | `[.blue]#*storage.yandexcloud.net:443*#`
+| Access Key ID a| Идентификатор (*id*), который вы получили при генерации статического ключа: +
+=====
+`*YCAJEdgDFj9JbYDaWB2HdTK5i*`
+=====
+| Пароль a| *secretKey*, который вы получили при генерации статического ключа: +
+=====
+`*YCP9tmRKlfsB0rKavPJ28PotWBfaamhT6N9BLSpS*`
+=====
 |===
 ====
 ****
