@@ -1,0 +1,853 @@
+{
+	"info": {
+		"_postman_id": "545e338b-4e2f-4ac4-996e-48ed7f378b98",
+		"name": "Tinkoff",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26322602",
+		"_collection_link": "https://lively-trinity-913728.postman.co/workspace/F%26I-workspace~08c54dfa-1c0f-4744-8770-ef969a94feba/collection/26322602-545e338b-4e2f-4ac4-996e-48ed7f378b98?action=share&creator=26322602&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "0. token_recieve",
+			"item": [
+				{
+					"name": "0. Recieve token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var token = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"cV_token\", token.access_token);\r",
+									"console.log(\"cV_token\", token.access_token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "********",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "TestMotor",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/tokenAuthFromPartner",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tokenAuthFromPartner"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1. recieve_quotation_with_pd",
+			"item": [
+				{
+					"name": "fixed_drivers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var quotation = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"cV_polic_cost\", quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.totalPremium);\r",
+									"console.log(\"cV_polic_cost\", quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.totalPremium)\r",
+									"pm.collectionVariables.set(\"cV_calcID\", quotation.calcID);\r",
+									"console.log(\"cV_calcID\", quotation.calcID)\r",
+									"pm.collectionVariables.set(\"cV_setNumber\", quotation.setInfoFQuote[0].setNumber);\r",
+									"console.log(\"cV_setNumber\", quotation.setInfoFQuote[0].setNumber)\r",
+									"pm.collectionVariables.set(\"cV_polis_number\",quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.quoteNumber)\r",
+									"console.log(\"cV_polis_number\",quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.quoteNumber)\r",
+									"let subject_info_list = []\r",
+									"quotation.subjectInfo.forEach((element)=>{\r",
+									"    subject_info_list.push(element)\r",
+									"});\r",
+									"pm.collectionVariables.set(\"cV_subject_info_list\",JSON.stringify(subject_info_list))\r",
+									"console.log(\"cV_subject_info_list\",JSON.stringify(subject_info_list))\r",
+									"pm.collectionVariables.set(\"cV_polis_number\",quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.quoteNumber)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment_d = require('moment');\r",
+									"pm.collectionVariables.set('currentdate', moment_d().format((\"YYYY-MM-DD\")));\r",
+									"console.log('currentdate', moment_d().format((\"YYYY-MM-DD\")))\r",
+									"var moment_t = require('moment');\r",
+									"pm.collectionVariables.set('currenttime', moment_t().format((\"HH:mm:SS.SSSSSS\")));\r",
+									"console.log('currenttime', moment_t().format((\"HH:mm:SS.SSSSSS\")))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cV_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"calcID\": \"\",\r\n        \"subjectInfo\": [{\r\n                \"ID\": \"\",\r\n                \"subjectNumber\": 1,\r\n                \"subjectDetails\": {\r\n                    \"lastName\": \"Ассылов\",\r\n                    \"firstName\": \"Евгений\",\r\n                    \"middleName\": \"Сергеевич\",\r\n                    \"birthdate\": \"1994-10-08\",\r\n                    \"email\": \"ESAssylov@rolf.ru\",\r\n                    \"gender\": \"male\",\r\n                    \"birthCountry\": \"RU\",\r\n                    \"citizenship\": \"RU\",\r\n                    \"address\": [{\r\n                            \"addressType\": \"registration\",\r\n                            \"country\": \"RU\",\r\n                            \"postCode\": \"141802\",\r\n                            \"region\": \"50\",\r\n                            \"KLADR1\": \"5000000000000\",\r\n                            \"district\": \"Дмитров\",\r\n                            \"KLADR2\": \"\",\r\n                            \"city\": \"Дмитров\",\r\n                            \"KLADR3\": \"5004500000000\",\r\n                            \"street\": \"Космонавтов\",\r\n                            \"KLADR5\": \"5004500000000\",\r\n                            \"building\": \"1А\",\r\n                            \"KLADR6\": \"\",\r\n                            \"flat\": \"1\"\r\n                        }, {\r\n                            \"addressType\": \"home\",\r\n                            \"country\": \"RU\",\r\n                            \"postCode\": \"141801\",\r\n                            \"region\": \"50\",\r\n                            \"KLADR1\": \"5000000000000\",\r\n                            \"district\": \"Дмитров\",\r\n                            \"KLADR2\": \"\",\r\n                            \"city\": \"Дмитров\",\r\n                            \"KLADR3\": \"5004500000000\",\r\n                            \"populatedCenter\": \"им Владимира Махалина\",\r\n                            \"KLADR4 \": \"50045000000050000\",\r\n                            \"KLADR5\": \"5004500000000\",\r\n                            \"building\": \"40\",\r\n                            \"KLADR6\": \"\",\r\n                            \"flat\": \"1\"\r\n                        }\r\n                    ],\r\n                    \"document\": [{\r\n                            \"documentType\": \"driver_license_russian_B\",\r\n                            \"series\": \"1234\",\r\n                            \"number\": \"123456\",\r\n                            \"dateIssue\": \"2018-05-01\",\r\n                            \"lastName\": \"Ассылов\",\r\n                            \"firstName\": \"Руслан\",\r\n                            \"middleName\": \"Сергеевич\",\r\n                            \"issuingCountry\": \"RU\"\r\n                        }, {\r\n                            \"documentType\": \"passport_russian\",\r\n                            \"series\": \"4514\",\r\n                            \"number\": \"549087\",\r\n                            \"dateIssue\": \"2018-07-25\",\r\n                            \"issuedBy\": \"москва\",\r\n                            \"subdivisionCode\": \"127-111\",\r\n                            \"lastName\": \"Ассылов\",\r\n                            \"firstName\": \"Евгений\",\r\n                            \"middleName\": \"Сергеевич\",\r\n                            \"issuingCountry\": \"RU\"\r\n                        }\r\n                    ],\r\n                    \"phone\": [{\r\n                            \"isPrimary\": true,\r\n                            \"typePhone\": \"mobile\",\r\n                            \"numberPhone\": \"79162818587\"\r\n                        }\r\n                    ]\r\n                }\r\n            }, {\r\n                \"ID\": \"\",\r\n                \"subjectNumber\": 2,\r\n                \"subjectDetails\": {\r\n                    \"lastName\": \"Реутов\",\r\n                    \"firstName\": \"Евгений\",\r\n                    \"middleName\": \"Владимирович\",\r\n                    \"birthdate\": \"1979-03-12\",\r\n                    \"email\": \"mail4rus@gmail.com\",\r\n                    \"gender\": \"male\",\r\n                    \"birthCountry\": \"RU\",\r\n                    \"citizenship\": \"RU\",\r\n                    \"address\": [{\r\n                            \"addressType\": \"registration\",\r\n                            \"country\": \"RU\",\r\n                            \"postCode\": \"125009\",\r\n                            \"region\": \"77\",\r\n                            \"KLADR1\": \"7700000000000\",\r\n                            \"KLADR2\": \"\",\r\n                            \"city\": \"Москва\",\r\n                            \"KLADR3\": \"7700000000000\",\r\n                            \"street\": \"Тверская\",\r\n                            \"KLADR5\": \"7700000000000\",\r\n                            \"building\": \"6\",\r\n                            \"KLADR6\": \"\",\r\n                            \"flat\": \"1\"\r\n                        }, {\r\n                            \"addressType\": \"home\",\r\n                            \"country\": \"RU\",\r\n                            \"postCode\": \"125480\",\r\n                            \"region\": \"77\",\r\n                            \"KLADR1\": \"7700000000000\",\r\n                            \"KLADR2\": \"\",\r\n                            \"city\": \"Москва\",\r\n                            \"KLADR3\": \"7700000000000\",\r\n                            \"street\": \"Планерная\",\r\n                            \"KLADR5\": \"7700000000000\",\r\n                            \"building\": \"5\",\r\n                            \"KLADR6\": \"\"\r\n                        }\r\n                    ],\r\n                    \"document\": [{\r\n                            \"documentType\": \"driver_license_russian_B\",\r\n                            \"series\": \"4321\",\r\n                            \"number\": \"654321\",\r\n                            \"dateIssue\": \"2019-05-01\",\r\n                            \"lastName\": \"Реутов\",\r\n                            \"firstName\": \"Руслан\",\r\n                            \"middleName\": \"Владимирович\",\r\n                            \"issuingCountry\": \"RU\"\r\n                        }, {\r\n                            \"documentType\": \"passport_russian\",\r\n                            \"series\": \"4504\",\r\n                            \"number\": \"830683\",\r\n                            \"dateIssue\": \"2003-01-10\",\r\n                            \"issuedBy\": \"ОВД БУТЫРСКОГО Р-НА ГОР. МОСКВЫ\",                            \r\n                            \"subdivisionCode\": \"772-062\",\r\n                            \"lastName\": \"Реутов\",\r\n                            \"firstName\": \"Руслан\",\r\n                            \"middleName\": \"Владимирович\",\r\n                            \"issuingCountry\": \"RU\"\r\n                        }\r\n                    ],\r\n                    \"phone\": [{\r\n                            \"isPrimary\": true,\r\n                            \"typePhone\": \"mobile\",\r\n                            \"numberPhone\": \"89262582811\"\r\n                        }\r\n                    ]\r\n                }\r\n            }\r\n        ],\r\n        \"vehicleInfo\": {\r\n            \"vehicleDetails\": {\r\n                \"vehicleReferenceInfo\": {\r\n                    \"vehicleReferenceDetails\": {\r\n                        \"modelID\": \"611\",\r\n                        \"engPwrHP\": 135,\r\n                        \"caseTypeID\": \"23\",\r\n                        \"kppTypeID\": \"7\",\r\n                        \"engineTypeID\": \"15\"\r\n                    }\r\n                },\r\n                \"isChangeNumAgg\": false,\r\n                \"countryOfRegistration\": {\r\n                    \"isNoCountryOfRegistration\": false,\r\n                    \"countryOfRegistration\": \"RU\"\r\n                },\r\n                \"vehicleDocument\": [{\r\n                        \"documentType\": \"PTS\",\r\n                        \"documentSeries\": \"12АА\",\r\n                        \"documentNumber\": \"123456\",\r\n                        \"documentIssued\": \"2019-05-01\"\r\n                    }\r\n                ],\r\n                \"credit\": {\r\n                    \"isCredit\": false\r\n                },\r\n                \"isKeyless\": true,\r\n                \"immobilazerName\": \"BlackBug Super BT-85L\",\r\n                \"chassis\": {\r\n                    \"isChassisMissing\": false\r\n                },\r\n                \"isUsedWithTrailer\": false,\r\n                \"kuzovNumber\": {\r\n                    \"isKuzovMissing\": false\r\n                },\r\n                \"mileage\": 64908,\r\n                \"registrationNumber\": {\r\n                    \"isNoRegistrationNumber\": true,\r\n                    \"isRegNumNonStandart\": false,\r\n                    \"registrationNumber\": \"А091ХК190\"\r\n                },\r\n                \"sourceAcquisition\": \"IN_SALON\",\r\n                \"vehicleCost\": 1600000,\r\n                \"vehicleUsage\": \"personal\",\r\n                \"vehicleUseRegion\": \"77\",\r\n                \"VIN\": {\r\n                    \"isVINMissing\": false,\r\n                    \"isIrregularVIN\": false,\r\n                    \"VIN\": \"4T1B11HK7KU263579\"\r\n                },\r\n                \"year\": 2021,\r\n                \"numberOfKeys\": {\r\n                    \"IsUnknownNumberOfKeys\": false,\r\n                    \"numberOfKeys\": 3\r\n                }\r\n            }\r\n        },\r\n        \"setInfoFQuote\": [{\r\n                \"setNumber\": \"\",\r\n                \"linkSetNumber\": 1,\r\n                \"calcInsCompany\": [\r\n                    \"TINKOFF\"\r\n                ],\r\n                \"KASKOFQ\": {\r\n                    \"producerCode\": \"TestMotor-01\",\r\n                    \"quoteNumber\": \"\",\r\n                    \"termType\": \"Annual\",\r\n                    \"effectiveDate\": \"{{effectiveDate}}\",\r\n                    \"expirationDate\": \"{{expirationDate}}\",\r\n                    \"insurant\": {\r\n                        \"subjectNumber\": \"1\"\r\n                    },\r\n                    \"carOwner\": {\r\n                        \"subjectNumber\": \"2\"\r\n                    },\r\n                    \"driversList\": {\r\n                        \"namedList\": {\r\n                            \"driver\": [{\r\n                                    \"subjectNumber\": 1,\r\n                                    \"drivingLicenseIssueDateOriginal\": \"2018-05-01\"\r\n                                },\r\n                                    {\r\n                                    \"subjectNumber\": 2,\r\n                                    \"drivingLicenseIssueDateOriginal\": \"2019-05-01\"\r\n                                    }\r\n                            ]\r\n                        }\r\n                    },\r\n                    \"coverages\": {\r\n                        \"insuranceTerritory\": \"Russia\",\r\n                        \"damage\": {\r\n                            \"totalDamage\": true,\r\n                            \"fullDamage\": true,\r\n                            \"repairOptions\": \"insurer\",\r\n                            \"deductible\": {\r\n                                \"wholeVehicle\": {\r\n                                    \"amount\": 10000,\r\n                                    \"fromSecondInsuredEvent\": false\r\n                                }\r\n                            }\r\n                        },\r\n                        \"theft\": {\r\n                            \"theft\": true\r\n                        },                        \r\n                        \"GAP\": {\r\n                            \"GAP\": false\r\n                        },\r\n                        \"mileageLimitations\":{\r\n                            \"limitations\":null\r\n                        }                       \r\n                    },\r\n                    \"numberOfCASCOLosses\": 0,\r\n                    \"isRenewal\": false\r\n                }\r\n            }\r\n        ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/calcPartnerFQuote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"calcPartnerFQuote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unlim_drivers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var quotation = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"cV_calcID\", quotation.calcID);\r",
+									"console.log(\"cV_calcID\", quotation.calcID)\r",
+									"pm.collectionVariables.set(\"cV_setNumber\", quotation.setInfoFQuote[0].setNumber);\r",
+									"console.log(\"cV_setNumber\", quotation.setInfoFQuote[0].setNumber)\r",
+									"pm.collectionVariables.set(\"cV_polis_number\",quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.quoteNumber)\r",
+									"console.log(\"cV_polis_number\",quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.quoteNumber)\r",
+									"let subject_info_list = []\r",
+									"quotation.subjectInfo.forEach((element)=>{\r",
+									"    subject_info_list.push(element)\r",
+									"});\r",
+									"pm.collectionVariables.set(\"cV_subject_info_list\",JSON.stringify(subject_info_list))\r",
+									"console.log(\"cV_subject_info_list\",JSON.stringify(subject_info_list))"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment_d = require('moment');\r",
+									"pm.collectionVariables.set('currentdate', moment_d().format((\"YYYY-MM-DD\")));\r",
+									"console.log('currentdate', moment_d().format((\"YYYY-MM-DD\")))\r",
+									"var moment_t = require('moment');\r",
+									"pm.collectionVariables.set('currenttime', moment_t().format((\"HH:mm:SS.SSSSSS\")));\r",
+									"console.log('currenttime', moment_t().format((\"HH:mm:SS.SSSSSS\")))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cV_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"calcID\":\"\",\r\n    \"subjectInfo\": [{\r\n            \"ID\":\"\",\r\n            \"subjectNumber\": 1,\r\n            \"subjectDetails\": {\r\n                \"lastName\": \"Иванов\",\r\n                \"firstName\": \"Иван\",\r\n                \"middleName\": \"Сергеевич\",\r\n                \"birthdate\": \"1986-12-28\",\r\n                \"email\": \"v.chistyakov@tinkoffinsurance.ru\",\r\n                \"gender\": \"male\",\r\n                \"birthCountry\":\"RU\",\r\n                \"citizenship\": \"RU\",\r\n                \"address\": [{\r\n                        \"addressType\": \"registration\",\r\n                        \"country\": \"RU\",\r\n                        \"postCode\": \"110589\",\r\n                        \"region\": \"77\",\r\n                        \"KLADR1\": \"7700000000000\",\r\n                        \"district\": \"Москва\",\r\n                        \"city\": \"Москва\",                        \r\n                        \"KLADR3\": \"7700000000000\",\r\n                        \"populatedCenter\": \"Черная Маза\",\r\n                        \"KLADR4 \":\"7601600026500\",\r\n                        \"street\": \"Новочеремушкинская\",\r\n                        \"KLADR5\": \"7700000000000\",\r\n                        \"building\": \"35\",\r\n                        \"flat\": \"2\"\r\n                    }, {\r\n                        \"addressType\": \"home\",\r\n                        \"country\": \"RU\",\r\n                        \"postCode\": \"123423\",\r\n                        \"region\": \"77\",\r\n                        \"KLADR1\": \"7700000000000\",\r\n                        \"city\": \"Москва\",\r\n                        \"KLADR3\": \"7700000000000\",\r\n                        \"street\": \"Мневники\",\r\n                        \"KLADR5\": \"77000000000188200\",\r\n                        \"building\": \"18\",\r\n                        \"KLADR6\": \"7700000000018820103\",\r\n                        \"flat\": \"33\"\r\n                    }\r\n                ],\r\n                \"document\": [{\r\n                        \"documentType\": \"driver_license_russian_B\",\r\n                        \"series\": 5734,\r\n                        \"number\": 456789,\r\n                        \"dateIssue\": \"2015-07-28\",\r\n                        \"issuingCountry\": \"RU\"\r\n                    }, {\r\n                        \"documentType\": \"passport_russian\",\r\n                        \"series\": 4266,\r\n                        \"number\": 675348,\r\n                        \"dateIssue\": \"2007-04-27\",\r\n                        \"issuedBy\": \"ОВД Академический гор. Москвы\",\r\n                        \"subdivisionCode\": \"500-024\"\r\n                    }\r\n                ],\r\n                \"phone\": [{\r\n                        \"isPrimary\": true,\r\n                        \"typePhone\": \"mobile\",\r\n                        \"numberPhone\": \"79161232324\"\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"ID\":\"\",\r\n            \"subjectNumber\": 2, \r\n            \"subjectDetails\": {\r\n                \"lastName\": \"Ассылов\",\r\n                \"firstName\": \"Евгений\", \r\n                \"middleName\": \"Сергеевич\", \r\n                \"birthdate\": \"1994-10-08\", \r\n                \"email\": \"ESAssylov@rolf.ru\", \r\n                \"gender\": \"male\",\r\n                \"birthCountry\":\"RU\",\r\n                \"citizenship\": \"RU\",\r\n                \"address\": [{\r\n                        \"addressType\": \"registration\",\r\n                        \"country\": \"RU\", \r\n                        \"postCode\": \"141802\", \r\n                        \"region\": \"50\", \r\n                        \"KLADR1\": \"5000000000000\", \r\n                        \"district\": \"Дмитров\", \r\n                        \"city\": \"Дмитров\", \r\n                        \"KLADR3\": \"5004500000000\", \r\n                        \"street\": \"Космонавтов\", \r\n                        \"KLADR5\": \"50045000000053500\", \r\n                        \"building\": \"1А\", \r\n                        \"flat\": \"1\" \r\n                    }, {\r\n                        \"addressType\": \"home\", \r\n                        \"country\": \"RU\", \r\n                        \"postCode\": \"141802\", \r\n                        \"region\": \"50\", \r\n                        \"KLADR1\": \"5000000000000\", \r\n                        \"district\": \"Дмитров\",\r\n                        \"city\": \"Дмитров\", \r\n                        \"KLADR3\": \"5004500000000\", \r\n                        \"street\": \"Космонавтов\", \r\n                        \"KLADR5\": \"50045000000053500\", \r\n                        \"building\": \"1А\", \r\n                        \"flat\": \"1\"\r\n                    }\r\n                ],\r\n                \"document\": [{\r\n                        \"documentType\": \"passport_russian\",\r\n                        \"series\": 4266, \r\n                        \"number\": 675348, \r\n                        \"dateIssue\": \"2007-04-27\", \r\n                        \"issuedBy\": \"ОВД Академический гор. Москвы\",\r\n                        \"subdivisionCode\": \"500-024\"\r\n                    },\r\n                    {\r\n                        \"documentType\": \"driver_license_russian_B\",\r\n                        \"series\": 5734, \r\n                        \"number\": 456789,\r\n                        \"dateIssue\": \"2015-07-28\",\r\n                        \"issuingCountry\": \"RU\"\r\n                    }\r\n                ],\r\n                \"phone\": [{\r\n                        \"isPrimary\": true,\r\n                        \"typePhone\": \"mobile\",\r\n                        \"numberPhone\": \"79162818587\" \r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"vehicleInfo\": {\r\n        \"vehicleDetails\": {\r\n            \"vehicleReferenceInfo\": {\r\n                \"vehicleReferenceDetails\": {\r\n                    \"modelID\": \"486\",\r\n                    \"engPwrHP\": 123,\r\n                    \"caseTypeID\": \"23\",\r\n                    \"kppTypeID\": \"7\",\r\n                    \"engineTypeID\": \"15\"\r\n                }\r\n            },\r\n            \"countryOfRegistration\": {\r\n                \"isNoCountryOfRegistration\": false,\r\n                \"countryOfRegistration\": \"RU\"\r\n            },\r\n            \"vehicleDocument\": [{\r\n                    \"documentType\": \"PTS\",\r\n                    \"documentSeries\": \"63EE\",\r\n                    \"documentNumber\": 685148,\r\n                    \"documentIssued\": \"2022-03-01\"\r\n                }\r\n            ],\r\n            \"credit\": {\r\n                \"isCredit\": false\r\n            },\r\n            \"immobilazerName\": \"\",\r\n            \"chassis\": {\r\n                \"isChassisMissing\": false,\r\n                \"chassisNumber\": \"7961TR\"\r\n            },\r\n            \"kuzovNumber\": {\r\n                \"isKuzovMissing\": false,\r\n                \"kuzovNumber\": \"88794567RQ\"\r\n            },\r\n            \"mileage\": 0,\r\n            \"registrationNumber\": {\r\n                \"isNoRegistrationNumber\": true,\r\n                \"isRegNumNonStandart\": false,\r\n                \"registrationNumber\": \"Р277СН199\"\r\n            },\r\n            \"sourceAcquisition\": \"IN_SALON\",\r\n            \"vehicleCost\": 1264861,\r\n            \"vehicleUsage\": \"personal\",\r\n            \"vehicleUseRegion\": 77,\r\n            \"VIN\": {\r\n                \"isVINMissing\": false,\r\n                \"isIrregularVIN\": false,\r\n                \"VIN\": 54983123830247588\r\n            },\r\n            \"year\": 2022,\r\n             \"numberOfKeys\": {\r\n                \"IsUnknownNumberOfKeys\": false,\r\n                \"numberOfKeys\": 2\r\n             }\r\n        }\r\n    },\r\n    \"setInfoFQuote\": [{\r\n            \"setNumber\":\"\",\r\n            \"linkSetNumber\": 1,\r\n            \"calcInsCompany\": [\r\n                \"TINKOFF\"\r\n            ],\r\n            \"KASKOFQ\": {\r\n                \"producerCode\": \"TestMotor-01\",\r\n                \"quoteNumber\":\"\",\r\n                \"termType\": \"Annual\",\r\n                \"effectiveDate\": \"{{effectiveDate}}\",\r\n                \"expirationDate\": \"{{expirationDate}}\",\r\n                \"insurant\": {\r\n                    \"subjectNumber\": 2\r\n                },\r\n                \"carOwner\": {\r\n                    \"subjectNumber\": 1\r\n                },\r\n                \"driversList\": {\r\n                    \"multidrive\": {\r\n                        \"minAge\":20,\r\n                        \"minExperience\":2\r\n                    }\r\n                },\r\n                \"coverages\": {\r\n                    \"insuranceTerritory\": \"Russia\",\r\n                    \"damage\": {\r\n                        \"totalDamage\": false,\r\n                        \"fullDamage\": true,\r\n                        \"repairOptions\": \"insurer\",\r\n                        \"deductible\": {\r\n                            \"wholeVehicle\": {\r\n                                \"amount\": 10000,\r\n                                \"fromSecondInsuredEvent\": false\r\n                            }\r\n                        }\r\n                    },\r\n                    \"theft\": {\r\n                        \"theft\": true\r\n                    },\r\n                    \"GAP\": {\r\n                        \"GAP\": false\r\n                    },\r\n                    \"technicalAssistance\": {\r\n                        \"technicalAssistance\": false\r\n                    },\r\n                    \"courtesyCar\": {\r\n                        \"courtesyCar\": false\r\n                    },\r\n                    \"taxi\": {\r\n                        \"taxi\": false\r\n                    },\r\n                    \"substituteDriver\": {\r\n                        \"substituteDriver\": false\r\n                    }\r\n                },\r\n                \"numberOfCASCOLosses\": 0,\r\n                \"isRenewal\": false\r\n            }\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/calcPartnerFQuote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"calcPartnerFQuote"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "(optional) recalc_quotation_with_pd",
+			"item": [
+				{
+					"name": "fixed_drivers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var quotation = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"cV_calcID\", quotation.calcID);\r",
+									"console.log(\"cV_calcID\", quotation.calcID)\r",
+									"pm.collectionVariables.set(\"cV_setNumber\", quotation.setInfoFQuote[0].setNumber);\r",
+									"console.log(\"cV_setNumber\", quotation.setInfoFQuote[0].setNumber)\r",
+									"pm.collectionVariables.set(\"cV_polis_number\",quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.quoteNumber)\r",
+									"console.log(\"cV_polis_number\",quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.quoteNumber)\r",
+									"let subject_info_list = []\r",
+									"quotation.subjectInfo.forEach((element)=>{\r",
+									"    subject_info_list.push(element)\r",
+									"});\r",
+									"pm.collectionVariables.set(\"cV_subject_info_list\",JSON.stringify(subject_info_list))\r",
+									"console.log(\"cV_subject_info_list\",JSON.stringify(subject_info_list))"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var subject_info_list = JSON.parse(pm.collectionVariables.get('cV_subject_info_list'))\r",
+									"subject_info_list.forEach((element)=>{\r",
+									"    pm.collectionVariables.set('cV_subjectID_'+element.subjectNumber,element.ID)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cV_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"calcID\":\"{{cV_calcID}}\",\r\n    \"subjectInfo\": [{\r\n            \"ID\":\"{{cV_subjectID_1}}\",\r\n            \"subjectNumber\": 1,\r\n            \"subjectDetails\": {\r\n                \"lastName\": \"Иванов\",\r\n                \"firstName\": \"Иван\",\r\n                \"middleName\": \"Сергеевич\",\r\n                \"birthdate\": \"1986-12-28\",\r\n                \"email\": \"v.chistyakov@tinkoffinsurance.ru\",\r\n                \"gender\": \"male\",\r\n                \"citizenship\": \"RU\",\r\n                \"address\": [{\r\n                        \"addressType\": \"registration\",\r\n                        \"country\": \"RU\",\r\n                        \"postCode\": \"110589\",\r\n                        \"region\": \"77\",\r\n                        \"KLADR1\": \"7700000000000\",\r\n                        \"district\": \"Москва\",\r\n                        \"city\": \"Москва\",                        \r\n                        \"KLADR3\": \"7700000000000\",\r\n                        \"populatedCenter\": \"Черная Маза\",\r\n                        \"KLADR4 \":\"7601600026500\",\r\n                        \"street\": \"Новочеремушкинская\",\r\n                        \"KLADR5\": \"7700000000000\",\r\n                        \"building\": \"35\",\r\n                        \"flat\": \"2\"\r\n                    }, {\r\n                        \"addressType\": \"home\",\r\n                        \"country\": \"RU\",\r\n                        \"postCode\": \"123423\",\r\n                        \"region\": \"77\",\r\n                        \"KLADR1\": \"7700000000000\",\r\n                        \"city\": \"Москва\",\r\n                        \"KLADR3\": \"7700000000000\",\r\n                        \"street\": \"Мневники\",\r\n                        \"KLADR5\": \"77000000000188200\",\r\n                        \"building\": \"18\",\r\n                        \"KLADR6\": \"7700000000018820103\",\r\n                        \"flat\": \"33\"\r\n                    }\r\n                ],\r\n                \"document\": [{\r\n                        \"documentType\": \"driver_license_russian_B\",\r\n                        \"series\": 5734,\r\n                        \"number\": 456789,\r\n                        \"dateIssue\": \"2015-07-28\",\r\n                        \"issuingCountry\": \"RU\"\r\n                    }, {\r\n                        \"documentType\": \"passport_russian\",\r\n                        \"series\": 4266,\r\n                        \"number\": 675348,\r\n                        \"dateIssue\": \"2007-04-27\",\r\n                        \"issuedBy\": \"ОВД Академический гор. Москвы\",\r\n                        \"subdivisionCode\": \"500-024\"\r\n                    }\r\n                ],\r\n                \"phone\": [{\r\n                        \"isPrimary\": true,\r\n                        \"typePhone\": \"mobile\",\r\n                        \"numberPhone\": \"79161232324\"\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"ID\":\"{{cV_subjectID_2}}\",\r\n            \"subjectNumber\": 2, \r\n            \"subjectDetails\": {\r\n                \"lastName\": \"Ассылов\",\r\n                \"firstName\": \"Евгений\", \r\n                \"middleName\": \"Сергеевич\", \r\n                \"birthdate\": \"1994-10-08\", \r\n                \"email\": \"ESAssylov@rolf.ru\", \r\n                \"gender\": \"male\",\r\n                \"citizenship\": \"RU\",\r\n                \"address\": [{\r\n                        \"addressType\": \"registration\",\r\n                        \"country\": \"RU\", \r\n                        \"postCode\": \"141802\", \r\n                        \"region\": \"50\", \r\n                        \"KLADR1\": \"5000000000000\", \r\n                        \"district\": \"Дмитров\", \r\n                        \"city\": \"Дмитров\", \r\n                        \"KLADR3\": \"5004500000000\", \r\n                        \"street\": \"Космонавтов\", \r\n                        \"KLADR5\": \"50045000000053500\", \r\n                        \"building\": \"1А\", \r\n                        \"flat\": \"1\" \r\n                    }, {\r\n                        \"addressType\": \"home\", \r\n                        \"country\": \"RU\", \r\n                        \"postCode\": \"141802\", \r\n                        \"region\": \"50\", \r\n                        \"KLADR1\": \"5000000000000\", \r\n                        \"district\": \"Дмитров\",\r\n                        \"city\": \"Дмитров\", \r\n                        \"KLADR3\": \"5004500000000\", \r\n                        \"street\": \"Космонавтов\", \r\n                        \"KLADR5\": \"50045000000053500\", \r\n                        \"building\": \"1А\", \r\n                        \"flat\": \"1\"\r\n                    }\r\n                ],\r\n                \"document\": [{\r\n                        \"documentType\": \"passport_russian\",\r\n                        \"series\": 4266, \r\n                        \"number\": 675348, \r\n                        \"dateIssue\": \"2007-04-27\", \r\n                        \"issuedBy\": \"ОВД Академический гор. Москвы\",\r\n                        \"subdivisionCode\": \"500-024\"\r\n                    },\r\n                    {\r\n                        \"documentType\": \"driver_license_russian_B\",\r\n                        \"series\": 5734, \r\n                        \"number\": 456789,\r\n                        \"dateIssue\": \"2015-07-28\",\r\n                        \"issuingCountry\": \"RU\"\r\n                    }\r\n                ],\r\n                \"phone\": [{\r\n                        \"isPrimary\": true,\r\n                        \"typePhone\": \"mobile\",\r\n                        \"numberPhone\": \"79162818587\" \r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"vehicleInfo\": {\r\n        \"vehicleDetails\": {\r\n            \"vehicleReferenceInfo\": {\r\n                \"vehicleReferenceDetails\": {\r\n                    \"modelID\": \"486\",\r\n                    \"engPwrHP\": 123,\r\n                    \"caseTypeID\": \"23\",\r\n                    \"kppTypeID\": \"7\",\r\n                    \"engineTypeID\": \"15\"\r\n                }\r\n            },\r\n            \"countryOfRegistration\": {\r\n                \"isNoCountryOfRegistration\": false,\r\n                \"countryOfRegistration\": \"RU\"\r\n            },\r\n            \"vehicleDocument\": [{\r\n                    \"documentType\": \"PTS\",\r\n                    \"documentSeries\": \"63EE\",\r\n                    \"documentNumber\": 685148,\r\n                    \"documentIssued\": \"2022-03-01\"\r\n                }\r\n            ],\r\n            \"immobilazerName\": \"\",\r\n            \"chassis\": {\r\n                \"isChassisMissing\": false,\r\n                \"chassisNumber\": \"7961TR\"\r\n            },\r\n            \"kuzovNumber\": {\r\n                \"isKuzovMissing\": false,\r\n                \"kuzovNumber\": \"88794567RQ\"\r\n            },\r\n            \"mileage\": 0,\r\n            \"registrationNumber\": {\r\n                \"isNoRegistrationNumber\": true,\r\n                \"isRegNumNonStandart\": false,\r\n                \"registrationNumber\": \"Р277СН199\"\r\n            },\r\n            \"sourceAcquisition\": \"IN_SALON\",\r\n            \"vehicleCost\": 1264861,\r\n            \"vehicleUsage\": \"personal\",\r\n            \"vehicleUseRegion\": 77,\r\n            \"VIN\": {\r\n                \"isVINMissing\": false,\r\n                \"isIrregularVIN\": false,\r\n                \"VIN\": 54983123830247588\r\n            },\r\n            \"year\": 2022,\r\n             \"numberOfKeys\": {\r\n                \"IsUnknownNumberOfKeys\": false,\r\n                \"numberOfKeys\": 2\r\n             }\r\n        }\r\n    },\r\n    \"setInfoFQuote\": [{\r\n            \"setNumber\":\"{{cV_setNumber}}\",\r\n            \"linkSetNumber\": 1,\r\n            \"calcInsCompany\": [\r\n                \"TINKOFF\"\r\n            ],\r\n            \"KASKOFQ\": {\r\n                \"producerCode\": \"TestMotor-01\",\r\n                \"quoteNumber\": \"\",\r\n                \"termType\": \"Annual\",\r\n                \"effectiveDate\": \"{{effectiveDate}}\",\r\n                \"expirationDate\": \"{{expirationDate}}\",\r\n                \"insurant\": {\r\n                    \"subjectNumber\": 2\r\n                },\r\n                \"carOwner\": {\r\n                    \"subjectNumber\": 1\r\n                },\r\n                \"driversList\": {\r\n                    \"namedList\": {\r\n                        \"driver\": [{\r\n                                \"subjectNumber\": 1,\r\n                                \"drivingLicenseIssueDateOriginal\": \"2005-08-27\"\r\n                            }\r\n                        ]\r\n                    }\r\n                },\r\n                \"coverages\": {\r\n                    \"insuranceTerritory\": \"Russia\",\r\n                    \"damage\": {\r\n                        \"totalDamage\": false,\r\n                        \"fullDamage\": true,\r\n                        \"repairOptions\": \"insurer\",\r\n                        \"deductible\": {\r\n                            \"wholeVehicle\": {\r\n                                \"amount\": 10000,\r\n                                \"fromSecondInsuredEvent\": false\r\n                            }\r\n                        }\r\n                    },\r\n                    \"theft\": {\r\n                        \"theft\": true\r\n                    },\r\n                    \"GAP\": {\r\n                        \"GAP\": false\r\n                    },\r\n                    \"technicalAssistance\": {\r\n                        \"technicalAssistance\": false\r\n                    },\r\n                    \"courtesyCar\": {\r\n                        \"courtesyCar\": false\r\n                    },\r\n                    \"taxi\": {\r\n                        \"taxi\": false\r\n                    },\r\n                    \"substituteDriver\": {\r\n                        \"substituteDriver\": false\r\n                    }\r\n                },\r\n                \"numberOfCASCOLosses\": 0,\r\n                \"isRenewal\": false\r\n            }\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/calcPartnerFQuote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"calcPartnerFQuote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unlim_drivers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var quotation = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"cV_calcID\", quotation.calcID);\r",
+									"console.log(\"cV_calcID\", quotation.calcID)\r",
+									"pm.collectionVariables.set(\"cV_setNumber\", quotation.setInfoFQuote[0].setNumber);\r",
+									"console.log(\"cV_setNumber\", quotation.setInfoFQuote[0].setNumber)\r",
+									"pm.collectionVariables.set(\"cV_polis_number\",quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.quoteNumber)\r",
+									"console.log(\"cV_polis_number\",quotation.setInfoFQuote[0].setDetailsFQuote[0].KASKOFQ.quoteNumber)\r",
+									"let subject_info_list = []\r",
+									"quotation.subjectInfo.forEach((element)=>{\r",
+									"    subject_info_list.push(element)\r",
+									"});\r",
+									"pm.collectionVariables.set(\"cV_subject_info_list\",JSON.stringify(subject_info_list))\r",
+									"console.log(\"cV_subject_info_list\",JSON.stringify(subject_info_list))"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var subject_info_list = JSON.parse(pm.collectionVariables.get('cV_subject_info_list'))\r",
+									"subject_info_list.forEach((element)=>{\r",
+									"    pm.collectionVariables.set('cV_subjectID_'+element.subjectNumber,element.ID)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cV_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"calcID\":\"{{cV_calcID}}\",\r\n    \"subjectInfo\": [{\r\n            \"ID\":\"{{cV_subjectID_1}}\",\r\n            \"subjectNumber\": 1,\r\n            \"subjectDetails\": {\r\n                \"lastName\": \"Иванов\",\r\n                \"firstName\": \"Иван\",\r\n                \"middleName\": \"Сергеевич\",\r\n                \"birthdate\": \"1986-12-28\",\r\n                \"email\": \"v.chistyakov@tinkoffinsurance.ru\",\r\n                \"gender\": \"male\",\r\n                \"citizenship\": \"RU\",\r\n                \"address\": [{\r\n                        \"addressType\": \"registration\",\r\n                        \"country\": \"RU\",\r\n                        \"postCode\": \"110589\",\r\n                        \"region\": \"77\",\r\n                        \"KLADR1\": \"7700000000000\",\r\n                        \"district\": \"Москва\",\r\n                        \"city\": \"Москва\",                        \r\n                        \"KLADR3\": \"7700000000000\",\r\n                        \"populatedCenter\": \"Черная Маза\",\r\n                        \"KLADR4 \":\"7601600026500\",\r\n                        \"street\": \"Новочеремушкинская\",\r\n                        \"KLADR5\": \"7700000000000\",\r\n                        \"building\": \"35\",\r\n                        \"flat\": \"2\"\r\n                    }, {\r\n                        \"addressType\": \"home\",\r\n                        \"country\": \"RU\",\r\n                        \"postCode\": \"123423\",\r\n                        \"region\": \"77\",\r\n                        \"KLADR1\": \"7700000000000\",\r\n                        \"city\": \"Москва\",\r\n                        \"KLADR3\": \"7700000000000\",\r\n                        \"street\": \"Мневники\",\r\n                        \"KLADR5\": \"77000000000188200\",\r\n                        \"building\": \"18\",\r\n                        \"KLADR6\": \"7700000000018820103\",\r\n                        \"flat\": \"33\"\r\n                    }\r\n                ],\r\n                \"document\": [{\r\n                        \"documentType\": \"driver_license_russian_B\",\r\n                        \"series\": 5734,\r\n                        \"number\": 456789,\r\n                        \"dateIssue\": \"2015-07-28\",\r\n                        \"issuingCountry\": \"RU\"\r\n                    }, {\r\n                        \"documentType\": \"passport_russian\",\r\n                        \"series\": 4266,\r\n                        \"number\": 675348,\r\n                        \"dateIssue\": \"2007-04-27\",\r\n                        \"issuedBy\": \"ОВД Академический гор. Москвы\",\r\n                        \"subdivisionCode\": \"500-024\"\r\n                    }\r\n                ],\r\n                \"phone\": [{\r\n                        \"isPrimary\": true,\r\n                        \"typePhone\": \"mobile\",\r\n                        \"numberPhone\": \"79161232324\"\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"ID\":\"{{cV_subjectID_2}}\",\r\n            \"subjectNumber\": 2, \r\n            \"subjectDetails\": {\r\n                \"lastName\": \"Ассылов\",\r\n                \"firstName\": \"Евгений\", \r\n                \"middleName\": \"Сергеевич\", \r\n                \"birthdate\": \"1994-10-08\", \r\n                \"email\": \"ESAssylov@rolf.ru\", \r\n                \"gender\": \"male\",\r\n                \"citizenship\": \"RU\",\r\n                \"address\": [{\r\n                        \"addressType\": \"registration\",\r\n                        \"country\": \"RU\", \r\n                        \"postCode\": \"141802\", \r\n                        \"region\": \"50\", \r\n                        \"KLADR1\": \"5000000000000\", \r\n                        \"district\": \"Дмитров\", \r\n                        \"city\": \"Дмитров\", \r\n                        \"KLADR3\": \"5004500000000\", \r\n                        \"street\": \"Космонавтов\", \r\n                        \"KLADR5\": \"50045000000053500\", \r\n                        \"building\": \"1А\", \r\n                        \"flat\": \"1\" \r\n                    }, {\r\n                        \"addressType\": \"home\", \r\n                        \"country\": \"RU\", \r\n                        \"postCode\": \"141802\", \r\n                        \"region\": \"50\", \r\n                        \"KLADR1\": \"5000000000000\", \r\n                        \"district\": \"Дмитров\",\r\n                        \"city\": \"Дмитров\", \r\n                        \"KLADR3\": \"5004500000000\", \r\n                        \"street\": \"Космонавтов\", \r\n                        \"KLADR5\": \"50045000000053500\", \r\n                        \"building\": \"1А\", \r\n                        \"flat\": \"1\"\r\n                    }\r\n                ],\r\n                \"document\": [{\r\n                        \"documentType\": \"passport_russian\",\r\n                        \"series\": 4266, \r\n                        \"number\": 675348, \r\n                        \"dateIssue\": \"2007-04-27\", \r\n                        \"issuedBy\": \"ОВД Академический гор. Москвы\",\r\n                        \"subdivisionCode\": \"500-024\"\r\n                    },\r\n                    {\r\n                        \"documentType\": \"driver_license_russian_B\",\r\n                        \"series\": 5734, \r\n                        \"number\": 456789,\r\n                        \"dateIssue\": \"2015-07-28\",\r\n                        \"issuingCountry\": \"RU\"\r\n                    }\r\n                ],\r\n                \"phone\": [{\r\n                        \"isPrimary\": true,\r\n                        \"typePhone\": \"mobile\",\r\n                        \"numberPhone\": \"79162818587\" \r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"vehicleInfo\": {\r\n        \"vehicleDetails\": {\r\n            \"vehicleReferenceInfo\": {\r\n                \"vehicleReferenceDetails\": {\r\n                    \"modelID\": \"486\",\r\n                    \"engPwrHP\": 123,\r\n                    \"caseTypeID\": \"23\",\r\n                    \"kppTypeID\": \"7\",\r\n                    \"engineTypeID\": \"15\"\r\n                }\r\n            },\r\n            \"countryOfRegistration\": {\r\n                \"isNoCountryOfRegistration\": false,\r\n                \"countryOfRegistration\": \"RU\"\r\n            },\r\n            \"vehicleDocument\": [{\r\n                    \"documentType\": \"PTS\",\r\n                    \"documentSeries\": \"63EE\",\r\n                    \"documentNumber\": 685148,\r\n                    \"documentIssued\": \"2022-03-01\"\r\n                }\r\n            ],\r\n            \"immobilazerName\": \"\",\r\n            \"chassis\": {\r\n                \"isChassisMissing\": false,\r\n                \"chassisNumber\": \"7961TR\"\r\n            },\r\n            \"kuzovNumber\": {\r\n                \"isKuzovMissing\": false,\r\n                \"kuzovNumber\": \"88794567RQ\"\r\n            },\r\n            \"mileage\": 0,\r\n            \"registrationNumber\": {\r\n                \"isNoRegistrationNumber\": true,\r\n                \"isRegNumNonStandart\": false,\r\n                \"registrationNumber\": \"Р277СН199\"\r\n            },\r\n            \"sourceAcquisition\": \"IN_SALON\",\r\n            \"vehicleCost\": 1264861,\r\n            \"vehicleUsage\": \"personal\",\r\n            \"vehicleUseRegion\": 77,\r\n            \"VIN\": {\r\n                \"isVINMissing\": false,\r\n                \"isIrregularVIN\": false,\r\n                \"VIN\": 54983123830247588\r\n            },\r\n            \"year\": 2022,\r\n             \"numberOfKeys\": {\r\n                \"IsUnknownNumberOfKeys\": false,\r\n                \"numberOfKeys\": 2\r\n             }\r\n        }\r\n    },\r\n    \"setInfoFQuote\": [{\r\n            \"setNumber\":\"{{cV_setNumber}}\",\r\n            \"linkSetNumber\": 1,\r\n            \"calcInsCompany\": [\r\n                \"TINKOFF\"\r\n            ],\r\n            \"KASKOFQ\": {\r\n                \"producerCode\": \"TestMotor-01\",\r\n                \"quoteNumber\": \"\",\r\n                \"termType\": \"Annual\",\r\n                \"effectiveDate\": \"{{effectiveDate}}\",\r\n                \"expirationDate\": \"{{expirationDate}}\",\r\n                \"insurant\": {\r\n                    \"subjectNumber\": 2\r\n                },\r\n                \"carOwner\": {\r\n                    \"subjectNumber\": 1\r\n                },\r\n                \"driversList\": {\r\n                    \"multidrive\": {\r\n                        \"minAge\":20,\r\n                        \"minExperience\":2\r\n                    }\r\n                },\r\n                \"coverages\": {\r\n                    \"insuranceTerritory\": \"Russia\",\r\n                    \"damage\": {\r\n                        \"totalDamage\": false,\r\n                        \"fullDamage\": true,\r\n                        \"repairOptions\": \"insurer\",\r\n                        \"deductible\": {\r\n                            \"wholeVehicle\": {\r\n                                \"amount\": 10000,\r\n                                \"fromSecondInsuredEvent\": false\r\n                            }\r\n                        }\r\n                    },\r\n                    \"theft\": {\r\n                        \"theft\": true\r\n                    },\r\n                    \"GAP\": {\r\n                        \"GAP\": false\r\n                    },\r\n                    \"technicalAssistance\": {\r\n                        \"technicalAssistance\": false\r\n                    },\r\n                    \"courtesyCar\": {\r\n                        \"courtesyCar\": false\r\n                    },\r\n                    \"taxi\": {\r\n                        \"taxi\": false\r\n                    },\r\n                    \"substituteDriver\": {\r\n                        \"substituteDriver\": false\r\n                    }\r\n                },\r\n                \"numberOfCASCOLosses\": 0,\r\n                \"isRenewal\": false\r\n            }\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/calcPartnerFQuote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"calcPartnerFQuote"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "(Optional) Recieve quotation_without personal data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cV_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vehicleInfo\": {\r\n        \"vehicleUseRegion\": \"77\",\r\n        \"city\": \"77\",\r\n        \"year\": 2022,\r\n        \"modelID\": 1362,\r\n        \"engPwrHP\": \"110.00\",\r\n        \"caseTypeID\": \"22\",\r\n        \"kppTypeID\": \"6\",\r\n        \"vehicleCost\": 1687400,        \r\n        \"accordingInfoClient\": {\r\n            \"termOwnershipVehicle\": \"justBought\",\r\n            \"isCrashLastYear\": false,\r\n            \"mileage\": 0\r\n        },\r\n        \"vin\" : \"\"\r\n    },\r\n    \"setInfoQQuote\": [{\r\n            \"calcInsCompany\": [\r\n                \"TINKOFF\"\r\n            ],\r\n            \"setNumber\": null,\r\n            \"linkSetNumber\": \"1\",\r\n            \"KASKOQQ1\": {\r\n                \"producerCode\": \"{{producerCode}}\",\r\n                \"termType\": \"Annual\",\r\n                \"driversList\": {\r\n                    \"unnamedDriverList\": {\r\n                        \"unnamedDriver\": [{\r\n                                \"age\": \"26\",\r\n                                \"experience\": 0,\r\n                                \"isMarried\": \"false\"\r\n                            }\r\n                        ]\r\n                    }\r\n                },\r\n                \"coverages\": {\r\n                    \"insuranceTerritory\": \"Russia\",\r\n                    \"damage\": {\r\n                        \"totalDamage\": false,\r\n                        \"fullDamage\": true,\r\n                        \"repairOptions\": \"dealer\",\r\n                        \"deductible\": {\r\n                            \"wholeVehicle\": {\r\n                                \"amount\": \"10000\",\r\n                                \"fromSecondInsuredEvent\": false\r\n                            }\r\n                        },\r\n                        \"paymentsWithoutDocuments\": null\r\n                    },\r\n                    \"theft\": {\r\n                        \"theft\": true\r\n                    },\r\n                    \"additionalEquipment\": null,\r\n                    \"DAGO\": null,\r\n                    \"personalAccident\": null,\r\n                    \"GAP\": {\r\n                        \"GAP\": false\r\n                    },\r\n                    \"technicalAssistance\": {\r\n                        \"technicalAssistance\": false\r\n                    },\r\n                    \"luggage\": null,\r\n                    \"animalsPersonalAccident\": null,\r\n                    \"courtesyCar\": {\r\n                        \"courtesyCar\": false\r\n                    },\r\n                    \"taxi\": {\r\n                        \"taxi\": false\r\n                    },\r\n                    \"substituteDriver\": {\r\n                        \"substituteDriver\": false\r\n                    }\r\n                },\r\n                \"percentageDiscount\": null,\r\n                \"additionalInfo\": {\r\n                    \"mileageLimitations\": null,\r\n                    \"genderPolicyHolder\": \"male\"\r\n                },\r\n                \"isRenewal\": false,\r\n                \"numberOfCASCOLosses\": \"0\",\r\n                \"isTransition\": false\r\n            }\r\n        }\r\n    ],\r\n    \"insurantPhoneNumber\": \"79999876543\",\r\n    \"calcID\": null\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/calcPartnerQQuote",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calcPartnerQQuote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.3.2. Recieve polis by set number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var polis = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"cV_polis_number\",polis.additionalPolicyInfo[0].quoteNumber);\r",
+							"console.log(\"cV_polis_number\",polis.additionalPolicyInfo[0].quoteNumber)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cV_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"setNumber\": \"{{cV_setNumber}}\",\r\n    \"calcInsCompany\": \"TINKOFF\",\r\n    \"issuerDetails\": {\r\n        \"userLastName\": \"{{task_executor_last_name}}\",\r\n        \"userFirstName\": \"{{task_executor_first_name}}\",\r\n        \"userLogin\": \"ESAssylov@rolf.ru\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/issueQuoteSetPartner",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"issueQuoteSetPartner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(optional) Get Set Info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var policy_info = JSON.parse(responseBody);\r",
+							"if (policy_info.activitySet.code === \"pay\"){\r",
+							"pm.collectionVariables.set(\"cV_polic_cost\", policy_info.setInfo.setDetails.setTotalPremium);\r",
+							"}\r",
+							"console.log(\"cV_polic_cost\", policy_info.setInfo.setDetails.setTotalPremium)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cV_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"setNumber\": \"{{cV_setNumber}}\",\r\n    \"insCompany\": \"TINKOFF\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/getPolicyInfoBySetNumberPartner",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getPolicyInfoBySetNumberPartner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.1.2 Get draft documents for printing",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cV_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"setNumber\": \"{{cV_setNumber}}\",\r\n    \"appointmentDate\": \"{{effectiveDate}}\",\r\n    \"insCompany\": \"TINKOFF\",\r\n    \"isPaymentAccountTransfer\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/getPackDocumentsForPrintPartner",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getPackDocumentsForPrintPartner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.1. send_payment_confirmation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cV_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"setNumber\": \"{{cV_setNumber}}\",\r\n    \"insCompany\": \"TINKOFF\",\r\n    \"amount\": {{cV_polic_cost}},\r\n    \"isPaymentAccountTransfer\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/sendConfirmPaymentPartner",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sendConfirmPaymentPartner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.2. approve_conclusion",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cV_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"policyNumber\": \"{{cV_polis_number}}\",\r\n    \"approveConclusionResult\": \"complete_success\",\r\n    \"isPSIByDKP\": false,\r\n    \"insCompany\": \"TINKOFF\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/approveConclusionPartner",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"approveConclusionPartner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.2 Get final documents for printing",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cV_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"setNumber\": \"{{cV_setNumber}}\",\r\n    \"appointmentDate\": \"{{effectiveDate}}\",\r\n    \"insCompany\": \"TINKOFF\",\r\n    \"isPaymentAccountTransfer\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/getPackDocumentsForPrintPartner",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getPackDocumentsForPrintPartner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload_documents",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cV_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fileName",
+							"value": "паспорт.jpg",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "///rolf-tspf/Users/dsgolovin/Desktop/паспорт.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/uploadFilePartner",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"uploadFilePartner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "link_uploaded_documents",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cV_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"insCompany\": \"TINKOFF\",\r\n    \"setNumber\": \"{{cV_setNumber}}\",\r\n    \"policyNumber\": \"{{cV_polis_number}}\",\r\n    \"documents\": {\r\n        \"document\": [{\r\n                \"docType\": \"driver_license\",\r\n                \"externalDocType\": \"Водительское удостоверение\",\r\n                \"fileID\": \"58c35174-9d2b-4638-93c9-5e6f3075e5d4\"\r\n            }, {\r\n                \"docType\": \"russian_passport\",\r\n                \"externalDocType\": \"Паспорт РФ\",\r\n                \"fileID\": \"58c35174-9d2b-4638-93c9-5e6f3075e5d4\"\r\n            }\r\n        ]\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/sendScanDocPartner",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sendScanDocPartner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Optional) Cancel_polis",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cV_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"setNumber\": \"{{cV_setNumber}}\",\r\n \"policyNumber\": \"{{cV_polis_number}}\",\r\n \"insCompany\": \"TINKOFF\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/cancelPolicyRequest",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cancelPolicyRequest"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://test-partnerapi.tinkoffinsurance.ru/broker-service/services/rest/esb/public/broker",
+			"type": "string"
+		},
+		{
+			"key": "producerCode",
+			"value": "TestMotor-01",
+			"type": "string"
+		},
+		{
+			"key": "fi_task_uuid",
+			"value": "a21ac905-8bb5-4845-ad85-9ae8ddc09922",
+			"type": "string"
+		},
+		{
+			"key": "cV_token",
+			"value": ""
+		},
+		{
+			"key": "currentdate",
+			"value": ""
+		},
+		{
+			"key": "currenttime",
+			"value": ""
+		},
+		{
+			"key": "cV_calcID",
+			"value": ""
+		},
+		{
+			"key": "cV_setNumber",
+			"value": ""
+		},
+		{
+			"key": "cV_polis_number",
+			"value": ""
+		},
+		{
+			"key": "cV_polic_cost",
+			"value": ""
+		},
+		{
+			"key": "effectiveDate",
+			"value": "2023-05-31T22:00:00+03:00",
+			"type": "string"
+		},
+		{
+			"key": "expirationDate",
+			"value": "2024-05-30T23:59:59.999999+03:00",
+			"type": "string"
+		},
+		{
+			"key": "cV_subject_info_list",
+			"value": ""
+		},
+		{
+			"key": "cV_subjectID_1",
+			"value": ""
+		},
+		{
+			"key": "cV_subjectID_2",
+			"value": ""
+		},
+		{
+			"key": "task_executor_first_name",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "task_executor_last_name",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
