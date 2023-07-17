@@ -68,7 +68,7 @@ include::static/02_02_07_05_img/tinkoff_postman_collection.json[]
 ****
 Для взаимодействия с *API Тинькофф* Страхование необходимо использовать *SSL* сертификат:
 ====
-* `*link:AO_ROLF_2023.crt[Скачать сертификат, window=_blank]*`
+* `*link:ao_rolf_2023.crt[Скачать сертификат, window=_blank]*`
 * `*link:private.key[Скачать закрытый ключ, window=_blank]*`
 ====
 ****
