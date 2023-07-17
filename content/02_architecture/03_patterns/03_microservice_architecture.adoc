@@ -1,0 +1,212 @@
+---
+title: "Паттерн - Микросервисная архитекура"
+description: "Паттерн - Микросервисная архитекура"
+weight: 3
+draft: false
+---
+
+:imgdir: /02_03_03_img/
+:imagesoutdir: ./static/02_03_03_img/
+
+include::content/init.adoc[]
+
+= Паттерн - Микросервисная архитекура
+
+{empty} +
+
+== Контекст
+
+****
+При разработке важного для бизнеса корпоративного приложения. Изменения нужно вносить быстро, часто и надежно (согласно показателям *DORA*). Инженерная команда организована в виде небольших слабо связанных межфункциональных команд. Каждая команда поставляет программное обеспечение, используя методы *DevOps*. Практикуется непрерывное развертывание. Команда выпускает поток небольших частых изменений, которые тестируются автоматизированным конвейером развертывания и внедряются в рабочую среду.
+****
+
+****
+.Команды
+[[teams_own_subdomains_anchor]]
+[%collapsible%open]
+====
+image::teams_own_subdomains.png[title="Команды", align=center]
+====
+****
+
+****
+Команда отвечает за один или несколько субдоменов. *Субдомен* — это реализуемая модель части бизнес-функций, также известная как бизнес-возможность. Он состоит из бизнес-логики, состоящей из бизнес-сущностей (агрегатов *DDD*), которые реализуют бизнес-правила, и адаптеров, которые взаимодействуют с внешним миром. Поддомен на основе *Java*, например, состоит из классов, организованных в пакеты, которые скомпилированы в файл *JAR*.
+
+{empty} +
+
+Поддомены определяют поведение приложения, которое состоит из набора операций. Операция инициализируется одним из трех способов:
+====
+* Синхронный запрос и асинхронный запрос
+* События, опубликованные другими приложениями и сервисами
+* Течение времени
+====
+Это изменяет и использует бизнес-объекты в одном или нескольких поддоменах
+****
+
+== Проблемы
+
+****
+Необходимость организовать поддомены в один или несколько развертываемых/исполняемых компонентов.
+****
+
+== Преимущества
+
+****
+* link:https://microservices.io/articles/dark-energy-dark-matter/dark-energy/simple-components.html[*Простые компоненты*, window=_blank] — простые компоненты, состоящие из нескольких поддоменов, легче понять и поддерживать, чем сложные компоненты.
+* link:https://microservices.io/articles/dark-energy-dark-matter/dark-energy/team-autonomy.html[*Командная автономия*, window=_blank] — команда должна иметь возможность разрабатывать, тестировать и развертывать свое программное обеспечение независимо от других команд.
+* link:https://microservices.io/articles/dark-energy-dark-matter/dark-energy/fast-deployment-pipeline.html[*Конвейер быстрого развертывания*, window=_blank] — быстрая обратная связь и высокая частота развертывания имеют важное значение и обеспечиваются конвейером быстрого развертывания, который, в свою очередь, требует компонентов, которые можно быстро создавать и тестировать.
+* link:https://microservices.io/articles/dark-energy-dark-matter/dark-energy/multiple-technology-stacks.html[*Поддержка нескольких технологических стеков*, window=_blank] — поддомены иногда реализуются с использованием различных технологий; и разработчикам необходимо развивать технологический стек приложения, например, использовать текущие версии языков и фреймворков.
+* link:https://microservices.io/articles/dark-energy-dark-matter/dark-energy/segregate-by-characteristics.html[*Разделение по характеристикам*, window=_blank] — например, требования к ресурсам для улучшения масштабируемости, требования к их доступности для повышения доступности, требования к безопасности для повышения безопасности и т. д.
+* link:https://microservices.io/articles/dark-energy-dark-matter/dark-matter/simple-interactions.html[*Простые взаимодействия*, window=_blank] — в локальной операции для компонента или операции состоящей из нескольких простых взаимодействий между компонентами легче устранить неполадки, чем в распределенной операция, особенно состоящей из сложных взаимодействий.
+* link:https://microservices.io/articles/dark-energy-dark-matter/dark-matter/efficient-interactions.html[*Эффективное взаимодействие*, window=_blank] — распределенная операция, включающая множество сетевых циклов и передачу больших объемов данных, может быть слишком неэффективной.
+* link:https://microservices.io/articles/dark-energy-dark-matter/dark-matter/minimize-runtime-coupling.html[*Сведение к минимуму связей во время выполнения*, window=_blank] — для максимизации доступности и уменьшения задержек выполнения операции.
+* link:https://microservices.io/articles/dark-energy-dark-matter/dark-matter/minimize-design-time-coupling.html[*Сведение к минимуму связей времени проектирования*, window=_blank] — для уменьшения вероятности одновременного изменения сервисов (снижение производительности).
+****
+
+== Решение
+
+****
+Нужно разработать архитектуру, которая структурирует приложение как набор независимо развертываемых слабосвязанных компонентов, также известных как службы. Каждый сервис состоит из одного или нескольких поддоменов.
+
+{empty} +
+
+Некоторые операции будут локальными (реализуемыми одной службой), другие будут распределены по нескольким службам. Распределенная операция реализуется либо link:https://microservices.io/patterns/communication-style/rpi.html[синхронно, window=_blank] с использованием протокола, такого как *HTTP/REST*, либо link:https://microservices.io/patterns/communication-style/messaging.html[асинхронно, window=_blank] с использованием брокера сообщений, такого как *Apache Kafka*.
+****
+
+****
+.Микросервисная архитектура
+[[thumbnail_microservices_anchor]]
+[%collapsible%open]
+====
+image::thumbnail_microservices.png[title="Микросервисная архитектура", align=center]
+====
+****
+
+== Примеры
+
+****
+Создаем приложение для электронной коммерции, которое принимает заказы от клиентов, проверяет запасы и доступный кредит и отправляет их. Приложение состоит из нескольких компонентов, включая *StoreFrontUI*, который реализует пользовательский интерфейс, а также набор серверных служб для проверки кредита, учета запасов и заказов на доставку. Приложение состоит из набора сервисов.
+****
+
+****
+.Пример микросервисной архитектуры
+[[microservice_architecture_anchor]]
+[%collapsible%open]
+====
+image::microservice_architecture.png[title="Пример микросервисной архитектуры", align=center]
+====
+****
+
+== Результат
+
+=== Преимущества
+
+****
+* *Простые сервисы* — каждый сервис состоит из небольшого количества поддоменов — возможно, всего из одного — поэтому в нем легче разобраться и поддерживать.
+* *Командная автономия* — команда может разрабатывать, тестировать и развертывать свой сервис независимо от других команд.
+* *Конвейер быстрого развертывания* — каждую службу можно быстро протестировать, поскольку она относительно мала и может быть развернута независимо.
+* *Поддержка нескольких технологических стеков* — разные сервисы могут использовать разные технологические стеки и обновляться независимо друг от друга.
+* *Разделение субдоменов по их характеристикам* — субдомены могут быть разделены по их характеристикам на отдельные службы для улучшения масштабируемости, доступности, безопасности и т. д.
+****
+
+=== Недостатки
+
+****
+* Некоторые распределенные операции могут быть сложными, трудными для понимания и устранения неполадок.
+* Некоторые распределенные операции могут быть потенциально неэффективными.
+* Некоторые операции, возможно, потребуется реализовать с помощью сложного, в конечном счете согласованного (не *ACID*) управления транзакциями, поскольку слабая связь требует, чтобы каждая link:/02_architecture/03_patterns/02_database_per_service/[служба имела свою собственную базу данных, window=_blank].
+* Некоторые распределенные операции могут включать тесную связь между службами во время выполнения, что снижает их доступность.
+* Риск тесной связи между службами во время разработки, что требует трудоемких пошаговых изменений.
+****
+
+=== Проблемы
+
+****
+Нужно решить следующие задачи:
+****
+
+==== Как спроектировать микросервисную архитектуру, чтобы избежать потенциальных недостатков?
+
+****
+Как спроектировать микросервисную архитектуру, которая позволяет избежать потенциальных недостатков сложных и неэффективных взаимодействий; сложные в конечном счете непротиворечивые транзакции; и жесткая связь времени выполнения. *Сборка* — это процесс определения архитектуры, который группирует поддомены таким образом, чтобы получить эффективную микросервисную архитектуру.
+****
+
+==== Как реализовать распределенные операции?
+
+****
+Одной из проблем, связанных с использованием микрослужб, является реализация распределенных операций, которые охватывают несколько служб. Это особенно сложно, поскольку у каждой службы есть собственная база данных. Решение заключается в использовании шаблонов совместной работы службы:
+====
+* link:/02_architecture/03_patterns/01_saga/[*Saga*, window=_blank], реализующая распределенную команду как серию локальных транзакций.
+* link:https://microservices.io/patterns/data/cqrs.html[*Реплика на стороне команды*, window=_blank], которая реплицирует данные только для чтения в службу, реализующую команду.
+* link:https://microservices.io/patterns/data/api-composition.html[*Состав API*, window=_blank], который реализует распределенный запрос как серию локальных запросов.
+* link:https://microservices.io/patterns/data/cqrs.html[*CQRS*, window=_blank], который реализует распределенный запрос как серию локальных запросов.
+====
+Шаблоны *Saga*, реплика на стороне команды и шаблоны *CQRS* используют асинхронный обмен сообщениями. Службы обычно должны использовать шаблон Исходящие транзакции для атомарного обновления постоянных бизнес-сущностей и отправки сообщения.
+****
+
+== Связанные шаблоны
+
+****
+Существует множество шаблонов, связанных с шаблоном архитектуры микросервисов. Монолитная link:https://microservices.io/patterns/monolithic.html[архитектура, window=_blank] является альтернативой микросервисной архитектуре. Другие шаблоны в шаблоне архитектуры микросервисов решают проблемы, с которыми вы столкнетесь при применении этого шаблона.
+****
+
+****
+.Связанные шаблоны
+[[patterns_related_to_microservices_anchor]]
+[%collapsible%open]
+====
+image::patterns_related_to_microservices.jpg[title="Связанные шаблоны", align=center]
+====
+****
+
+****
+* Шаблоны совместной работы Sservice:
+** link:/02_architecture/03_patterns/01_saga/[*Saga*, window=_blank], реализующая распределенную команду как серию локальных транзакций.
+** link:https://microservices.io/patterns/data/cqrs.html[*Command-side replica*, window=_blank], которая реплицирует данные только для чтения в службу, реализующую команду.
+** link:https://microservices.io/patterns/data/api-composition.html[*API composition*, window=_blank], который реализует распределенный запрос как серию локальных запросов.
+** link:https://microservices.io/patterns/data/cqrs.html[*CQRS*], который реализует распределенный запрос как серию локальных запросов.
+
+* Шаблоны обмена сообщениями (link:https://microservices.io/patterns/communication-style/messaging.html[*Messaging*, window=_blank]) и удаленного вызова процедур (link:https://microservices.io/patterns/communication-style/rpi.html[*Remote Procedure Invocation*, window=_blank]) — это два разных способа взаимодействия служб.
+* Шаблон базы данных на службу (link:https://microservices.io/patterns/data/database-per-service.html[*Database per Service pattern*, window=_blank]) описывает, как каждая служба имеет свою собственную базу данных, чтобы обеспечить слабую связь.
+* Шаблон шлюза *API* (link:https://microservices.io/patterns/apigateway.html[*API Gateway pattern*, window=_blank]) определяет, как клиенты получают доступ к службам в микросервисной архитектуре.
+* Шаблоны обнаружения на стороне клиента (link:https://microservices.io/patterns/client-side-discovery.html[*Client-side Discovery*, window=_blank]) и (link:https://microservices.io/patterns/server-side-discovery.html[*Server-side Discovery*, window=_blank]) обнаружения на стороне сервера используются для маршрутизации запросов клиента к доступному экземпляру службы в архитектуре микрослужбы.
+
+* Шаблоны тестирования (*Testing patterns*): тестирование сервисного компонента (link:https://microservices.io/patterns/testing/service-component-test.html[*Service Component Test*, window=_blank]) и сервисное тестирование контракта на интеграцию (link:https://microservices.io/patterns/testing/service-integration-contract-test.html[*Service Integration Contract Test*, window=_blank])
+
+* Автоматический выключатель (link:https://microservices.io/patterns/reliability/circuit-breaker.html[*Circuit Breaker*, window=_blank])
+* Токен доступа (link:https://microservices.io/patterns/security/access-token.html[*Access Token*, window=_blank])
+
+* Шаблоны слежения (*Observability patterns*):
+** Агрегация журналов (link:https://microservices.io/patterns/observability/application-logging.html[*Log aggregation*, window=_blank])
+** Метрики приложения (link:https://microservices.io/patterns/observability/application-metrics.html[*Application metrics*, window=_blank])
+** Ведение журнала аудита (link:https://microservices.io/patterns/observability/audit-logging.html[*Audit logging*, window=_blank])
+** Распределенная трассировка (link:https://microservices.io/patterns/observability/distributed-tracing.html[*Distributed tracing*, window=_blank])
+** Отслеживание исключений (link:https://microservices.io/patterns/observability/exception-tracking.html[*Exception tracking*, window=_blank])
+** API проверки работоспособности (link:https://microservices.io/patterns/observability/health-check-api.html[*Health check API*, window=_blank])
+** Журнал развертываний и изменений (link:https://microservices.io/patterns/observability/log-deployments-and-changes.html[*Log deployments and changes*, window=_blank])
+
+* Шаблоны пользовательского интерфейса (*UI patterns*):
+** Композиция фрагмента страницы на стороне сервера (link:https://microservices.io/patterns/ui/server-side-page-fragment-composition.html[*Server-side page fragment composition*, window=_blank])
+** Композиция пользовательского интерфейса на стороне клиента (link:https://microservices.io/patterns/ui/client-side-ui-composition.html[*Client-side UI composition*, window=_blank])
+
+* Шаблоны «Один сервис на хост» (link:https://microservices.io/patterns/deployment/single-service-per-host.html[*Single Service per Host*, window=_blank]) и «Несколько сервисов на хост» (link:https://microservices.io/patterns/deployment/multiple-services-per-host.html[*Multiple Services per Host*, window=_blank]) — это две разные стратегии развертывания.
+* Сквозные шаблоны проблем: шаблон шасси микросервиса (link:https://microservices.io/patterns/microservice-chassis.html[*Microservice chassis pattern*, window=_blank]) и внешняя конфигурация (link:https://microservices.io/patterns/externalized-configuration.html[*Externalized configuration*, window=_blank])
+****
+
+== Известные примеры использования
+
+****
+Большинство крупных Web-сайтов, включая link:http://techblog.netflix.com/[*Netflix*, window=_blank] , link:http://highscalability.com/blog/2007/9/18/amazon-architecture.html[*Amazon*, window=_blank] и link:http://www.addsimplicity.com/downloads/eBaySDForum2006-11-29.pdf[*eBay*, window=_blank], превратились из монолитной архитектуры в архитектуру микросервисов.
+
+{empty} +
+
+*Netflix*, очень популярный сервис потокового видео, на долю которого приходится до *30%* интернет-трафика, имеет крупномасштабную сервисно-ориентированную архитектуру. Они обрабатывают более миллиарда вызовов в день к своему *API* потоковой передачи видео с более чем *800* различных типов устройств. Каждый вызов *API* разветвляется в среднем на *шесть* вызовов серверных служб.
+
+{empty} +
+
+*Amazon.com* изначально имел двухуровневую архитектуру. Для масштабирования они перешли на сервис-ориентированную архитектуру, состоящую из сотен серверных сервисов. Несколько приложений вызывают эти службы, в том числе приложения, реализующие платформу *Amazon.com* и *API* Web-сервиса. Amazon.com Web-приложение вызывает *100-150* сервисов, чтобы получить данные, которые использовались для создания Web-страницы.
+
+{empty} +
+
+Сайт аукциона *ebay.com* также превратился из монолитной архитектуры в сервис-ориентированную архитектуру. Уровень приложений состоит из нескольких независимых приложений. Каждое приложение реализует бизнес-логику для определенной функциональной области, такой как покупка или продажа. Каждое приложение использует разделение по оси *X*, а некоторые приложения, такие как поиск, используют разделение по оси *Z*. *Ebay.com* также применяет комбинацию *X-*, *Y-* и **Z-**масштабирования к уровню базы данных.
+****
