@@ -5,7 +5,7 @@ weight: 1
 draft: false
 ---
 
-:imgdir: /02_02_06_01_img/
+:imgdir: /02_02_01_01_img/
 :imagesoutdir: ./static/02_02_01_01_img/
 
 include::content/init.adoc[]
