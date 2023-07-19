@@ -1,6 +1,6 @@
 ---
-title: "demo1"
-description: "demo1"
+title: "Канал demo1"
+description: "Канал demo1"
 weight: 1
 draft: false
 ---
@@ -10,11 +10,13 @@ draft: false
 
 include::content/init.adoc[]
 
-= demo1
+= Канал demo1
 
 {empty} +
 
 == Канал demo1
 
 ****
+
 ****
+

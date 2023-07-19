@@ -1,0 +1,22 @@
+---
+title: "Канал coreapp"
+description: "Канал coreapp"
+weight: 2
+draft: false
+---
+
+:imgdir: /02_02_01_06_02_img/
+:imagesoutdir: ./static/02_02_01_06_02_img/
+
+include::content/init.adoc[]
+
+= Канал coreapp
+
+{empty} +
+
+== Канал coreapp
+
+****
+
+****
+

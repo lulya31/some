@@ -1,0 +1,22 @@
+---
+title: "Канал clientid"
+description: "Канал clientid"
+weight: 5
+draft: false
+---
+
+:imgdir: /02_02_01_06_05_img/
+:imagesoutdir: ./static/02_02_01_06_05_img/
+
+include::content/init.adoc[]
+
+= Канал clientid
+
+{empty} +
+
+== Канал clientid
+
+****
+
+****
+
