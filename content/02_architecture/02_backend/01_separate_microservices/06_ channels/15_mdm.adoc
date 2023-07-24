@@ -1,0 +1,22 @@
+---
+title: "Канал mdm"
+description: "Канал mdm"
+weight: 15
+draft: false
+---
+
+:imgdir: /02_02_01_06_15_img/
+:imagesoutdir: ./static/02_02_01_06_15_img/
+
+include::content/init.adoc[]
+
+= Канал mdm
+
+{empty} +
+
+== Канал mdm
+
+****
+
+****
+

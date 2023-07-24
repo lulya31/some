@@ -1,0 +1,22 @@
+---
+title: "Канал orders"
+description: "Канал orders"
+weight: 11
+draft: false
+---
+
+:imgdir: /02_02_01_06_11_img/
+:imagesoutdir: ./static/02_02_01_06_11_img/
+
+include::content/init.adoc[]
+
+= Канал orders
+
+{empty} +
+
+== Канал orders
+
+****
+
+****
+
