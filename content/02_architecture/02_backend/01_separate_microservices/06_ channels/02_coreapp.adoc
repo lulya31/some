@@ -10,6 +10,8 @@ draft: false
 
 include::content/init.adoc[]
 
+:mermaid-puppeteer-config: ./themes/template/puppeteer-config.json
+
 = Канал coreapp
 
 {empty} +
@@ -17,6 +19,7 @@ include::content/init.adoc[]
 == Описание канала coreapp
 
 ****
+Описание канала *coreapp*...
 ****
 
 == Назначение канала coreapp
@@ -34,11 +37,13 @@ include::content/init.adoc[]
 == Цели
 
 ****
+Цели канала *coreapp*...
 ****
 
 == Задачи
 
 ****
+Задачи канала *coreapp*...
 ****
 
 == Состав команды
@@ -48,7 +53,7 @@ include::content/init.adoc[]
 |===
 ^.^| Ф.И.О. ^.^| Роль ^.^| Email
 
-| | |
+| Иванов И.И. | Разработчик | test@rolf.ru
 |===
 ****
 
@@ -184,37 +189,147 @@ NOTE: Агрегат `[.red]#*Автомобиль*#` (*Vehicles*) описыв�
 
 === Базы данных
 
+==== Структура базы данных
+
 .Структура базы данных
 ****
 [cols=".^30h,.^70"]
 |===
 ^.^| Название таблицы ^.^| Описание
 
+| `*link:https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/10_datastorage/01_postgresql/01_flora_filters/[core_filter_element_type_d, window=_blank]*` | Тип элемента фильтрации: `*match*`, `*multiselect*`, др. и дополнительная информация по ним
+| `*link:https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/10_datastorage/01_postgresql/01_flora_filters/[core_filter_elements_b, window=_blank]*` | Структура элемента фильтрации: имеет `*id*` (и/или name), `*title*` (заголовок), `*type*`, `*description*` (опционально)
+| `*link:https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/10_datastorage/01_postgresql/01_flora_filters/[core_filter_fields_b, window=_blank]*` | Структура поля фильтрации: `*id*` (`*UUID*`), `*name*`, `*title*` (заголовок для отображения в `*UX*`), description (описание для аналитиков при создании новых фильтров)
+| `*link:https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/10_datastorage/01_postgresql/01_flora_filters/[core_filter_elements_for_filter_fields_b, window=_blank]*` | Соответствие элементов фильтра и полей фильтра
+| `*link:https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/10_datastorage/01_postgresql/01_flora_filters/[core_web_views_b, window=_blank]*` | Перечень *web_views* - приложений баз данных (База клиентов, База пользователей, База авто на продажу, База клиентских авто, База Юр. Лиц и др.)
+| `*link:https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/10_datastorage/01_postgresql/01_flora_filters/[core_filter_fields_for_web_views_b, window=_blank]*` | Соответствие полей фильтра определенным `*web_view*` (приложению базы данных)
+| `*link:https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/10_datastorage/01_postgresql/01_flora_filters/[core_saved_filters, window=_blank]*` | (`*PostMVP*`) - таблица с сохраненными фильтрами (`*UUID*` + `*object*`)
 |===
 ****
 
-.Таблица1
-****
-[cols=".^20,.^20,.^20,.^20,.^20"]
-|===
-^.^| Колонка ^.^| Тип ^.^| Not Null ^.^| Uniq ^.^| Comment
+==== ERD-диаграмма
 
-| | | | | 
-|===
+****
+.*Диаграмма Yandex Cloud (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+// [mermaid, width=5000, target=yandexcloud, background=#0000000F]
+[mermaid, target=coreapp, format=svg, opts=interactive, align=center, width=100%]
+....
+
+erDiagram
+
+    core_web_views_b }|--|{ core_filter_fields_for_web_views_b : core_web_views_b_uuid
+    core_web_views_b {
+        uuid core_web_views_b_uuid
+        string title
+        string name
+        string description
+    }
+    core_filter_fields_for_web_views_b {
+        uuid core_web_views_b_uuid
+        uuid core_filter_fields_b_uuid
+    }
+    core_filter_elements_b }|--|| core_filter_element_type_d : core_filter_element_type_d_uuid
+    core_filter_elements_b {
+        uuid core_filter_elements_b_uuid
+        string title
+        uuid core_filter_element_type_d_uuid
+        string description
+        string filter_data_url
+        float minValue
+        date minValue_date
+        float maxValue
+        date maxValue_date
+    }
+    core_filter_element_type_d {
+        uuid core_filter_element_type_d_uuid
+        string name
+        string code
+        string datatype
+        string description
+    }
+    core_filter_fields_b {
+        uuid core_filter_fields_b_uuid
+        string title
+        string name
+        string description
+    }
+    core_filter_fields_b }|--|{ core_filter_fields_for_web_views_b : core_filter_fields_b_uuid
+    
+    core_filter_elements_for_filter_fields_b }|--|{ core_filter_elements_b : core_filter_elements_b_uuid
+    core_filter_elements_for_filter_fields_b }|--|{ core_filter_fields_b : core_filter_fields_b_uuid
+    core_filter_elements_for_filter_fields_b {
+        uuid core_filter_elements_for_filter_fields_b_uuid
+        uuid core_filter_fields_b_uuid
+        uuid core_filter_elements_b_uuid
+    }
+    core_saved_filters_b
+....
+====
 ****
 
-.Таблица2
-****
-[cols=".^20,.^20,.^20,.^20,.^20"]
-|===
-^.^| Колонка ^.^| Тип ^.^| Not Null ^.^| Uniq ^.^| Comment
+=== API
 
-| | | | | 
+****
+[cols=".^100h"]
+|===
+^.^| Ссылки на описания методов
+
+| `*link:https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/[REST API-методы, window=_blank]*`
+| `*link:https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/[Shared flow методы, window=_blank]*`
+| `*link:https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/03_event_based/[Event based методы, window=_blank]*`
 |===
 ****
-
 
 == Сценарии
 
 ****
+В разделе описана последовательность действий бизнес-логики, изменение состояний агрегатов и сущностей, а такэже привязка методов и существующих макетов экранных форм.
+****
+
+=== Бизнес-процессы
+
+****
+[cols=".^30h,.^70"]
+|===
+^.^| Краткое описание бизнес-процесса ^.^| Ссылка на подробное описание бизнес-процесса
+
+| Краткое описание бизнес-процесса 1 | `*link:/[Бизнес-процесс 1, window=_blank]*`
+| Краткое описание бизнес-процесса 2 | `*link:/[Бизнес-процесс 2, window=_blank]*`
+|===
+****
+
+== Интеграции
+
+****
+Описание внешних (по отношению к каналу!) интеграций. Это могут быть другие сервисы, каналы, информационные системы и так далее. Должна быть приведена общая схема интеграции и примеры взаимодействия.
+****
+
+=== Описание внешних систем
+
+****
+Краткое описание внешних систем
+****
+
+****
+[cols=".^30h,.^70"]
+|===
+^.^| Краткое описание системы ^.^| Ссылка на подробное описание системы
+
+| Краткое описание системы 1 | `*link:/[Система 1, window=_blank]*`
+| Краткое описание системы 2 | `*link:/[Система 2, window=_blank]*`
+|===
+****
+
+== Тестирование
+
+****
+[cols=".^30h,.^70"]
+|===
+^.^| Краткое описание тестового сценария ^.^| Ссылка на подробное тестового сценария
+
+| Тестовый сценарий 1 | `*link:/[Тестовый сценарий 1, window=_blank]*`
+| Тестовый сценарий 2 | `*link:/[Тестовый сценарий 2, window=_blank]*`
+|===
 ****
