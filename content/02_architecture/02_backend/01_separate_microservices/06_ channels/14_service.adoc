@@ -1,0 +1,22 @@
+---
+title: "Канал service"
+description: "Канал service"
+weight: 14
+draft: false
+---
+
+:imgdir: /02_02_01_06_14_img/
+:imagesoutdir: ./static/02_02_01_06_14_img/
+
+include::content/init.adoc[]
+
+= Канал service
+
+{empty} +
+
+== Канал service
+
+****
+
+****
+

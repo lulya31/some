@@ -1,0 +1,22 @@
+---
+title: "Канал payments"
+description: "Канал payments"
+weight: 7
+draft: false
+---
+
+:imgdir: /02_02_01_06_07_img/
+:imagesoutdir: ./static/02_02_01_06_07_img/
+
+include::content/init.adoc[]
+
+= Канал payments
+
+{empty} +
+
+== Канал payments
+
+****
+
+****
+
