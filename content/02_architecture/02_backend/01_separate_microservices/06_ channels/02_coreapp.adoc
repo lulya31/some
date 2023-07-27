@@ -29,16 +29,16 @@ include::content/init.adoc[]
 ****
 
 ****
-[cols=".^20h,.^80"]
+[cols=".^25h,.^75"]
 |===
 | Ссылка на канал | `*link:https://cc-coreapp.plf.int.rolfcorp.ru[window=_blank]*`
 |===
 ****
 
 ****
-[cols=".^20h,.^80"]
+[cols=".^25h,.^75"]
 |===
-| Ссылка на бизнес требования | `*link:/[window=_blank]*`
+| Ссылка на бизнес требования | `*link:/[Ссылка на бизнес требования, window=_blank]*`
 |===
 ****
 
