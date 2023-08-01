@@ -1,20 +1,20 @@
 ---
-title: "Канал integration"
-description: "Канал integration"
-weight: 3
+title: "Канал communications"
+description: "Канал communications"
+weight: 10
 draft: false
 ---
 
-:imgdir: /02_02_01_06_03_img/
-:imagesoutdir: ./static/02_02_01_06_03_img/
+:imgdir: /02_02_01_06_10_img/
+:imagesoutdir: ./static/02_02_01_06_10_img/
 
 include::content/init.adoc[]
 
-= Канал integration
+= Канал communications
 
 {empty} +
 
-== Описание канала integration
+== Описание канала communications
 
 ****
 ****
@@ -22,7 +22,7 @@ include::content/init.adoc[]
 ****
 [cols=".^25h,.^75"]
 |===
-| Ссылка на канал | `*link:https://cc-integration.plf.int.rolfcorp.ru[window=_blank]*`
+| Ссылка на канал | `*link:https://cc-communications.plf.int.rolfcorp.ru[window=_blank]*`
 |===
 ****
 
@@ -114,9 +114,9 @@ NOTE: Необходимые уточнения!
 [%collapsible%open]
 ====
 // [mermaid, width=5000, target=yandexcloud, background=#0000000F]
-[mermaid, target=integration, format=svg, opts=interactive, align=center, width=100%]
+[mermaid, target=communications, format=svg, opts=interactive, align=center, width=100%]
 ....
-
+erDiagram
 ....
 ====
 ****
@@ -128,9 +128,9 @@ NOTE: Необходимые уточнения!
 |===
 ^.^| Ссылки на описания методов
 
-| `*link:https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/[REST API-методы, window=_blank]*`
-| `*link:https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/[Shared flow методы, window=_blank]*`
-| `*link:https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/03_event_based/[Event based методы, window=_blank]*`
+| `*link:/[REST API-методы, window=_blank]*`
+| `*link:/[Shared flow методы, window=_blank]*`
+| `*link:/[Event based методы, window=_blank]*`
 |===
 ****
 
@@ -194,3 +194,4 @@ NOTE: Необходимые уточнения!
 
 ****
 ****
+
