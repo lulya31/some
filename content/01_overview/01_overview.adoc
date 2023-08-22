@@ -8,7 +8,7 @@ draft: false
 :imgdir: /01_03_img/
 :imagesoutdir: ./static/01_03_img/
 
-include::content/init.adoc[]
+include::static/includes/init.adoc[]
 
 = Описание
 

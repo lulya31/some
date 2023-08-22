@@ -1,0 +1,27 @@
+---
+title: "Filters"
+description: "Фильтры"
+weight: 4
+draft: false
+---
+
+:imgdir: /05_01_01_04_img/
+:imagesoutdir: ./static/05_01_01_04_img/
+
+include::static/includes/init.adoc[]
+
+= COREAPP
+
+{empty} +
+
+== COREAPP
+
+****
+.*COREAPP (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}filters.puml[]
+====
+****
+
+

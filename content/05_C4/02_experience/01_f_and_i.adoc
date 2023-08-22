@@ -1,0 +1,25 @@
+---
+title: "F&I"
+description: "Страхование и финансовые продукты"
+weight: 1
+draft: false
+---
+
+:imgdir: /05_01_02_img/
+:imagesoutdir: ./static/05_01_02_img/
+
+include::static/includes/init.adoc[]
+
+= F&I
+
+{empty} +
+
+== F&I
+
+****
+.*F&I (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}f_and_i.puml[]
+====
+****

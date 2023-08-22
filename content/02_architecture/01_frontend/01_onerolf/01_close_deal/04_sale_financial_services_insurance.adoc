@@ -7,7 +7,7 @@ weight: 4
 :imgdir: /02_01_01_01_04_img/
 :imagesoutdir: ./static/02_01_01_01_04_img/
 
-include::content/init.adoc[]
+include::static/includes/init.adoc[]
 
 = Продажа Финуслуг/Страховок
 

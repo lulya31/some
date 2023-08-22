@@ -1,25 +1,28 @@
-[plantuml%interactive,"example",format=svg, width=100%]
+[plantuml%interactive,"filters",format=svg, width=100%]
 .Пример диаграммы
 ----
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
-skinparam svgLinkTarget _blank 
+
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Context.puml
 
-LAYOUT_TOP_DOWN()
+!include static/includes/c4_context.puml
+
+skinparam svgLinkTarget _blank
+
+'LAYOUT_TOP_DOWN()
 
 'LAYOUT_AS_SKETCH()
 
-'LAYOUT_WITH_LEGEND()
+LAYOUT_WITH_LEGEND()
 
-title System Landscape diagram for Big Bank plc
-
-'[[http://plantuml.com Person(customer, Personal Banking Customer, "A customer of the bank, with personal bank accounts.")]]
+title Filters
 
 Person(customer, Personal Banking Customer, "A customer of the bank, with personal bank accounts.", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
 
-Enterprise_Boundary(c0, "Big Bank plc") {
+'Enterprise_Boundary(c0, "Big Bank plc") {
     System(banking_system, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
 
     System_Ext(atm, "ATM", "Allows customers to withdraw cash.")
@@ -29,7 +32,7 @@ Enterprise_Boundary(c0, "Big Bank plc") {
 
     Person_Ext(customer_service, "Customer Service Staff", "Customer service staff within the bank.")
     Person_Ext(back_office, "Back Office Staff", "Administration and support staff within the bank.")
-}
+'}
 
 Rel_Neighbor(customer, banking_system, "Uses")
 Rel_R(customer, atm, "Withdraws cash using")
