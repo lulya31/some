@@ -1,5 +1,5 @@
-[plantuml%interactive,"core",format=svg, width=100%]
-.Пример диаграммы
+[plantuml%interactive,"core",format=svg,align=center,width=75%]
+.Core - общий функционал
 ----
 @startuml
 
@@ -9,47 +9,58 @@
 ' !include C4_Context.puml
 
 !include static/includes/c4_context.puml
+!include static/includes/c4_container.puml
 
-skinparam svgLinkTarget _blank
+left to right direction
+
+'skinparam svgLinkTarget _blank
+skinparam backgroundcolor transparent
+
+<style>
+System {
+    MinimumWidth 300
+    MinimumHeight 150
+}
+</style>
 
 'LAYOUT_TOP_DOWN()
-
 'LAYOUT_AS_SKETCH()
+'LAYOUT_WITH_LEGEND()
+'LAYOUT_LANDSCAPE()
 
-LAYOUT_WITH_LEGEND()
+System(flora, "Flora", "Система Flora", $link="/05_c4/")
 
-title CORE
+System(core, "Core", "Общий функционал")
+'Container(mobile_app, "Mobile App", "C#, Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device")
 
-Person(customer, Personal Banking Customer, "A customer of the bank, with personal bank accounts.", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+System(coreapp, "Coreapp", "Комментарии, датагриды", $link="/05_c4/01_core/01_coreapp/")
+System(payments, "Payments", "Платежи, чеки", $link="/05_c4/01_core/02_payments/")
+System(needs_and_orders, "Needs and orders", "Обращения, потребности, предложения", $link="/05_c4/01_core/03_needs_and_orders/")
+System(communications, "Communications", "Коммуникации", $link="/")
+System(tasks_and_events, "Tasks and events", "Задачи, события и оповещения", $link="/")
+System(rolfid, "Rolfid", "Сотрудники, пользователи, ДЦ", $link="/")
+System(clientid, "Clientid", "Клиенты (физлица и организации)", $link="/")
+System(carid, "Carid", "Транспортные средства", $link="/")
+System(external_integrations, "External integrations", "Внешние интеграции", $link="/")
+System(internal_integrations, "Internal integrations", "Внутренние интеграции", $link="/")
+System(printservice, "Print service", "Печатные формы", $link="/")
+System(pfanalize, "Pfanalize", "Сервисные услуги", $link="/")
 
-'Enterprise_Boundary(c0, "Big Bank plc") {
-    System(banking_system, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
+Rel_R(flora, core, "")
 
-    System_Ext(atm, "ATM", "Allows customers to withdraw cash.")
-    System_Ext(mail_system, "E-mail system", "The internal Microsoft Exchange e-mail system.")
+Rel_D(core, coreapp, "")
+Rel_D(core, payments, "")
+Rel_D(core, needs_and_orders, "")
+Rel_D(core, communications, "")
+Rel_D(core, tasks_and_events, "")
+Rel_D(core, rolfid, "")
+Rel_U(core, clientid, "")
+Rel_U(core, carid, "")
+Rel_U(core, external_integrations, "")
+Rel_U(core, internal_integrations, "")
+Rel_U(core, printservice, "")
+Rel_U(core, pfanalize, "")
 
-    System_Ext(mainframe, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
-
-    Person_Ext(customer_service, "Customer Service Staff", "Customer service staff within the bank.")
-    Person_Ext(back_office, "Back Office Staff", "Administration and support staff within the bank.")
-'}
-
-Rel_Neighbor(customer, banking_system, "Uses")
-Rel_R(customer, atm, "Withdraws cash using")
-Rel_Back(customer, mail_system, "Sends e-mails to")
-
-Rel_R(customer, customer_service, "Asks questions to", "Telephone")
-
-Rel_D(banking_system, mail_system, "Sends e-mail using")
-Rel_R(atm, mainframe, "Uses")
-Rel_R(banking_system, mainframe, "Uses")
-Rel_D(customer_service, mainframe, "Uses")
-Rel_U(back_office, mainframe, "Uses")
-
-Lay_D(atm, banking_system)
-
-Lay_D(atm, customer)
-Lay_U(mail_system, customer)
 @enduml
 ----
 

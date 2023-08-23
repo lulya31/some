@@ -18,24 +18,10 @@ include::static/includes/init.adoc[]
 == CORE
 
 ****
-* COREAPP
-* PAYMENTS
-* NEEDS_AND_ORDERS
-* COMMUNICATIONS
-* TASKS_AND_EVENTS
-* ROLFID
-* CLIENTID
-* CARID
-* EXTERNAL INTEGRATIONS
-* INTERNAL INTEGRATIONS
-* PRINTSERVICE
-* PFANALIZE
-****
-
-****
 .*CORE (Отобразить/Скрыть)*
 [%collapsible%open]
 ====
 include::{imagesoutdir}core.puml[]
 ====
 ****
+

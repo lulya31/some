@@ -1,0 +1,25 @@
+---
+title: "NEEDS AND ORDERS"
+description: "Обращения, потребности, предложения"
+weight: 3
+draft: false
+slug: ""
+---
+
+:imgdir: /05_01_03_img/
+:imagesoutdir: ./static/05_01_03_img/
+
+include::static/includes/init.adoc[]
+= NEEDS AND ORDERS
+
+{empty} +
+
+== NEEDS AND ORDERS
+
+****
+.*NEEDS AND ORDERS (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}needs_and_orders.puml[]
+====
+****

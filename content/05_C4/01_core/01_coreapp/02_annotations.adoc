@@ -10,18 +10,16 @@ draft: false
 
 include::static/includes/init.adoc[]
 
-= COREAPP
+= Annotations
 
 {empty} +
 
-== COREAPP
+== Annotations
 
 ****
-.*COREAPP (Отобразить/Скрыть)*
+.*Annotations (Отобразить/Скрыть)*
 [%collapsible%open]
 ====
 include::{imagesoutdir}annotations.puml[]
 ====
 ****
-
-

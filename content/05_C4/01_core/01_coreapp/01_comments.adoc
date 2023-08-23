@@ -10,17 +10,16 @@ draft: false
 
 include::static/includes/init.adoc[]
 
-= COREAPP
+= Comments
 
 {empty} +
 
-== COREAPP
+== Comments
 
 ****
-.*COREAPP (Отобразить/Скрыть)*
+.*Comments (Отобразить/Скрыть)*
 [%collapsible%open]
 ====
 include::{imagesoutdir}comments.puml[]
 ====
 ****
-

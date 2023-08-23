@@ -10,17 +10,16 @@ draft: false
 
 include::static/includes/init.adoc[]
 
-= COREAPP
+= Datagrids
 
 {empty} +
 
-== COREAPP
+== Datagrids
 
 ****
-.*COREAPP (Отобразить/Скрыть)*
+.*Datagrids (Отобразить/Скрыть)*
 [%collapsible%open]
 ====
 include::{imagesoutdir}datagrids.puml[]
 ====
 ****
-

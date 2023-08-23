@@ -6,8 +6,8 @@ draft: false
 slug: ""
 ---
 
-:imgdir: /05_01_img/
-:imagesoutdir: ./static/05_01_img/
+:imgdir: /05_01_01_img/
+:imagesoutdir: ./static/05_01_01_img/
 
 include::static/includes/init.adoc[]
 = COREAPP
@@ -15,13 +15,6 @@ include::static/includes/init.adoc[]
 {empty} +
 
 == COREAPP
-
-****
-* COMMENTS
-* ANNOTATIONS
-* DATAGRIDS
-* FILTERS
-****
 
 ****
 .*COREAPP (Отобразить/Скрыть)*

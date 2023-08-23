@@ -1,0 +1,25 @@
+---
+title: "Orders"
+description: "Заказы"
+weight: 4
+draft: false
+---
+
+:imgdir: /05_01_03_04_img/
+:imagesoutdir: ./static/05_01_03_04_img/
+
+include::static/includes/init.adoc[]
+
+= Orders
+
+{empty} +
+
+== Orders
+
+****
+.*Orders (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}orders.puml[]
+====
+****

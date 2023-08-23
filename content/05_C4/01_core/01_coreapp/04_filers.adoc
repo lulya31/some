@@ -10,18 +10,16 @@ draft: false
 
 include::static/includes/init.adoc[]
 
-= COREAPP
+= Filters
 
 {empty} +
 
-== COREAPP
+== Filters
 
 ****
-.*COREAPP (Отобразить/Скрыть)*
+.*Filters (Отобразить/Скрыть)*
 [%collapsible%open]
 ====
 include::{imagesoutdir}filters.puml[]
 ====
 ****
-
-

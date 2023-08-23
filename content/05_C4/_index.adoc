@@ -18,14 +18,11 @@ include::static/includes/init.adoc[]
 == C4 Flora
 
 ****
-* CORE
-* EXPERIENCE
-****
-
-****
 .*C4 Flora (Отобразить/Скрыть)*
 [%collapsible%open]
 ====
 include::{imagesoutdir}flora.puml[]
 ====
 ****
+
+
