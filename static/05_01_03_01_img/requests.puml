@@ -11,20 +11,12 @@
 !include static/includes/c4_context.puml
 !include static/includes/c4_container.puml
 
-'left to right direction
-
 'skinparam svgLinkTarget _blank
 skinparam backgroundcolor transparent
+skinparam minClassWidth 200
 
-<style>
-System {
-    MinimumWidth 300
-    MinimumHeight 150
-}
-</style>
-
+'left to right direction
 LAYOUT_TOP_DOWN()
-
 'LAYOUT_AS_SKETCH()
 'LAYOUT_WITH_LEGEND()
 'LAYOUT_LANDSCAPE()
@@ -36,4 +28,3 @@ Rel_U(requests, needs_and_orders, "")
 
 @enduml
 ----
-

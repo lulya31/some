@@ -1,5 +1,5 @@
 ---
-title: "Certs"
+title: "Carts"
 description: "Базы данных"
 weight: 3
 draft: false
@@ -10,16 +10,17 @@ draft: false
 
 include::static/includes/init.adoc[]
 
-= Certs
+= Carts
 
 {empty} +
 
-== Certs
+== Carts
 
 ****
-.*Certs (Отобразить/Скрыть)*
+.*Carts (Отобразить/Скрыть)*
 [%collapsible%open]
 ====
 include::{imagesoutdir}carts.puml[]
 ====
 ****
+

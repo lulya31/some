@@ -1,0 +1,25 @@
+---
+title: "Filters"
+description: "Фильтры"
+weight: 4
+draft: false
+---
+
+:imgdir: /05_01_11_04_img/
+:imagesoutdir: ./static/05_01_11_04_img/
+
+include::static/includes/init.adoc[]
+
+= Filters
+
+{empty} +
+
+== Filters
+
+****
+.*Filters (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}filters.puml[]
+====
+****

@@ -15,13 +15,8 @@ left to right direction
 
 'skinparam svgLinkTarget _blank
 skinparam backgroundcolor transparent
-
-<style>
-System {
-    MinimumWidth 300
-    MinimumHeight 150
-}
-</style>
+'skinparam linetype polyline
+skinparam minClassWidth 200
 
 'LAYOUT_TOP_DOWN()
 'LAYOUT_AS_SKETCH()
@@ -36,15 +31,15 @@ System(core, "Core", "Общий функционал")
 System(coreapp, "Coreapp", "Комментарии, датагриды", $link="/05_c4/01_core/01_coreapp/")
 System(payments, "Payments", "Платежи, чеки", $link="/05_c4/01_core/02_payments/")
 System(needs_and_orders, "Needs and orders", "Обращения, потребности, предложения", $link="/05_c4/01_core/03_needs_and_orders/")
-System(communications, "Communications", "Коммуникации", $link="/")
-System(tasks_and_events, "Tasks and events", "Задачи, события и оповещения", $link="/")
-System(rolfid, "Rolfid", "Сотрудники, пользователи, ДЦ", $link="/")
-System(clientid, "Clientid", "Клиенты (физлица и организации)", $link="/")
-System(carid, "Carid", "Транспортные средства", $link="/")
-System(external_integrations, "External integrations", "Внешние интеграции", $link="/")
-System(internal_integrations, "Internal integrations", "Внутренние интеграции", $link="/")
-System(printservice, "Print service", "Печатные формы", $link="/")
-System(pfanalize, "Pfanalize", "Сервисные услуги", $link="/")
+System(communications, "Communications", "Коммуникации", $link="/05_c4/01_core/04_communications/")
+System(tasks_and_events, "Tasks and events", "Задачи, события и оповещения", $link="/05_c4/01_core/05_tasks_and_events/")
+System(rolfid, "Rolfid", "Сотрудники, пользователи, ДЦ", $link="/05_c4/01_core/06_rolfid/")
+System(clientid, "Clientid", "Клиенты (физлица и организации)", $link="/05_c4/01_core/07_clientid/")
+System(carid, "Carid", "Транспортные средства", $link="/05_c4/01_core/08_carid/")
+System(external_integrations, "External integrations", "Внешние интеграции", $link="/05_c4/01_core/09_external_integrations/")
+System(internal_integrations, "Internal integrations", "Внутренние интеграции", $link="/05_c4/01_core/10_internal_integrations/")
+System(printservice, "Print service", "Печатные формы", $link="/05_c4/01_core/11_printservice/")
+System(pfanalize, "Print Form Aanalyze", "Сервисные услуги", $link="/05_c4/01_core/12_pfanalyze/")
 
 Rel_R(flora, core, "")
 

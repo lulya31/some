@@ -1,38 +1,23 @@
 [plantuml%interactive,"legal_events",format=svg,align=center,width=30%]
-.Comments - Комментарии
+.Legal events - Юридические события
 ----
 @startuml
 
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
-' uncomment the following line and comment the first to use locally
-' !include C4_Context.puml
-
 !include static/includes/c4_context.puml
 !include static/includes/c4_container.puml
 
-'left to right direction
-
 'skinparam svgLinkTarget _blank
 skinparam backgroundcolor transparent
-
-<style>
-System {
-    MinimumWidth 300
-    MinimumHeight 150
-}
-</style>
+skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-'LAYOUT_AS_SKETCH()
-'LAYOUT_WITH_LEGEND()
-'LAYOUT_LANDSCAPE()
+System(needs_and_orders, "Needs and orders", "Обращения, потребности, предложения", $link="/05_c4/01_core/03_needs_and_orders/")
+System(legal_events, "Legal events", "Юридические события")
 
-System(coreapp, "Coreapp", "Комментарии, датагриды", $link="/05_c4/01_core/01_coreapp/")
-System(comments, "Comments", "Комментарии")
-
-Rel_U(comments, coreapp, "")
+Rel_U(legal_events, needs_and_orders, "")
 
 @enduml
 ----

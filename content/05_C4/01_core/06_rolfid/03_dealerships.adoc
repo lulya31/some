@@ -1,0 +1,27 @@
+---
+title: "Dealerships"
+description: "Дилерские центры"
+weight: 3
+draft: false
+---
+
+:imgdir: /05_01_06_03_img/
+:imagesoutdir: ./static/05_01_06_03_img/
+
+include::static/includes/init.adoc[]
+
+= Dealerships
+
+{empty} +
+
+== Dealerships
+
+****
+.*Dealerships (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}dealerships.puml[]
+====
+****
+
+

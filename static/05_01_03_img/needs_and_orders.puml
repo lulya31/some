@@ -5,28 +5,14 @@
 
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
-' uncomment the following line and comment the first to use locally
-' !include C4_Context.puml
-
 !include static/includes/c4_context.puml
 !include static/includes/c4_container.puml
 
-'left to right direction
-
 'skinparam svgLinkTarget _blank
 skinparam backgroundcolor transparent
+skinparam minClassWidth 200
 
-<style>
-System {
-    MinimumWidth 300
-    MinimumHeight 150
-}
-</style>
-
-LAYOUT_TOP_DOWN()
-'LAYOUT_AS_SKETCH()
-'LAYOUT_WITH_LEGEND()
-'LAYOUT_LANDSCAPE()
+LAYOUT_LEFT_RIGHT()
 
 System(core, "Core", "Общий функционал", $link="/05_c4/01_core/")
 
@@ -39,14 +25,14 @@ System(orders, "Orders", "Заказы", $link="/05_c4/01_core/03_needs_and_orde
 System(legal_events, "Legal events", "Юридические события", $link="/05_c4/01_core/03_needs_and_orders/05_legal_events/")
 System(legal_documents, "Legal documents", "Юридические документы", $link="/05_c4/01_core/03_needs_and_orders/06_legal_documents/")
 
-Rel_D(core, needs_and_orders, "")
+Rel_R(core, needs_and_orders, "")
 
 Rel_D(needs_and_orders, requests, "")
 Rel_D(needs_and_orders, needs, "")
 Rel_D(needs_and_orders, carts, "")
-Rel_D(needs_and_orders, orders, "")
-Rel_D(needs_and_orders, legal_events, "")
-Rel_D(needs_and_orders, legal_documents, "")
+Rel_U(needs_and_orders, orders, "")
+Rel_U(needs_and_orders, legal_events, "")
+Rel_U(needs_and_orders, legal_documents, "")
 
 @enduml
 ----

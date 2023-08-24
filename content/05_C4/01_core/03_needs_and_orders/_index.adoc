@@ -10,6 +10,7 @@ slug: ""
 :imagesoutdir: ./static/05_01_03_img/
 
 include::static/includes/init.adoc[]
+
 = NEEDS AND ORDERS
 
 {empty} +
@@ -23,3 +24,4 @@ include::static/includes/init.adoc[]
 include::{imagesoutdir}needs_and_orders.puml[]
 ====
 ****
+

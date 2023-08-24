@@ -15,13 +15,7 @@
 
 'skinparam svgLinkTarget _blank
 skinparam backgroundcolor transparent
-
-<style>
-System {
-    MinimumWidth 300
-    MinimumHeight 150
-}
-</style>
+skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 

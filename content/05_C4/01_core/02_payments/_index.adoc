@@ -10,6 +10,7 @@ slug: ""
 :imagesoutdir: ./static/05_01_02_img/
 
 include::static/includes/init.adoc[]
+
 = PAYMENTS
 
 {empty} +
@@ -17,7 +18,7 @@ include::static/includes/init.adoc[]
 == PAYMENTS
 
 ****
-.*COREAPP (Отобразить/Скрыть)*
+.*PAYMENTS (Отобразить/Скрыть)*
 [%collapsible%open]
 ====
 include::{imagesoutdir}payments.puml[]

@@ -10,6 +10,7 @@ slug: ""
 :imagesoutdir: ./static/05_01_01_img/
 
 include::static/includes/init.adoc[]
+
 = COREAPP
 
 {empty} +

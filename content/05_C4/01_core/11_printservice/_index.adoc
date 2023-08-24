@@ -1,0 +1,26 @@
+---
+title: "PRINTSERVICE"
+description: "Печатные формы"
+weight: 11
+draft: false
+slug: ""
+---
+
+:imgdir: /05_01_11_img/
+:imagesoutdir: ./static/05_01_11_img/
+
+include::static/includes/init.adoc[]
+
+= PRINTSERVICE
+
+{empty} +
+
+== PRINTSERVICE
+
+****
+.*PRINTSERVICE (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}printservice.puml[]
+====
+****

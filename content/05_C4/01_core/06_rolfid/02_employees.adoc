@@ -1,0 +1,27 @@
+---
+title: "Employees"
+description: "Служащие"
+weight: 2
+draft: false
+---
+
+:imgdir: /05_01_06_02_img/
+:imagesoutdir: ./static/05_01_06_02_img/
+
+include::static/includes/init.adoc[]
+
+= Employees
+
+{empty} +
+
+== Employees
+
+****
+.*Employees (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}employees.puml[]
+====
+****
+
+

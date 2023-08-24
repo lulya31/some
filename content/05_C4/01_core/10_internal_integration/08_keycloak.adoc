@@ -1,0 +1,25 @@
+---
+title: "Legal documents"
+description: "Юридические документы"
+weight: 6
+draft: false
+---
+
+:imgdir: /05_01_10_08_img/
+:imagesoutdir: ./static/05_01_10_08_img/
+
+include::static/includes/init.adoc[]
+
+= Legal documents
+
+{empty} +
+
+== Legal documents
+
+****
+.*Legal documents (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}legal_documents.puml[]
+====
+****
