@@ -5,23 +5,15 @@
 
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
-' uncomment the following line and comment the first to use locally
-' !include C4_Context.puml
-
 !include static/includes/c4_context.puml
 !include static/includes/c4_container.puml
-
-left to right direction
 
 'skinparam svgLinkTarget _blank
 skinparam backgroundcolor transparent
 'skinparam linetype polyline
 skinparam minClassWidth 200
 
-'LAYOUT_TOP_DOWN()
-'LAYOUT_AS_SKETCH()
-'LAYOUT_WITH_LEGEND()
-'LAYOUT_LANDSCAPE()
+LAYOUT_LEFT_RIGHT()
 
 System(flora, "Flora", "Система Flora", $link="/05_c4/")
 

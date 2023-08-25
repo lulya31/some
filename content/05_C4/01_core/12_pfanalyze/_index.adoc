@@ -1,5 +1,5 @@
 ---
-title: "PFANALYZE"
+title: "Print forms analyze"
 description: "Анализ печатных форм"
 weight: 12
 draft: false
@@ -24,5 +24,3 @@ include::static/includes/init.adoc[]
 include::{imagesoutdir}pfanalyze.puml[]
 ====
 ****
-
-

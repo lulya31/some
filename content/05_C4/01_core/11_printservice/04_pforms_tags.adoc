@@ -1,0 +1,25 @@
+---
+title: "Print forms tags"
+description: "Тэги печатных форм"
+weight: 4
+draft: false
+---
+
+:imgdir: /05_01_11_04_img/
+:imagesoutdir: ./static/05_01_11_04_img/
+
+include::static/includes/init.adoc[]
+
+= Print forms tags
+
+{empty} +
+
+== Print forms tags
+
+****
+.*Print forms tags (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}pforms_tags.puml[]
+====
+****

@@ -1,6 +1,6 @@
 ---
 title: "PRINTSERVICE"
-description: "Печатные формы"
+description: "Сервис печатных форм"
 weight: 11
 draft: false
 slug: ""
@@ -24,3 +24,4 @@ include::static/includes/init.adoc[]
 include::{imagesoutdir}printservice.puml[]
 ====
 ****
+

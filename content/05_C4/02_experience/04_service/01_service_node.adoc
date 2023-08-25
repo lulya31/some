@@ -1,0 +1,25 @@
+---
+title: "Service"
+description: "Сервис"
+weight: 1
+draft: false
+---
+
+:imgdir: /05_02_04_01_img/
+:imagesoutdir: ./static/05_02_04_01_img/
+
+include::static/includes/init.adoc[]
+
+= Service
+
+{empty} +
+
+== Service
+
+****
+.*Service (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}service_node.puml[]
+====
+****

@@ -21,6 +21,7 @@ include::static/includes/init.adoc[]
 .*ROLFID (Отобразить/Скрыть)*
 [%collapsible%open]
 ====
-include::{imagesoutdir}rolfid.puml[]
+include::{imagesoutdir}clientid.puml[]
 ====
 ****
+

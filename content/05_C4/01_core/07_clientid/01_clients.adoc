@@ -23,4 +23,3 @@ include::static/includes/init.adoc[]
 include::{imagesoutdir}clients.puml[]
 ====
 ****
-

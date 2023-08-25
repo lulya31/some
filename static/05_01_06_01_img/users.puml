@@ -1,4 +1,4 @@
-[plantuml%interactive,"employees",format=svg,align=center,width=30%]
+[plantuml%interactive,"users",format=svg,align=center,width=30%]
 .Users - Пользователи
 ----
 @startuml

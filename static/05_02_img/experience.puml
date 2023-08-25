@@ -1,0 +1,37 @@
+[plantuml%interactive,"experience",format=svg,align=center,width=100%]
+.Experience - Прикладные методы
+----
+@startuml
+
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+!include static/includes/c4_context.puml
+!include static/includes/c4_container.puml
+
+'skinparam svgLinkTarget _blank
+skinparam backgroundcolor transparent
+'skinparam linetype polyline
+skinparam minClassWidth 200
+
+LAYOUT_LEFT_RIGHT()
+
+System(flora, "Flora", "Система Flora", $link="/05_c4/")
+
+System(experience, "Experience", "Прикладные методы")
+'Container(mobile_app, "Mobile App", "C#, Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device")
+
+System(f_and_i, "F&I", "Страхование и финансовые продукты", $link="/05_c4/02_experience/01_f_and_i/")
+System(asp, "ASP", "Автомобили с пробегом", $link="/05_c4/02_experience/02_asp/")
+System(na, "NA", "Новые автомобили", $link="/05_c4/02_experience/03_na/")
+System(service, "Service", "Сервис", $link="/05_c4/02_experience/04_service/")
+
+Rel_R(flora, experience, "")
+
+Rel_D(experience, f_and_i, "")
+Rel_D(experience, asp, "")
+Rel_U(experience, na, "")
+Rel_U(experience, service, "")
+
+@enduml
+----
+

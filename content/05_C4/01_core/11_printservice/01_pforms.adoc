@@ -1,0 +1,25 @@
+---
+title: "Print forms"
+description: "Печатные формы"
+weight: 1
+draft: false
+---
+
+:imgdir: /05_01_11_01_img/
+:imagesoutdir: ./static/05_01_11_01_img/
+
+include::static/includes/init.adoc[]
+
+= Print forms
+
+{empty} +
+
+== Print forms
+
+****
+.*Print forms (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}pforms.puml[]
+====
+****
