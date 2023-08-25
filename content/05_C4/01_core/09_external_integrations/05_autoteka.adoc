@@ -1,0 +1,26 @@
+---
+title: "Autoteka"
+description: "Autoteka"
+weight: 5
+draft: false
+---
+
+:imgdir: /05_01_09_05_img/
+:imagesoutdir: ./static/05_01_09_05_img/
+
+include::static/includes/init.adoc[]
+
+= Autoteka
+
+{empty} +
+
+== Autoteka
+
+****
+.*Autoteka (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}autoteka.puml[]
+====
+****
+

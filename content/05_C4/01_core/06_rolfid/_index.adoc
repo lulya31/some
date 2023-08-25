@@ -1,0 +1,26 @@
+---
+title: "ROLFID"
+description: "Сотрудники, пользователи, ДЦ"
+weight: 6
+draft: false
+slug: ""
+---
+
+:imgdir: /05_01_06_img/
+:imagesoutdir: ./static/05_01_06_img/
+
+include::static/includes/init.adoc[]
+
+= ROLFID
+
+{empty} +
+
+== ROLFID
+
+****
+.*ROLFID (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}rolfid.puml[]
+====
+****

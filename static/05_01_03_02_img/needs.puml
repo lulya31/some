@@ -1,0 +1,33 @@
+[plantuml%interactive,"needs",format=svg,align=center,width=30%]
+.Needs - Потребности
+----
+@startuml
+
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+' uncomment the following line and comment the first to use locally
+' !include C4_Context.puml
+
+!include static/includes/c4_context.puml
+!include static/includes/c4_container.puml
+
+'left to right direction
+
+'skinparam svgLinkTarget _blank
+skinparam backgroundcolor transparent
+skinparam minClassWidth 200
+
+LAYOUT_TOP_DOWN()
+
+'LAYOUT_AS_SKETCH()
+'LAYOUT_WITH_LEGEND()
+'LAYOUT_LANDSCAPE()
+
+System(needs_and_orders, "Needs_and_orders", "Обращения, потребности, предложения", $link="/05_c4/01_core/03_needs_and_orders/")
+System(needs, "Needs", "Потребности")
+
+Rel_U(needs, needs_and_orders, "")
+
+@enduml
+----
+

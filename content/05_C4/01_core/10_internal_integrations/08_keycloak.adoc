@@ -1,0 +1,25 @@
+---
+title: "Keycloak"
+description: "Keycloak"
+weight: 8
+draft: false
+---
+
+:imgdir: /05_01_10_08_img/
+:imagesoutdir: ./static/05_01_10_08_img/
+
+include::static/includes/init.adoc[]
+
+= Keycloak
+
+{empty} +
+
+== Keycloak
+
+****
+.*Keycloak (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}keycloak.puml[]
+====
+****

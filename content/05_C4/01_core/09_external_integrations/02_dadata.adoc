@@ -1,0 +1,25 @@
+---
+title: "Dadata"
+description: "Dadata"
+weight: 2
+draft: false
+---
+
+:imgdir: /05_01_09_02_img/
+:imagesoutdir: ./static/05_01_09_02_img/
+
+include::static/includes/init.adoc[]
+
+= Dadata
+
+{empty} +
+
+== Dadata
+
+****
+.*Dadata (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}dadata.puml[]
+====
+****

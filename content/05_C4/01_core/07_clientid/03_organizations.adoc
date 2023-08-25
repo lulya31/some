@@ -1,0 +1,27 @@
+---
+title: "Organizations"
+description: "Организации"
+weight: 3
+draft: false
+---
+
+:imgdir: /05_01_07_03_img/
+:imagesoutdir: ./static/05_01_07_03_img/
+
+include::static/includes/init.adoc[]
+
+= Organizations
+
+{empty} +
+
+== Organizations
+
+****
+.*Organizations (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}organizations.puml[]
+====
+****
+
+

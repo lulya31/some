@@ -1,0 +1,26 @@
+---
+title: "Print forms analyze"
+description: "Анализ печатных форм"
+weight: 12
+draft: false
+slug: ""
+---
+
+:imgdir: /05_01_12_img/
+:imagesoutdir: ./static/05_01_12_img/
+
+include::static/includes/init.adoc[]
+
+= PFANALYZE
+
+{empty} +
+
+== PFANALYZE
+
+****
+.*PFANALYZE (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}pfanalyze.puml[]
+====
+****

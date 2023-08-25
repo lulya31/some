@@ -1,0 +1,25 @@
+---
+title: "Requests"
+description: "Запросы"
+weight: 1
+draft: false
+---
+
+:imgdir: /05_01_03_01_img/
+:imagesoutdir: ./static/05_01_03_01_img/
+
+include::static/includes/init.adoc[]
+
+= Requests
+
+{empty} +
+
+== Requests
+
+****
+.*Requests (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}requests.puml[]
+====
+****

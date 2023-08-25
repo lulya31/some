@@ -8,7 +8,7 @@ draft: false
 :imgdir: /02_02_01_06_10_img/
 :imagesoutdir: ./static/02_02_01_06_10_img/
 
-include::content/init.adoc[]
+include::static/includes/init.adoc[]
 
 = Канал communications
 

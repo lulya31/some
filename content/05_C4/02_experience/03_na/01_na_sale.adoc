@@ -1,0 +1,25 @@
+---
+title: "NA SALE"
+description: "Продажа нового автомобиля"
+weight: 1
+draft: false
+---
+
+:imgdir: /05_02_03_01_img/
+:imagesoutdir: ./static/05_02_03_01_img/
+
+include::static/includes/init.adoc[]
+
+= NA SALE
+
+{empty} +
+
+== NA SALE
+
+****
+.*NA SALE (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}na_sale.puml[]
+====
+****
