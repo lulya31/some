@@ -1,0 +1,28 @@
+---
+title: "CARID"
+description: "Транспортные средства"
+weight: 8
+draft: false
+slug: ""
+---
+
+:imgdir: /05_01_08_img/
+:imagesoutdir: ./static/05_01_08_img/
+
+include::static/includes/init.adoc[]
+
+= CARID
+
+{empty} +
+
+== CARID
+
+****
+.*CARID (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}carid.puml[]
+====
+****
+
+

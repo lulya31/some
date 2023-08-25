@@ -1,0 +1,27 @@
+---
+title: "Vehicles"
+description: "Платеж"
+weight: 1
+draft: false
+---
+
+:imgdir: /05_01_08_01_img/
+:imagesoutdir: ./static/05_01_08_01_img/
+
+include::static/includes/init.adoc[]
+
+= Vehicles
+
+{empty} +
+
+== Vehicles
+
+****
+.*Vehicles (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}vehicles.puml[]
+====
+****
+
+

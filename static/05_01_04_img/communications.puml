@@ -1,0 +1,25 @@
+[plantuml%interactive,"communications",format=svg,align=center,width=20%]
+.Сommunications - Коммуникации
+----
+@startuml
+
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+!include static/includes/c4_context.puml
+!include static/includes/c4_container.puml
+
+'skinparam svgLinkTarget _blank
+skinparam backgroundcolor transparent
+skinparam minClassWidth 200
+
+LAYOUT_TOP_DOWN()
+
+System(core, "Core", "Общий функционал", $link="/05_c4/01_core/")
+System(communications, "Сommunications", "Коммуникации")
+System(communication, "Сommunication", "Коммуникация", $link="/05_c4/01_core/04_communications/01_communication/")
+
+Rel_D(core, communications, "")
+Rel_D(communications, communication, "")
+
+@enduml
+----

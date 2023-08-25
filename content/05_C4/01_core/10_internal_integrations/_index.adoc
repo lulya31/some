@@ -1,0 +1,26 @@
+---
+title: "INTERNAL INTEGRATIONS"
+description: "Внутренние интеграции"
+weight: 10
+draft: false
+slug: ""
+---
+
+:imgdir: /05_01_10_img/
+:imagesoutdir: ./static/05_01_10_img/
+
+include::static/includes/init.adoc[]
+
+= INTERNAL INTEGRATIONS
+
+{empty} +
+
+== INTERNAL INTEGRATIONS
+
+****
+.*INTERNAL INTEGRATIONS (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}internal_integrations.puml[]
+====
+****

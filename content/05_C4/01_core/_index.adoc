@@ -1,0 +1,26 @@
+---
+title: "CORE"
+description: "CORE"
+weight: 1
+draft: false
+slug: ""
+---
+
+:imgdir: /05_01_img/
+:imagesoutdir: ./static/05_01_img/
+
+include::static/includes/init.adoc[]
+
+= CORE
+
+{empty} +
+
+== CORE
+
+****
+.*CORE (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}core.puml[]
+====
+****

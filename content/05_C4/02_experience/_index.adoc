@@ -1,0 +1,26 @@
+---
+title: "EXPERIENCE"
+description: "Прикладные методы"
+weight: 2
+draft: false
+slug: ""
+---
+
+:imgdir: /05_02_img/
+:imagesoutdir: ./static/05_02_img/
+
+include::static/includes/init.adoc[]
+
+= EXPERIENCE
+
+{empty} +
+
+== EXPERIENCE
+
+****
+.*EXPERIENCE (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}experience.puml[]
+====
+****

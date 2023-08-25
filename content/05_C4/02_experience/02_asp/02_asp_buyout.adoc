@@ -1,0 +1,25 @@
+---
+title: "ASP Buyout"
+description: "ASP Выкуп"
+weight: 2
+draft: false
+---
+
+:imgdir: /05_02_02_02_img/
+:imagesoutdir: ./static/05_02_02_02_img/
+
+include::static/includes/init.adoc[]
+
+= ASP Buyout
+
+{empty} +
+
+== ASP Buyout
+
+****
+.*ASP Buyout (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}asp_buyout.puml[]
+====
+****

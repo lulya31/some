@@ -1,0 +1,28 @@
+---
+title: "COMMUNICATIONS"
+description: "Коммуникации"
+weight: 4
+draft: false
+slug: ""
+---
+
+:imgdir: /05_01_04_img/
+:imagesoutdir: ./static/05_01_04_img/
+
+include::static/includes/init.adoc[]
+
+= COMMUNICATIONS
+
+{empty} +
+
+== COMMUNICATIONS
+
+****
+.*COMMUNICATIONS (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}communications.puml[]
+====
+****
+
+

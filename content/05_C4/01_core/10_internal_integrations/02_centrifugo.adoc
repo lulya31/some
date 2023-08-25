@@ -1,0 +1,25 @@
+---
+title: "Centrifugo"
+description: "Centrifugo"
+weight: 2
+draft: false
+---
+
+:imgdir: /05_01_10_02_img/
+:imagesoutdir: ./static/05_01_10_02_img/
+
+include::static/includes/init.adoc[]
+
+= Centrifugo
+
+{empty} +
+
+== Centrifugo
+
+****
+.*Centrifugo (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}centrifugo.puml[]
+====
+****

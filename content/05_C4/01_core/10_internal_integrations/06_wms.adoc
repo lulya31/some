@@ -1,0 +1,25 @@
+---
+title: "WMS"
+description: "WMS"
+weight: 6
+draft: false
+---
+
+:imgdir: /05_01_10_06_img/
+:imagesoutdir: ./static/05_01_10_06_img/
+
+include::static/includes/init.adoc[]
+
+= WMS
+
+{empty} +
+
+== WMS
+
+****
+.*WMS (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}wms.puml[]
+====
+****

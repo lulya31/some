@@ -1,0 +1,24 @@
+[plantuml%interactive,"mes",format=svg,align=center,width=30%]
+.MES - MES
+----
+@startuml
+
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+!include static/includes/c4_context.puml
+!include static/includes/c4_container.puml
+
+'skinparam svgLinkTarget _blank
+skinparam backgroundcolor transparent
+skinparam minClassWidth 200
+
+LAYOUT_TOP_DOWN()
+
+System(service, "Service", "Сервис", $link="/05_c4/02_experience/04_service")
+System(mes, "MES", "MES")
+
+Rel_U(mes, service, "")
+
+@enduml
+----
+

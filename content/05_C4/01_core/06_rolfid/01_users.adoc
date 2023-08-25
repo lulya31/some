@@ -1,0 +1,26 @@
+---
+title: "Users"
+description: "Пользователи"
+weight: 1
+draft: false
+---
+
+:imgdir: /05_01_06_01_img/
+:imagesoutdir: ./static/05_01_06_01_img/
+
+include::static/includes/init.adoc[]
+
+= Tasks
+
+{empty} +
+
+== Tasks
+
+****
+.*Tasks (Отобразить/Скрыть)*
+[%collapsible%open]
+====
+include::{imagesoutdir}users.puml[]
+====
+****
+

@@ -1,0 +1,24 @@
+[plantuml%interactive,"service_node",format=svg,align=center,width=30%]
+.Service - Сервис
+----
+@startuml
+
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+!include static/includes/c4_context.puml
+!include static/includes/c4_container.puml
+
+'skinparam svgLinkTarget _blank
+skinparam backgroundcolor transparent
+skinparam minClassWidth 200
+
+LAYOUT_TOP_DOWN()
+
+System(service, "Service", "Сервис", $link="/05_c4/02_experience/04_service")
+System(service_node, "Service", "Сервис")
+
+Rel_U(service_node, service, "")
+
+@enduml
+----
+

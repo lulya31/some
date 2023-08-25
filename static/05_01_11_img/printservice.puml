@@ -1,0 +1,35 @@
+[plantuml%interactive,"printservice",format=svg,align=center,width=75%]
+.Print service - Сервис печатных форм
+----
+@startuml
+
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+!include static/includes/c4_context.puml
+!include static/includes/c4_container.puml
+
+'skinparam svgLinkTarget _blank
+skinparam backgroundcolor transparent
+skinparam minClassWidth 200
+
+LAYOUT_TOP_DOWN()
+
+System(core, "Core", "Общий функционал", $link="/05_c4/01_core/")
+
+System(printservice, "printservice", "Сервис печатных форм")
+
+System(pforms, "Print forms", "Печатные формы", $link="/05_c4/01_core/11_printservice/01_pforms/")
+System(pforms_template, "Print forms template", "Шаблоны печатных форм", $link="/05_c4/01_core/11_printservice/02_pforms_template/")
+System(pforms_images, "Print forms images", "Картинки печатных форм", $link="/05_c4/01_core/11_printservice/03_pforms_images/")
+System(pforms_tags, "Print forms tags", "Тэги печатных форм", $link="/05_c4/01_core/11_printservice/04_pforms_tags/")
+
+Rel_D(core, printservice, "")
+
+Rel_D(printservice, pforms, "")
+Rel_D(printservice, pforms_template, "")
+Rel_D(printservice, pforms_images, "")
+Rel_D(printservice, pforms_tags, "")
+
+@enduml
+----
+
