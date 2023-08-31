@@ -56,10 +56,61 @@ RolfID
     Сотрудник (Employees/пользователь (users)) -> TaskAndEvents -> Событие (events / Уведомление-notif)
 
 Needs_and_Orders
+    Обращение (Requests) -> Базовая потребность (Needs)
+    Обращение (Requests) -> Internal_Integration -> Oracle
+    Обращение (Requests) -> Communications -> Коммуникация (Communications)
+    RolfID -> Дилерский центр (Dealerships) -> Обращение (Requests)
+    RolfID -> Сотрудник (Employees/пользователь (users)) -> Обращение (Requests)
+    ClientID -> Клиент (Clients) -> Обращение (Requests)
 
+    Базовая потребность (Needs) -> Пакеты (Carts)
+    Базовая потребность (Needs) -> Предложение товара или услуги (Orders)
+    Базовая потребность (Needs) -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Communications -> Коммуникация (Communications) -> Базовая потребность (Needs)
 
+    Пакеты (Carts) уровень 1 -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Пакеты (Carts) уровень 1 -> Предложение товара или услуги (Orders) уровень 1
+    Пакеты (Carts) уровень 1 -> Пакеты / уровень 2 (Carts)
 
-    
+    Предложение товара или услуги (Orders) уровень 1 -> Юридическое событие (legal_events)
+    Предложение товара или услуги (Orders) уровень 1 -> Payments -> Платеж (payments)
+    Предложение товара или услуги (Orders) уровень 1 -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Предложение товара или услуги (Orders) уровень 1 -> Coreapp -> Комментарии (Comments)
+    Предложение товара или услуги (Orders) уровень 1 -> Вторичная потребность (cross-selling needs) уровень 2
+    Предложение товара или услуги (Orders) уровень 1 -> Вторичная потребность (cross-selling needs) уровень 3
+    CarID -> Транспортное средство (vehicle) -> Предложение товара или услуги (Orders) уровень 1
+    F&I -> Конкретные предложения заказа F&I (Order-F&I) -> Предложение товара или услуги (Orders) уровень 1
+    Service -> Сервисные работы и запчасти (????) -> Предложение товара или услуги (Orders) уровень 1
+
+    Юридическое событие (legal_events) -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Юридическое событие (legal_events) -> Юридические документы (legal_documents)
+    Предложение товара или услуги (Orders) уровень 2 -> Юридическое событие (legal_events)
+    Предложение товара или услуги (Orders) уровень 3 -> Юридическое событие (legal_events)
+
+    Предложение товара или услуги (Orders) уровень 2 -> Юридические документы (legal_documents)
+    Юридические документы (legal_documents) -> Printservice -> Печатные формы (pforms)
+    Юридические документы (legal_documents) -> TaskAndEvents -> Событие (events / Уведомление-notif)
+
+    Вторичная потребность (cross-selling needs) уровень 2 -> Пакеты (Carts) уровень 2
+    Вторичная потребность (cross-selling needs) уровень 2 -> Предложение товара или услуги (Orders) уровень 2
+    Вторичная потребность (cross-selling needs) уровень 2 -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Вторичная потребность (cross-selling needs) уровень 2 -> Coreapp -> Комментарии (Comments)
+
+    Пакеты (Carts) уровень 2 -> Предложение товара или услуги (Orders) уровень 2
+    Пакеты (Carts) уровень 2 -> Пакеты (Carts) уровень 3
+
+    Предложение товара или услуги (Orders) уровень 2 -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Предложение товара или услуги (Orders) уровень 2 -> Payments -> Платеж (payments)
+    CarID -> Транспортное средство (vehicle) -> Предложение товара или услуги (Orders) уровень 2
+    Service -> Сервисные работы и запчасти (????) -> Предложение товара или услуги (Orders) уровень 2
+
+    Вторичная потребность (cross-selling needs) уровень 3 -> Пакеты (Carts) уровень 3
+    Вторичная потребность (cross-selling needs) уровень 3 -> Предложение товара или услуги (Orders) уровень 3
+
+    Пакеты (Carts) уровень 3 -> Предложение товара или услуги (Orders) уровень 3
+    Предложение товара или услуги (Orders) уровень 3 -> Payments -> Платеж (payments)
+    F&I -> Конкретные предложения заказа F&I (Order-F&I) -> Предложение товара или услуги (Orders) уровень 3
+  
 Payments
     Needs_and_Orders -> Предложение товара или услуги (Orders) уровень 1 -> Платеж (payments)
     Needs_and_Orders -> Предложение товара или услуги (Orders) уровень 2 -> Платеж (payments)
