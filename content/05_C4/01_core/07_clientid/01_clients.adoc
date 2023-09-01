@@ -17,9 +17,6 @@ include::static/includes/init.adoc[]
 == Clients
 
 ****
-.*Clients (Отобразить/Скрыть)*
-[%collapsible%open]
-====
 include::{imagesoutdir}clients.puml[]
-====
 ****
+
