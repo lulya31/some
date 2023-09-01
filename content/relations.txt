@@ -1,0 +1,195 @@
+ClientID
+    Адреса -> Юридическое лицо (Organizations)
+    Документы -> Юридическое лицо (Organizations)
+    Телефоны -> Юридическое лицо (Organizations)
+    Emails -> Юридическое лицо (Organizations)
+
+    Адреса -> Физическое лицо (Persons)
+    Документы -> Физическое лицо (Persons)
+    Телефоны -> Физическое лицо (Persons)
+    Emails -> Физическое лицо (Persons)
+
+    Юридическое лицо (Organizations) -> Компания
+    Юридическое лицо (Organizations) -> Клиент
+    Юридическое лицо (Organizations) - RolfID -> Дилерский центр (Dealerships)
+
+    Физическое лицо (Persons) -> Представитель
+    Физическое лицо (Persons) -> Клиент
+    Физическое лицо (Persons) -> RolfID -> Сотрудник (Employees/пользователь (users))
+
+    Подписант -> RolfID -> Сотрудник (Employees/пользователь (users))
+
+    Представитель -> Компания 
+
+    Физическое лицо (Persons) -> Клиент
+
+    Клиент -> Communications -> Коммуникация
+    Клиент -> Needs_and_Orders -> Обращение (Requests)
+
+Communications
+    ClientID -> Клиент -> Коммуникация
+    Needs_and_Orders -> Обращение (Requests) -> Коммуникация
+    Коммуникация -> Needs_and_Orders -> Базовая потребность (Needs)
+    Коммуникация -> TaskAndEvents -> Событие (events / Уведомление-notif)
+
+TaskAndEvents
+    Communications -> Коммуникация -> Событие (events / Уведомление-notif)
+    Событие (events / Уведомление-notif) -> Задача (tasks)
+    Событие (events / Уведомление-notif) -> Задача (tasks)
+    Событие (events / Уведомление-notif) -> Задача (tasks)
+    Событие (events / Уведомление-notif) -> Задача (tasks)
+
+RolfID
+    Сотрудник (Employees/пользователь (users)) -> Функциональная группа (user_group)
+    Сотрудник (Employees/пользователь (users)) -> Функциональная обязанность (business_tasks_subset)
+
+    ClientID -> Подписант (Signatories) -> Сотрудник (Employees/пользователь (users))
+    ClientID -> Физическое лицо (Persons) -> Сотрудник (Employees/пользователь (users))
+    ClientID -> Юридическое лицо (Organizations) -> Дилерский центр (Dealerships)
+    Internal_Integration -> Sap HR (Employees) -> Сотрудник (Employees/пользователь (users))
+    Internal_Integration -> AD (users) -> Сотрудник (Employees/пользователь (users))
+    
+    Дилерский центр (Dealerships) -> Needs_and_Orders -> Обращение (Requests)
+    Дилерский центр (Dealerships) -> Service -> Цеха (Workshops)
+    Сотрудник (Employees/пользователь (users)) -> Needs_and_Orders -> Обращение (Requests)
+    Сотрудник (Employees/пользователь (users)) -> Service -> MES (mes)
+    Сотрудник (Employees/пользователь (users)) -> TaskAndEvents -> Событие (events / Уведомление-notif)
+
+Needs_and_Orders
+    Обращение (Requests) -> Базовая потребность (Needs)
+    Обращение (Requests) -> Internal_Integration -> Oracle
+    Обращение (Requests) -> Communications -> Коммуникация (Communications)
+    RolfID -> Дилерский центр (Dealerships) -> Обращение (Requests)
+    RolfID -> Сотрудник (Employees/пользователь (users)) -> Обращение (Requests)
+    ClientID -> Клиент (Clients) -> Обращение (Requests)
+
+    Базовая потребность (Needs) -> Пакеты (Carts)
+    Базовая потребность (Needs) -> Предложение товара или услуги (Orders)
+    Базовая потребность (Needs) -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Communications -> Коммуникация (Communications) -> Базовая потребность (Needs)
+
+    Пакеты (Carts) уровень 1 -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Пакеты (Carts) уровень 1 -> Предложение товара или услуги (Orders) уровень 1
+    Пакеты (Carts) уровень 1 -> Пакеты / уровень 2 (Carts)
+
+    Предложение товара или услуги (Orders) уровень 1 -> Юридическое событие (legal_events)
+    Предложение товара или услуги (Orders) уровень 1 -> Payments -> Платеж (payments)
+    Предложение товара или услуги (Orders) уровень 1 -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Предложение товара или услуги (Orders) уровень 1 -> Coreapp -> Комментарии (Comments)
+    Предложение товара или услуги (Orders) уровень 1 -> Вторичная потребность (cross-selling needs) уровень 2
+    Предложение товара или услуги (Orders) уровень 1 -> Вторичная потребность (cross-selling needs) уровень 3
+    CarID -> Транспортное средство (vehicle) -> Предложение товара или услуги (Orders) уровень 1
+    F&I -> Конкретные предложения заказа F&I (Order-F&I) -> Предложение товара или услуги (Orders) уровень 1
+    Service -> Сервисные работы и запчасти (????) -> Предложение товара или услуги (Orders) уровень 1
+
+    Юридическое событие (legal_events) -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Юридическое событие (legal_events) -> Юридические документы (legal_documents)
+    Предложение товара или услуги (Orders) уровень 2 -> Юридическое событие (legal_events)
+    Предложение товара или услуги (Orders) уровень 3 -> Юридическое событие (legal_events)
+
+    Предложение товара или услуги (Orders) уровень 2 -> Юридические документы (legal_documents)
+    Юридические документы (legal_documents) -> Printservice -> Печатные формы (pforms)
+    Юридические документы (legal_documents) -> TaskAndEvents -> Событие (events / Уведомление-notif)
+
+    Вторичная потребность (cross-selling needs) уровень 2 -> Пакеты (Carts) уровень 2
+    Вторичная потребность (cross-selling needs) уровень 2 -> Предложение товара или услуги (Orders) уровень 2
+    Вторичная потребность (cross-selling needs) уровень 2 -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Вторичная потребность (cross-selling needs) уровень 2 -> Coreapp -> Комментарии (Comments)
+
+    Пакеты (Carts) уровень 2 -> Предложение товара или услуги (Orders) уровень 2
+    Пакеты (Carts) уровень 2 -> Пакеты (Carts) уровень 3
+
+    Предложение товара или услуги (Orders) уровень 2 -> TaskAndEvents -> Событие (events / Уведомление-notif)
+    Предложение товара или услуги (Orders) уровень 2 -> Payments -> Платеж (payments)
+    CarID -> Транспортное средство (vehicle) -> Предложение товара или услуги (Orders) уровень 2
+    Service -> Сервисные работы и запчасти (????) -> Предложение товара или услуги (Orders) уровень 2
+
+    Вторичная потребность (cross-selling needs) уровень 3 -> Пакеты (Carts) уровень 3
+    Вторичная потребность (cross-selling needs) уровень 3 -> Предложение товара или услуги (Orders) уровень 3
+
+    Пакеты (Carts) уровень 3 -> Предложение товара или услуги (Orders) уровень 3
+    Предложение товара или услуги (Orders) уровень 3 -> Payments -> Платеж (payments)
+    F&I -> Конкретные предложения заказа F&I (Order-F&I) -> Предложение товара или услуги (Orders) уровень 3
+  
+Payments
+    Needs_and_Orders -> Предложение товара или услуги (Orders) уровень 1 -> Платеж (payments)
+    Needs_and_Orders -> Предложение товара или услуги (Orders) уровень 2 -> Платеж (payments)
+    Needs_and_Orders -> Предложение товара или услуги (Orders) уровень 3 -> Платеж (payments)
+
+CarID
+    Карточка автомобиля (vehicle_card) -> Транспортное средство (vehicle)
+    Транспортное средство (vehicle) -> Needs_and_Orders -> Предложение товара или услуги уровень 1
+    Транспортное средство (vehicle) -> Needs_and_Orders -> Предложение товара или услуги уровень 2
+    Internal_Integration -> Oracle -> Транспортное средство (vehicle)
+    MDM & WMS -> Мастер-данные (MDM) -> Транспортное средство (vehicle)
+
+Service
+    Посты (Workstations) -> Цеха (Workshops)
+    Посты (Workstations) -> MES (mes)
+    Сервисные работы и запчасти (????) -> MES (mes)
+
+    RolfID -> Сотрудник (Employees/пользователь (users)) -> MES (mes)
+    RolfID -> Дилерский центр (Dealerships) -> Цеха (Workshops)
+    Сервисные работы и запчасти (????) -> Needs_and_Orders -> Предложение товара или услуги уровень 1
+    Сервисные работы и запчасти (????) -> Needs_and_Orders -> Предложение товара или услуги уровень 2
+
+    MDM & WMS -> Мастер-данные (MDM) -> Сервисные работы и запчасти (????)
+
+Printservice
+    Шаблоны (templates) -> Печатные формы (pforms)
+    Needs_and_Orders -> Юридические документы (legal_documents) -> Печатные формы (pforms)
+
+Coreapp
+    Needs_and_Orders -> Предложение товара или услуги (Orders) -> Комментарии (Comments)
+    Needs_and_Orders -> Вторичная потребность (cross-salling needs) -> Предложение товара или услуги (Orders) -> Комментарии (Comments)
+    Аннотации (Annotations)
+    Фильтры (filters) -> Базы данных (Datagrids)
+
+F&I
+    Продукт F&I (Products F&I) -> Конкретные предложения заказа F&I (Order-F&I)
+    Тип расчета (Calculation purpose) -> Конкретные предложения заказа F&I (Order-F&I)
+    Кредит (Credit) -> Продукт F&I (Products F&I)
+    Страхование (Insurance) -> Продукт F&I (Products F&I)
+    Банки (Bank) -> Кредит (Credit)
+    Кредитные программы (Credit programs) -> Кредит (Credit)
+    Страховые компании (Insurance companies) -> Страхование (Insurance)
+    Опции программ СК (Insurance Program Option) -> Страхование (Insurance)
+    Продукты страховых компаний (Insurance companies Products) -> Страхование (Insurance)
+
+    External_Integration -> Интеграции с СК и банками (Credit & Insurance) -> Конкретные предложения заказа F&I (Order-F&I)
+    External_Integration -> Интеграции с DaData (Insurance) -> Конкретные предложения заказа F&I (Order-F&I)
+    Конкретные предложения заказа F&I (Order-F&I) -> Needs_and_Orders -> Предложение товара или услуги (Orders) уровень 1
+    Конкретные предложения заказа F&I (Order-F&I) -> Needs_and_Orders -> Предложение товара или услуги (Orders) уровень 3
+
+MDM&WMS
+    Местоположение (???) -> WMS (???)
+    Склад (???) -> WMS (???)
+    Мастер-данные (MDM) -> CarID -> Транспортное средство (vehicle)
+    Мастер-данные (MDM) -> Service -> Сервисные работы и запчасти (???)
+
+NA & ASP
+    Выкуп АСП
+    Продажа АСП
+    Продажа НА 
+
+Internal_Integrations
+    Oracle -> CarID -> Карточка автомобиля (vehicle_card)
+    Sap HR (Employees) -> RolfID -> Сотрудник (Employees/пользователь (users))
+    AD (Users) -> RolfID -> Сотрудник (Employees/пользователь (users))
+    Needs_and_Orders -> Обращение (Requests) -> Oracle
+
+
+External_Integration
+    Интеграции с СК и банками (Credit & Insurance)
+    Прямые (Direct Integration)
+    Через партнера (Partner)
+    FETM (Flora Entity Transformation Module)
+    Интеграция e-Credit (Credit)
+    Интеграция с ELT (Insurance)
+    Tinkoff-Каско (Insurance)
+    Tinkoff-Credit (Credit)
+
+    Вспомогательные Сервисы
+    Интеграция с DaData (Insurance)
+    Audatex ??? (Service)
+    Автотека (CarID)

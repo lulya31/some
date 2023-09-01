@@ -1,4 +1,4 @@
-[plantuml%interactive,"communications",format=svg,align=center,width=20%]
+[plantuml%interactive,"communications",format=svg,align=center,width=75%]
 .Сommunications - Коммуникации
 ----
 @startuml
@@ -7,19 +7,31 @@
 
 !include static/includes/c4_context.puml
 !include static/includes/c4_container.puml
+!include static/includes/c4_component.puml
 
 'skinparam svgLinkTarget _blank
 skinparam backgroundcolor transparent
 skinparam minClassWidth 200
+skinparam linetype ortho
 
 LAYOUT_TOP_DOWN()
 
 System(core, "Core", "Общий функционал", $link="/05_c4/01_core/")
-System(communications, "Сommunications", "Коммуникации")
-System(communication, "Сommunication", "Коммуникация", $link="/05_c4/01_core/04_communications/01_communication/")
+'System(communications, "Сommunications", "Коммуникации")
+
+
+Container_Boundary(communications, "Коммуникации") {
+
+    Container(communication, "Коммуникация", "Сommunications", "Коммуникация")
+    Component(events, "Task And Events -> События (events / Уведомление-notif)", "Task And Events -> События (events / Уведомление-notif)", "Task And Events -> События (events / Уведомление-notif)", $link="/05_c4/01_core/05_tasks_and_events/02_events/")
+    Component(needs, "Needs And Orders -> Базовая потребность (Carts)", "Needs And Orders -> Базовая потребность (Carts)", "Needs And Orders -> Базовая потребность (Carts)", $link="/05_c4/01_core/03_needs_and_orders/02_needs/")
+
+    Rel_D(communication, events, "")
+    Rel_D(communication, needs, "")
+}
 
 Rel_D(core, communications, "")
-Rel_D(communications, communication, "")
 
 @enduml
 ----
+
