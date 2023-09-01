@@ -19,7 +19,6 @@ LAYOUT_TOP_DOWN()
 
 System(clientid, "ClientID", "Клиенты (физлица и организации)", $link="/05_c4/01_core/07_clientid/")
 'System(clients, "Clients", "Клиенты")
-'Container(spa, "Single Page Application", "javascript and angular", "Provides all the internet banking functionality to customers via their web browser.")
 
 Container_Boundary(clients, "Клиенты") {
     Container(address, "Адреса", "Address", "Адреса")
@@ -34,8 +33,8 @@ Container_Boundary(clients, "Клиенты") {
     Container(representatives, "Представитель", "Representatives", "Представитель")
 
     Container(client, "Клиент", "Client", "Клиент")
-    Component(communications, "Communications -> Коммуникация", "Communications -> Коммуникация", "Communications -> Коммуникация", $link="/05_c4/01_core/04_communications/01_communication/")
-    Component(requests, "Needs And Orders -> Обращение", "Needs And Orders -> Обращение", "Needs And Orders -> Обращение", $link="/05_c4/01_core/03_needs_and_orders/01_requests/")
+    Component(communications, "Communications -> Коммуникация (Communications)", "Communications -> Коммуникация (Communications)", "Communications -> Коммуникация (Communications)", $link="/05_c4/01_core/04_communications/01_communication/")
+    Component(requests, "Needs And Orders -> Обращение (Requests)", "Needs And Orders -> Обращение (Requests)", "Needs And Orders -> Обращение (Requests)", $link="/05_c4/01_core/03_needs_and_orders/01_requests/")
 
     Container(signatures, "Подписант", "Signatures", "Подписант")
 
@@ -64,31 +63,3 @@ Rel_U(clients, clientid, "")
 
 @enduml
 ----
-
-
-Адреса -> Юридическое лицо (Organizations)
-Документы -> Юридическое лицо (Organizations)
-Телефоны -> Юридическое лицо (Organizations)
-Emails -> Юридическое лицо (Organizations)
-
-Адреса -> Физическое лицо (Persons)
-Документы -> Физическое лицо (Persons)
-Телефоны -> Физическое лицо (Persons)
-Emails -> Физическое лицо (Persons)
-
-Юридическое лицо (Organizations) -> Компания
-Юридическое лицо (Organizations) -> Клиент
-Юридическое лицо (Organizations) - RolfID -> Дилерский центр (Dealerships)
-
-Физическое лицо (Persons) -> Представитель
-Физическое лицо (Persons) -> Клиент
-Физическое лицо (Persons) -> RolfID -> Сотрудник (Employees/пользователь (users))
-
-Подписант -> RolfID -> Сотрудник (Employees/пользователь (users))
-
-Представитель -> Компания 
-
-Физическое лицо (Persons) -> Клиент
-
-Клиент -> Communications -> Коммуникация
-Клиент -> Needs_and_Orders -> Обращение (Requests)

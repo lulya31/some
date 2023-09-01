@@ -1,4 +1,4 @@
-[plantuml%interactive,"payment",format=svg,align=center,width=30%]
+[plantuml%interactive,"communication",format=svg,align=center,width=30%]
 .Communication - Коммуникация
 ----
 @startuml
@@ -21,4 +21,3 @@ Rel_U(communication, communications, "")
 
 @enduml
 ----
-
