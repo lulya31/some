@@ -14,7 +14,7 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(f_and_i, "F&I", "Страхование и финансовые продукты", $link="/05_c4/02_experience/01_f_and_i/")
+System(f_and_i, "F&I", "Страхование и финансовые продукты", $link="/05_c4_workflow/02_experience/01_f_and_i/")
 System(credit, "Сredit", "Кредитование")
 
 Rel_U(credit, f_and_i, "")

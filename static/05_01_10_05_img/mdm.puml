@@ -14,7 +14,7 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(internal_integrations, "Internal integration", "Внутренние интеграции", $link="/05_c4/01_core/10_internal_integrations/")
+System(internal_integrations, "Internal integration", "Внутренние интеграции", $link="/05_c4_workflow/01_core/10_internal_integrations/")
 System(mdm, "MDM", "MDM")
 
 Rel_U(mdm, internal_integrations, "")

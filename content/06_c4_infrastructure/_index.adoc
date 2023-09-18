@@ -1,0 +1,21 @@
+---
+title: "C4 Flora infrastructure"
+description: "C4 Flora infrastructure"
+weight: 6
+draft: false
+slug: ""
+---
+
+:imgdir: /06_img/
+:imagesoutdir: ./static/06_img/
+
+include::static/includes/init.adoc[]
+
+= C4 Flora infrastructure
+
+{empty} +
+
+****
+include::{imagesoutdir}rolf.puml[]
+****
+

@@ -14,11 +14,11 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(core, "Core", "Общий функционал", $link="/05_c4/01_core/")
+System(core, "Core", "Общий функционал", $link="/05_c4_workflow/01_core/")
 System(rolfid, "RolfID", "Сотрудники, пользователи, ДЦ")
-System(users, "Users", "Пользователи", $link="/05_c4/01_core/06_rolfid/01_users/")
-System(employees, "Employees", "Служащие", $link="/05_c4/01_core/06_rolfid/02_employees/")
-System(dealerships, "Dealerships", "Дилерский центр", $link="/05_c4/01_core/06_rolfid/03_dealerships/")
+System(users, "Users", "Пользователи", $link="/05_c4_workflow/01_core/06_rolfid/01_users/")
+System(employees, "Employees", "Служащие", $link="/05_c4_workflow/01_core/06_rolfid/02_employees/")
+System(dealerships, "Dealerships", "Дилерский центр", $link="/05_c4_workflow/01_core/06_rolfid/03_dealerships/")
 
 Rel_D(core, rolfid, "")
 Rel_D(rolfid, users, "")

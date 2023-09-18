@@ -14,17 +14,17 @@ skinparam minClassWidth 200
 
 LAYOUT_LEFT_RIGHT()
 
-System(core, "Core", "Общий функционал", $link="/05_c4/01_core/")
+System(core, "Core", "Общий функционал", $link="/05_c4_workflow/01_core/")
 
 System(external_integrations, "External integration", "Внешние интеграции")
 
-System(elt, "Elt", "Elt", $link="/05_c4/01_core/09_external_integrations/01_elt/")
-System(dadata, "Dadata", "Ddadata", $link="/05_c4/01_core/09_external_integrations/02_dadata/")
-System(kontur, "Kontur", "Kontur", $link="/05_c4/01_core/09_external_integrations/03_kontur/")
-System(auto_ru, "Auto ru", "Auto ru", $link="/05_c4/01_core/09_external_integrations/04_auto_ru/")
-System(autoteka, "Autoteka", "Autoteka", $link="/05_c4/01_core/09_external_integrations/05_autoteka/")
-System(kia_myservice, "Kia myservice", "Kia myservice", $link="/05_c4/01_core/09_external_integrations/06_kia_myservice/")
-System(fetm, "Fetm", "Fetm", $link="/05_c4/01_core/09_external_integrations/07_fetm/")
+System(elt, "Elt", "Elt", $link="/05_c4_workflow/01_core/09_external_integrations/01_elt/")
+System(dadata, "Dadata", "Ddadata", $link="/05_c4_workflow/01_core/09_external_integrations/02_dadata/")
+System(kontur, "Kontur", "Kontur", $link="/05_c4_workflow/01_core/09_external_integrations/03_kontur/")
+System(auto_ru, "Auto ru", "Auto ru", $link="/05_c4_workflow/01_core/09_external_integrations/04_auto_ru/")
+System(autoteka, "Autoteka", "Autoteka", $link="/05_c4_workflow/01_core/09_external_integrations/05_autoteka/")
+System(kia_myservice, "Kia myservice", "Kia myservice", $link="/05_c4_workflow/01_core/09_external_integrations/06_kia_myservice/")
+System(fetm, "Fetm", "Fetm", $link="/05_c4_workflow/01_core/09_external_integrations/07_fetm/")
 
 Rel_R(core, external_integrations, "")
 

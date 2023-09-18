@@ -1,0 +1,20 @@
+---
+title: "FLORA"
+description: "Флора"
+weight: 1
+draft: false
+---
+
+:imgdir: /06_01_img/
+:imagesoutdir: ./static/06_01_img/
+
+include::static/includes/init.adoc[]
+
+= Flora
+
+{empty} +
+
+****
+include::{imagesoutdir}flora.puml[]
+****
+

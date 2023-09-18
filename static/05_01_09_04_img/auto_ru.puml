@@ -14,7 +14,7 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(external_integrations, "External integration", "Внешние интеграции", $link="/05_c4/01_core/09_external_integrations/")
+System(external_integrations, "External integration", "Внешние интеграции", $link="/05_c4_workflow/01_core/09_external_integrations/")
 System(auto_ru, "Auto ru", "Auto ru")
 
 Rel_U(auto_ru, external_integrations, "")

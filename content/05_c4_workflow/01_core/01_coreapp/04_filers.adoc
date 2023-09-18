@@ -14,12 +14,6 @@ include::static/includes/init.adoc[]
 
 {empty} +
 
-== Filters
-
 ****
-.*Filters (Отобразить/Скрыть)*
-[%collapsible%open]
-====
 include::{imagesoutdir}filters.puml[]
-====
 ****
