@@ -18,7 +18,6 @@ LAYOUT_LEFT_RIGHT()
 System(flora, "Flora", "Система Flora", $link="/05_c4_workflow/")
 
 System(core, "Core", "Общий функционал")
-'Container(mobile_app, "Mobile App", "C#, Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device")
 
 System(coreapp, "Coreapp", "Комментарии, датагриды", $link="/05_c4_workflow/01_core/01_coreapp/")
 System(payments, "Payments", "Платежи, чеки", $link="/05_c4_workflow/01_core/02_payments/")
@@ -50,4 +49,5 @@ Rel_U(core, pfanalize, "")
 
 @enduml
 ----
+
 

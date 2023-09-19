@@ -1,12 +1,12 @@
 ---
 title: "FLORA"
 description: "Флора"
-weight: 1
+weight: 2
 draft: false
 ---
 
-:imgdir: /06_01_img/
-:imagesoutdir: ./static/06_01_img/
+:imgdir: /06_02_img/
+:imagesoutdir: ./static/06_02_img/
 
 include::static/includes/init.adoc[]
 

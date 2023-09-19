@@ -1,0 +1,146 @@
+[plantuml%interactive,"flora",format=svg,align=center,width=100%]
+.Flora - Флора
+----
+@startuml
+
+!include static/includes/c4_context.puml
+!include static/includes/c4_container.puml
+!include static/includes/c4_component.puml
+
+skinparam backgroundcolor transparent
+skinparam minClassWidth 200
+skinparam linetype ortho
+
+'LAYOUT_TOP_DOWN()
+LAYOUT_LEFT_RIGHT()
+
+System(flora_ext, "FLORA AND EXTERNAL SYSTEMS", "FLORA AND EXTERNAL SYSTEMS", $link="/06_c4_infrastructure/01_flora_ext/")
+
+System_Boundary(flora, "Система Flora", "Система Flora"){
+    Container(frontend, "FrontEnd", "FrontEnd")
+    Container(apim, "APIM (Kong)", "APIM (Kong)")
+
+    Container_Boundary(bff, "BFF (Business logic)", "BFF (Business logic)"){
+        Component(service, "Service - Platformeco", "Service - Platformeco")
+        Component(f_and_i, "F&I - Platformeco", "F&I - Platformeco")
+        Component(asp_and_na, "ASP & NA - Platformeco", "ASP & NA - Platformeco")
+    }
+
+    Container_Boundary(kafka, "Kafka", "Kafka"){
+        Container(kafka1, "Kafka 1", "Kafka 1")
+        Container(kafka2, "Kafka 2", "Kafka 2")
+    }
+
+    Container_Boundary(backend_core, "BackEnd (CORE)", "BackEnd (CORE)"){
+        Container_Boundary(platformeco1, "Platformeco", "Platformeco"){
+            Component(orders, "Orders - Platformeco", "Orders - Platformeco")
+            Component(communications, "Communications - Platformeco", "Communications - Platformeco")
+            Component(coreapp, "Coreapp - Platformeco", "Coreapp - Platformeco")
+        }
+
+        Container(mes, "MES", "MES", $link="/")
+        Container(printservice, "Print service", "Print service", $link="/")
+        Container(printformsanalize, "Print forms analize", "Print forms analize", $link="/")
+
+        Container_Boundary(platformeco2, "Platformeco", "Platformeco"){
+            Component(task_and_events, "Task and Events - Platformeco", "Task and Events - Platformeco")
+            Component(rolfid, "RolfID - Platformeco", "RolfID - Platformeco")
+            Component(carid, "CarID - Platformeco", "CarID - Platformeco")
+            Component(clientid, "ClientID - Platformeco", "ClientID - Platformeco")
+            Component(mdm, "MDM - Platformeco", "MDM - Platformeco")
+            Component(integration, "Integration - Platformeco", "Integration - Platformeco")
+            Component(internal_integration, "Internal Integration - Platformeco", "Internal Integration - Platformeco")
+            Component(payments, "Payments - Platformeco", "Payments - Platformeco")
+        }
+    }
+
+    Container_Boundary(infrastructure, "Infrastructure (DB, ETC)", "Infrastructure (DB, ETC)"){
+        Container_Boundary(postgresql, "PostgreSQL", "PostgreSQL"){
+            ContainerDb(needs_and_orders, "Needs and Orders", "", $link="/")
+            ContainerDb(flora_legal_executions, "Flora legal executions", "Flora legal executions", $link="/")
+            ContainerDb(flora_communications, "Flora communications", "Flora communications", $link="/")
+            ContainerDb(flora_prices, "Flora prices", "Flora prices", $link="/")
+            ContainerDb(flora_comments, "Flora comments", "Flora comments", $link="/")
+            ContainerDb(flora_datagrids, "Flora datagrids", "Flora datagrids", $link="/")
+            ContainerDb(flora_mes, "Flora MES", "Flora MES", $link="/")
+            ContainerDb(flora_printservice, "Flora print service", "Flora print service", $link="/")
+            ContainerDb(flora_fai, "Flora F&I", "Flora F&I", $link="/")
+            ContainerDb(flora_tasks, "Flora tasks", "Flora tasks", $link="/")
+            ContainerDb(flora_states_events, "Flora states events", "Flora states events", $link="/")
+            ContainerDb(flora_users_flora_access_control, "Flora users Flora access control", "Flora users Flora access control", $link="/")
+            ContainerDb(flora_rolf_hr_flora_dealerships, "Flora Rolf HR Flora dealerships", "Flora Rolf HR Flora dealerships", $link="/")
+            ContainerDb(flora_vehicles_flora_collected_vehicle_data, "Flora vehicles Flora collected vehicle data", "Flora vehicles Flora collected vehicle data", $link="/")
+            ContainerDb(flora_persons_or_org, "Flora persons or org", "Flora persons or org", $link="/")
+            ContainerDb(flora_integration, "Flora integration", "Flora integration", $link="/")
+            ContainerDb(flora_payments, "Flora payments", "Flora payments", $link="/")
+        }
+
+        Container(s3_cep, "S3 Cep", "S3 Cep", $link="/")
+        ContainerDb(mongodb, "Mongo DB", "Mongo DB", $link="/")
+
+        Container(opensearch1, "Open Search", "Open Search", $link="/")
+        Container(opensearch2, "Open Search", "Open Search", $link="/")
+        Container(opensearch3, "Open Search", "Open Search", $link="/")
+        Container(opensearch4, "Open Search", "Open Search", $link="/")
+        Container(opensearch5, "Open Search", "Open Search", $link="/")
+    }
+
+    BiRel(frontend, apim, "")
+    BiRel(apim, service, "")
+    BiRel(apim, f_and_i, "")
+    BiRel(apim, asp_and_na, "")
+
+    BiRel(apim, kafka1, "")
+    BiRel(apim, kafka2, "")
+
+    BiRel(apim, orders, "")
+    BiRel(apim, communications, "")
+    BiRel(apim, coreapp, "")
+
+    BiRel(apim, mes, "")
+    BiRel(apim, printservice, "")
+    BiRel(apim, printformsanalize, "")
+
+    Rel(kafka1, service, "")
+    Rel(kafka1, f_and_i, "")
+    Rel(task_and_events, kafka1, "")
+
+    Rel(kafka2, f_and_i, "")
+    Rel(integration, kafka2, "")
+
+    BiRel(apim, task_and_events, "")
+    BiRel(apim, rolfid, "")
+    BiRel(apim, carid, "")
+    BiRel(apim, clientid, "")
+    BiRel(apim, mdm, "")
+    BiRel(apim, integration, "")
+    BiRel(apim, internal_integration, "")
+    BiRel(apim, payments, "")
+
+    BiRel(orders, opensearch1, "")
+    BiRel(orders, needs_and_orders, "")
+    BiRel(orders, flora_legal_executions, "")
+
+    BiRel(communications, flora_communications, "")
+    BiRel(communications, opensearch2, "")
+
+    BiRel(coreapp, flora_prices, "")
+    BiRel(coreapp, flora_comments, "")
+    BiRel(coreapp, flora_datagrids, "")
+    BiRel(coreapp, opensearch3, "")
+
+    BiRel(mes, flora_mes, "")
+    BiRel(printservice, flora_printservice, "")
+    BiRel(printservice, s3_cep, "")
+
+    BiRel(f_and_i, flora_fai, "")
+    BiRel(f_and_i, opensearch4, "")
+
+    BiRel(task_and_events, flora_tasks, "")
+    BiRel(task_and_events, flora_states_events, "")
+}
+
+Rel_R(flora, flora_ext, "")
+
+@enduml
+----

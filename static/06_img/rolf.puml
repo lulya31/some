@@ -7,7 +7,6 @@
 !include static/includes/c4_container.puml
 !include static/includes/c4_component.puml
 
-'skinparam svgLinkTarget _blank
 skinparam backgroundcolor transparent
 skinparam minClassWidth 200
 'skinparam linetype polyline
@@ -15,62 +14,22 @@ skinparam linetype ortho
 
 LAYOUT_TOP_DOWN()
 
-System(clientid, "ClientID", "Клиенты (физлица и организации)", $link="/05_c4_workflow/01_core/07_clientid/")
-'System(clients, "Clients", "Клиенты")
+System_Ext(elt, "ELT", "ELT")
+System_Ext(dadata, "Dadata", "Dadata")
+System_Ext(tinkoff, "Tinkoff", "Tinkoff")
 
-Container_Boundary(clients, "Клиенты") {
-    Container(address, "Адреса", "Address", "Адреса")
-    Container(documents, "Документы", "Documents", "Документы")
-    Container(phones, "Телефоны", "Phones", "Phones")
-    Container(emails, "Электронные письма", "Emails", "Электронные письма")
+System_Boundary(rolf, "Рольф") {
+    Person(user, "USER", "Пользователь")
+    Person(admin, "ADMIN", "Администратор")
+    System(flora, "FLORA", "FLORA", $link="/06_c4_infrastructure/01_flora_ext/")
 
-    Container(persons, "Физическое лицо", "Persons", "Физическое лицо")
-    Container(organizations, "Юридическое лицо", "Organizations", "Юридическое лицо")
-
-    Container(companies, "Компания", "Companies", "Компания")
-    Container(representatives, "Представитель", "Representatives", "Представитель")
-
-    'Container(client, "Клиент", "Client", "Клиент")
-
-    Person(client, "Клиент", "Client", "Клиент")
-    Component(communications, "Communications -> Коммуникация (Communications)", "Communications -> Коммуникация (Communications)", "Communications -> Коммуникация (Communications)", $link="/05_c4_workflow/01_core/04_communications/01_communication/")
-    Component(requests, "Needs And Orders -> Обращение (Requests)", "Needs And Orders -> Обращение (Requests)", "Needs And Orders -> Обращение (Requests)", $link="/05_c4_workflow/01_core/03_needs_and_orders/01_requests/")
-
-    Container(signatures, "Подписант", "Signatures", "Подписант")
-
-    Rel_U(address, persons, "")
-    Rel_U(documents, persons, "")
-    Rel_U(phones, persons, "")
-    Rel_U(emails, persons, "")
-
-    Rel_D(address, organizations, "")
-    Rel_D(documents, organizations, "")
-    Rel_D(phones, organizations, "")
-    Rel_D(emails, organizations, "")
-
-    Rel(persons, representatives, "")
-    Rel(persons, client, "")
-    Rel(organizations, client, "")
-    Rel(organizations, companies, "")
-
-    Rel(representatives, companies, "")
-
-    Rel_D(client, communications, "")
-    Rel_D(client, requests, "")
+    Rel(user, flora, "")
+    Rel(admin, flora, "")
 }
 
-Rel_U(clients, clientid, "")
+BiRel_D(rolf, elt, "")
+BiRel_D(rolf, dadata, "")
+BiRel_D(rolf, tinkoff, "")
 
 @enduml
 ----
-
-
-System
-    USER
-    ADMIN
-
-Container
-
-Component
-
-Code
