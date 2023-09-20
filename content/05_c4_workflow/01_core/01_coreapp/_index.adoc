@@ -15,12 +15,6 @@ include::static/includes/init.adoc[]
 
 {empty} +
 
-== COREAPP
-
 ****
-.*COREAPP (Отобразить/Скрыть)*
-[%collapsible%open]
-====
 include::{imagesoutdir}coreapp.puml[]
-====
 ****

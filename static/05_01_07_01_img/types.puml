@@ -1,0 +1,32 @@
+[plantuml%interactive,"types",format=svg,align=center,width=100%]
+.Типы узлов в С4
+----
+@startuml
+
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+!include static/includes/c4_context.puml
+!include static/includes/c4_container.puml
+!include static/includes/c4_component.puml
+
+'skinparam svgLinkTarget _blank
+skinparam backgroundcolor transparent
+skinparam minClassWidth 200
+'skinparam linetype polyline
+skinparam linetype ortho
+
+LAYOUT_TOP_DOWN()
+
+System(system, "System", "System", "System")
+System_Ext(system_ext, "System_ext", "System_ext", "System_ext")
+Container(container, "Container", "Container", "Container")
+Container_Ext(container_ext, "Container_ext", "Container_ext", "Container_ext")
+ContainerDb(database, "Database", "Database", "Database")
+ContainerDb_Ext(database_ext, "Database_ext", "Database_ext", "Database_ext")
+Component(component, "Component", "Component", "Component")
+Component_Ext(component_ext, "Component_ext", "Component_ext", "Component_ext")
+Person(person, "Person", "Person", "Person")
+Person_Ext(person_ext, "Person_ext", "Person_ext", "Person_ext")
+
+@enduml
+----

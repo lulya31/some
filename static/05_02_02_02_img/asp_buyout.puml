@@ -14,7 +14,7 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(asp, "ASP", "Автомобили с пробегом", $link="/05_c4/02_experience/02_asp")
+System(asp, "ASP", "Автомобили с пробегом", $link="/05_c4_workflow/02_experience/02_asp")
 System(asp_buyout, "ASP Buyout", "Выкуп автомобиля с пробегом")
 
 Rel_U(asp_buyout, asp, "")

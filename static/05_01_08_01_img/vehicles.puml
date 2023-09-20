@@ -14,7 +14,7 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(carid, "CarID", "Транспортные средства", $link="/05_c4/01_core/08_carid/")
+System(carid, "CarID", "Транспортные средства", $link="/05_c4_workflow/01_core/08_carid/")
 System(vehicles, "Vehicles", "Транспортные средства")
 
 Rel_U(vehicles, carid, "")

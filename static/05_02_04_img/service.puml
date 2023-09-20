@@ -14,11 +14,11 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(experience, "Experience", "Прикладные методы", $link="/05_c4/02_experience/")
+System(experience, "Experience", "Прикладные методы", $link="/05_c4_workflow/02_experience/")
 
 System(service, "Service", "Сервис")
-System(service_node, "Service", "Сервис", $link="/05_c4/02_experience/04_service/01_service_node/")
-System(mes, "MES", "MES", $link="/05_c4/02_experience/04_service/02_mes/")
+System(service_node, "Service", "Сервис", $link="/05_c4_workflow/02_experience/04_service/01_service_node/")
+System(mes, "MES", "MES", $link="/05_c4_workflow/02_experience/04_service/02_mes/")
 
 Rel_D(experience, service, "")
 Rel_D(service, service_node, "")

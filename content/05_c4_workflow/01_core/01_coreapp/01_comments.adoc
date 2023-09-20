@@ -14,12 +14,6 @@ include::static/includes/init.adoc[]
 
 {empty} +
 
-== Comments
-
 ****
-.*Comments (Отобразить/Скрыть)*
-[%collapsible%open]
-====
 include::{imagesoutdir}comments.puml[]
-====
 ****

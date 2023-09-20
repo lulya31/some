@@ -14,12 +14,12 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(experience, "Experience", "Прикладные методы", $link="/05_c4/02_experience/")
+System(experience, "Experience", "Прикладные методы", $link="/05_c4_workflow/02_experience/")
 
 System(f_and_i, "F&I", "Страхование и финансовые продукты")
-System(f_and_i_node, "F&I", "Страхование и финансовые продукты", $link="/05_c4/02_experience/01_f_and_i/01_f_and_i_node/")
-System(insurance, "Insurance", "Страхование", $link="/05_c4/02_experience/01_f_and_i/02_insurance/")
-System(credit, "Credit", "Кредитование", $link="/05_c4/02_experience/01_f_and_i/03_credit/")
+System(f_and_i_node, "F&I", "Страхование и финансовые продукты", $link="/05_c4_workflow/02_experience/01_f_and_i/01_f_and_i_node/")
+System(insurance, "Insurance", "Страхование", $link="/05_c4_workflow/02_experience/01_f_and_i/02_insurance/")
+System(credit, "Credit", "Кредитование", $link="/05_c4_workflow/02_experience/01_f_and_i/03_credit/")
 
 Rel_D(experience, f_and_i, "")
 Rel_D(f_and_i, f_and_i_node, "")

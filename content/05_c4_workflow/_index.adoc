@@ -1,6 +1,6 @@
 ---
-title: "C4 Flora"
-description: "C4 Flora"
+title: "C4 Flora workflow"
+description: "C4 Flora workflow"
 weight: 5
 draft: false
 slug: ""
@@ -11,17 +11,13 @@ slug: ""
 
 include::static/includes/init.adoc[]
 
-= C4 Flora
+= C4 Flora workflow
 
 {empty} +
 
-== C4 Flora
+== C4 Flora workflow
 
 ****
-.*C4 Flora (Отобразить/Скрыть)*
-[%collapsible%open]
-====
 include::{imagesoutdir}flora.puml[]
-====
 ****
 

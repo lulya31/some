@@ -14,10 +14,10 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(core, "Core", "Общий функционал", $link="/05_c4/01_core/")
+System(core, "Core", "Общий функционал", $link="/05_c4_workflow/01_core/")
 System(tasks_and_events, "Tasks and events", "Задачи, события и оповещения")
-System(tasks, "Tasks", "Задачи", $link="/05_c4/01_core/05_tasks_and_events/01_tasks/")
-System(events, "Events", "События", $link="/05_c4/01_core/05_tasks_and_events/02_events/")
+System(tasks, "Tasks", "Задачи", $link="/05_c4_workflow/01_core/05_tasks_and_events/01_tasks/")
+System(events, "Events", "События", $link="/05_c4_workflow/01_core/05_tasks_and_events/02_events/")
 
 Rel_D(core, tasks_and_events, "")
 Rel_D(tasks_and_events, tasks, "")

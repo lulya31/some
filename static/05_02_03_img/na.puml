@@ -14,10 +14,10 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(experience, "Experience", "Прикладные методы", $link="/05_c4/02_experience/")
+System(experience, "Experience", "Прикладные методы", $link="/05_c4_workflow/02_experience/")
 
 System(na, "NA", "Новые автомобили")
-System(na_sale, "NA Sale", "Продажа нового автомобиля", $link="/05_c4/02_experience/03_na/01_na_sale/")
+System(na_sale, "NA Sale", "Продажа нового автомобиля", $link="/05_c4_workflow/02_experience/03_na/01_na_sale/")
 
 Rel_D(experience, na, "")
 Rel_D(na, na_sale, "")
