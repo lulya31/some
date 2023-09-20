@@ -1,4 +1,4 @@
-[plantuml%interactive,"rolf",format=svg,align=center,width=100%]
+[plantuml%interactive,"rolf",format=svg,align=center,width=60%]
 .Rolf - Рольф
 ----
 @startuml
@@ -12,24 +12,76 @@ skinparam minClassWidth 200
 'skinparam linetype polyline
 skinparam linetype ortho
 
-LAYOUT_TOP_DOWN()
+'LAYOUT_TOP_DOWN()
+LAYOUT_LEFT_RIGHT()
 
-System_Ext(elt, "ELT", "ELT")
-System_Ext(dadata, "Dadata", "Dadata")
-System_Ext(tinkoff, "Tinkoff", "Tinkoff")
+System_Boundary(ext_systems1, "Внешние системы") {
+    System_Ext(elt, "ELT", "ELT")
+    System_Ext(dadata, "Dadata", "Dadata")
+    System_Ext(tinkoff, "Tinkoff", "Tinkoff")
+    System_Ext(autoteka_ru, "Autoteka.ru", "Autoteka.ru")
+    System_Ext(rosbank, "Rosbank", "Rosbank")
+}
+
+System_Boundary(ext_systems2, "Внешние системы") {    
+    System_Ext(e_credit, "Е-кредит", "Е-кредит")
+    System_Ext(auto_ru, "Auto.ru", "Auto.ru")
+    System_Ext(kia_myservice, "KIA MyService", "KIA MyService")
+    System_Ext(focus_kontur, "Фокус Контур", "Фокус Контур")
+    System_Ext(sber, "Сбер", "Сбер")
+}
 
 System_Boundary(rolf, "Рольф") {
     Person(user, "USER", "Пользователь")
     Person(admin, "ADMIN", "Администратор")
-    System(flora, "FLORA", "FLORA", $link="/06_c4_infrastructure/01_flora_ext/")
+
+    System(flora, "FLORA", "FLORA", $link="/06_c4_infrastructure/01_flora/")
+
+    System(atol, "Atol", "Atol")
+    System(kkm, "ККМ", "ККМ")
+    System(erl, "ERL", "Единый рабочий лист")
+    System(smtp, "SMTP Server", "SMTP Server")
+    System(sms_gate, "SMS Шлюз", "SMS Шлюз")
+    System(ad, "Active Directory", "Active Directory")
+    System(saphr, "SAP HR", "SAP HR")
+    System(wms, "WMS", "WMS")
+    System(mdm, "MDM", "MDM")
+    System(fishblue, "FishBlue", "FishBlue")
+    System(is_shtorm, "ИС Шторм", "ИС Шторм")
+    System(as_rolf, "АС Рольф", "АС Рольф")
+    System(as_rolfstrah, "АС Рольф Страхование", "АС Рольф Страхование")
+    System(payment_gate, "Платежный шлюз", "Платежный шлюз")
 
     Rel(user, flora, "")
     Rel(admin, flora, "")
+
+    BiRel_D(flora, atol, "")
+    BiRel_D(flora, kkm, "")
+    BiRel_D(flora, erl, "")
+    BiRel_D(flora, smtp, "")
+    BiRel_D(flora, sms_gate, "")
+    BiRel_D(flora, ad, "")
+    BiRel_D(flora, saphr, "")
+    BiRel_U(flora, wms, "")
+    BiRel_U(flora, mdm, "")
+    BiRel_U(flora, fishblue, "")
+    BiRel_U(flora, is_shtorm, "")
+    BiRel_U(flora, as_rolf, "")
+    BiRel_U(flora, as_rolfstrah, "")
+    BiRel_U(flora, payment_gate, "")
 }
 
-BiRel_D(rolf, elt, "")
-BiRel_D(rolf, dadata, "")
-BiRel_D(rolf, tinkoff, "")
+BiRel_D(flora, elt, "")
+BiRel_R(flora, dadata, "")
+BiRel_R(flora, tinkoff, "")
+BiRel_R(flora, autoteka_ru, "")
+BiRel_R(flora, rosbank, "")
+
+BiRel_U(flora, e_credit, "")
+BiRel_L(flora, auto_ru, "")
+BiRel_L(flora, kia_myservice, "")
+BiRel_L(flora, focus_kontur, "")
+BiRel_L(flora, sber, "")
 
 @enduml
 ----
