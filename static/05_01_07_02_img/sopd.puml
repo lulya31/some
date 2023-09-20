@@ -14,7 +14,7 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(clientid, "ClientID", "Клиенты (физлица и организации)", $link="/05_c4/01_core/07_clientid/")
+System(clientid, "ClientID", "Клиенты (физлица и организации)", $link="/05_c4_workflow/01_core/07_clientid/")
 System(sopd, "SOPD", "Согласие на обработку персональных данных")
 
 Rel_U(sopd, clientid, "")

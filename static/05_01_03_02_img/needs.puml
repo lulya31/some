@@ -23,7 +23,7 @@ LAYOUT_TOP_DOWN()
 'LAYOUT_WITH_LEGEND()
 'LAYOUT_LANDSCAPE()
 
-System(needs_and_orders, "Needs_and_orders", "Обращения, потребности, предложения", $link="/05_c4/01_core/03_needs_and_orders/")
+System(needs_and_orders, "Needs_and_orders", "Обращения, потребности, предложения", $link="/05_c4_workflow/01_core/03_needs_and_orders/")
 System(needs, "Needs", "Потребности")
 
 Rel_U(needs, needs_and_orders, "")

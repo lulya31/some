@@ -20,3 +20,9 @@ include::static/includes/init.adoc[]
 include::{imagesoutdir}clients.puml[]
 ****
 
+== Типы узлов С4
+
+****
+include::{imagesoutdir}types.puml[]
+****
+

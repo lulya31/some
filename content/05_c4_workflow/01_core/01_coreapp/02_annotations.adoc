@@ -14,12 +14,6 @@ include::static/includes/init.adoc[]
 
 {empty} +
 
-== Annotations
-
 ****
-.*Annotations (Отобразить/Скрыть)*
-[%collapsible%open]
-====
 include::{imagesoutdir}annotations.puml[]
-====
 ****

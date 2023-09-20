@@ -14,7 +14,7 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(pfanalyze, "Print forms analyze", "Анализ печатных форм", $link="/05_c4/01_core/12_pfanalyze/")
+System(pfanalyze, "Print forms analyze", "Анализ печатных форм", $link="/05_c4_workflow/01_core/12_pfanalyze/")
 System(pfanalyzing, "Print forms analyze", "Анализ печатных форм")
 
 Rel_U(pfanalyzing, pfanalyze, "")

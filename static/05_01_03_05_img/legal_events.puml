@@ -14,7 +14,7 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(needs_and_orders, "Needs and orders", "Обращения, потребности, предложения", $link="/05_c4/01_core/03_needs_and_orders/")
+System(needs_and_orders, "Needs and orders", "Обращения, потребности, предложения", $link="/05_c4_workflow/01_core/03_needs_and_orders/")
 System(legal_events, "Legal events", "Юридические события")
 
 Rel_U(legal_events, needs_and_orders, "")

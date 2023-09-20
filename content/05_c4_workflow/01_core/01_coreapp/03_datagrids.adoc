@@ -14,12 +14,6 @@ include::static/includes/init.adoc[]
 
 {empty} +
 
-== Datagrids
-
 ****
-.*Datagrids (Отобразить/Скрыть)*
-[%collapsible%open]
-====
 include::{imagesoutdir}datagrids.puml[]
-====
 ****

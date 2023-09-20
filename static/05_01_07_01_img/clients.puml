@@ -17,7 +17,7 @@ skinparam linetype ortho
 
 LAYOUT_TOP_DOWN()
 
-System(clientid, "ClientID", "Клиенты (физлица и организации)", $link="/05_c4/01_core/07_clientid/")
+System(clientid, "ClientID", "Клиенты (физлица и организации)", $link="/05_c4_workflow/01_core/07_clientid/")
 'System(clients, "Clients", "Клиенты")
 
 Container_Boundary(clients, "Клиенты") {
@@ -32,9 +32,11 @@ Container_Boundary(clients, "Клиенты") {
     Container(companies, "Компания", "Companies", "Компания")
     Container(representatives, "Представитель", "Representatives", "Представитель")
 
-    Container(client, "Клиент", "Client", "Клиент")
-    Component(communications, "Communications -> Коммуникация (Communications)", "Communications -> Коммуникация (Communications)", "Communications -> Коммуникация (Communications)", $link="/05_c4/01_core/04_communications/01_communication/")
-    Component(requests, "Needs And Orders -> Обращение (Requests)", "Needs And Orders -> Обращение (Requests)", "Needs And Orders -> Обращение (Requests)", $link="/05_c4/01_core/03_needs_and_orders/01_requests/")
+    'Container(client, "Клиент", "Client", "Клиент")
+
+    Person(client, "Клиент", "Client", "Клиент")
+    Component(communications, "Communications -> Коммуникация (Communications)", "Communications -> Коммуникация (Communications)", "Communications -> Коммуникация (Communications)", $link="/05_c4_workflow/01_core/04_communications/01_communication/")
+    Component(requests, "Needs And Orders -> Обращение (Requests)", "Needs And Orders -> Обращение (Requests)", "Needs And Orders -> Обращение (Requests)", $link="/05_c4_workflow/01_core/03_needs_and_orders/01_requests/")
 
     Container(signatures, "Подписант", "Signatures", "Подписант")
 

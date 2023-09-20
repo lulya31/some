@@ -14,16 +14,16 @@ skinparam minClassWidth 200
 
 LAYOUT_LEFT_RIGHT()
 
-System(core, "Core", "Общий функционал", $link="/05_c4/01_core/")
+System(core, "Core", "Общий функционал", $link="/05_c4_workflow/01_core/")
 
 System(needs_and_orders, "Needs and orders", "Обращения, потребности, предложения")
 
-System(requests, "Requests", "Запросы", $link="/05_c4/01_core/03_needs_and_orders/01_requests/")
-System(needs, "Needs", "Потребности", $link="/05_c4/01_core/03_needs_and_orders/02_needs/")
-System(carts, "Carts", "Корзины", $link="/05_c4/01_core/03_needs_and_orders/03_carts/")
-System(orders, "Orders", "Заказы", $link="/05_c4/01_core/03_needs_and_orders/04_orders/")
-System(legal_events, "Legal events", "Юридические события", $link="/05_c4/01_core/03_needs_and_orders/05_legal_events/")
-System(legal_documents, "Legal documents", "Юридические документы", $link="/05_c4/01_core/03_needs_and_orders/06_legal_documents/")
+System(requests, "Requests", "Запросы", $link="/05_c4_workflow/01_core/03_needs_and_orders/01_requests/")
+System(needs, "Needs", "Потребности", $link="/05_c4_workflow/01_core/03_needs_and_orders/02_needs/")
+System(carts, "Carts", "Корзины", $link="/05_c4_workflow/01_core/03_needs_and_orders/03_carts/")
+System(orders, "Orders", "Заказы", $link="/05_c4_workflow/01_core/03_needs_and_orders/04_orders/")
+System(legal_events, "Legal events", "Юридические события", $link="/05_c4_workflow/01_core/03_needs_and_orders/05_legal_events/")
+System(legal_documents, "Legal documents", "Юридические документы", $link="/05_c4_workflow/01_core/03_needs_and_orders/06_legal_documents/")
 
 Rel_R(core, needs_and_orders, "")
 

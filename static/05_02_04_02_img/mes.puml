@@ -14,7 +14,7 @@ skinparam minClassWidth 200
 
 LAYOUT_TOP_DOWN()
 
-System(service, "Service", "Сервис", $link="/05_c4/02_experience/04_service")
+System(service, "Service", "Сервис", $link="/05_c4_workflow/02_experience/04_service")
 System(mes, "MES", "MES")
 
 Rel_U(mes, service, "")
