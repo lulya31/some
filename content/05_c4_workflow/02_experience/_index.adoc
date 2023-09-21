@@ -15,12 +15,7 @@ include::static/includes/init.adoc[]
 
 {empty} +
 
-== EXPERIENCE
-
 ****
-.*EXPERIENCE (Отобразить/Скрыть)*
-[%collapsible%open]
-====
 include::{imagesoutdir}experience.puml[]
-====
 ****
+
