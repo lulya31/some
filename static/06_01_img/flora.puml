@@ -1,7 +1,4 @@
-[plantuml%interactive,"flora",format=svg,align=center,width=100%]
-.Flora - Флора
-----
-@startuml
+@startuml H
 
 !include static/includes/c4_context.puml
 !include static/includes/c4_container.puml
@@ -17,7 +14,17 @@ LAYOUT_LEFT_RIGHT()
 
 System(rolf, "ROLF", "ROLF", $link="/06_c4_infrastructure/")
 'System(system, "System with an image", $sprite="img:file:logo_animated_no_accel.svg")
-System(system, "System with an image", $sprite="img:https://mo-gol.ru//img/logo.svg?1")
+'System(system2, "System with an image", $sprite="img:https://www.svgrepo.com/show/204369/yandex.svg")
+'System(system3, "System with an image", $sprite="img:https://websuperovo.com/wp-content/uploads/2020/04/s1200-1.png{scale=0.3}")
+
+System(system1, "1 System with an image", $sprite="img:./static/06_01_img/components.png{scale=0.5}")
+System(centrifugo1, "Centrifugo", "Centrifugo", $sprite="img:./static/06_01_img/logo_animated_no_accel.svg{scale=0.5}")
+'System(centrifugo1, "Centrifugo", "Centrifugo", $sprite="img:{imagesoutdir}logo_animated_no_accel.svg{scale=0.1}")
+
+
+Container(c1, "Ghj")
+Container(c2, "Ghj2")
+
 
 System_Boundary(flora, "Система Flora", "Система Flora"){
     Container(frontend, "FrontEnd", "FrontEnd")
@@ -168,4 +175,3 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
 Rel_R(flora, rolf, "")
 
 @enduml
-----

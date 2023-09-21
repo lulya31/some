@@ -15,7 +15,12 @@ include::static/includes/init.adoc[]
 {empty} +
 
 ****
+[plantuml%interactive,"flora",format=svg,align=center,width=100%]
+.Flora - Флора
+----
 include::{imagesoutdir}flora.puml[]
+----
 ****
+
 
 
