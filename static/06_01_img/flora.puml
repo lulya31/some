@@ -6,6 +6,7 @@
 !include static/includes/c4_context.puml
 !include static/includes/c4_container.puml
 !include static/includes/c4_component.puml
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
 skinparam backgroundcolor transparent
 skinparam minClassWidth 200
@@ -15,10 +16,16 @@ skinparam linetype ortho
 LAYOUT_LEFT_RIGHT()
 
 System(rolf, "ROLF", "ROLF", $link="/06_c4_infrastructure/")
+'System(system, "System with an image", $sprite="img:file:logo_animated_no_accel.svg")
+System(system, "System with an image", $sprite="img:https://mo-gol.ru//img/logo.svg?1")
 
 System_Boundary(flora, "Система Flora", "Система Flora"){
     Container(frontend, "FrontEnd", "FrontEnd")
     Container(apim, "APIM (Kong)", "APIM (Kong)")
+    'Container(centrifugo, "Centrifugo (WSS)", $sprite="img:http://plantuml.com/logo3.png")
+    Container(centrifugo, "Centrifugo (WSS)")
+    Container(keycloak, "Keycloak", "Keycloak")
+    Container(grafana, "Grafana", "Grafana")
 
     Container_Boundary(bff, "BFF (Business logic)", "BFF (Business logic)"){
         Container_Boundary(platformeco1, "Platformeco", "Platformeco"){
@@ -151,6 +158,11 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     BiRel(integration, flora_integration, "")
 
     BiRel(payments, flora_payments, "")
+
+    Rel(centrifugo, frontend, "")
+    BiRel(centrifugo, task_and_events, "")
+
+    BiRel(keycloak, rolfid, "")
 }
 
 Rel_R(flora, rolf, "")
