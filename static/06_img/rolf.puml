@@ -1,6 +1,3 @@
-[plantuml%interactive,"rolf",format=svg,align=center,width=60%]
-.Rolf - Рольф
-----
 @startuml
 
 !include static/includes/c4_context.puml
@@ -12,13 +9,12 @@ skinparam minClassWidth 200
 'skinparam linetype polyline
 skinparam linetype ortho
 
-'LAYOUT_TOP_DOWN()
 LAYOUT_LEFT_RIGHT()
 
 System_Boundary(ext_systems1, "Внешние системы") {
-    System_Ext(elt, "ELT", "ELT")
-    System_Ext(dadata, "Dadata", "Dadata")
-    System_Ext(tinkoff, "Tinkoff", "Tinkoff")
+    System_Ext(elt, "ELT", "", $sprite="img:./static/06_img/elt_logo.png{scale=0.75}")
+    System_Ext(dadata, "", "", $sprite="img:./static/06_img/dadata_logo.png{scale=0.2}")
+    System_Ext(tinkoff, "Tinkoff", "", $sprite="img:./static/06_img/tinkoff_logo.png{scale=0.1}")
     System_Ext(autoteka_ru, "Autoteka.ru", "Autoteka.ru")
     System_Ext(rosbank, "Rosbank", "Rosbank")
 }
@@ -37,38 +33,51 @@ System_Boundary(rolf, "Рольф") {
 
     System(flora, "FLORA", "FLORA", $link="/06_c4_infrastructure/01_flora/")
 
-    System(atol, "Atol", "Atol")
-    System(kkm, "ККМ", "ККМ")
+    System_Boundary(payments_acquiring, "Платежный эквайринг") {
+        System(atol, "Atol", "Atol")
+        System(kkm, "ККМ", "ККМ")
+        System(payment_gate, "Платежный шлюз", "Платежный шлюз")
+        System(1c_rose, "1C Rose", "1C Rose")
+    }
+
     System(erl, "ERL", "Единый рабочий лист")
     System(smtp, "SMTP Server", "SMTP Server")
     System(sms_gate, "SMS Шлюз", "SMS Шлюз")
     System(ad, "Active Directory", "Active Directory")
-    System(saphr, "SAP HR", "SAP HR")
-    System(wms, "WMS", "WMS")
+    System(1c_arms, "1С АРМС", "1С АРМС")
+    System(saphr, "", "", $sprite="img:./static/06_img/sap_hr_logo.png{scale=0.1}")
+    System(wms, "", "", $sprite="img:./static/06_img/wms_logo.png{scale=0.5}")
     System(mdm, "MDM", "MDM")
-    System(fishblue, "FishBlue", "FishBlue")
-    System(is_shtorm, "ИС Шторм", "ИС Шторм")
-    System(as_rolf, "АС Рольф", "АС Рольф")
-    System(as_rolfstrah, "АС Рольф Страхование", "АС Рольф Страхование")
-    System(payment_gate, "Платежный шлюз", "Платежный шлюз")
+
+    System_Boundary(opersystems, "Оперсистемы") {
+        System(fishblue, "FishBlue", "FishBlue")
+        System(is_shtorm, "ИС Шторм", "ИС Шторм")
+        System(as_rolf, "АС Рольф", "АС Рольф")
+        System(as_rolfstrah, "АС Рольф Страхование", "АС Рольф Страхование")
+    }
 
     Rel(user, flora, "")
     Rel(admin, flora, "")
 
     BiRel_D(flora, atol, "")
     BiRel_D(flora, kkm, "")
+    BiRel_D(flora, payment_gate, "")
+    BiRel_D(flora, 1c_rose, "")
+
     BiRel_D(flora, erl, "")
     BiRel_D(flora, smtp, "")
     BiRel_D(flora, sms_gate, "")
     BiRel_D(flora, ad, "")
-    BiRel_D(flora, saphr, "")
+
+    BiRel_U(flora, 1c_arms, "")
+    BiRel_U(flora, saphr, "")
     BiRel_U(flora, wms, "")
     BiRel_U(flora, mdm, "")
     BiRel_U(flora, fishblue, "")
     BiRel_U(flora, is_shtorm, "")
     BiRel_U(flora, as_rolf, "")
     BiRel_U(flora, as_rolfstrah, "")
-    BiRel_U(flora, payment_gate, "")
+    
 }
 
 BiRel_D(flora, elt, "")
@@ -84,4 +93,3 @@ BiRel_L(flora, focus_kontur, "")
 BiRel_L(flora, sber, "")
 
 @enduml
-----
