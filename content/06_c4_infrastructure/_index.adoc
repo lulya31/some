@@ -1,6 +1,6 @@
 ---
-title: "C4 Flora infrastructure"
-description: "C4 Flora infrastructure"
+title: "C4 Flora infrastructure - Уровень С1"
+description: "C4 Flora infrastructure - Уровень С1"
 weight: 6
 draft: false
 slug: ""
@@ -16,7 +16,11 @@ include::static/includes/init.adoc[]
 {empty} +
 
 ****
+[plantuml%interactive,"rolf",format=svg,align=center,width=75%]
+.C4 Flora infrastructure - Уровень С1
+----
 include::{imagesoutdir}rolf.puml[]
+----
 ****
 
 

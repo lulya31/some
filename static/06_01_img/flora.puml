@@ -1,4 +1,4 @@
-@startuml H
+@startuml
 
 !include static/includes/c4_context.puml
 !include static/includes/c4_container.puml
@@ -9,46 +9,45 @@ skinparam backgroundcolor transparent
 skinparam minClassWidth 200
 skinparam linetype ortho
 
-'LAYOUT_TOP_DOWN()
 LAYOUT_LEFT_RIGHT()
 
-System(rolf, "ROLF", "ROLF", $link="/06_c4_infrastructure/")
-'System(system, "System with an image", $sprite="img:file:logo_animated_no_accel.svg")
-'System(system2, "System with an image", $sprite="img:https://www.svgrepo.com/show/204369/yandex.svg")
-'System(system3, "System with an image", $sprite="img:https://websuperovo.com/wp-content/uploads/2020/04/s1200-1.png{scale=0.3}")
-
-System(system1, "1 System with an image", $sprite="img:./static/06_01_img/components.png{scale=0.5}")
-System(centrifugo1, "Centrifugo", "Centrifugo", $sprite="img:./static/06_01_img/logo_animated_no_accel.svg{scale=0.5}")
-'System(centrifugo1, "Centrifugo", "Centrifugo", $sprite="img:{imagesoutdir}logo_animated_no_accel.svg{scale=0.1}")
-
-
-Container(c1, "Ghj")
-Container(c2, "Ghj2")
-
+'System(rolf, "ROLF", "ROLF", $link="/06_c4_infrastructure/", $sprite="img:./static/06_01_img/rolf_logo_2020.png{scale=0.1}")
+System(rolf, "ROLF", "ROLF", $sprite="img:./static/06_01_img/rolf_logo_2020.png{scale=0.2}", $link="/06_c4_infrastructure/")
+'System(rolf, "ROLF", "ROLF", $link="/06_c4_infrastructure/")
 
 System_Boundary(flora, "Система Flora", "Система Flora"){
-    Container(frontend, "FrontEnd", "FrontEnd")
-    Container(apim, "APIM (Kong)", "APIM (Kong)")
-    'Container(centrifugo, "Centrifugo (WSS)", $sprite="img:http://plantuml.com/logo3.png")
-    Container(centrifugo, "Centrifugo (WSS)")
-    Container(keycloak, "Keycloak", "Keycloak")
-    Container(grafana, "Grafana", "Grafana")
+    Container_Boundary(frontend, "FrontEnd", "FrontEnd"){
+        Container(asp_sell, "ASP sell", "ASP sell")
+        Container(crm, "CRM", "CRM")
+        Container(auto_card, "Auto card", "Auto card")
+        Container(client_card, "Client card", "Client card")
+        Container(employee_card, "Employee card", "Employee card")
+        Container(db_card, "DB card", "DB card")
+        Container(common_db_app, "Common DB app", "Common DB app")
+        Container(fi, "F&I", "F&I")
+        Container(service, "Service", "Service")
+    }
+    
+    Container(apim, "APIM (Kong)", "", $sprite="img:./static/06_01_img/kong_logo.png{scale=0.2}")
+    Container(centrifugo, "Centrifugo (WSS)", "", $sprite="img:./static/06_01_img/centrifugo_soc.png{scale=0.05}")
+    Container(keycloak, "Keycloak", "", $sprite="img:./static/06_01_img/keycloak_logo.png{scale=0.2}")
+    Container(grafana, "", "", $sprite="img:./static/06_01_img/grafana_logo.png{scale=0.05}")
 
     Container_Boundary(bff, "BFF (Business logic)", "BFF (Business logic)"){
-        Container_Boundary(platformeco1, "Platformeco", "Platformeco"){
+        System_Boundary(platformeco1, "Platformeco", "Platformeco"){
             Container(service, "Service", "Service")
-            Container(f_and_i, "F&I", "F&I")
+            Container(f_and_i, "F&I", "F&I", $link="https://doc-fi-main.com-dev.int.rolfcorp.ru/01_overview/02_architecture/01_c4_logic_scheme/")
             Container(asp_and_na, "ASP & NA", "ASP & NA")
         }
     }
 
     Container_Boundary(kafka, "Kafka", "Kafka"){
-        Container(kafka1, "Kafka 1", "Kafka 1")
-        Container(kafka2, "Kafka 2", "Kafka 2")
+        Container(kafka1, "Kafka 1", "", $sprite="img:./static/06_01_img/kafka_logo.png{scale=0.1}")
+        Container(kafka2, "Kafka 2", "", $sprite="img:./static/06_01_img/kafka_logo.png{scale=0.1}")
     }
 
     Container_Boundary(backend_core, "BackEnd (CORE)", "BackEnd (CORE)"){
-        Container_Boundary(platformeco2, "Platformeco", "Platformeco"){
+        System_Boundary(platformeco2, "Platformeco", "Platformeco"){
             Container(orders, "Orders", "Orders")
             Container(communications, "Communications", "Communications")
             Container(coreapp, "Coreapp", "Coreapp")
@@ -69,34 +68,29 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
 
     Container_Boundary(infrastructure, "Infrastructure (DB, ETC)", "Infrastructure (DB, ETC)"){
         Container_Boundary(postgresql, "PostgreSQL", "PostgreSQL"){
-            ContainerDb(needs_and_orders, "Needs and Orders", "", $link="/")
-            ContainerDb(flora_legal_executions, "Flora legal executions", "Flora legal executions", $link="/")
-            ContainerDb(flora_communications, "Flora communications", "Flora communications", $link="/")
-            ContainerDb(flora_prices, "Flora prices", "Flora prices", $link="/")
-            ContainerDb(flora_comments, "Flora comments", "Flora comments", $link="/")
-            ContainerDb(flora_datagrids, "Flora datagrids", "Flora datagrids", $link="/")
-            ContainerDb(flora_mes, "Flora MES", "Flora MES", $link="/")
-            ContainerDb(flora_printservice, "Flora print service", "Flora print service", $link="/")
-            ContainerDb(flora_fai, "Flora F&I", "Flora F&I", $link="/")
-            ContainerDb(flora_tasks, "Flora tasks", "Flora tasks", $link="/")
-            ContainerDb(flora_states_events, "Flora states events", "Flora states events", $link="/")
-            ContainerDb(flora_users_flora_access_control, "Flora users Flora access control", "Flora users Flora access control", $link="/")
-            ContainerDb(flora_rolf_hr_flora_dealerships, "Flora Rolf HR Flora dealerships", "Flora Rolf HR Flora dealerships", $link="/")
-            ContainerDb(flora_vehicles_flora_collected_vehicle_data, "Flora vehicles Flora collected vehicle data", "Flora vehicles Flora collected vehicle data", $link="/")
-            ContainerDb(flora_persons_or_org, "Flora persons or org", "Flora persons or org", $link="/")
-            ContainerDb(flora_integration, "Flora integration", "Flora integration", $link="/")
-            ContainerDb(flora_payments, "Flora payments", "Flora payments", $link="/")
+            ContainerDb(postgresql1, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql2, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql3, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql4, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql5, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql6, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql7, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql8, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql9, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql10, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql11, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql12, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
         }
 
-        Container(s3_cep, "S3 Cep", "S3 Cep", $link="/")
-        ContainerDb(mongodb, "Mongo DB", "Mongo DB", $link="/")
+        Container(s3_cep, "S3 Cep", "S3 Cep", $sprite="img:./static/06_01_img/s3_logo.png{scale=0.05}", $link="/")
+        ContainerDb(mongodb, "", "", $sprite="img:./static/06_01_img/mongodb_logo.png{scale=0.1}", $link="/")
 
         Container_Boundary(opensearch, "OpenSearch", "OpenSearch"){
-            Container(opensearch1, "Open Search", "Open Search", $link="/")
-            Container(opensearch2, "Open Search", "Open Search", $link="/")
-            Container(opensearch3, "Open Search", "Open Search", $link="/")
-            Container(opensearch4, "Open Search", "Open Search", $link="/")
-            Container(opensearch5, "Open Search", "Open Search", $link="/")
+            Container(opensearch1, "", "", $sprite="img:./static/06_01_img/opensearch_logo.png{scale=0.1}", $link="/")
+            Container(opensearch2, "", "", $sprite="img:./static/06_01_img/opensearch_logo.png{scale=0.1}", $link="/")
+            Container(opensearch3, "", "", $sprite="img:./static/06_01_img/opensearch_logo.png{scale=0.1}", $link="/")
+            Container(opensearch4, "", "", $sprite="img:./static/06_01_img/opensearch_logo.png{scale=0.1}", $link="/")
+            Container(opensearch5, "", "", $sprite="img:./static/06_01_img/opensearch_logo.png{scale=0.1}", $link="/")
         }
     }
 
@@ -130,41 +124,36 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     Rel(integration, kafka2, "")
 
     BiRel(orders, opensearch1, "")
-    BiRel(orders, needs_and_orders, "")
-    BiRel(orders, flora_legal_executions, "")
+    BiRel(orders, postgresql1, "")
 
-    BiRel(communications, flora_communications, "")
+    BiRel(communications, postgresql2, "")
     BiRel(communications, opensearch2, "")
 
-    BiRel(coreapp, flora_prices, "")
-    BiRel(coreapp, flora_comments, "")
-    BiRel(coreapp, flora_datagrids, "")
+    BiRel(coreapp, postgresql3, "")
     BiRel(coreapp, opensearch3, "")
 
-    BiRel(mes, flora_mes, "")
+    BiRel(mes, postgresql4, "")
 
-    BiRel(printservice, flora_printservice, "")
+    BiRel(printservice, postgresql5, "")
     BiRel(printservice, s3_cep, "")
 
-    BiRel(f_and_i, flora_fai, "")
+    BiRel(f_and_i, postgresql6, "")
     BiRel(f_and_i, opensearch4, "")
 
-    BiRel(task_and_events, flora_tasks, "")
-    BiRel(task_and_events, flora_states_events, "")
+    BiRel(task_and_events, postgresql7, "")
 
-    BiRel(rolfid, flora_users_flora_access_control, "")
-    BiRel(rolfid, flora_rolf_hr_flora_dealerships, "")
+    BiRel(rolfid, postgresql8, "")
     BiRel(rolfid, opensearch5, "")
 
-    BiRel(carid, flora_vehicles_flora_collected_vehicle_data, "")
+    BiRel(carid, postgresql9, "")
     BiRel(carid, opensearch5, "")
 
-    BiRel(clientid, flora_persons_or_org, "")
+    BiRel(clientid, postgresql10, "")
     BiRel(clientid, opensearch5, "")
 
-    BiRel(integration, flora_integration, "")
+    BiRel(integration, postgresql11, "")
 
-    BiRel(payments, flora_payments, "")
+    BiRel(payments, postgresql12, "")
 
     Rel(centrifugo, frontend, "")
     BiRel(centrifugo, task_and_events, "")

@@ -1,6 +1,6 @@
 ---
-title: "FLORA"
-description: "Флора"
+title: "C4 Flora infrastructure - Уровень С2"
+description: "C4 Flora infrastructure - Уровень С2"
 weight: 1
 draft: false
 ---
@@ -10,17 +10,16 @@ draft: false
 
 include::static/includes/init.adoc[]
 
-= Flora
+= C4 Flora infrastructure - Уровень С2
 
 {empty} +
 
 ****
 [plantuml%interactive,"flora",format=svg,align=center,width=100%]
-.Flora - Флора
+.C4 Flora infrastructure - Уровень С2
 ----
 include::{imagesoutdir}flora.puml[]
 ----
 ****
-
 
 
