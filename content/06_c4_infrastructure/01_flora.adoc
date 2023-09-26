@@ -21,5 +21,3 @@ include::static/includes/init.adoc[]
 include::{imagesoutdir}flora.puml[]
 ----
 ****
-
-

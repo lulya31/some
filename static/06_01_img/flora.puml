@@ -25,10 +25,10 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
         Container(db_card, "DB card", "DB card")
         Container(common_db_app, "Common DB app", "Common DB app")
         Container(fi, "F&I", "F&I")
-        Container(service, "Service", "Service")
+        Container(frontendservice, "Service", "Service")
     }
     
-    Container(apim, "APIM (Kong)", "", $sprite="img:./static/06_01_img/kong_logo.png{scale=0.2}")
+    Container(apim, "APIM", "", $sprite="img:./static/06_01_img/leroy_logo.png{scale=0.1}")
     Container(centrifugo, "Centrifugo (WSS)", "", $sprite="img:./static/06_01_img/centrifugo_soc.png{scale=0.05}")
     Container(keycloak, "Keycloak", "", $sprite="img:./static/06_01_img/keycloak_logo.png{scale=0.2}")
     Container(grafana, "", "", $sprite="img:./static/06_01_img/grafana_logo.png{scale=0.05}")
@@ -41,10 +41,7 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
         }
     }
 
-    Container_Boundary(kafka, "Kafka", "Kafka"){
-        Container(kafka1, "Kafka 1", "", $sprite="img:./static/06_01_img/kafka_logo.png{scale=0.1}")
-        Container(kafka2, "Kafka 2", "", $sprite="img:./static/06_01_img/kafka_logo.png{scale=0.1}")
-    }
+    Container(kafka, "Kafka", "", $sprite="img:./static/06_01_img/kafka_logo.png{scale=0.1}")
 
     Container_Boundary(backend_core, "BackEnd (CORE)", "BackEnd (CORE)"){
         System_Boundary(platformeco2, "Platformeco", "Platformeco"){
@@ -68,21 +65,21 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
 
     Container_Boundary(infrastructure, "Infrastructure (DB, ETC)", "Infrastructure (DB, ETC)"){
         Container_Boundary(postgresql, "PostgreSQL", "PostgreSQL"){
-            ContainerDb(postgresql1, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql2, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql3, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql4, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql5, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql6, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql7, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql8, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql9, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql10, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql11, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
-            ContainerDb(postgresql12, "PostgreSQL", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.025}", $link="/")
+            ContainerDb(postgresql1, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql2, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql3, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql4, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql5, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql6, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql7, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql8, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql9, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql10, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql11, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
+            ContainerDb(postgresql12, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
         }
 
-        Container(s3_cep, "S3 Cep", "S3 Cep", $sprite="img:./static/06_01_img/s3_logo.png{scale=0.05}", $link="/")
+        Container(s3_cep, "S3 Cep", "", $sprite="img:./static/06_01_img/s3_logo.png{scale=0.05}", $link="/")
         ContainerDb(mongodb, "", "", $sprite="img:./static/06_01_img/mongodb_logo.png{scale=0.1}", $link="/")
 
         Container_Boundary(opensearch, "OpenSearch", "OpenSearch"){
@@ -117,11 +114,11 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     BiRel(apim, internal_integration, "")
     BiRel(apim, payments, "")
 
-    Rel(kafka1, service, "")
-    Rel(kafka1, f_and_i, "")
-    Rel(kafka2, f_and_i, "")
-    Rel(task_and_events, kafka1, "")
-    Rel(integration, kafka2, "")
+    Rel(kafka, service, "")
+    Rel(kafka, f_and_i, "")
+
+    Rel(task_and_events, kafka, "")
+    Rel(integration, kafka, "")
 
     BiRel(orders, opensearch1, "")
     BiRel(orders, postgresql1, "")
