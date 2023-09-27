@@ -14,6 +14,16 @@ include::static/includes/init.adoc[]
 
 {empty} +
 
+++++
+<style type="text/css">
+.diagram_dimensions { 
+    width: 300%;
+}
+</style>
+
+<div class="diagram_dimensions">
+++++
+
 ****
 [plantuml%interactive,"flora",format=svg,align=center,width=100%]
 .C4 Flora infrastructure - Уровень С2
@@ -21,3 +31,8 @@ include::static/includes/init.adoc[]
 include::{imagesoutdir}flora.puml[]
 ----
 ****
+
+++++
+</div>
+++++
+
