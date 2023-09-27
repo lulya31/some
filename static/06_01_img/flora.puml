@@ -8,16 +8,16 @@ skinparam backgroundcolor transparent
 skinparam minClassWidth 200
 skinparam linetype ortho
 
-skinparam Nodesep 10
-skinparam Ranksep 100
+skinparam nodesep 50
+'skinparam Ranksep 60
 
 'LAYOUT_LEFT_RIGHT()
 LAYOUT_TOP_DOWN()
 
-
-System(rolf, "ROLF", "ROLF", $sprite="img:./static/06_01_img/rolf_logo_2020.png{scale=0.2}", $link="/06_c4_infrastructure/")
+System(rolf, "[System]", "", $sprite="img:./static/06_01_img/rolf_logo_2020.png{scale=0.2}", $link="/06_c4_infrastructure/")
 
 System_Boundary(flora, "Система Flora", "Система Flora"){
+
     Container_Boundary(frontend, "FrontEnd", "FrontEnd"){
         Container(asp_sell, "ASP sell", "ASP sell")
         Container(crm, "CRM", "CRM")
@@ -31,9 +31,18 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     }
 
     Container_Boundary(infra, "Infrastructure", ""){
-        Container(apim, "APIM", "", $sprite="img:./static/06_01_img/leroy_logo.png{scale=0.1}")
+        Container(apim, "APIM", "", $sprite="img:./static/06_01_img/leroy_logo.png{scale=0.05}")
         Container(centrifugo, "Centrifugo (WSS)", "", $sprite="img:./static/06_01_img/centrifugo_soc.png{scale=0.05}")
         Container(kafka, "Kafka", "", $sprite="img:./static/06_01_img/kafka_logo.png{scale=0.1}")
+    }
+
+    Container_Boundary(experience, "EXPERIENCE", "EXPERIENCE"){
+        System_Boundary(platformeco1, "Platformeco", "Platformeco"){
+            Container(service, "Service", "Service")
+            Container(f_and_i, "F&I", "F&I", $link="https://doc-fi-main.com-dev.int.rolfcorp.ru/01_overview/02_architecture/01_c4_logic_scheme/")
+            Container(asp_and_na, "ASP & NA", "ASP & NA")
+            Container(mes, "MES", "MES", $link="/")
+        }
     }
 
     Container_Boundary(core, "CORE", "CORE"){
@@ -55,15 +64,6 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
         Container(printformsanalize, "Print forms analize", "Print forms analize", $link="/")
     }
 
-    Container_Boundary(bff, "EXPERIENCE", "EXPERIENCE"){
-        System_Boundary(platformeco1, "Platformeco", "Platformeco"){
-            Container(service, "Service", "Service")
-            Container(f_and_i, "F&I", "F&I", $link="https://doc-fi-main.com-dev.int.rolfcorp.ru/01_overview/02_architecture/01_c4_logic_scheme/")
-            Container(asp_and_na, "ASP & NA", "ASP & NA")
-            Container(mes, "MES", "MES", $link="/")
-        }
-    }
-
     Container_Boundary(infrastructure, "Infrastructure (DB, ETC)", "Infrastructure (DB, ETC)"){
         ContainerDb(postgresql, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}", $link="/")
         Container(s3_cep, "S3 Cep", "", $sprite="img:./static/06_01_img/s3_logo.png{scale=0.05}", $link="/")
@@ -72,21 +72,70 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
         Container(keycloak, "Keycloak", "", $sprite="img:./static/06_01_img/keycloak_logo.png{scale=0.2}")
         Container(grafana, "", "", $sprite="img:./static/06_01_img/grafana_logo.png{scale=0.05}")
     }
+    
+    Lay_D(asp_sell, db_card)
+    Lay_D(crm, common_db_app)
+    Lay_D(auto_card, fi)
+    Lay_D(client_card, frontendservice)
+    'Lay_D(employee_card, )
+    
+    Lay_D(asp_sell, infra)
+    Lay_D(crm, infra)
+    Lay_D(auto_card, infra)
+    Lay_D(client_card, infra)
+    Lay_D(employee_card, infra)
+    Lay_D(db_card, infra)
+    Lay_D(common_db_app, infra)
+    Lay_D(fi, infra)
+    Lay_D(frontendservice, infra)
+    Lay_D(apim, experience)
+    Lay_D(centrifugo, experience)
+    Lay_D(kafka, experience)
+    Lay_D(service, core)
+    Lay_D(f_and_i, core)
+    Lay_D(asp_and_na, core)
+    Lay_D(mes, core)
+    Lay_D(orders, infrastructure)
+    Lay_D(communications, infrastructure)
+    Lay_D(coreapp, infrastructure)
+    Lay_D(task_and_events, infrastructure)
+    Lay_D(rolfid, infrastructure)
+    Lay_D(carid, infrastructure)
+    Lay_D(clientid, infrastructure)
+    Lay_D(mdm, infrastructure)
+    Lay_D(integration, infrastructure)
+    Lay_D(internal_integration, infrastructure)
+    Lay_D(payments, infrastructure)
 
-    BiRel_D(frontend, apim, "")
+    Lay_D(printservice, infrastructure)
+    Lay_D(printformsanalize, infrastructure)
 
+    'Lay_D(grafana, mongodb)
+    Lay_D(s3_cep, postgresql)
+    Lay_D(keycloak, opensearch)
+    Lay_D(opensearch, grafana)
+    Lay_D(postgresql, mongodb)
+
+    Lay_D(orders, clientid)
+    Lay_D(communications, mdm)
+    Lay_D(coreapp, integration)
+    Lay_D(task_and_events, internal_integration)
+    Lay_D(rolfid, payments)
+    'Lay_D(carid, )
+
+    Lay_D(printservice, printformsanalize)
+
+    BiRel(asp_sell, apim, "")
+    Rel_U(apim, frontend, "")
     BiRel(apim, service, "")
     BiRel(apim, f_and_i, "")
     BiRel(apim, asp_and_na, "")
-
     BiRel(apim, orders, "")
     BiRel(apim, communications, "")
     BiRel(apim, coreapp, "")
-
     BiRel(apim, mes, "")
     BiRel(apim, printservice, "")
     BiRel(apim, printformsanalize, "")
-
     BiRel(apim, task_and_events, "")
     BiRel(apim, rolfid, "")
     BiRel(apim, carid, "")
@@ -95,51 +144,36 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     BiRel(apim, integration, "")
     BiRel(apim, internal_integration, "")
     BiRel(apim, payments, "")
-
     Rel(kafka, service, "")
     Rel(kafka, f_and_i, "")
-
     Rel(task_and_events, kafka, "")
     Rel(integration, kafka, "")
-
     BiRel(orders, opensearch, "")
     BiRel(orders, postgresql, "")
-
     BiRel(communications, postgresql, "")
     BiRel(communications, opensearch, "")
-
     BiRel(coreapp, postgresql, "")
     BiRel(coreapp, opensearch, "")
-
     BiRel(mes, postgresql, "")
-
     BiRel(printservice, postgresql, "")
     BiRel(printservice, s3_cep, "")
-
     BiRel(f_and_i, postgresql, "")
     BiRel(f_and_i, opensearch, "")
-
     BiRel(task_and_events, postgresql, "")
-
     BiRel(rolfid, postgresql, "")
     BiRel(rolfid, opensearch, "")
-
     BiRel(carid, postgresql, "")
     BiRel(carid, opensearch, "")
-
     BiRel(clientid, postgresql, "")
     BiRel(clientid, opensearch, "")
-
     BiRel(integration, postgresql, "")
-
     BiRel(payments, postgresql, "")
-
     Rel_U(centrifugo, frontend, "")
     BiRel(centrifugo, task_and_events, "")
-
     BiRel_U(keycloak, rolfid, "")
 }
 
-Rel_U(flora, rolf, "")
+'Lay_D(rolf, auto_card)
+Rel_D(rolf, flora, "")
 
 @enduml
