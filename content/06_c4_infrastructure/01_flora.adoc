@@ -18,7 +18,7 @@ include::static/includes/init.adoc[]
 <style type="text/css">
 .diagram_dimensions { 
     /*height: 600%;*/
-    width: 200%;
+    width: 150%;
 }
 </style>
 
