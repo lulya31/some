@@ -15,49 +15,50 @@ skinparam nodesep 50
 LAYOUT_TOP_DOWN()
 
 System(rolf, "[System]", "", $sprite="img:./static/06_01_img/rolf_logo_2020.png{scale=0.2}", $link="/06_c4_infrastructure/")
-System_Ext(external_systems, "External systems", "[systems]")
+System_Ext(external_systems, "External systems", "", $sprite="img:./static/06_01_img/external_integration.png{scale=0.1}")
 
 System_Boundary(flora, "Система Flora", "Система Flora"){
 
     System_Boundary(frontend, "FrontEnd", "FrontEnd"){
-        Container(asp_sell, "ASP sell", "VueJS, TypeScript")
-        Container(crm, "CRM", "VueJS, TypeScript")
-        Container(auto_card, "Auto card", "VueJS, TypeScript")
-        Container(client_card, "Client card", "VueJS, TypeScript")
-        Container(employee_card, "Employee card", "VueJS, TypeScript")
-        Container(db_card, "DB card", "VueJS, TypeScript")
-        Container(common_db_app, "Common DB app", "VueJS, TypeScript")
-        Container(fi, "F&I", "VueJS, TypeScript")
-        Container(frontendservice, "Service", "VueJS, TypeScript")
+        Container(asp_sell, "ASP sell", "VueJS, TypeScript", $sprite="img:./static/06_01_img/asp_sell.png{scale=0.15}")
+        Container(crm, "", "VueJS, TypeScript", $sprite="img:./static/06_01_img/crm.png{scale=0.075}")
+        Container(auto_card, "Auto card", "VueJS, TypeScript", $sprite="img:./static/06_01_img/auto_card.png{scale=0.1}")
+        Container(client_card, "Client card", "VueJS, TypeScript", $sprite="img:./static/06_01_img/client_card.png{scale=0.25}")
+        Container(employee_card, "Employee card", "VueJS, TypeScript", $sprite="img:./static/06_01_img/employee_card.png{scale=0.15}")
+        Container(db_card, "DB card", "VueJS, TypeScript", $sprite="img:./static/06_01_img/db_card.png{scale=0.25}")
+        Container(common_db_app, "Common DB app", "VueJS, TypeScript", $sprite="img:./static/06_01_img/common_db_app.png{scale=0.25}")
+        Container(fi, "F&I", "VueJS, TypeScript", $sprite="img:./static/06_01_img/fi.png{scale=0.25}")
+        Container(frontend_service, "Service", "VueJS, TypeScript", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.25}")
     }
 
     Container_Boundary(infra, "Infrastructure", ""){
-        Container(apim, "APIM", "", $sprite="img:./static/06_01_img/leroy_logo.png{scale=0.05}")
-        Container(centrifugo, "Centrifugo (WSS)", "", $sprite="img:./static/06_01_img/centrifugo_soc.png{scale=0.05}")
+        Container(apim, "APIM", "", $sprite="img:./static/06_01_img/leroy_logo.png{scale=0.075}")
+        Container(centrifugo, "Centrifugo (WSS)", "", $sprite="img:./static/06_01_img/centrifugo_soc.png{scale=0.075}")
+        'Container(centrifugo, "Centrifugo (WSS)", "", $sprite="img:./static/06_01_img/logo_animated_no_accel.svg{scale=0.075}")
         Container(kafka, "Kafka", "", $sprite="img:./static/06_01_img/kafka_logo.png{scale=0.1}")
     }
 
     Container_Boundary(experience, "EXPERIENCE", "EXPERIENCE"){
-        Container(service, "Service", "Platformeco")
-        Container(f_and_i, "F&I", "Platformeco", $link="https://doc-fi-main.com-dev.int.rolfcorp.ru/01_overview/02_architecture/01_c4_logic_scheme/")
-        Container(asp_and_na, "ASP & NA", "Platformeco")
-        Container(mes, "MES", "Platformeco")
+        Container(service, "Service", "Platformeco", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.25}")
+        Container(f_and_i, "F&I", "Platformeco", $sprite="img:./static/06_01_img/fi.png{scale=0.25}", $link="https://doc-fi-main.com-dev.int.rolfcorp.ru/01_overview/02_architecture/01_c4_logic_scheme/")
+        Container(asp_and_na, "ASP & NA", "Platformeco", $sprite="img:./static/06_01_img/asp_sell.png{scale=0.15}")
+        Container(mes, "MES", "Platformeco", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.25}")
     }
 
     Container_Boundary(core, "CORE", "CORE"){
-        Container(orders, "Orders", "Platformeco")
-        Container(communications, "Communications", "Platformeco")
-        Container(coreapp, "Coreapp", "Platformeco")
-        Container(task_and_events, "Task and Events", "Platformeco")
-        Container(rolfid, "RolfID", "Platformeco")
-        Container(carid, "CarID", "Platformeco")
-        Container(clientid, "ClientID", "Platformeco")
-        Container(mdm, "MDM", "Platformeco")
-        Container(external_integration, "External Integration", "Platformeco")
-        Container(internal_integration, "Internal Integration", "Platformeco")
-        Container(payments, "Payments", "Platformeco")
-        Container(printservice, "Print service", "NodeJS")
-        Container(printformsanalize, "Print forms analize", "NodeJS")
+        Container(orders, "Orders", "Platformeco", $sprite="img:./static/06_01_img/orders.png{scale=0.1}")
+        Container(communications, "Communications", "Platformeco", $sprite="img:./static/06_01_img/communications.png{scale=0.3}")
+        Container(coreapp, "Coreapp", "Platformeco", $sprite="img:./static/06_01_img/common_db_app.png{scale=0.25}")
+        Container(task_and_events, "Task and Events", "Platformeco", $sprite="img:./static/06_01_img/task_and_events.png{scale=0.35}")
+        Container(rolfid, "RolfID", "Platformeco", $sprite="img:./static/06_01_img/rolfid.png{scale=0.1}")
+        Container(carid, "CarID", "Platformeco", $sprite="img:./static/06_01_img/carid.png{scale=0.3}")
+        Container(clientid, "ClientID", "Platformeco", $sprite="img:./static/06_01_img/clientid.png{scale=0.1}")
+        Container(mdm, "MDM", "Platformeco", $sprite="img:./static/06_01_img/mdm.png{scale=0.025}")
+        Container(external_integration, "External Integration", "Platformeco", $sprite="img:./static/06_01_img/external_integration.png{scale=0.1}")
+        Container(internal_integration, "Internal Integration", "Platformeco", $sprite="img:./static/06_01_img/internal_integration.png{scale=0.25}")
+        Container(payments, "Payments", "Platformeco", $sprite="img:./static/06_01_img/payments.png{scale=0.15}")
+        Container(printservice, "Print service", "NodeJS", $sprite="img:./static/06_01_img/printservice.png{scale=0.3}")
+        Container(printformsanalize, "Print forms analize", "NodeJS", $sprite="img:./static/06_01_img/printformsanalize.png{scale=0.15}")
     }
 
     System_Boundary(infrastructure, "Infrastructure (DB, ETC)", "Infrastructure (DB, ETC)"){
@@ -102,7 +103,7 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     BiRel_U(common_db_app, auto_card, "")
     BiRel_U(common_db_app, asp_sell, "")
     BiRel_D(common_db_app, employee_card, "")
-    BiRel_D(common_db_app, frontendservice, "")
+    BiRel_D(common_db_app, frontend_service, "")
     BiRel_D(common_db_app, fi, "")
     BiRel_D(common_db_app, db_card, "")
 
