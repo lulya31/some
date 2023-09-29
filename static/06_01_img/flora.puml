@@ -49,15 +49,15 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
         Container(orders, "Orders", "Platformeco", $sprite="img:./static/06_01_img/orders.png{scale=0.1}")
         Container(communications, "Communications", "Platformeco", $sprite="img:./static/06_01_img/communications.png{scale=0.3}")
         Container(coreapp, "Coreapp", "Platformeco", $sprite="img:./static/06_01_img/common_db_app.png{scale=0.25}")
-        Container(task_and_events, "Task and Events", "Platformeco", $sprite="img:./static/06_01_img/task_and_events.png{scale=0.35}")
+        Container(task_and_events, "Task and Events", "Platformeco", $sprite="img:./static/06_01_img/task_and_events.png{scale=0.25}")
         Container(rolfid, "RolfID", "Platformeco", $sprite="img:./static/06_01_img/rolfid.png{scale=0.1}")
         Container(carid, "CarID", "Platformeco", $sprite="img:./static/06_01_img/carid.png{scale=0.3}")
         Container(clientid, "ClientID", "Platformeco", $sprite="img:./static/06_01_img/clientid.png{scale=0.1}")
-        Container(mdm, "MDM", "Platformeco", $sprite="img:./static/06_01_img/mdm.png{scale=0.025}")
+        Container(mdm, "MDM", "Platformeco", $sprite="img:./static/06_01_img/mdm.png{scale=0.015}")
         Container(external_integration, "External Integration", "Platformeco", $sprite="img:./static/06_01_img/external_integration.png{scale=0.1}")
         Container(internal_integration, "Internal Integration", "Platformeco", $sprite="img:./static/06_01_img/internal_integration.png{scale=0.25}")
         Container(payments, "Payments", "Platformeco", $sprite="img:./static/06_01_img/payments.png{scale=0.15}")
-        Container(printservice, "Print service", "NodeJS", $sprite="img:./static/06_01_img/printservice.png{scale=0.3}")
+        Container(printservice, "Print service", "NodeJS", $sprite="img:./static/06_01_img/printservice.png{scale=0.2}")
         Container(printformsanalize, "Print forms analize", "NodeJS", $sprite="img:./static/06_01_img/printformsanalize.png{scale=0.15}")
     }
 
