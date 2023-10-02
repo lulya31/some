@@ -42,7 +42,7 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
         Container(service, "Service", "Platformeco", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.25}")
         Container(f_and_i, "F&I", "Platformeco", $sprite="img:./static/06_01_img/fi.png{scale=0.25}", $link="https://doc-fi-main.com-dev.int.rolfcorp.ru/01_overview/02_architecture/01_c4_logic_scheme/")
         Container(asp_and_na, "ASP & NA", "Platformeco", $sprite="img:./static/06_01_img/asp_sell.png{scale=0.15}")
-        Container(mes, "MES", "Platformeco", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.25}")
+        Container(mes, "MES", "Platformeco", $sprite="img:./static/06_01_img/mes.png{scale=0.15}")
     }
 
     Container_Boundary(core, "CORE", "CORE"){
