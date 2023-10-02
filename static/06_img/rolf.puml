@@ -14,17 +14,17 @@ LAYOUT_LEFT_RIGHT()
 System_Boundary(ext_systems1, "Внешние системы") {
     System_Ext(elt, "ELT", "", $sprite="img:./static/06_img/elt_logo.png{scale=0.75}")
     System_Ext(dadata, "", "", $sprite="img:./static/06_img/dadata_logo.png{scale=0.2}")
-    System_Ext(tinkoff, "Tinkoff", "", $sprite="img:./static/06_img/tinkoff_logo.png{scale=0.1}")
-    System_Ext(autoteka_ru, "Autoteka.ru", "Autoteka.ru")
-    System_Ext(rosbank, "Rosbank", "Rosbank")
+    System_Ext(tinkoff, "Tinkoff", "", $sprite="img:./static/06_img/tinkoff_logo.png{scale=0.25}")
+    System_Ext(autoteka_ru, "Autoteka.ru", "", $sprite="img:./static/06_img/autoteka_ru.png{scale=0.4}")
+    System_Ext(rosbank, "Rosbank", "", $sprite="img:./static/06_img/rosbank.png{scale=0.15}")
 }
 
 System_Boundary(ext_systems2, "Внешние системы") {    
-    System_Ext(e_credit, "Е-кредит", "Е-кредит")
-    System_Ext(auto_ru, "Auto.ru", "Auto.ru")
-    System_Ext(kia_myservice, "KIA MyService", "KIA MyService")
-    System_Ext(focus_kontur, "Фокус Контур", "Фокус Контур")
-    System_Ext(sber, "Сбер", "Сбер")
+    System_Ext(e_credit, "Е-кредит", "", $sprite="img:./static/06_img/e_credit.png{scale=0.25}")
+    System_Ext(auto_ru, "Auto.ru", "", $sprite="img:./static/06_img/auto_ru.png{scale=0.2}")
+    System_Ext(kia_myservice, "KIA MyService", "", $sprite="img:./static/06_img/kia_myservice.png{scale=0.075}")
+    System_Ext(focus_kontur, "Контур Фокус", "", $sprite="img:./static/06_img/focus_kontur.png{scale=0.25}")
+    System_Ext(sber, "Сбер", "", $sprite="img:./static/06_img/sber.png{scale=0.1}")
 }
 
 System_Boundary(rolf, "Рольф") {
@@ -35,25 +35,25 @@ System_Boundary(rolf, "Рольф") {
 
     System_Boundary(payments_acquiring, "Платежный эквайринг") {
         System(atol, "Atol", "Atol")
-        System(kkm, "ККМ", "ККМ")
-        System(payment_gate, "Платежный шлюз", "Платежный шлюз")
-        System(1c_rose, "1C Rose", "1C Rose")
+        System(kkm, "ККМ", "", $sprite="img:./static/06_img/kkm.png{scale=0.25}")
+        System(payment_gate, "Платежный шлюз", "", $sprite="img:./static/06_img/payment_gate.png{scale=0.25}")
+        System(1c_rose, "1C Rose", "", $sprite="img:./static/06_img/1c_arms.png{scale=0.05}")
     }
 
     System(erl, "ERL", "Единый рабочий лист")
-    System(smtp, "SMTP Server", "SMTP Server")
-    System(sms_gate, "SMS Шлюз", "SMS Шлюз")
-    System(ad, "Active Directory", "Active Directory")
-    System(1c_arms, "1С АРМС", "1С АРМС")
+    System(smtp, "SMTP Server", "", $sprite="img:./static/06_img/smtp.png{scale=0.25}")
+    System(sms_gate, "SMS Шлюз", "", $sprite="img:./static/06_img/sms_gate.png{scale=0.5}")
+    System(ad, "Active Directory", "", $sprite="img:./static/06_img/ad.png{scale=0.4}")
+    System(1c_arms, "1С АРМС", "", $sprite="img:./static/06_img/1c_arms.png{scale=0.05}")
     System(saphr, "", "", $sprite="img:./static/06_img/sap_hr_logo.png{scale=0.1}")
     System(wms, "", "", $sprite="img:./static/06_img/wms_logo.png{scale=0.5}")
-    System(mdm, "MDM", "MDM")
+    System(mdm, "MDM", "", $sprite="img:./static/06_img/mdm.png{scale=0.015}")
 
     System_Boundary(opersystems, "Оперсистемы") {
-        System(fishblue, "FishBlue", "FishBlue")
-        System(is_shtorm, "ИС Шторм", "ИС Шторм")
-        System(as_rolf, "АС Рольф", "АС Рольф")
-        System(as_rolfstrah, "АС Рольф Страхование", "АС Рольф Страхование")
+        System(fishblue, "FishBlue", "", $sprite="img:./static/06_img/fishblue.png{scale=0.1}")
+        System(is_storm, "ИС Шторм", "", $sprite="img:./static/06_img/is_storm.png{scale=0.25}")
+        System(as_rolf, "АС Рольф", "", $sprite="img:./static/06_img/as_rolf.png{scale=0.25}")
+        System(as_rolf_insurance, "АС Рольф Страхование", "", $sprite="img:./static/06_img/as_rolf_insurance.png{scale=0.25}")
     }
 
     Rel(user, flora, "")
@@ -74,9 +74,9 @@ System_Boundary(rolf, "Рольф") {
     BiRel_U(flora, wms, "")
     BiRel_U(flora, mdm, "")
     BiRel_U(flora, fishblue, "")
-    BiRel_U(flora, is_shtorm, "")
+    BiRel_U(flora, is_storm, "")
     BiRel_U(flora, as_rolf, "")
-    BiRel_U(flora, as_rolfstrah, "")
+    BiRel_U(flora, as_rolf_insurance, "")
     
 }
 
