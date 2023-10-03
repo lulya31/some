@@ -31,29 +31,29 @@ System_Boundary(rolf, "Рольф") {
     Person(user, "USER", "Пользователь")
     Person(admin, "ADMIN", "Администратор")
 
-    System(flora, "FLORA", "FLORA", $link="/06_c4_infrastructure/01_flora/")
+    System(flora, "FLORA", "", $sprite="img:./static/06_01_img/rolf_logo_2020.png{scale=0.2}", $link="/06_c4_infrastructure/01_flora/")
 
     System_Boundary(payments_acquiring, "Платежный эквайринг") {
-        System(atol, "Atol", "Atol")
-        System(kkm, "ККМ", "", $sprite="img:./static/06_img/kkm.png{scale=0.25}")
-        System(payment_gate, "Платежный шлюз", "", $sprite="img:./static/06_img/payment_gate.png{scale=0.25}")
-        System(1c_rose, "1C Rose", "", $sprite="img:./static/06_img/1c_arms.png{scale=0.05}")
+        System(atol, "Atol", "", $sprite="img:./static/06_img/kkm.png{scale=1}")
+        System(kkm, "ККМ", "", $sprite="img:./static/06_img/kkm.png{scale=1}")
+        System(payment_gateway, "Платежный шлюз", "", $sprite="img:./static/06_img/payment_gateway.png{scale=1}")
+        System(1c_rose, "1C Rose", "", $sprite="img:./static/06_img/1c.png{scale=1}")
     }
 
-    System(erl, "ERL", "Единый рабочий лист")
-    System(smtp, "SMTP Server", "", $sprite="img:./static/06_img/smtp.png{scale=0.25}")
-    System(sms_gate, "SMS Шлюз", "", $sprite="img:./static/06_img/sms_gate.png{scale=0.5}")
+    System(erl, "ERL", "Единый рабочий лист", $sprite="img:./static/06_img/oracle.png{scale=1}")
+    System(smtp_server, "SMTP Server", "", $sprite="img:./static/06_img/smtp_server.png{scale=1}")
+    System(sms_gateway, "SMS Шлюз", "", $sprite="img:./static/06_img/sms_gateway.png{scale=1}")
     System(ad, "Active Directory", "", $sprite="img:./static/06_img/ad.png{scale=0.4}")
-    System(1c_arms, "1С АРМС", "", $sprite="img:./static/06_img/1c_arms.png{scale=0.05}")
+    System(1c_arms, "1С АРМС", "", $sprite="img:./static/06_img/1c.png{scale=1}")
     System(saphr, "", "", $sprite="img:./static/06_img/sap_hr_logo.png{scale=0.1}")
     System(wms, "", "", $sprite="img:./static/06_img/wms_logo.png{scale=0.5}")
-    System(mdm, "MDM", "", $sprite="img:./static/06_img/mdm.png{scale=0.015}")
+    System(mdm, "MDM", "", $sprite="img:./static/06_img/mdm.png{scale=1}")
 
     System_Boundary(opersystems, "Оперсистемы") {
-        System(fishblue, "FishBlue", "", $sprite="img:./static/06_img/fishblue.png{scale=0.05}")
-        System(is_storm, "ИС Шторм", "", $sprite="img:./static/06_img/is_storm.png{scale=0.25}")
-        System(as_rolf, "АС Рольф", "", $sprite="img:./static/06_img/as_rolf.png{scale=0.25}")
-        System(as_rolf_insurance, "АС Рольф Страхование", "", $sprite="img:./static/06_img/as_rolf_insurance.png{scale=0.25}")
+        System(fishblue, "FishBlue", "", $sprite="img:./static/06_img/oracle.png{scale=1}")
+        System(is_storm, "ИС Шторм", "", $sprite="img:./static/06_img/oracle.png{scale=1}")
+        System(as_rolf, "АС Рольф", "", $sprite="img:./static/06_img/oracle.png{scale=1}")
+        System(as_rolf_insurance, "АС Рольф Страхование", "", $sprite="img:./static/06_img/oracle.png{scale=1}")
     }
 
     Rel(user, flora, "")
@@ -61,12 +61,12 @@ System_Boundary(rolf, "Рольф") {
 
     BiRel_D(flora, atol, "")
     BiRel_D(flora, kkm, "")
-    BiRel_D(flora, payment_gate, "")
+    BiRel_D(flora, payment_gateway, "")
     BiRel_D(flora, 1c_rose, "")
 
     BiRel_D(flora, erl, "")
-    BiRel_D(flora, smtp, "")
-    BiRel_D(flora, sms_gate, "")
+    BiRel_D(flora, smtp_server, "")
+    BiRel_D(flora, sms_gateway, "")
     BiRel_D(flora, ad, "")
 
     BiRel_U(flora, 1c_arms, "")
