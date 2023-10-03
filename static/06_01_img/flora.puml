@@ -20,35 +20,40 @@ System_Ext(external_systems, "External systems", "", $sprite="img:./static/06_01
 System_Boundary(flora, "Система Flora", "Система Flora"){
 
     System_Boundary(frontend, "FrontEnd", "FrontEnd"){
-        Container(asp_sell, "ASP sell", "VueJS, TypeScript", $sprite="img:./static/06_01_img/asp_sell.png{scale=0.15}")
-        Container(crm, "", "VueJS, TypeScript", $sprite="img:./static/06_01_img/crm.png{scale=0.075}")
-        Container(auto_card, "Auto card", "VueJS, TypeScript", $sprite="img:./static/06_01_img/auto_card.png{scale=0.1}")
-        Container(client_card, "Client card", "VueJS, TypeScript", $sprite="img:./static/06_01_img/client_card.png{scale=0.25}")
-        Container(employee_card, "Employee card", "VueJS, TypeScript", $sprite="img:./static/06_01_img/employee_card.png{scale=0.15}")
-        Container(db_card, "DB card", "VueJS, TypeScript", $sprite="img:./static/06_01_img/db_card.png{scale=0.25}")
-        Container(common_db_app, "Common DB app", "VueJS, TypeScript", $sprite="img:./static/06_01_img/common_db_app.png{scale=0.25}")
-        Container(fi, "F&I", "VueJS, TypeScript", $sprite="img:./static/06_01_img/fi.png{scale=0.15}")
-        Container(frontend_service, "Service", "VueJS, TypeScript", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.25}")
+        Container(asp_sell, "ASP-SELL", "VueJS, TypeScript", $sprite="img:./static/06_01_img/asp_sell.png{scale=1}")
+        Container(crm, "CRM", "VueJS, TypeScript", $sprite="img:./static/06_01_img/crm.png{scale=1}")
+        Container(auto_card, "AUTO-CARD", "VueJS, TypeScript", $sprite="img:./static/06_01_img/auto_card.png{scale=1}")
+        Container(client_card, "CLIENT-CARD", "VueJS, TypeScript", $sprite="img:./static/06_01_img/client_card.png{scale=1}")
+        Container(employee_card, "EMPLOYEE-CARD", "VueJS, TypeScript", $sprite="img:./static/06_01_img/employee_card.png{scale=1}")
+        Container(dc_card, "DC-CRAD", "VueJS, TypeScript", $sprite="img:./static/06_01_img/dc_card.png{scale=1}")
+        Container(flora_core_app, "FLORA CORE APP", "VueJS, TypeScript", $sprite="img:./static/06_01_img/flora_core_app2.png{scale=1}")
+        Container(fi, "F&I", "VueJS, TypeScript", $sprite="img:./static/06_01_img/fi.png{scale=1}")
+        Container(frontend_service, "SERVICE", "VueJS, TypeScript", $sprite="img:./static/06_01_img/frontend_service.png{scale=1}")
+        Container(adminka, "ADMINKA", "VueJS, TypeScript", $sprite="img:./static/06_01_img/adminka.png{scale=1}")
+        Container(company_card, "COMPANY-CARD", "VueJS, TypeScript", $sprite="img:./static/06_01_img/company_card.png{scale=1}")
+        Container(desktop, "DESKTOP", "VueJS, TypeScript", $sprite="img:./static/06_01_img/desktop.png{scale=1}")
+        Container(pforms, "PFORMS", "VueJS, TypeScript", $sprite="img:./static/06_01_img/pforms.png{scale=1}")
+        Container(storybook, "STORYBOOK", "VueJS, TypeScript", $sprite="img:./static/06_01_img/storybook.png{scale=1}")
     }
 
     Container_Boundary(infra, "Infrastructure", ""){
-        Container(apim, "APIM", "", $sprite="img:./static/06_01_img/leroy_logo.png{scale=0.075}")
+        Container(apim, "APIM", "", $sprite="img:./static/06_01_img/leroy_logo.png{scale=0.1}")
         Container(centrifugo, "Centrifugo (WSS)", "", $sprite="img:./static/06_01_img/centrifugo_soc.png{scale=0.075}")
         'Container(centrifugo, "Centrifugo (WSS)", "", $sprite="img:./static/06_01_img/logo_animated_no_accel.svg{scale=0.075}")
-        Container(kafka, "Kafka", "", $sprite="img:./static/06_01_img/kafka_logo.png{scale=0.1}")
+        Container(kafka, "Kafka", "", $sprite="img:./static/06_01_img/kafka_logo.png{scale=0.2}")
     }
 
     Container_Boundary(experience, "EXPERIENCE", "EXPERIENCE"){
-        Container(service, "Service", "Platformeco", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.25}")
-        Container(f_and_i, "F&I", "Platformeco", $sprite="img:./static/06_01_img/fi.png{scale=0.15}", $link="https://doc-fi-main.com-dev.int.rolfcorp.ru/01_overview/02_architecture/01_c4_logic_scheme/")
-        Container(asp_and_na, "ASP & NA", "Platformeco", $sprite="img:./static/06_01_img/asp_sell.png{scale=0.15}")
+        Container(service, "Service", "Platformeco", $sprite="img:./static/06_01_img/frontend_service.png{scale=1}")
+        Container(f_and_i, "F&I", "Platformeco", $sprite="img:./static/06_01_img/fi.png{scale=1}", $link="https://doc-fi-main.com-dev.int.rolfcorp.ru/01_overview/02_architecture/01_c4_logic_scheme/")
+        Container(asp_and_na, "ASP & NA", "Platformeco", $sprite="img:./static/06_01_img/asp_sell.png{scale=1}")
         Container(mes, "MES", "Platformeco", $sprite="img:./static/06_01_img/mes.png{scale=0.15}")
     }
 
     Container_Boundary(core, "CORE", "CORE"){
         Container(orders, "Orders", "Platformeco", $sprite="img:./static/06_01_img/orders.png{scale=0.1}")
         Container(communications, "Communications", "Platformeco", $sprite="img:./static/06_01_img/communications.png{scale=0.3}")
-        Container(coreapp, "Coreapp", "Platformeco", $sprite="img:./static/06_01_img/common_db_app.png{scale=0.25}")
+        Container(coreapp, "Coreapp", "Platformeco", $sprite="img:./static/06_01_img/flora_core_app.png{scale=0.25}")
         Container(task_and_events, "Task and Events", "Platformeco", $sprite="img:./static/06_01_img/task_and_events.png{scale=0.25}")
         Container(rolfid, "RolfID", "Platformeco", $sprite="img:./static/06_01_img/rolfid.png{scale=0.1}")
         Container(carid, "CarID", "Platformeco", $sprite="img:./static/06_01_img/carid.png{scale=0.3}")
@@ -63,25 +68,25 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
 
     System_Boundary(infrastructure, "Infrastructure (DB, ETC)", "Infrastructure (DB, ETC)"){
         ContainerDb(postgresql, "", "", $sprite="img:./static/06_01_img/postgresql_logo.png{scale=0.4}")
-        Container(s3_cep, "S3 Cep", "", $sprite="img:./static/06_01_img/s3_logo.png{scale=0.05}")
+        ContainerDb(s3, "S3", "", $sprite="img:./static/06_01_img/s3_logo.png{scale=0.05}")
         ContainerDb(mongodb, "", "", $sprite="img:./static/06_01_img/mongodb_logo.png{scale=0.1}")
-        Container(opensearch, "", "", $sprite="img:./static/06_01_img/opensearch_logo.png{scale=0.1}")
+        ContainerDb(opensearch, "", "", $sprite="img:./static/06_01_img/opensearch_logo.png{scale=0.1}")
         Container(keycloak, "Keycloak", "", $sprite="img:./static/06_01_img/keycloak_logo.png{scale=0.2}")
         Container(grafana, "", "", $sprite="img:./static/06_01_img/grafana_logo.png{scale=0.05}")
     }
     
     Lay_D(employee_card, centrifugo)
-    Lay_D(db_card, apim)
+    Lay_D(dc_card, apim)
     Lay_D(fi, kafka)
 
     Lay_D(kafka, f_and_i)
     Lay_D(apim, asp_and_na)
     Lay_D(centrifugo, mes)
-    Lay_D(mes, service)
+    Lay_D(service, mes)
 
     Lay_D(f_and_i, rolfid)
     Lay_D(asp_and_na, communications)
-    Lay_D(service, orders)
+    Lay_D(mes, orders)
 
     Lay_D(orders, mdm)
     Lay_D(communications, external_integration)
@@ -94,18 +99,25 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     Lay_D(printformsanalize, grafana)
     Lay_D(mdm, postgresql)
     Lay_D(printservice, opensearch)
-    Lay_D(internal_integration, s3_cep)
+    Lay_D(internal_integration, s3)
     Lay_D(external_integration, keycloak)
     Lay_D(payments, mongodb)
 
-    BiRel_U(common_db_app, client_card, "")
-    BiRel_U(common_db_app, crm, "")
-    BiRel_U(common_db_app, auto_card, "")
-    BiRel_U(common_db_app, asp_sell, "")
-    BiRel_D(common_db_app, employee_card, "")
-    BiRel_D(common_db_app, frontend_service, "")
-    BiRel_D(common_db_app, fi, "")
-    BiRel_D(common_db_app, db_card, "")
+    BiRel_U(flora_core_app, client_card, "")
+    BiRel_U(flora_core_app, crm, "")
+    BiRel_U(flora_core_app, auto_card, "")
+    BiRel_U(flora_core_app, asp_sell, "")
+    BiRel_U(flora_core_app, employee_card, "")
+    BiRel_U(flora_core_app, frontend_service, "")
+    BiRel_U(flora_core_app, fi, "")
+
+    BiRel_D(flora_core_app, dc_card, "")
+    BiRel_D(flora_core_app, adminka, "")
+    BiRel_D(flora_core_app, company_card, "")
+    BiRel_D(flora_core_app, desktop, "")
+    BiRel_D(flora_core_app, pforms, "")
+    BiRel_D(flora_core_app, storybook, "")
+
 
     BiRel_U(apim, frontend, "")
     BiRel_D(apim, experience, "")
@@ -118,7 +130,7 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     BiRel(communications, opensearch, "")
     BiRel(coreapp, opensearch, "")
     Rel(mes, service, "")
-    BiRel(printservice, s3_cep, "")
+    BiRel(printservice, s3, "")
     BiRel(f_and_i, opensearch, "")
     BiRel(rolfid, opensearch, "")
     BiRel(carid, opensearch, "")
@@ -135,7 +147,8 @@ Lay_D(external_integration, external_systems)
 'Lay_D(rolf, auto_card)
 Rel_D(rolf, flora, "")
 
-Lay_D(flora, external_systems)
+'Lay_D(flora, external_systems)
+Lay_D(grafana, external_systems)
 BiRel_D(external_integration, external_systems, "")
 
 @enduml
