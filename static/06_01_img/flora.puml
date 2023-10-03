@@ -27,7 +27,7 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
         Container(employee_card, "Employee card", "VueJS, TypeScript", $sprite="img:./static/06_01_img/employee_card.png{scale=0.15}")
         Container(db_card, "DB card", "VueJS, TypeScript", $sprite="img:./static/06_01_img/db_card.png{scale=0.25}")
         Container(common_db_app, "Common DB app", "VueJS, TypeScript", $sprite="img:./static/06_01_img/common_db_app.png{scale=0.25}")
-        Container(fi, "F&I", "VueJS, TypeScript", $sprite="img:./static/06_01_img/fi.png{scale=0.25}")
+        Container(fi, "F&I", "VueJS, TypeScript", $sprite="img:./static/06_01_img/fi.png{scale=0.15}")
         Container(frontend_service, "Service", "VueJS, TypeScript", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.25}")
     }
 
@@ -40,7 +40,7 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
 
     Container_Boundary(experience, "EXPERIENCE", "EXPERIENCE"){
         Container(service, "Service", "Platformeco", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.25}")
-        Container(f_and_i, "F&I", "Platformeco", $sprite="img:./static/06_01_img/fi.png{scale=0.25}", $link="https://doc-fi-main.com-dev.int.rolfcorp.ru/01_overview/02_architecture/01_c4_logic_scheme/")
+        Container(f_and_i, "F&I", "Platformeco", $sprite="img:./static/06_01_img/fi.png{scale=0.15}", $link="https://doc-fi-main.com-dev.int.rolfcorp.ru/01_overview/02_architecture/01_c4_logic_scheme/")
         Container(asp_and_na, "ASP & NA", "Platformeco", $sprite="img:./static/06_01_img/asp_sell.png{scale=0.15}")
         Container(mes, "MES", "Platformeco", $sprite="img:./static/06_01_img/mes.png{scale=0.15}")
     }

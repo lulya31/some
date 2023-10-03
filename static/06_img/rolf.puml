@@ -50,7 +50,7 @@ System_Boundary(rolf, "Рольф") {
     System(mdm, "MDM", "", $sprite="img:./static/06_img/mdm.png{scale=0.015}")
 
     System_Boundary(opersystems, "Оперсистемы") {
-        System(fishblue, "FishBlue", "", $sprite="img:./static/06_img/fishblue.png{scale=0.1}")
+        System(fishblue, "FishBlue", "", $sprite="img:./static/06_img/fishblue.png{scale=0.05}")
         System(is_storm, "ИС Шторм", "", $sprite="img:./static/06_img/is_storm.png{scale=0.25}")
         System(as_rolf, "АС Рольф", "", $sprite="img:./static/06_img/as_rolf.png{scale=0.25}")
         System(as_rolf_insurance, "АС Рольф Страхование", "", $sprite="img:./static/06_img/as_rolf_insurance.png{scale=0.25}")
