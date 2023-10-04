@@ -23,4 +23,3 @@ include::{imagesoutdir}rolf.puml[]
 ----
 ****
 
-
