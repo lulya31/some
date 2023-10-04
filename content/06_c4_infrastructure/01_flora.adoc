@@ -17,7 +17,6 @@ include::static/includes/init.adoc[]
 ++++
 <style type="text/css">
 .diagram_dimensions { 
-    /*height: 600%;*/
     width: 100%;
 }
 </style>
@@ -36,6 +35,4 @@ include::{imagesoutdir}flora.puml[]
 ++++
 </div>
 ++++
-
-
 
