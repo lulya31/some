@@ -26,7 +26,7 @@ LAYOUT_TOP_DOWN()
 
 AddRelTag("database", $textColor="blue", $lineColor="blue", $lineStyle=BoldLine())
 AddRelTag("rest", $textColor="green", $lineColor="green", $lineStyle=BoldLine())
-AddRelTag("async", $textColor="green", $lineColor="green", $lineStyle=BoldLine())
+AddRelTag("async", $textColor="green", $lineColor="plum", $lineStyle=BoldLine())
 AddRelTag("webscoket", $textColor="orange", $lineColor="orange", $lineStyle=BoldLine())
 AddRelTag("http", $textColor="black", $lineColor="black", $lineStyle=BoldLine())
 
@@ -120,8 +120,8 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     Lay_D(apim, asp_and_na)
     Lay_D(centrifugo, service)
     
-    Lay_D(f_and_i, mes)
-    Lay_D(asp_and_na, mes)
+    'Lay_D(f_and_i, mes)
+    'Lay_D(asp_and_na, mes)
     Lay_D(service, mes)
 
     Lay_D(mes, clientid)
@@ -156,27 +156,22 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     BiRel_D(flora_core_app, adminka, "")
     BiRel_D(flora_core_app, dc_card, "")
 
-    BiRel_U(apim, frontend, "")
-    BiRel_D(apim, experience, "")
-    BiRel_D(apim, core, "")
+    BiRel_U(apim, frontend, "", $tags="rest")
+    BiRel_D(apim, experience, "", $tags="rest")
+    BiRel_D(apim, core, "", $tags="rest")
 
     Rel(kafka, core, "", $tags="async")
     Rel(kafka, experience, "", $tags="async")
 
-    BiRel(orders, opensearch, "", $tags="database")
-    BiRel(communications, opensearch, "", $tags="database")
-    BiRel(coreapp, opensearch, "", $tags="database")
-    Rel(mes, service, "", $tags="database")
+    BiRel(core, opensearch, "", $tags="database")
+    BiRel(experience, opensearch, "", $tags="database")
+    Rel(mes, service, "")
     BiRel(printservice, s3, "", $tags="database")
-    BiRel(f_and_i, opensearch, "", $tags="database")
-    BiRel(rolfid, opensearch, "", $tags="database")
-    BiRel(carid, opensearch, "", $tags="database")
-    BiRel(clientid, opensearch, "", $tags="database")
 
     BiRel(postgresql, core, "", $tags="database")
 
     Rel_U(centrifugo, frontend, "", $tags="async")
-    BiRel(centrifugo, task_and_events, "", $tags="async")
+    BiRel(centrifugo, task_and_events, "", $tags="webscoket")
     BiRel_U(keycloak, rolfid, "")
 }
 
