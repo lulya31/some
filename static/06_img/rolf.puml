@@ -82,7 +82,7 @@ System_Boundary(rolf, "Рольф") {
     BiRel_D(flora, payment_gateway, "")
     BiRel_D(flora, 1c_rose, "")
 
-    BiRel_D(flora, erl, "")
+    BiRel_D(flora, erl, "", $tags="database")
     BiRel_D(flora, smtp_server, "")
     BiRel_D(flora, sms_gateway, "")
     BiRel_D(flora, ad, "")
