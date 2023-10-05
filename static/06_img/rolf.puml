@@ -10,23 +10,10 @@ skinparam linetype ortho
 
 LAYOUT_LEFT_RIGHT()
 
-/'
-1. Линии сделать толстым и выделить разным цветом в зависимости от назначения:
-2. обращение в БД (толстые синие линии)
-3. REST-вызовы внутренние и от пользователей (толстые зеленые линии)
-4. Асинхронное взаимодействие (kafka и - толстые зеленые линии
-5. Отправка уведомлений (webscoket) - толстые оранжевые линии
-6. Связь модулей (обычные линии, как сейчас)
-7. HTTP-вызовы к внешним системам (толстые черные)
-    8. Добавить легенду.
-    9. Добавить еще внешние системы Рольф и связь с Internal Integration
-    10. Добавить связь с оперсистемами (Oracle)
-'/
-
-AddRelTag("database", $textColor="blue", $lineColor="blue", $lineStyle=BoldLine())
-AddRelTag("rest", $textColor="green", $lineColor="green", $lineStyle=BoldLine())
-AddRelTag("async", $textColor="green", $lineColor="green", $lineStyle=BoldLine())
-AddRelTag("webscoket", $textColor="orange", $lineColor="orange", $lineStyle=BoldLine())
+AddRelTag("DataBase", $textColor="blue", $lineColor="blue", $lineStyle=BoldLine())
+AddRelTag("REST", $textColor="green", $lineColor="green", $lineStyle=BoldLine())
+AddRelTag("Async", $textColor="plum", $lineColor="plum", $lineStyle=BoldLine())
+AddRelTag("WebSocket", $textColor="orange", $lineColor="orange", $lineStyle=BoldLine())
 AddRelTag("http", $textColor="black", $lineColor="black", $lineStyle=BoldLine())
 
 System_Boundary(ext_systems1, "Внешние системы") {
@@ -74,15 +61,15 @@ System_Boundary(rolf, "Рольф") {
         System(as_rolf_insurance, "АС Рольф Страхование", "", $sprite="img:./static/06_img/oracle.png{scale=1}")
     }
 
-    Rel(user, flora, "", $tags="rest")
-    Rel(admin, flora, "", $tags="rest")
+    Rel(user, flora, "", $tags="REST")
+    Rel(admin, flora, "", $tags="REST")
 
     BiRel_D(flora, atol, "")
     BiRel_D(flora, kkm, "")
     BiRel_D(flora, payment_gateway, "")
     BiRel_D(flora, 1c_rose, "")
 
-    BiRel_D(flora, erl, "", $tags="database")
+    BiRel_D(flora, erl, "", $tags="DataBase")
     BiRel_D(flora, smtp_server, "")
     BiRel_D(flora, sms_gateway, "")
     BiRel_D(flora, ad, "")
@@ -91,10 +78,10 @@ System_Boundary(rolf, "Рольф") {
     BiRel_U(flora, saphr, "")
     BiRel_U(flora, wms, "")
     BiRel_U(flora, mdm, "")
-    BiRel_U(flora, fishblue, "", $tags="database")
-    BiRel_U(flora, is_storm, "", $tags="database")
-    BiRel_U(flora, as_rolf, "", $tags="database")
-    BiRel_U(flora, as_rolf_insurance, "", $tags="database")
+    BiRel_U(flora, fishblue, "", $tags="DataBase")
+    BiRel_U(flora, is_storm, "", $tags="DataBase")
+    BiRel_U(flora, as_rolf, "", $tags="DataBase")
+    BiRel_U(flora, as_rolf_insurance, "", $tags="DataBase")
 }
 
 BiRel_D(flora, elt, "", $tags="http")
