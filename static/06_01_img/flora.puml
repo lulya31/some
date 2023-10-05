@@ -11,24 +11,11 @@ skinparam nodesep 50
 
 LAYOUT_TOP_DOWN()
 
-/'
-    1. Линии сделать толстым и выделить разным цветом в зависимости от назначения:
-    2. обращение в БД (толстые синие линии)
-3. REST-вызовы внутренние и от пользователей (толстые зеленые линии)
-    4. Асинхронное взаимодействие (kafka и - толстые зеленые линии
-5. Отправка уведомлений (webscoket) - толстые оранжевые линии
-    6. Связь модулей (обычные линии, как сейчас)
-    7. HTTP-вызовы к внешним системам (толстые черные)
-    8. Добавить легенду.
-    9. Добавить еще внешние системы Рольф и связь с Internal Integration
-    10. Добавить связь с оперсистемами (Oracle)
-'/
-
-AddRelTag("database", $textColor="blue", $lineColor="blue", $lineStyle=BoldLine())
-AddRelTag("rest", $textColor="green", $lineColor="green", $lineStyle=BoldLine())
-AddRelTag("async", $textColor="green", $lineColor="plum", $lineStyle=BoldLine())
-AddRelTag("webscoket", $textColor="orange", $lineColor="orange", $lineStyle=BoldLine())
-AddRelTag("http", $textColor="black", $lineColor="black", $lineStyle=BoldLine())
+AddRelTag("DataBase", $textColor="blue", $lineColor="blue", $lineStyle=BoldLine())
+AddRelTag("REST", $textColor="green", $lineColor="green", $lineStyle=BoldLine())
+AddRelTag("Async", $textColor="plum", $lineColor="plum", $lineStyle=BoldLine())
+AddRelTag("WebSocket", $textColor="orange", $lineColor="orange", $lineStyle=BoldLine())
+AddRelTag("HTTP", $textColor="black", $lineColor="black", $lineStyle=BoldLine())
 
 System(rolf, "SYSTEM", "", $sprite="img:./static/06_01_img/rolf_logo_2020.png{scale=0.2}", $link="/06_c4_infrastructure/")
 System_Ext(external_systems, "Внешние системы", "", $sprite="img:./static/06_01_img/internal_systems.png{scale=1}")
@@ -69,7 +56,7 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     }
 
     Container_Boundary(core, "CORE", "CORE"){
-        Container(orders, "Orders", "Platformeco", $sprite="img:./static/06_01_img/orders.png{scale=1}")
+        Container(orders, "Needs & Orders", "Platformeco", $sprite="img:./static/06_01_img/orders.png{scale=1}")
         Container(communications, "Communications", "Platformeco", $sprite="img:./static/06_01_img/communications.png{scale=1}")
         Container(coreapp, "Coreapp", "Platformeco", $sprite="img:./static/06_01_img/flora_core_app2.png{scale=1}")
         Container(task_and_events, "Task and Events", "Platformeco", $sprite="img:./static/06_01_img/task_and_events.png{scale=1}")
@@ -93,7 +80,7 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
         Container(grafana, "", "", $sprite="img:./static/06_01_img/grafana_logo.png{scale=0.05}")
     }
 
-    Lay_D(asp_sell, client_card)
+    'Lay_D(asp_sell, client_card)
     Lay_D(client_card, flora_core_app)
     Lay_D(employee_card, crm)
     Lay_D(crm, flora_core_app)
@@ -105,6 +92,8 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     Lay_D(crm, flora_core_app)
     Lay_D(auto_card, flora_core_app)
     Lay_D(desktop, flora_core_app)
+
+    Lay_D(flora_core_app, asp_sell)
     Lay_D(flora_core_app, pforms)
     Lay_D(flora_core_app, storybook)
     Lay_D(flora_core_app, widgets)
@@ -141,7 +130,6 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     Lay_D(keycloak, mongodb)
 
     BiRel_U(flora_core_app, employee_card, "")
-    BiRel_U(flora_core_app, asp_sell, "")
     BiRel_U(flora_core_app, frontend_service, "")
     BiRel_U(flora_core_app, fi, "")
     BiRel_U(flora_core_app, crm, "")
@@ -149,29 +137,29 @@ System_Boundary(flora, "Система Flora", "Система Flora"){
     BiRel_U(flora_core_app, auto_card, "")
     BiRel_U(flora_core_app, desktop, "")
     
-    BiRel_D(flora_core_app, pforms, "")
+    BiRel_D(flora_core_app, asp_sell, "")
     BiRel_D(flora_core_app, storybook, "")
     BiRel_D(flora_core_app, widgets, "")
     BiRel_D(flora_core_app, company_card, "")
     BiRel_D(flora_core_app, adminka, "")
     BiRel_D(flora_core_app, dc_card, "")
 
-    BiRel_U(apim, frontend, "", $tags="rest")
-    BiRel_D(apim, experience, "", $tags="rest")
-    BiRel_D(apim, core, "", $tags="rest")
+    BiRel_U(apim, frontend, "", $tags="REST")
+    BiRel_D(apim, experience, "", $tags="REST")
+    BiRel_D(apim, core, "", $tags="REST")
 
-    Rel(kafka, core, "", $tags="async")
-    Rel(kafka, experience, "", $tags="async")
+    BiRel(kafka, core, "", $tags="Async")
+    BiRel(kafka, experience, "", $tags="Async")
 
-    BiRel(core, opensearch, "", $tags="database")
-    BiRel(experience, opensearch, "", $tags="database")
+    BiRel(core, opensearch, "", $tags="DataBase")
+    BiRel(experience, opensearch, "", $tags="DataBase")
     Rel(mes, service, "")
-    BiRel(printservice, s3, "", $tags="database")
+    BiRel(printservice, s3, "", $tags="DataBase")
 
-    BiRel(postgresql, core, "", $tags="database")
+    BiRel(postgresql, core, "", $tags="DataBase")
 
-    Rel_U(centrifugo, frontend, "", $tags="async")
-    BiRel(centrifugo, task_and_events, "", $tags="webscoket")
+    Rel_U(centrifugo, frontend, "", $tags="WebSocket")
+    BiRel(centrifugo, task_and_events, "", $tags="REST")
     BiRel_U(keycloak, rolfid, "")
 }
 
@@ -182,9 +170,9 @@ Lay_D(mongodb, oper_systems)
 Rel_D(rolf, flora, "")
 
 Lay_D(grafana, external_systems)
-BiRel_D(external_integration, external_systems, "", $tags="http")
-BiRel_D(internal_integration, internal_systems, "", $tags="http")
-BiRel_D(core, oper_systems, "", $tags="http")
+BiRel_D(external_integration, external_systems, "", $tags="HTTP")
+BiRel_D(internal_integration, internal_systems, "", $tags="HTTP")
+BiRel_D(core, oper_systems, "", $tags="HTTP")
 
 SHOW_LEGEND()
 
