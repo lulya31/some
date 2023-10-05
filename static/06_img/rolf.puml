@@ -14,7 +14,7 @@ AddRelTag("DataBase", $textColor="blue", $lineColor="blue", $lineStyle=BoldLine(
 AddRelTag("REST", $textColor="green", $lineColor="green", $lineStyle=BoldLine())
 AddRelTag("Async", $textColor="plum", $lineColor="plum", $lineStyle=BoldLine())
 AddRelTag("WebSocket", $textColor="orange", $lineColor="orange", $lineStyle=BoldLine())
-AddRelTag("http", $textColor="black", $lineColor="black", $lineStyle=BoldLine())
+AddRelTag("HTTP", $textColor="black", $lineColor="black", $lineStyle=BoldLine())
 
 System_Boundary(ext_systems1, "Внешние системы") {
     System_Ext(elt, "ELT", "", $sprite="img:./static/06_img/elt_logo.png{scale=0.75}")
@@ -84,17 +84,17 @@ System_Boundary(rolf, "Рольф") {
     BiRel_U(flora, as_rolf_insurance, "", $tags="DataBase")
 }
 
-BiRel_D(flora, elt, "", $tags="http")
-BiRel_R(flora, dadata, "", $tags="http")
-BiRel_R(flora, tinkoff, "", $tags="http")
-BiRel_R(flora, autoteka_ru, "", $tags="http")
-BiRel_R(flora, rosbank, "", $tags="http")
+BiRel_D(flora, elt, "", $tags="HTTP")
+BiRel_R(flora, dadata, "", $tags="HTTP")
+BiRel_R(flora, tinkoff, "", $tags="HTTP")
+BiRel_R(flora, autoteka_ru, "", $tags="HTTP")
+BiRel_R(flora, rosbank, "", $tags="HTTP")
 
-BiRel_U(flora, e_credit, "", $tags="http")
-BiRel_L(flora, auto_ru, "", $tags="http")
-BiRel_L(flora, kia_myservice, "", $tags="http")
-BiRel_L(flora, focus_kontur, "", $tags="http")
-BiRel_L(flora, sber, "", $tags="http")
+BiRel_U(flora, e_credit, "", $tags="HTTP")
+BiRel_L(flora, auto_ru, "", $tags="HTTP")
+BiRel_L(flora, kia_myservice, "", $tags="HTTP")
+BiRel_L(flora, focus_kontur, "", $tags="HTTP")
+BiRel_L(flora, sber, "", $tags="HTTP")
 
 SHOW_LEGEND()
 
