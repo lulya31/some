@@ -1,5 +1,7 @@
 @startuml C2
 
+'!pragma layout elk
+
 !include static/includes/c4_context.puml
 !include static/includes/c4_container.puml
 !include static/includes/c4_component.puml
