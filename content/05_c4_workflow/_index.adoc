@@ -17,7 +17,25 @@ include::static/includes/init.adoc[]
 
 == C4 Flora workflow
 
+++++
+<style type="text/css">
+.diagram_dimensions { 
+    width: 100%;
+}
+</style>
+
+<div class="diagram_dimensions">
+++++
+
 ****
+[plantuml%interactive,"flora",format=svg,align=center,width=100%]
+.Flora
+----
 include::{imagesoutdir}flora.puml[]
+----
 ****
+
+++++
+</div>
+++++
 
