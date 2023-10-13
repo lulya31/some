@@ -156,14 +156,14 @@ Lay_D(comments, communications)
     Lay_D(communications, requests)
 
 Lay_D(payment, tasks_and_events)
-    Lay_D(tasks_and_events, tasks)
+    Lay_D(tasks_and_events, tasklist)
     Lay_D(tasks_and_events, events)
 
 Lay_D(legaldocuments, rolfid)
     Lay_D(rolfid, users)
     Lay_D(rolfid, dealerships)
 
-Lay_D(requests, needs_and_orders)
+Lay_D(task, needs_and_orders)
     Lay_D(needs_and_orders, legaldocuments)
     Lay_D(needs_and_orders, legalevents)
     Lay_D(needs_and_orders, orders)
