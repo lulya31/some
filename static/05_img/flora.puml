@@ -17,61 +17,61 @@ skinparam backgroundColor transparent
 
 LAYOUT_TOP_DOWN()
 
-System(flora, "Flora", "Система Flora")
+System(flora, "Flora", "Система Flora", $sprite="img:./static/06_01_img/rolf_logo_2020.png{scale=0.25}", $link="")
 
-System_Boundary(core, "Общий функционал", "Общий функционал"){
+System_Boundary(core, "CORE", "Общий функционал"){
 
-    System(printservice, "Print service", "Печатные формы", $link="")
-        System(pforms, "Print forms", "Печатные формы")
+    System(printservice, "Print service", "Печатные формы", $sprite="img:./static/06_01_img/printservice.png{scale=0.5}", $link="")
+        System(pforms, "Print forms", "Печатные формы", $sprite="img:./static/06_01_img/pforms.png{scale=0.5}")
 
-    System(carid, "Carid", "Транспортные средства", $link="")
-        System(vehicles, "Vehicles", "Транспортные средства")
+    System(carid, "CarID", "Транспортные средства", $sprite="img:./static/06_01_img/carid.png{scale=0.5}", $link="")
+        System(vehicles, "Vehicles", "Транспортные средства", $sprite="img:./static/06_01_img/vehicles.png{scale=0.5}")
     
-    System(clientid, "Clientid", "Клиенты (физлица и организации)", $link="")
-        System(clients, "Клиенты")
-        System(organizations, "Организации")
+    System(clientid, "ClientID", "Клиенты (физлица и организации)", $sprite="img:./static/06_01_img/client_card.png{scale=0.5}", $link="")
+        System(clients, "Клиенты", $sprite="img:./static/06_01_img/client_card.png{scale=0.5}")
+        System(organizations, "Организации", $sprite="img:./static/06_01_img/company_card.png{scale=0.5}")
 
-    System(coreapp, "Coreapp", "Комментарии, датагриды", $link="")
-        System(comments, "Комментарии", "Комментарии", $link="")
-        System(annotations, "Аннотации", "Аннотации", $link="")
-        System(datagrid, "Датагриды", "Датагриды", $link="")
+    System(coreapp, "Coreapp", "Комментарии, датагриды", $sprite="img:./static/06_01_img/flora_core_app2.png{scale=0.5}", $link="")
+        System(comments, "Комментарии", "Комментарии", $sprite="img:./static/06_01_img/comments.png{scale=0.5}", $link="")
+        System(annotations, "Аннотации", "Аннотации", $sprite="img:./static/06_01_img/annotation.png{scale=0.5}", $link="")
+        System(datagrid, "Датагриды", "Датагриды", $sprite="img:./static/06_01_img/datagrid.png{scale=0.5}", $link="")
 
-    System(payments, "Payments", "Платежи, чеки", $link="")
-        System(payment, "Payment", "Платежи, чеки", $link="")
+    System(payments, "Payments", "Платежи, чеки", $sprite="img:./static/06_01_img/payments.png{scale=0.5}", $link="")
+        System(payment, "Payment", "Платеж, чек", $sprite="img:./static/06_01_img/payments.png{scale=0.5}", $link="")
         
-    System(needs_and_orders, "Needs and orders", "Обращения, потребности, предложения", $link="")
+    System(needs_and_orders, "Needs and orders", "Обращения, потребности, предложения", $sprite="img:./static/06_01_img/orders.png{scale=0.5}", $link="")
         System_Boundary(legalexecution, "Legal execution", "Legal execution"){
-            System(legaldocuments, "Legal documents", "Юридические документы", $link="")
-            System(legalevents, "Legal events", "Юридические события", $link="")
+            System(legaldocuments, "Legal documents", "Юридические документы", $sprite="img:./static/06_01_img/legal_document.png{scale=0.5}", $link="")
+            System(legalevents, "Legal events", "Юридические события", $sprite="img:./static/06_01_img/legal_events.png{scale=0.5}", $link="")
         }
 
-        System(orders, "Orders", "Заказы", $link="")
-        System(needs, "Needs", "Потребности", $link="")
-        System(carts, "Пакет услуг", "Пакет услуг", $link="")
+        System(orders, "Orders", "Заказы", $sprite="img:./static/06_01_img/orders.png{scale=0.5}", $link="")
+        System(needs, "Needs", "Потребности", $sprite="img:./static/06_01_img/needs.png{scale=0.5}", $link="")
+        System(carts, "Carts", "Пакет услуг", $sprite="img:./static/06_01_img/carts.png{scale=0.5}", $link="")
 
-    System(communications, "Communications", "Коммуникации", $link="")
-        System(communication, "Communications", "Коммуникации", $link="")
-        System(requests, "Requests", "Запросы", $link="")
+    System(communications, "Communications", "Коммуникации", $sprite="img:./static/06_01_img/communications.png{scale=0.5}", $link="")
+        System(communication, "Communications", "Коммуникации", $sprite="img:./static/06_01_img/communications.png{scale=0.5}", $link="")
+        System(requests, "Requests", "Запросы", $sprite="img:./static/06_01_img/request.png{scale=0.5}", $link="")
 
-    System(tasks_and_events, "Tasks and events", "Задачи, события и оповещения", $link="")
-        System(tasks, "Tasks", "Задачи", $link="")
-        System(events, "Events", "События и оповещения", $link="")
+    System(tasks_and_events, "Tasks and events", "Задачи, события и оповещения", $sprite="img:./static/06_01_img/task_and_events.png{scale=0.5}", $link="")
+        System(tasks, "Tasks", "Задачи", $sprite="img:./static/06_01_img/task.png{scale=0.5}", $link="")
+        System(events, "Events", "События и оповещения", $sprite="img:./static/06_01_img/event.png{scale=0.5}", $link="")
 
-    System(rolfid, "Rolfid", "Сотрудники, пользователи, ДЦ", $link="")
-        System(users, "Users", "Пользователи", $link="")
-        System(dealerships, "Dealerships", "ДЦ", $link="")
+    System(rolfid, "RolfID", "Сотрудники, пользователи, ДЦ", $sprite="img:./static/06_01_img/rolfid.png{scale=0.5}", $link="")
+        System(users, "Users", "Пользователи", $sprite="img:./static/06_01_img/users.png{scale=0.5}", $link="")
+        System(dealerships, "Dealerships", "ДЦ", $sprite="img:./static/06_01_img/dc_card.png{scale=0.5}", $link="")
 }
 
-System_Boundary(experience, "Прикладные методы", "Прикладные методы"){
-    System(services, "Service", "Сервис", $link="")
-        System(service, "Service", "Сервис", $link="")
-        System(mes, "MES", "Сервис", $link="")
+System_Boundary(experience, "EXPERIENCE", "Прикладные методы"){
+    System(services, "Service", "Сервис", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.5}", $link="")
+        System(service, "Service", "Сервис", $sprite="img:./static/06_01_img/frontend_service.png{scale=0.5}", $link="")
+        System(mes, "MES", "Сервис", $sprite="img:./static/06_01_img/mes.png{scale=0.5}", $link="")
 
-    System(na, "NA Sale", "Продажа новых автомобилей", $link="")
-    System(fi, "F&I", "F&I", $link="")
-    System(asp, "ASP", "Продажа подержанных автомобилей", $link="")
-        System(asp_sale, "ASP Sale", "Продажа автомобиля с пробегом", $link="")
-        System(asp_buyout, "ASP Buyout", "Выкуп автомобиля с пробегом", $link="")
+    System(na, "NA Sale", "Продажа новых автомобилей", $sprite="img:./static/06_01_img/asp_sell.png{scale=0.5}", $link="")
+    System(fi, "F&I", "F&I", $sprite="img:./static/06_01_img/fi.png{scale=0.5}", $link="")
+    System(asp, "ASP", "Продажа подержанных автомобилей", $sprite="img:./static/06_01_img/asp_sell.png{scale=0.5}", $link="")
+        System(asp_sale, "ASP Sale", "Продажа автомобиля с пробегом", $sprite="img:./static/06_01_img/asp_sell.png{scale=0.5}", $link="")
+        System(asp_buyout, "ASP Buyout", "Выкуп автомобиля с пробегом", $sprite="img:./static/06_01_img/asp_sell.png{scale=0.5}", $link="")
 }
 
 ' Relations
@@ -165,20 +165,5 @@ Lay_D(requests, needs_and_orders)
     Lay_D(needs_and_orders, needs)
     Lay_D(needs_and_orders, carts)
 
-
-
-
-
-/'
-Lay_D(flora, rolfid)
-Lay_D(flora, tasks_and_events)
-Lay_D(flora, communications)
-Lay_D(flora, needs_and_orders)
-
-Lay_D(rolfid, payments)
-Lay_D(tasks_and_events, coreapp)
-Lay_D(communications, clientid)
-Lay_D(needs_and_orders, carid)
-'/
 
 @enduml
