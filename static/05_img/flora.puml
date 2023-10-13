@@ -54,7 +54,9 @@ System_Boundary(core, "CORE", "Общий функционал"){
         System(requests, "Requests", "Запросы", $sprite="img:./static/06_01_img/request.png{scale=0.5}", $link="")
 
     System(tasks_and_events, "Tasks and events", "Задачи, события и оповещения", $sprite="img:./static/06_01_img/task_and_events.png{scale=0.5}", $link="")
-        System(tasks, "Tasks", "Задачи", $sprite="img:./static/06_01_img/task.png{scale=0.5}", $link="")
+        System(tasklist, "Task list", "Список задач", $sprite="img:./static/06_01_img/tasklist.png{scale=0.5}", $link="")
+            System(task, "Task", "Задача", $sprite="img:./static/06_01_img/task.png{scale=0.5}", $link="")
+        System(notify, "Notify", "Уведомление", $sprite="img:./static/06_01_img/notify.png{scale=0.5}", $link="")
         System(events, "Events", "События и оповещения", $sprite="img:./static/06_01_img/event.png{scale=0.5}", $link="")
 
     System(rolfid, "RolfID", "Сотрудники, пользователи, ДЦ", $sprite="img:./static/06_01_img/rolfid.png{scale=0.5}", $link="")
@@ -87,6 +89,8 @@ Rel_U(flora, asp, "")
     Rel_U(asp, asp_sale, "")
     Rel_U(asp, asp_buyout, "")
 
+Rel_D(experience, core, "")
+
 Rel_D(flora, printservice, "")
     Rel_D(printservice, pforms, "")
 
@@ -117,7 +121,8 @@ Rel_D(flora, communications, "")
     Rel_D(communications, requests, "")
 
 Rel_D(flora, tasks_and_events, "")
-    Rel_D(tasks_and_events, tasks, "")
+    Rel_D(tasks_and_events, tasklist, "")
+        Rel_D(tasklist, task, "")
     Rel_D(tasks_and_events, events, "")
 
 Rel_D(flora, rolfid, "")
