@@ -15,12 +15,26 @@ include::static/includes/init.adoc[]
 
 {empty} +
 
+++++
+<style type="text/css">
+.diagram_dimensions { 
+    width: 100%;
+}
+</style>
+
+<div class="diagram_dimensions">
+++++
+
 ****
-[plantuml%interactive,"rolf",format=svg,align=center,width=75%]
+[plantuml%interactive,"rolf",format=svg,align=center,width=60%]
 .C4 Flora infrastructure - Уровень С1
 ----
 include::{imagesoutdir}rolf.puml[]
 ----
 ****
+
+++++
+</div>
+++++
 
 
