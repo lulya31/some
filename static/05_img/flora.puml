@@ -5,6 +5,9 @@
 !include static/includes/c4_component.puml
 
 '!pragma layout elk
+'!pragma layout smetana
+!pragma layout VizJs
+'!pragma layout GraphViz
 
 skinparam svgLinkTarget _blank
 skinparam minClassWidth 200
@@ -113,7 +116,7 @@ Rel_D(flora, needs_and_orders, "")
     Rel_D(needs_and_orders, legaldocuments, "")
     Rel_D(needs_and_orders, legalevents, "")
     Rel_D(needs_and_orders, needs, "")
-    Rel_D(needs, orders, "")
+    Rel_U(orders, needs, "")
     Rel_D(needs_and_orders, carts, "")
 
 Rel_D(flora, communications, "")
