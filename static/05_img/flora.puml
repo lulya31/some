@@ -21,7 +21,7 @@ System(flora, "Flora", "Система Flora", $sprite="img:./static/06_01_img/r
 
 System_Boundary(core, "CORE", "Общий функционал"){
 
-    System(printservice, "Print service", "Печатные формы", $sprite="img:./static/06_01_img/printservice.png{scale=0.5}", $link="")
+    System(printservice, "Print service", "Сервис печати", $sprite="img:./static/06_01_img/printservice.png{scale=0.5}", $link="")
         System(pforms, "Print forms", "Печатные формы", $sprite="img:./static/06_01_img/pforms.png{scale=0.5}")
 
     System(carid, "CarID", "Транспортные средства", $sprite="img:./static/06_01_img/carid.png{scale=0.5}", $link="")
@@ -32,12 +32,12 @@ System_Boundary(core, "CORE", "Общий функционал"){
         System(organizations, "Организации", $sprite="img:./static/06_01_img/company_card.png{scale=0.5}")
 
     System(coreapp, "Coreapp", "Комментарии, датагриды", $sprite="img:./static/06_01_img/flora_core_app2.png{scale=0.5}", $link="")
-        System(comments, "Комментарии", "Комментарии", $sprite="img:./static/06_01_img/comments.png{scale=0.5}", $link="")
-        System(annotations, "Аннотации", "Аннотации", $sprite="img:./static/06_01_img/annotation.png{scale=0.5}", $link="")
-        System(datagrid, "Датагриды", "Датагриды", $sprite="img:./static/06_01_img/datagrid.png{scale=0.5}", $link="")
+        System(comments, "Comments", "Комментарии", $sprite="img:./static/06_01_img/comments.png{scale=0.5}", $link="")
+        System(annotations, "Annotations", "Аннотации", $sprite="img:./static/06_01_img/annotation.png{scale=0.5}", $link="")
+        System(datagrid, "Datagrids", "Базы данных и фильтры", $sprite="img:./static/06_01_img/datagrid.png{scale=0.5}", $link="")
 
     System(payments, "Payments", "Платежи, чеки", $sprite="img:./static/06_01_img/payments.png{scale=0.5}", $link="")
-        System(payment, "Payment", "Платеж, чек", $sprite="img:./static/06_01_img/payments.png{scale=0.5}", $link="")
+        System(check, "Сheck", "Чек", $sprite="img:./static/06_01_img/payments.png{scale=0.5}", $link="")
         
     System(needs_and_orders, "Needs and orders", "Обращения, потребности, предложения", $sprite="img:./static/06_01_img/orders.png{scale=0.5}", $link="")
         System_Boundary(legalexecution, "Legal execution", "Legal execution"){
@@ -49,9 +49,9 @@ System_Boundary(core, "CORE", "Общий функционал"){
         System(needs, "Needs", "Потребности", $sprite="img:./static/06_01_img/needs.png{scale=0.5}", $link="")
         System(carts, "Carts", "Пакет услуг", $sprite="img:./static/06_01_img/carts.png{scale=0.5}", $link="")
 
-    System(communications, "Communications", "Коммуникации", $sprite="img:./static/06_01_img/communications.png{scale=0.5}", $link="")
+    System(communications, "CRM", "CRM", $sprite="img:./static/06_01_img/communications.png{scale=0.5}", $link="")
         System(communication, "Communications", "Коммуникации", $sprite="img:./static/06_01_img/communications.png{scale=0.5}", $link="")
-        System(requests, "Requests", "Запросы", $sprite="img:./static/06_01_img/request.png{scale=0.5}", $link="")
+        System(requests, "Requests", "Обращения", $sprite="img:./static/06_01_img/request.png{scale=0.5}", $link="")
 
     System(tasks_and_events, "Tasks and events", "Задачи, события и оповещения", $sprite="img:./static/06_01_img/task_and_events.png{scale=0.5}", $link="")
         System(tasklist, "Task list", "Список задач", $sprite="img:./static/06_01_img/tasklist.png{scale=0.5}", $link="")
@@ -107,13 +107,13 @@ Rel_D(flora, coreapp, "")
     Rel_D(coreapp, datagrid, "")
 
 Rel_D(flora, payments, "")
-    Rel_D(payments, payment, "")
+    Rel_D(payments, check, "")
 
 Rel_D(flora, needs_and_orders, "")
     Rel_D(needs_and_orders, legaldocuments, "")
     Rel_D(needs_and_orders, legalevents, "")
-    Rel_D(needs_and_orders, orders, "")
     Rel_D(needs_and_orders, needs, "")
+    Rel_D(needs, orders, "")
     Rel_D(needs_and_orders, carts, "")
 
 Rel_D(flora, communications, "")
@@ -124,6 +124,7 @@ Rel_D(flora, tasks_and_events, "")
     Rel_D(tasks_and_events, tasklist, "")
         Rel_D(tasklist, task, "")
     Rel_D(tasks_and_events, events, "")
+    Rel_D(tasks_and_events, notify, "")
 
 Rel_D(flora, rolfid, "")
     Rel_D(rolfid, users, "")
@@ -149,13 +150,13 @@ Lay_D(pforms, coreapp)
     Lay_D(coreapp, datagrid)
 
 Lay_D(vehicles, payments)
-    Lay_D(payments, payment)
+    Lay_D(payments, check)
 
 Lay_D(comments, communications)
     Lay_D(communications, communication)
     Lay_D(communications, requests)
 
-Lay_D(payment, tasks_and_events)
+Lay_D(check, tasks_and_events)
     Lay_D(tasks_and_events, tasklist)
     Lay_D(tasks_and_events, events)
 
