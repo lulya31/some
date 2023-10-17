@@ -6,7 +6,7 @@
 
 '!pragma layout elk
 '!pragma layout smetana
-!pragma layout VizJs
+'!pragma layout VizJs
 '!pragma layout GraphViz
 
 skinparam svgLinkTarget _blank
@@ -20,6 +20,13 @@ skinparam backgroundColor transparent
 
 LAYOUT_TOP_DOWN()
 
+AddRelTag("DataBase", $textColor="blue", $lineColor="blue", $lineStyle=BoldLine())
+AddRelTag("REST", $textColor="green", $lineColor="green", $lineStyle=BoldLine())
+AddRelTag("Async", $textColor="plum", $lineColor="plum", $lineStyle=BoldLine())
+AddRelTag("WebSocket", $textColor="orange", $lineColor="orange", $lineStyle=BoldLine())
+AddRelTag("HTTP", $textColor="black", $lineColor="black", $lineStyle=BoldLine())
+
+
 System(flora, "Flora", "Система Flora", $sprite="img:./static/06_01_img/rolf_logo_2020.png{scale=0.25}", $link="")
 
 System_Boundary(core, "CORE", "Общий функционал"){
@@ -31,8 +38,9 @@ System_Boundary(core, "CORE", "Общий функционал"){
         System(vehicles, "Vehicles", "Транспортные средства", $sprite="img:./static/06_01_img/vehicles.png{scale=0.5}")
     
     System(clientid, "ClientID", "Клиенты (физлица и организации)", $sprite="img:./static/06_01_img/client_card.png{scale=0.5}", $link="")
-        System(clients, "Клиенты", $sprite="img:./static/06_01_img/client_card.png{scale=0.5}")
-        System(organizations, "Организации", $sprite="img:./static/06_01_img/company_card.png{scale=0.5}")
+        System(clients, "Individuals", "Физлица", $sprite="img:./static/06_01_img/client_card.png{scale=0.5}")
+        System(organizations, "Organisations", "Организации", $sprite="img:./static/06_01_img/company_card.png{scale=0.5}")
+        System(companies, "Companies", "Компании", $sprite="img:./static/06_01_img/company_card.png{scale=0.5}")
 
     System(coreapp, "Coreapp", "Комментарии, датагриды", $sprite="img:./static/06_01_img/flora_core_app2.png{scale=0.5}", $link="")
         System(comments, "Comments", "Комментарии", $sprite="img:./static/06_01_img/comments.png{scale=0.5}", $link="")
@@ -103,6 +111,7 @@ Rel_D(flora, carid, "")
 Rel_D(flora, clientid, "")
     Rel_D(clientid, clients, "")
     Rel_D(clientid, organizations, "")
+    Rel_D(clientid, companies, "")
 
 Rel_D(flora, coreapp, "")
     Rel_D(coreapp, comments, "")
