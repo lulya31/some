@@ -1,0 +1,660 @@
+---
+title: "Схемы проекта One ROLF - (готовится к исключению из документа)"
+description: "Схемы проекта One ROLF - (готовится к исключению из документа)"
+weight: 1
+draft: false
+slug: ""
+---
+
+:imgdir: /03_img/
+:imagesoutdir: ./static/03_img/
+
+include::static/includes/init.adoc[]
+
+:mermaid-puppeteer-config: ./themes/template/puppeteer-config.json
+
+= Схемы проекта One ROLF
+
+{empty} +
+
+Ниже показаны схемы и диаграмма проекта *One Rolf*:
+
+{empty} +
+
+****
+- Компонентная схема *Flora*
+- *Программа Run проектов R&D*
+- Компонентный состав проекта *One ROLF*
+- Диаграмма *Yandex Cloud*
+****
+
+== Схема взаимоотношений сущностей Flora
+
+.*Схема взаимоотношений сущностей Flora (Отобразить/Скрыть)*
+[%collapsible%close]
+====
+++++
+<iframe width="100%" height="1000px" src="https://miro.com/app/live-embed/uXjVMyqeegI=/?moveToViewport=-5281,-3090,10419,5090&embedId=389536408216" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+++++
+====
+
+== Сущности воронки продаж
+
+.Легенда
+****
+[.small]
+[cols="^.^15,.^85"]
+|===
+| Внешний вид ^.^| Легенда
+
+| [.lime-background]#Текст# | Черный текст на зеленом фоне - следует обратить внимание
+| Текст | Черный текст на белом фоне - это то, что было предложено бизнесом изначально
+| [.yellow-background]#Текст# | Черный текст на желтом фоне - это то, какие мы изменения предлагаем
+| [.aqua-background]#Текст# | Черный текст на голубом фоне - это то, что необходимо обсудить
+|===
+****
+
+.Сущности воронки продаж
+****
+[.small]
+[cols="25,25,25,25"]
+|===
+^.^h| ОБРАЩЕНИЕ ^.^h| ПОТРЕБНОСТЬ ^.^h| КОНКРЕТНОЕ ПРЕДЛОЖЕНИЕ ТОВАРА ИЛИ УСЛУГ ^.^h| ПАКЕТ УСЛУГ
+^.^h| `[.gray]#(Requests)#` ^.^h| `[.gray]#(Needs)#` ^.^h| `[.gray]#(Orders)#` ^.^h| `[.gray]#(Carts)#`
+
+a| [.lime-background]#ОБРАЩЕНИЕ# - уникальная зависимая сущность со своим *ID* - первичная коммуникация с сущностью `"Клиент"`, формирующая потребность. Обращение имеет обязательный параметр - [.lime-background]#ТИП#, который определяется оператором или системой, в зависимости от способа формирования и регистрации обращения и не может быть изменен.
+
+{empty} +
+
+[.lime-background]#ТИПЫ ОБРАЩЕНИЙ#:
+====
+* Звонок
+* Визит
+* Запрос на коммуникацию
+* Исходящая коммуникация
+====
+
+[.yellow-background]#Необходимо добавить справочник типов обращений в *БД* (в минимальном варианте  метод).#
+
+{empty} +
+
+[.yellow-background]#*0*-й шаг, когда нет понимания, что знает клиент.#
+
+{empty} +
+
+[.yellow-background]#Типы обращения являются композитными#
+
+{empty} +
+
+[.aqua-background]#Из обращения автоматически или оператором формируется сущность "Потребность"#
+
+{empty} +
+
+[.yellow-background]#Это означает, что требуется выяснить потребность. (создается пустая строка в БД)#
+
+{empty} +
+
+[.lime-background]#СТАТУСЫ ОБРАЩЕНИЯ:#
+====
+* [.yellow-background]#СОЗДАНО#
+* В работе (потребность в работе)
+* Выполнено [.yellow-background]#(проговорить, если выполнена потребность, то и обращение выполнено)#
+* Аут [.yellow-background]#(определять по статусу всех потребностей, но из АУТа можно вернуться - УТОЧНИТЬ!!!#
+====
+
+[.yellow-background]#Статус обращения определять по статусам всех потребностей (по лучшему (наивысшему) статусу потребности).# a| [.lime-background]#ПОТРЕБНОСТЬ# - уникальная зависимая сущность, имеющая свой *ID*. Формируется из обращения клиента при соблюдении определенных условий: +
+Потребность имеет обязательный параметр - [.lime-background]#ТИП#, который определяется оператором или системой при формировании потребности и не может быть изменен.
+
+{empty} +
+
+[.lime-background.small]#ТИПЫ ПОТРЕБНОСТИ#:
+====
+. [.yellow-background]#Продажа НА#
+. [.yellow-background]#Продажа АСП#
+. [.yellow-background]#Выкуп АСП (трейдин = Выкуп АСП + Продажа АСП / НА)#
+. [.yellow-background]#Фин. услуги#
+. [.yellow-background]#Сервис#
+. [.yellow-background]#Страховой ремонт#
+. [.yellow-background]#ЗЧ/ДО#
+. [.yellow-background]#Консультация в КЦ#
+. [.aqua-background]#Обратная связь - уточнить, как планировалось#
+. [.aqua-background]#Связь с сотрудником ЦО - уточнить, как планировалось#
+. [.aqua-background]#Вторичный траффик по обращению - ???#
+====
+
+[.aqua-background]#ТИПЫ определяются как подмножество *needs_good_type_d*, где атрибут *generalizing* = true#
+
+{empty} +
+
+[.yellow-background]#Уточнить про новый справочник таких типов# +
+
+{empty} +
+
+Потребность так же имеет обязательный параметр - [.lime-background]#ПРИЗНАК#, который определяется системой в зависимости от инициатора.
+
+{empty} +
+
+[.lime-background]#ВИД ПОТРЕБНОСТИ#:
+====
+* Первичная
+* Вторичная (*cross-selling not null*)
+====
+
+[.yellow-background]#Связь из первичных и вторичных потребностей образует комплекс услуг, которые могут быть предложены клиенту (как сопутствующие продажи)#
+
+{empty} +
+
+[.lime-background]#ПРИЗНАКИ ПОТРЕБНОСТИ#:
+====
+* Заявленная
+* Потенциальная
+====
+
+Заявленной считается потребность, названная клиентом. Потенциальной считается потребность созданная алгоритмами системы или вручную сотрудником.
+
+{empty} +
+
+[.yellow-background]#ТРЕБУЕТСЯ ДОБАВИТЬ ПРИЗНАК#
+
+{empty} +
+
+[.yellow-background]#Добавить КЛАСС ПОТРЕБНОСТИ#:
+====
+* Продажа
+* Выкуп
+* Возврат продажи
+* Возврат выкупа
+====
+
+[.lime-background]#СТАТУСЫ ПОТРЕБНОСТИ#:
+====
+* СОЗДАНА
+* В РАБОТЕ
+* ЗАВЕРШЕНО [.yellow-background]#(=ВЫПОЛНЕНО = legal_execution_stage ИСПОЛНЕНО)#
+* [.yellow-background]#АУТ (SALE_IS_STOPPED = TRUE)#
+====
+a| [.yellow-background]#Уникальная сущность, имеющая свой *ID*. Сущность является ссылками на конкретные товары или услуги.#
+
+{empty} +
+
+[.yellow-background]#Входят в первичную или вторичную потребность и наследуют свойства из потребности. Могут быть объединены в пакеты.#
+
+{empty} +
+
+[.yellow-background]#Могут быть отдельные строки(предложения)#:
+====
+* Рекомендации сервиса
+* Конкретная работа
+* Конкретный автомобиль
+* Конкретные страховые продукты
+* так далее#
+====
+
+{empty} +
+
+Определяются через тип товара или услуги
+
+{empty} +
+
+[.lime-background]#ТИПЫ ТОВАРА ИЛИ УСЛУГИ#:
+====
+* Конкретное предложение работы
+* Конкретное предложение запчастей
+* Конкретное предложение полиса еКаско
+* Конкретное предложение выкупа АСП
+* Фильтр для стока АСП
+* Конкретное предложение покупки АСП
+* Конкретное предложение кредита
+* Конкретное предложение полиса еОсаго
+* Доктор рядом
+* Конкретное предложение полиса Каско
+* Конкретное предложение полиса Осаго
+* Конкретное предложение полиса еGAP
+* Карта МИР
+* МИР AutoSafe
+* Медицинское сопровождение
+* Автоклуб 24
+* Страхование шин и дисков
+* Продленная гарантия Рольф
+* Промед
+* Конкретное предложение полиса GAP
+* Фильтр для стока НА
+* Защита автокредита
+* МИР AutoLife
+* Страхование имущества
+* Teledoctor24
+* Мини-КАСКО
+* Ремонт у дилера
+* Конкретное предложение шин
+====
+a| [.lime-background]#ПАКЕТ УСЛУГ# - набор [.yellow-background]#конкретных предложений продуктов и услуг#, которые мы можем предложить клиенту как [.yellow-background]#единый комплекс# [.aqua-background]#доп. продажи к основной услуге или товару.# +
+Формируется пакет в One Rolf путем связывания в группу нескольких конкретных предложений [.aqua-background]#типов потребностей#.
+
+{empty} +
+
+Например: +
+====
+_Продать конкретный НА в кредит с трейд-ином, доп. оборудованием и сервисным контрактом и с [.yellow-background]#общей конкретной стоимостью#._
+====
+
+{empty} +
+
+[.yellow-background]#Это дает пакет услуг из конкретных предложений#:
+====
+. [.yellow-background]#Купить конкретный новый автомобиль#
+. [.yellow-background]#Продать конкретный автомобиль#
+. [.yellow-background]#Купить конкретный полис#
+. [.yellow-background]#Взять конкретный кредит#
+. [.yellow-background]#Оформить соотвествующий заказ-наряд для деталей и сервисных услуг#
+====
+
+[.yellow-background]#Это пакет услуг из Типов потребностей №1+№3+№4+№5+№6#
+====
+. [.yellow-background]#Купить машину#
+. [.yellow-background]#Купить АСП#
+. [.yellow-background]#Продать машину#
+. [.yellow-background]#Финансовые услуги#
+. [.yellow-background]#ЗЧ \ Доп. оборудование#
+. [.yellow-background]#Сервисные услуги#
+====
+
+|===
+[.small]
+[cols="25,25,25,25"]
+|===
+^.^h| ЗАДАЧА ^.^h| КОММУНИКАЦИЯ ^.^h| ЮРИДИЧЕСКОЕ СОБЫТИЕ ^.^h| ТАСК ЛИСТ
+^.^h| `[.gray]#(Tasks)#` ^.^h| `[.gray]#(Communications)#` ^.^h| `[.gray]#(Legal_events)#` ^.^h| `[.gray]#(Задача)#`
+
+a| [.lime-background]#ЗАДАЧА# - уникальная зависимая сущность, имеющая свой *ID* формируется в составе таск листа по сценарию таск листа. у задач будет тип по отношению к этапу воронки
+
+{empty} +
+
+У задачи может не быть автора в случае, если она создана автоматически системой.
+
+{empty} +
+
+При создании задача может быть не привязана к сотруднику.
+
+{empty} +
+
+[.yellow-background]#КОНТЕКСТ ЗАДАЧИ#:
+====
+* [.yellow-background]#ПОТРЕБНОСТЬ#
+* [.yellow-background]#КОНКРЕТНОЕ ПРЕДЛОЖЕНИЕ#
+* [.yellow-background]#ЮРИДИЧЕСКОЕ СОБЫТИЕ#
+* [.yellow-background]#ЮРИДИЧЕСКИЕ ДОКУМЕНТЫ#
+* [.yellow-background]#КЛИЕНТ#
+* [.yellow-background]#КОРЗИНА#
+* [.yellow-background]#Другое#
+====
+
+[.yellow-background]#СТАТУСЫ ЗАДАЧИ#:
+====
+* [.yellow-background]#СОЗДАНА#
+* [.yellow-background]#НАЗНАЧЕН ИСПОЛНИТЕЛЬ#
+* [.yellow-background]#В РАБОТЕ#
+* [.yellow-background]#ВЫПОЛНЕНА#
+* [.yellow-background]#ОТМЕНЕНА#
+====
+a| [.lime-background]#КОММУНИКАЦИЯ# - уникальная зависимая сущность со своим *ID* - состоявшееся или не состоявшееся событие. Коммуникация имеет обязательный параметр - [.lime-background]#ТИП#, который определяется оператором или системой на этапе формирования. Коммуникация может быть запланирована в любом процессе с помощью задачи на коммуникацию. Справочник типов коммуникаций будет дополняться исходя из потребностей бизнес-направлений.
+
+{empty} +
+
+[.lime-background]#ПРИЗНАКИ КОММУНИКАЦИИ#:
+====
+. Состоялась
+. Не состоялась [.yellow-background]#(НЕТ ТАКОГО ПРИЗНАКА, уточнить - необходимо разделить статусы "отменена" и "просрочена", не состоялась)#
+====
+
+[.lime-background]#ВИДЫ КОММУНИКАЦИИ#:
+====
+. Входящая
+. Исходящая
+====
+
+[.lime-background]#ТИПЫ# [.yellow-background]#(=МЕТОДЫ)# [.lime-background]#КОММУНИКАЦИИ#:
+====
+. Звонок
+. Визит
+. [.yellow-background]#СМС#
+. [.yellow-background]#Обращение на сайте#
+. [.yellow-background]#Электронная почта#
+. [.yellow-background]#Обращение в мобильном приложении#
+. [.yellow-background]#Обычная почта#
+. [.yellow-background]#Мессенджеры#
+. [.yellow-background]#ЭДО#
+====
+
+{empty} +
+
+КЛИЕНТ
+СОТРУДНИК
+
+{empty} +
+
+[.lime-background]#СТАТУСЫ КОММУНИКАЦИИ#:
+====
+* Создана
+* [.yellow-background]#В РАБОТЕ#
+* Просрочена
+* Выполнена
+* Аут
+====
+
+[.yellow-background]#Для не ЗАПЛАНИРОВАННОЙ#:
+====
+* [.yellow-background]#В РАБОТЕ#
+* [.yellow-background]#Выполнена (??? - обсудить как связана со статусом АУТ?)#
+* [.yellow-background]#Аут (??? - что из себя представляет)#
+====
+
+[.yellow-background]#Для ЗАПЛАНИРОВАННОЙ#:
+====
+* [.yellow-background]#Создана#
+* [.yellow-background]#В РАБОТЕ#
+* [.yellow-background]#Просрочена#
+* [.yellow-background]#Выполнена (??? - обсудить как связана со статусом АУТ?)#
+* [.yellow-background]#ОТМЕНЕНА#
+* [.yellow-background]#Аут (??? - что из себя представляет)#
+====
+a| [.lime-background]#ЮРИДИЧЕСКОЕ СОБЫТИЕ# - [.yellow-background]#событие, которое происходит с товарами или услугами и означает изменение их юридического статуса.#
+
+{empty} +
+
+[.yellow-background]#В рамках юридического события оформляются документы по сделке (Договор купли-продажи, Акт приема-передач, Страховой полис и др.)#
+
+{empty} +
+
+[.yellow-background]#Например: +
+Клиенту сделано Коммерческое предложение (*КП*) (т.е. передано официально и им получено). Это означает одностороннее обязательство Рольф (*ДЦ*) по отношению к клиенту - обеспечить сделку с указанными в *КП* параметрами в случае согласия клиента. +
+Приём автомобиля в сервис. Означает одновременный переход ответственности за сохранность *АМ* от клиента к *Рольф* (*ДЦ*) (что закрепляется Актом приёма-передачи *АМ*), и согласие клиента с проведением работ согласно Предварительному Заказ-наряду (что закрепляется Предварительным Заказ-нарядом). +
+Предварительное соглашение с клиентом о покупке *АМ* и доп. услуг - закрепляется (Предварительным) Договором купли-продажи *АМ*. +
+Выдача проданного *АМ* - означает переход права собственности на *АМ* клиенту, принятие им всех прилагающихся и выполненных в этот момент доп. услуг - как по доп. оборудовнию, так и продажи страховки и кредита. Продажа, и принятие услуг закрепляются соответствующими Договорами и Заказ-нарядами.#
+
+{empty} +
+
+[.yellow-background]#ТИПЫ СОБЫТИЙ#:
+====
+* Отмена / расторжение предварительного соглашения
+* Заключёно предварительное соглашение
+* Предоставлено Коммерчекое предложение
+* Подтверждено исполнение
+* Прекращение ожидания оплаты
+* Инициация оплаты
+* Изменено предварительное соглашение
+* Товар зарезервирован за предоплату
+====
+
+[.yellow-background]#СТАТУСЫ ЮРИДИЧЕСКОГО СОБЫТИЯ#:
+====
+* СОЗДАНО
+* ОФОРМЛЕНИЕ ЗАВЕРШЕНО оформление завершено (*clearence_is_completed*)
+(опционально) ОДОБРЕНО РОПом (*salesman_has_approved*)
+* ВСЕ ЮРИДИЧЕСКИЕ УСЛОВИЯ ВЫПОЛНЕНЫ  (*all_executions_met*)
+====
+
+[.yellow-background]#При выполнении юридического изменяется юридическая стадия входящих в событие конкретных предложений и услуг#.
+
+{empty} +
+
+[.yellow-background]#Дата события (event_date) - дата события, пока *clearance_is_complete = false* - плановая, как только *clearance_is_complete = true* - фактическая# a| [.lime-background]#ЗАДАЧА# - уникальная зависимая сущность, имеющая свой *ID*, формируется в составе таск листа по сценарию таск листа. у задач будет тип по отношению к этапу воронки [.lime-background]#ТАСК ЛИСТ#  - вирутальная аггрегатная [.aqua-background]#уникальная# зависимая сущность, [.aqua-background]#имеющая свой *ID*#, формируется в сущности потребность, при её создании и является цифровым отражением бизнес процесса продажи товара или услуги. +
+[.yellow-background]#Количество, последовательность и сценарий задач в таск. листе определяется типом потребности и заданным для неё алгоритмом#.
+
+{empty} +
+
+[.red]#В потребности может быть несколько таск листов (*1* таск лист = *1* машина (продажа НА, продажа АСП, выкуп АСП, сервис); *1* таск лист = *1* продукт/услуга (*F&I*)#.
+
+{empty} +
+
+[.lime-background]#СТАТУСЫ ТАСК ЛИСТА#:
+====
+* СОЗДАН
+* В РАБОТЕ
+* ЗАВЕРШЕН
+* АУТ
+====
+|===
+****
+
+== Компонентная схема Flora
+
+.*Компонентная схема Flora (Отобразить/Скрыть)*
+[%collapsible%close]
+====
+++++
+<iframe frameborder="0" style="width:100%;height:1000px;" src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Flora_Components_Scheme_v2.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1tvwMeQjrJDS5ukvrY3C0nmNtM9OiLIze%26export%3Ddownload"></iframe>
+++++
+====
+
+== Программа Run проектов R&D
+
+.*Программа Run проектов R&D (Отобразить/Скрыть)*
+[%collapsible%close]
+====
+++++
+<iframe src="https://miro.com/app/board/uXjVObkhdAg=/" width="100%" height="1000"></iframe>
+++++
+====
+
+== Компонентный состав проекта One ROLF
+
+.*Компонентный состав проекта One ROLF (Отобразить/Скрыть)*
+[%collapsible%close]
+====
+++++
+<iframe src="https://miro.com/app/board/uXjVOwO8lPY=/" width="100%" height="1000"></iframe>
+++++
+====
+
+== Диаграмма Yandex Cloud
+
+.*Диаграмма Yandex Cloud (Отобразить/Скрыть)*
+[%collapsible%close]
+====
+// [mermaid, width=5000, target=yandexcloud, background=#0000000F]
+[mermaid, width=5000, target=yandexcloud, format=svg, opts=interactive]
+....
+%%{init: { 'securitylevel': 'loose', 'theme': 'base' }}%%
+
+graph LR
+
+	%% Class styles %%
+        linkStyle default stroke-width:2px,fill:none,stroke:pink
+		classDef white fill:white,stroke:#000,stroke-width:1px,color:#000
+		classDef yellow fill:#fffd75,stroke:#000,stroke-width:2px,color:#000
+		classDef green fill:#93ff75,stroke:#000,stroke-width:2px,color:#000
+	
+	%% Nodes %%
+		nexus-prod("<img src='/03_img/node.png'; height='60'; width='50'></img></br>nexus-prod"):::white
+		dns-forwarder-prod("<img src='/03_img/node.png'; height='60'; width='50'></img></br>dns-forwarder-prod"):::white
+        keycloak-dev("<img src='/03_img/node.png'; height='60'; width='50'></img></br>keycloak-dev"):::white
+        kafka-common-dev("<img src='/03_img/node.png'; height='60'; width='50'></img></br>kafka-common-dev"):::white
+		kafka-common-prod("<img src='/03_img/node.png'; height='60'; width='50'></img></br>kafka-common-prod"):::white
+        mongodb-platformeco-scheduler-prod("<img src='/03_img/node.png'; height='60'; width='50'></img></br>mongodb-platformeco-scheduler-prod"):::white
+		cassandra-dev("<img src='/03_img/node.png'; height='60'; width='50'></img></br>cassandra-dev"):::white
+        cassandra-prod("<img src='/03_img/node.png'; height='60'; width='50'></img></br>cassandra-prod"):::white
+
+	%% Databases %%
+        postgresql-vault-prod("<img src='/03_img/database.png'; height='60'; width='50'></img></br>postgresql-vault-prod"):::white
+        postgresql-common-prod("<img src='/03_img/database.png'; height='60'; width='50'></img></br>postgresql-common-prod"):::white
+        postgresql-common-dev("<img src='/03_img/database.png'; height='60'; width='50'></img></br>postgresql-common-dev"):::white
+        postgresql-platformeco-auth-prod("<img src='/03_img/database.png'; height='60'; width='50'></img></br>postgresql-platformeco-auth-prod"):::white
+
+    %% Clusters %%
+        cluster_yc_com_dev_int_rolfcorp_ru("<img src='/03_img/cluster.png'; height='60'; width='50'></img></br>cluster_yc_com_dev_int_rolfcorp_ru"):::white
+        cluster_yc_com_int_rolfcorp_ru("<img src='/03_img/cluster.png'; height='60'; width='50'></img></br>cluster_yc_com_int_rolfcorp_ru"):::white
+        cluster_yc_plf_dev_int_rolfcorp_ru("<img src='/03_img/cluster.png'; height='60'; width='50'></img></br>cluster_yc_plf_dev_int_rolfcorp_ru"):::white
+        cluster_yc_plf_int_rolfcorp_ru("<img src='/03_img/cluster.png'; height='60'; width='50'></img></br>cluster_yc_plf_int_rolfcorp_ru"):::white
+
+        N1(rolf_CIDR vpnplus</br>10.50.0.0-16</br>10.53.0.0-16):::white
+        
+        N2(dp-dc1.int.rolfcorp.ru</br>10.53.200.203/32</br>dp-dc2.int.rolfcorp.ru</br>10.53.200.202/32</br>dp-dc3.int.rolfcorp.ru</br>10.54.71.22/32</br>dl-dc1.int.rolfcorp.ru</br>10.54.71.40/32</br>dl-dc2.int.rolfcorp.ru</br>10.54.71.41/32</br>dp-asw3.int.rolfcorp.ru</br>10.53.240.217/32</br>dp-test-backup.int.rolfcorp.ru</br>10.54.71.42/32):::white
+
+        N3(cr-as-stend-4.int.rolfcorp.ru</br>- 10.53.240.186/32</br>rolf-ts32.int.rolfcorp.ru</br>- 10.53.240.110/32</br>dp-aswt.int.rolfcorp.ru</br>- 10.53.240.11/32):::white
+
+    %% Links %%
+        nexus-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_com_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_com_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_com_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        nexus-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        nexus-prod <----> dns-forwarder-prod
+        nexus-prod <----> dns-forwarder-prod
+        nexus-prod <----> keycloak-dev
+        dns-forwarder-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_com_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_com_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_com_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_com_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        dns-forwarder-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        dns-forwarder-prod <----> keycloak-dev
+        keycloak-dev <----> cluster_yc_com_dev_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_com_dev_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_com_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_com_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_plf_int_rolfcorp_ru
+        keycloak-dev <----> cluster_yc_plf_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_com_dev_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_com_dev_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_com_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        kafka-common-dev <----> cluster_yc_plf_int_rolfcorp_ru
+        kafka-common-dev <----> postgresql-common-dev
+        kafka-common-dev <----> postgresql-common-dev
+        kafka-common-prod <----> cluster_yc_com_int_rolfcorp_ru
+        kafka-common-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        cassandra-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        cassandra-dev <----> cassandra-prod
+        cassandra-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        postgresql-vault-prod <----> cluster_yc_com_int_rolfcorp_ru
+        postgresql-common-prod <----> cluster_yc_com_int_rolfcorp_ru
+        postgresql-common-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        postgresql-common-dev <----> cluster_yc_com_dev_int_rolfcorp_ru
+        postgresql-common-dev <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        mongodb-platformeco-scheduler-prod <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        mongodb-platformeco-scheduler-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        postgresql-platformeco-auth-prod <----> cluster_yc_plf_int_rolfcorp_ru
+        N1 <----> postgresql-common-dev
+        N1 <----> kafka-common-dev
+        N1 <----> cluster_yc_plf_int_rolfcorp_ru
+        N1 <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        N1 <----> cluster_yc_com_int_rolfcorp_ru
+        N1 <----> cluster_yc_com_dev_int_rolfcorp_ru
+        N1 <----> dns-forwarder-prod
+        N1 <----> nexus-prod
+        N2 <----> cluster_yc_com_dev_int_rolfcorp_ru
+        N2 <----> nexus-prod
+        N2 <----> cluster_yc_com_int_rolfcorp_ru
+        N2 <----> dns-forwarder-prod
+        N2 <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        N2 <----> keycloak-dev
+        N2 <----> cluster_yc_plf_int_rolfcorp_ru
+        N2 <----> cassandra-dev
+        N2 <----> cassandra-prod
+        N3 <----> postgresql-common-dev
+        N3 <----> kafka-common-dev
+        N3 <----> cluster_yc_com_dev_int_rolfcorp_ru
+        N3 <----> cluster_yc_com_int_rolfcorp_ru
+        N3 <----> cluster_yc_plf_dev_int_rolfcorp_ru
+        N3 <----> cluster_yc_plf_int_rolfcorp_ru
+
+    %% linkStyles %%
+
+        linkStyle 0 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 1 stroke-width:2px,fill:none,stroke:red
+        linkStyle 2 stroke-width:2px,fill:none,stroke:black
+        linkStyle 3 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 4 stroke-width:2px,fill:none,stroke:red
+        linkStyle 5 stroke-width:2px,fill:none,stroke:black
+        linkStyle 6 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 7 stroke-width:2px,fill:none,stroke:red
+        linkStyle 8 stroke-width:2px,fill:none,stroke:black
+        linkStyle 9 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 10 stroke-width:2px,fill:none,stroke:red
+        linkStyle 11 stroke-width:2px,fill:none,stroke:black
+        linkStyle 12 stroke-width:2px,fill:none,stroke:red
+        linkStyle 13 stroke-width:2px,fill:none,stroke:black
+        linkStyle 14 stroke-width:2px,fill:none,stroke:red
+        linkStyle 15 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 16 stroke-width:2px,fill:none,stroke:red
+        linkStyle 17 stroke-width:2px,fill:none,stroke:black
+        linkStyle 18 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 19 stroke-width:2px,fill:none,stroke:red
+        linkStyle 20 stroke-width:2px,fill:none,stroke:black
+        linkStyle 21 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 22 stroke-width:2px,fill:none,stroke:red
+        linkStyle 23 stroke-width:2px,fill:none,stroke:black
+        linkStyle 24 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 25 stroke-width:2px,fill:none,stroke:red
+        linkStyle 26 stroke-width:2px,fill:none,stroke:black
+        linkStyle 27 stroke-width:2px,fill:none,stroke:red
+        linkStyle 28 stroke-width:2px,fill:none,stroke:navy
+        linkStyle 29 stroke-width:2px,fill:none,stroke:red
+        linkStyle 30 stroke-width:2px,fill:none,stroke:red
+        linkStyle 31 stroke-width:2px,fill:none,stroke:navy
+        linkStyle 32 stroke-width:2px,fill:none,stroke:red
+        linkStyle 33 stroke-width:2px,fill:none,stroke:navy
+        linkStyle 34 stroke-width:2px,fill:none,stroke:red
+        linkStyle 35 stroke-width:2px,fill:none,stroke:navy
+        linkStyle 36 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 37 stroke-width:2px,fill:none,stroke:orange
+        linkStyle 38 stroke-width:2px,fill:none,stroke:green
+        linkStyle 39 stroke-width:2px,fill:none,stroke:green
+        linkStyle 40 stroke-width:2px,fill:none,stroke:green
+        linkStyle 41 stroke-width:2px,fill:none,stroke:green
+        linkStyle 42 stroke-width:2px,fill:none,stroke:green
+        linkStyle 43 stroke-width:2px,fill:none,stroke:black
+        linkStyle 44 stroke-width:2px,fill:none,stroke:darkolivegreen
+        linkStyle 45 stroke-width:2px,fill:none,stroke:darkolivegreen
+        linkStyle 46 stroke-width:2px,fill:none,stroke:gainsboro
+        linkStyle 47 stroke-width:2px,fill:none,stroke:red
+        linkStyle 48 stroke-width:2px,fill:none,stroke:magenta
+        linkStyle 49 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 50 stroke-width:2px,fill:none,stroke:greenyellow
+        linkStyle 51 stroke-width:2px,fill:none,stroke:greenyellow
+        linkStyle 52 stroke-width:2px,fill:none,stroke:fuchsia
+        linkStyle 53 stroke-width:2px,fill:none,stroke:fuchsia
+        linkStyle 54 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 55 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 56 stroke-width:2px,fill:none,stroke:blue
+        linkStyle 57 stroke-width:2px,fill:none,stroke:black
+        linkStyle 58 stroke-width:2px,fill:none,stroke:black
+        linkStyle 59 stroke-width:2px,fill:none,stroke:black
+        linkStyle 60 stroke-width:2px,fill:none,stroke:black
+        linkStyle 61 stroke-width:2px,fill:none,stroke:black
+        linkStyle 62 stroke-width:2px,fill:none,stroke:black
+        linkStyle 63 stroke-width:2px,fill:none,stroke:black
+        linkStyle 64 stroke-width:2px,fill:none,stroke:black
+        linkStyle 65 stroke-width:2px,fill:none,stroke:red
+        linkStyle 66 stroke-width:2px,fill:none,stroke:red
+        linkStyle 67 stroke-width:2px,fill:none,stroke:red
+        linkStyle 68 stroke-width:2px,fill:none,stroke:red
+        linkStyle 69 stroke-width:2px,fill:none,stroke:red
+        linkStyle 70 stroke-width:2px,fill:none,stroke:red
+        linkStyle 71 stroke-width:2px,fill:none,stroke:red
+        linkStyle 72 stroke-width:2px,fill:none,stroke:red
+        linkStyle 73 stroke-width:2px,fill:none,stroke:red
+        linkStyle 74 stroke-width:2px,fill:none,stroke:darkslategray
+        linkStyle 75 stroke-width:2px,fill:none,stroke:darkslategray
+        linkStyle 76 stroke-width:2px,fill:none,stroke:darkslategray
+        linkStyle 77 stroke-width:2px,fill:none,stroke:darkslategray
+        linkStyle 78 stroke-width:2px,fill:none,stroke:darkslategray
+        linkStyle 79 stroke-width:2px,fill:none,stroke:darkslategray
+....
+====

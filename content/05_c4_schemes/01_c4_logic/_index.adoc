@@ -1,0 +1,42 @@
+---
+title: "C4 Flora Logic - Уровень С1"
+description: "C4 Flora Logic - Уровень С1"
+weight: 1
+draft: false
+slug: ""
+---
+
+:imgdir: /05_01_img/
+:imagesoutdir: ./static/05_01_img/
+
+include::static/includes/init.adoc[]
+
+= C4 Flora Logic
+
+{empty} +
+
+== C4 Flora Logic
+
+++++
+<style type="text/css">
+.diagram_dimensions { 
+    width: 100%;
+}
+</style>
+
+<div class="diagram_dimensions">
+++++
+
+****
+[plantuml%interactive, flora, format=svg, align=center, width=100%]
+.Flora
+----
+include::{imagesoutdir}flora.puml[]
+----
+****
+
+++++
+</div>
+++++
+
+
