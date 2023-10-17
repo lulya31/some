@@ -1,12 +1,12 @@
 ---
-title: "Архитектура С4"
-description: "Архитектура С4"
+title: "Сервисы"
+description: "Сервисы"
 weight: 1
 draft: false
 slug: ""
 ---
 
-= Архитектура С4
+= Сервисы
 
 {empty} +
 
