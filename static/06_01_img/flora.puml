@@ -1,6 +1,9 @@
 @startuml C2
 
 '!pragma layout elk
+'!pragma layout smetana
+!pragma layout VizJs
+'!pragma layout GraphViz
 
 !include static/includes/c4_context.puml
 !include static/includes/c4_container.puml
