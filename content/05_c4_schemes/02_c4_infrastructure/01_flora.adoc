@@ -1,0 +1,38 @@
+---
+title: "C4 Flora Infrastructure - Уровень С2"
+description: "C4 Flora Infrastructure - Уровень С2"
+weight: 1
+draft: false
+---
+
+:imgdir: /05_02_01_img/
+:imagesoutdir: ./static/05_02_01_img/
+
+include::static/includes/init.adoc[]
+
+= C4 Flora Infrastructure - Уровень С2
+
+{empty} +
+
+++++
+<style type="text/css">
+.diagram_dimensions { 
+    width: 100%;
+}
+</style>
+
+<div class="diagram_dimensions">
+++++
+
+****
+[plantuml%interactive, flora, format=svg, align=center, width=100%]
+.C4 Flora Infrastructure - Уровень С2
+----
+include::{imagesoutdir}flora.puml[]
+----
+****
+
+++++
+</div>
+++++
+
