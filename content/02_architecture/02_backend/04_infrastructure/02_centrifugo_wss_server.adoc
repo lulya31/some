@@ -24,7 +24,7 @@ include::static/includes/init.adoc[]
 | admin-url | `[.blue]#https://admin-centrifugo.com-dev.int.rolfcorp.ru#`
 | admin-pass | `f703c86a-72e9-4fff-8f6a-d21c9994514f`
 | apiKey | `011cc3b6-941f-41bc-ae71-4462d5f189e9`
-| Token (может истечь со временем) | eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0YWdlcyIsImV4cCI6MTY4MDUxNTA4MCwiaWF0IjoxNjc5OTEwMjgwfQ.ntEXAJJArgBlIdIVfZ8QYq9uj-sLykrrhAfeAT1W64c 
+| Token (может истечь со временем) | &#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42; 
 |===
 ****
 
