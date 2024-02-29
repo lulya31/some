@@ -33,14 +33,14 @@ include::static/includes/init.adoc[]
 |===
 6+^.^| *Для работы с Dbeaver и PGadmin* 2+^.^| *Для работы Platformeco, канал COREAPP* 2+^.^| *Для работы Platformeco, канал INTEGRATION* 2+^.^| *Для работы Platformeco, канал ROLFID*
 ^.^| *host* ^.^| *port* ^.^| *sslmode* ^.^| *dbname* ^.^| *user* ^.^| *pass* ^.^| *пути в vault* ^.^| *юзер и пароль хранятся в vault* ^.^| *пути в vault* ^.^| *юзер и пароль хранятся в vault* ^.^| *пути в vault* ^.^| *юзер и пароль хранятся в vault*
-| `[.blue]#c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net#` | `6432` | `verify-full` | `onerolf-debug` | `onerolf` | `ZraCV8l0YKHglCVf` | `platformeco/data/coreapp/dev/debug` .6+| `HC_VAULT_ROLE_ID f8049c89-6286-8bb9-2f12-d8300b847d18
+| `[.blue]#c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net#` | `6432` | `verify-full` | `onerolf-debug` | `onerolf` | `&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;` | `platformeco/data/coreapp/dev/debug` .6+| `HC_VAULT_ROLE_ID f8049c89-6286-8bb9-2f12-d8300b847d18
 HC_VAULT_SECRET_ID f5d5004e-5853-a31d-b64b-f39742a1e40f` | `platformeco/data/integration/dev/debug` .6+| `HC_VAULT_ROLE_ID: 1598cded-3050-ca0a-ed44-ff394e0483f2
 HC_VAULT_SECRET_ID: e2c22d6a-f531-6705-807d-088afe4020bc` | `platformeco/data/rolfid/dev/debug` .6+| `HC_VAULT_ROLE_ID: 10051677-c471-9d6a-aa4f-421c80dc52b8  
 HC_VAULT_SECRET_ID: 10e3effd-c5ce-afeb-0341-93ba57b12838`
-| `[.blue]#c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net#` | `6432` | `verify-full` | `onerolf-test` | `onerolf` | `ZraCV8l0YKHglCVf` | `platformeco/data/coreapp/dev/test` | `platformeco/data/integration/dev/test` | `platformeco/data/rolfid/dev/test`
-| `[.blue]#c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net#` | `6432` | `verify-full` | `onerolf-dev`    |`onerolf`  |`ZraCV8l0YKHglCVf`  | `platformeco/data/coreapp/dev/develop` | `platformeco/data/integration/dev/develop` | `platformeco/data/rolfid/dev/develop`
-| `[.blue]#c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net#` | `6432` | `verify-full` |  `onerolf-preprod`    | `onerolf` | `ZraCV8l0YKHglCVf` | `platformeco/data/coreapp/dev/preprod` | `platformeco/data/integration/dev/preprod` | `platformeco/data/rolfid/dev/preprod`
-| `[.blue]#c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net#` | `6432` | `verify-full` | `pforms-dev` | `pforms-dev-readonly` | `FFWeV8LWAKoW` |  |  | 
+| `[.blue]#c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net#` | `6432` | `verify-full` | `onerolf-test` | `onerolf` | `&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;` | `platformeco/data/coreapp/dev/test` | `platformeco/data/integration/dev/test` | `platformeco/data/rolfid/dev/test`
+| `[.blue]#c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net#` | `6432` | `verify-full` | `onerolf-dev`    |`onerolf`  |`&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;`  | `platformeco/data/coreapp/dev/develop` | `platformeco/data/integration/dev/develop` | `platformeco/data/rolfid/dev/develop`
+| `[.blue]#c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net#` | `6432` | `verify-full` |  `onerolf-preprod`    | `onerolf` | `&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;` | `platformeco/data/coreapp/dev/preprod` | `platformeco/data/integration/dev/preprod` | `platformeco/data/rolfid/dev/preprod`
+| `[.blue]#c-c9qfus7o1luddvo41und.rw.mdb.yandexcloud.net#` | `6432` | `verify-full` | `pforms-dev` | `pforms-dev-readonly` | `&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;` |  |  | 
 | `[.blue]#c-c9q78q89b7uqg831ek9l.rw.mdb.yandexcloud.net#` | `6432` |  |   `onerolf-prod`    |  |  |  |  | 
 | `[.blue]#c-c9q78q89b7uqg831ek9l.rw.mdb.yandexcloud.net#` |  |             |     |  |  |  |  | 
 |===

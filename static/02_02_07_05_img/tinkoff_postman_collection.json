@@ -424,7 +424,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"setNumber\": \"{{cV_setNumber}}\",\r\n    \"calcInsCompany\": \"TINKOFF\",\r\n    \"issuerDetails\": {\r\n        \"userLastName\": \"{{task_executor_last_name}}\",\r\n        \"userFirstName\": \"{{task_executor_first_name}}\",\r\n        \"userLogin\": \"ESAssylov@rolf.ru\"\r\n    }\r\n}\r\n",
+					"raw": "{\r\n    \"setNumber\": \"{{cV_setNumber}}\",\r\n    \"calcInsCompany\": \"TINKOFF\",\r\n    \"issuerDetails\": {\r\n        \"userLastName\": \"{{task_executor_last_name}}\",\r\n        \"userFirstName\": \"{{task_executor_first_name}}\",\r\n        \"userLogin\": \"********\"\r\n    }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"

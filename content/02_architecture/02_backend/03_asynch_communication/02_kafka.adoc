@@ -43,7 +43,7 @@ include::static/includes/init.adoc[]
             },
             {
                 "key": "sasl.jaas.config",
-                "value": "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"integration\" password=\"cHgnNu2tRNG9yd8n\";"
+                "value": "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"integration\" password=\"****************\";"
             },
             {
                 "key": "auto.offset.reset",
