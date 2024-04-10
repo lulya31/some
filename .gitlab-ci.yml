@@ -15,7 +15,7 @@ build:
   variables:
     DOCKER_IMAGE_NAME: $CI_PROJECT_PATH
     DOCKER_IMAGE_VERSION: $CI_COMMIT_REF_NAME
-    DOCKER_FILE_FOLDER: $CI_PROJECT_DIR/themes/template
+    DOCKER_FILE_FOLDER: $CI_PROJECT_DIR/themes/asciidoc_shadocs
     DOCKER_REGISTRY_HOST: docker-rolf.registry.int.rolfcorp.ru
   image:
     name: docker.registry.int.rolfcorp.ru/kaniko-project/executor:v1.9.0-debug
