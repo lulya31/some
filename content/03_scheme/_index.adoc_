@@ -11,7 +11,7 @@ slug: ""
 
 include::static/includes/init.adoc[]
 
-:mermaid-puppeteer-config: ./themes/template/puppeteer-config.json
+:mermaid-puppeteer-config: ./themes/shadocs/puppeteer-config.json
 
 = Схемы проекта One ROLF
 
