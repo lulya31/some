@@ -3,7 +3,7 @@ baseURL = "https://example.com"
 languageCode = "RU-ru"
 DefaultContentLanguage = "ru"
 title = "Архитектура ПО FLORA"
-theme = "shadocs"
+theme = "template"
 
 hasCJKLanguage = true
 metaDataFormat = "yaml"
