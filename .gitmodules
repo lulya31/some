@@ -1,3 +1,3 @@
 [submodule "themes/shadocs"]
 	path = themes/shadocs
-	url = https://gitlab.int.rolfcorp.ru/one-rolf/doc/asciidoc/asciidoc_shadocs
+	url = https://gitlab.int.rolfcorp.ru/one-rolf/doc/asciidoc/asciidoc_shadocs.git
