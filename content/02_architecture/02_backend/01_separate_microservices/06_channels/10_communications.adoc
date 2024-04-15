@@ -10,6 +10,8 @@ draft: false
 
 include::static/includes/init.adoc[]
 
+:mermaid-puppeteer-config: ./themes/shadocs/puppeteer-config.json
+
 = Канал communications
 
 {empty} +
