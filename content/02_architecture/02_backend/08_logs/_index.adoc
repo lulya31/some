@@ -4,6 +4,11 @@ description: "Системы логирования"
 weight: 8
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Logs
 ---
 
 = Системы логирования

@@ -4,6 +4,11 @@ description: "Сервисы"
 weight: 1
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Backend    
+Tags:
+    - Services
 ---
 
 = Сервисы

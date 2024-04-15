@@ -3,6 +3,12 @@ title: "Сервис проверки истории авто по VIN - Авт�
 description: "Сервис проверки истории авто по VIN - Автотека"
 weight: 2
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - External system services
+    - Avtoteka
 ---
 
 :imgdir: /02_02_03_02_img/

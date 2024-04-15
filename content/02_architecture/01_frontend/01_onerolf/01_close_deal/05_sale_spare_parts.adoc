@@ -2,6 +2,13 @@
 title: "Продажа запчастей"
 slug: "05_sale_spare_parts"
 weight: 5
+Categories:
+    - Architecture
+    - Frontend
+    - Onerolf
+Tags:
+    - Close deal
+    - Продажа запчастей
 ---
 
 :imgdir: /02_01_01_01_05_img/

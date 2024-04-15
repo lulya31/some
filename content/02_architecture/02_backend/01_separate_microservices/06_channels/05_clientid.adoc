@@ -3,6 +3,13 @@ title: "Канал clientid"
 description: "Канал clientid"
 weight: 5
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
+    - Канал clientid
 ---
 
 :imgdir: /02_02_01_06_05_img/

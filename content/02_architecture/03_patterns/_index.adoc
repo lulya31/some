@@ -4,6 +4,10 @@ description: "Паттерны"
 weight: 3
 draft: false
 slug: ""
+Categories:
+    - Architecture
+Tags:
+    - Patterns
 ---
 
 = Паттерны

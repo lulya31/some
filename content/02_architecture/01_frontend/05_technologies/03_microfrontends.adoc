@@ -3,6 +3,12 @@ title: "Микрофронтенды"
 description: "Микрофронтенды"
 weight: 3
 draft: false
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Technologies
+    - Microfrontends
 ---
 
 :imgdir: /02_01_05_03_img/

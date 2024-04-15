@@ -2,6 +2,13 @@
 title: "Выкуп АСП"
 slug: "03_ransom_used_cars"
 weight: 3
+Categories:
+    - Architecture
+    - Frontend
+    - Onerolf
+Tags:
+    - Close deal
+    - Выкуп АСП
 ---
 
 :imgdir: /02_01_01_01_03_img/

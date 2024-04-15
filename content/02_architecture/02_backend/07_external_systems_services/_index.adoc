@@ -4,6 +4,11 @@ description: "Внешние системы и сервисы"
 weight: 7
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - External system services
 ---
 
 = Внешние системы и сервисы

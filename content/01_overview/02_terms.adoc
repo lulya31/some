@@ -3,6 +3,10 @@ title: "Термины и сокращения"
 description: "Термины и сокращения"
 weight: 2
 draft: false
+Categories:
+    - Overview
+Tags:
+    - Terms
 ---
 
 :imgdir: /01_02_img/

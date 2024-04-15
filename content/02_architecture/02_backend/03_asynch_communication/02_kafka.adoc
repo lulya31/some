@@ -3,6 +3,12 @@ title: "Kafka - Сервис очередей"
 description: "Kafka - Сервис очередей"
 weight: 3
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Async communications
+    - Kafka
 ---
 
 :imgdir: /02_02_03_02_img/

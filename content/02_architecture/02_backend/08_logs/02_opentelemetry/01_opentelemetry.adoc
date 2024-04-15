@@ -3,6 +3,12 @@ title: "Open Telemetry"
 description: "Open Telemetry"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Logs
+Tags:
+    - OpenTelemetry service
 ---
 
 :imgdir: /02_02_14_02_01_img/

@@ -4,6 +4,10 @@ description: "C4 Flora Logic - Уровень С1"
 weight: 1
 draft: false
 slug: ""
+Categories:
+    - C4 Schemes
+Tags:
+    - C4 Flora Logic
 ---
 
 :imgdir: /05_01_img/

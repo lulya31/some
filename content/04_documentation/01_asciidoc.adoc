@@ -3,6 +3,10 @@ title: "AsciiDoc"
 description: "Язык разметки текста AsciiDoc"
 weight: 1
 draft: false
+Categories:
+    - Documentation    
+Tags:
+    - Asciidoc
 ---
 
 :imgdir: /04_01_img/

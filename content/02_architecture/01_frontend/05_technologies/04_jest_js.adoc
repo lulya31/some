@@ -3,6 +3,12 @@ title: "Jest JS"
 description: "Jest JS"
 weight: 4
 draft: false
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Technologies
+    - Jest JS
 ---
 
 :imgdir: /02_01_05_04_img/

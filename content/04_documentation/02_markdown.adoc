@@ -3,6 +3,10 @@ title: "Markdown"
 description: "Язык разметки текста Markdown"
 weight: 2
 draft: false
+Categories:
+    - Documentation    
+Tags:
+    - Markdown
 ---
 
 :imgdir: /04_02_img/

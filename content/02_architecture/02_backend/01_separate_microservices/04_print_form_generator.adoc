@@ -3,6 +3,12 @@ title: "Генератор печатных форм"
 description: "Генератор печатных форм"
 weight: 4
 draft: false
+Categories:
+    - Architecture
+    - Backend    
+Tags:
+    - Services
+    - Генератор печатных форм
 ---
 
 :imgdir: /02_02_01_04_img/

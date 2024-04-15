@@ -4,6 +4,11 @@ description: "Mobile"
 weight: 2
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Mobile
 ---
 
 :imgdir: /02_01_02_img/

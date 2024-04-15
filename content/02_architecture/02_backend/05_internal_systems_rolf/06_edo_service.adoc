@@ -3,6 +3,12 @@ title: "Сервис ЭДО (подписание договоров)"
 description: "Сервис ЭДО (подписание договоров)"
 weight: 6
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Internal systems
+    - EDO service
 ---
 
 :experimental:

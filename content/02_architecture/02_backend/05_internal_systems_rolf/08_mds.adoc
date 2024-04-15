@@ -3,6 +3,12 @@ title: "MDS сервис - расчет цены продажи авто"
 description: "MDS сервис - расчет цены продажи авто"
 weight: 8
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Internal systems
+    - MDS
 ---
 
 :imgdir: /02_02_05_08_img/

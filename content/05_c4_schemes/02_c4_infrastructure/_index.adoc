@@ -4,6 +4,10 @@ description: "C4 Flora Infrastructure - Уровень С1"
 weight: 2
 draft: false
 slug: ""
+Categories:
+    - C4 Schemes
+Tags:
+    - C4 Flora Infrastructure
 ---
 
 :imgdir: /05_02_img/

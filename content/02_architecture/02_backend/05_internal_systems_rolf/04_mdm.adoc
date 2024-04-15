@@ -3,6 +3,12 @@ title: "MDM - Мастер данные"
 description: "MDM - Мастер данные"
 weight: 4
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Internal systems
+    - MDM
 ---
 
 :imgdir: /02_02_05_04_img/

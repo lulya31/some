@@ -3,6 +3,12 @@ title: "Сервис корректировки данных DaData"
 description: "Сервис корректировки данных DaData"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - External system services
+    - DaData
 ---
 
 :imgdir: /02_02_07_01_img/

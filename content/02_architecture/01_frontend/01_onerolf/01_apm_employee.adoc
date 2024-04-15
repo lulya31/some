@@ -10,6 +10,12 @@ additional:
     maintainer_slack: ""
     developer: ""
     status: "В работе"
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Onerolf
+    - ARM Employee
 ---
 
 :imgdir: /02_01_01_01_img/

@@ -3,6 +3,12 @@ title: "Vue JS"
 description: "Описание Vue JS"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Technologies
+    - VueJS
 ---
 
 :imgdir: /02_01_05_01_img/

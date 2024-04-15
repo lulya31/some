@@ -3,6 +3,12 @@ title: "АС Рольф Web страхование"
 description: "АС Рольф Web страхование"
 weight: 4
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Opersystems
+    - АС Рольф Web страхование
 ---
 
 :imgdir: /02_02_06_04_img/

@@ -2,6 +2,13 @@
 title: "Продажа Финуслуг/Страховок"
 slug: "04_sale_financial_services_insurance"
 weight: 4
+Categories:
+    - Architecture
+    - Frontend
+    - Onerolf
+Tags:
+    - Close deal
+    - Продажа Финуслуг/Страховок
 ---
 
 :imgdir: /02_01_01_01_04_img/

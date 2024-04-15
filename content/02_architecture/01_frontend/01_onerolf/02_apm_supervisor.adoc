@@ -2,6 +2,12 @@
 title: "АРМ руководителя"
 slug: "02_apm_supervisor"
 weight: 2
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Onerolf
+    - ARM Supervisor
 ---
 
 :imgdir: /02_01_01_02_img/

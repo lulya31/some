@@ -3,6 +3,13 @@ title: "Канал taskandevent"
 description: "Канал taskandevent"
 weight: 8
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
+    - Канал taskandevent
 ---
 
 :imgdir: /02_02_01_06_08_img/

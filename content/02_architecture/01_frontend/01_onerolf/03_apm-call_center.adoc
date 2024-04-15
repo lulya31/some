@@ -2,6 +2,12 @@
 title: "Call Центр"
 slug: "03_apm-call_center"
 weight: 3
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Onerolf
+    - ARM Call center
 ---
 
 :imgdir: /02_01_01_03_img/

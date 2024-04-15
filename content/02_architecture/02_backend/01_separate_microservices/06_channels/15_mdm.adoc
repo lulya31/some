@@ -1,8 +1,15 @@
 ---
-title: "Канал mdm"
-description: "Канал mdm"
+title: "Канал MDM"
+description: "Канал MDM"
 weight: 15
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
+    - Канал MDM
 ---
 
 :imgdir: /02_02_01_06_15_img/

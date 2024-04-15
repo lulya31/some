@@ -3,6 +3,12 @@ title: "ELT сервис - страховой модуль"
 description: "ELT сервис - страховой модуль"
 weight: 3
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - External system services
+    - ELT
 ---
 
 :imgdir: /02_02_07_03_img/

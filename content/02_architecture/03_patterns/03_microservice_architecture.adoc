@@ -3,6 +3,11 @@ title: "Паттерн - Микросервисная архитекура"
 description: "Паттерн - Микросервисная архитекура"
 weight: 3
 draft: false
+Categories:
+    - Architecture
+    - Patterns    
+Tags:
+    - Microservice architecture
 ---
 
 :imgdir: /02_03_03_img/

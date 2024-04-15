@@ -3,6 +3,13 @@ title: "API Gateway (Kong APIM)"
 description: "API Gateway (Kong APIM)"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Infrastructure
+Tags:
+    - APIM
+    - Kong API gateway
 ---
 
 :imgdir: /02_02_04_03_01_img/
