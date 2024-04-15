@@ -1,7 +1,12 @@
-/hugo.exe
-.hugo_build.lock
-.idea
-.DS_Store
 .asciidoctor
-/.vscode
+/public
+/hugo.exe
+.idea
+.hugo_build.lock
+.DS_Store
+*.html
+LICENSE
+/.vs
 /resources
+/static/pagefind
+.vscode
