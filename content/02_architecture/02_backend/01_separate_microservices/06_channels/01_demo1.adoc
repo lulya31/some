@@ -3,6 +3,13 @@ title: "Канал demo1"
 description: "Канал demo1"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
+    - Канал demo1
 ---
 
 :imgdir: /02_02_01_06_01_img/

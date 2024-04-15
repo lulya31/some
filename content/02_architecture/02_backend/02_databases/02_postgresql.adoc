@@ -3,6 +3,12 @@ title: "База данных PostgreSQL"
 description: "База данных PostgreSQL"
 weight: 2
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Databases
+    - PostgreSQL
 ---
 
 :imgdir: /02_02_01_02_img/

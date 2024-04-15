@@ -3,6 +3,12 @@ title: "Yandex DataLens - сервис для бизнес-аналитики"
 description: "Yandex DataLens - сервис для бизнес-аналитики"
 weight: 4
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - External system services
+    - Datalens
 ---
 
 :imgdir: /02_02_07_04_img/

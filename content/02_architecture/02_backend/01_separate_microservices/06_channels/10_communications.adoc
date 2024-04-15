@@ -3,6 +3,13 @@ title: "Канал communications"
 description: "Канал communications"
 weight: 10
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
+    - Канал communications
 ---
 
 :imgdir: /02_02_01_06_10_img/

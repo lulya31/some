@@ -4,6 +4,11 @@ description: "Внутренние системы Rolf"
 weight: 5
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Internal systems
 ---
 
 = Внутренние системы Rolf

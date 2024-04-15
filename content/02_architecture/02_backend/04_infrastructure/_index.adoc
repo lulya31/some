@@ -4,6 +4,11 @@ description: "Инфраструктура"
 weight: 4
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Infrastructure
 ---
 
 = Внешние системы и сервисы

@@ -3,6 +3,12 @@ title: "База данных Redis"
 description: "База данных Redis"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Databases
+    - Redis
 ---
 
 :imgdir: /02_02_01_01_img/

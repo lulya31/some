@@ -4,6 +4,12 @@ description: "Платформа OpenTelemetry"
 weight: 1
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Backend
+    - Logs
+Tags:
+    - OpenTelemetry
 ---
 
 = Платформа OpenTelemetry

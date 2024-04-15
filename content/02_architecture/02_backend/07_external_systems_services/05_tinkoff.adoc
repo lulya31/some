@@ -3,6 +3,12 @@ title: "Tinkoff"
 description: "Tinkoff"
 weight: 5
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - External system services
+    - Tinkoff
 ---
 
 :imgdir: /02_02_07_05_img/

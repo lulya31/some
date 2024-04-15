@@ -3,6 +3,13 @@ title: "Канал payments"
 description: "Канал payments"
 weight: 7
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
+    - Канал payments
 ---
 
 :imgdir: /02_02_01_06_07_img/

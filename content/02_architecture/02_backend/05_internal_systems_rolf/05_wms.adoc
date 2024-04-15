@@ -3,6 +3,12 @@ title: "WMS - Система управления складом"
 description: "WMS - Система управления складом"
 weight: 5
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Internal systems
+    - WMS
 ---
 
 :imgdir: /02_02_05_05_img/

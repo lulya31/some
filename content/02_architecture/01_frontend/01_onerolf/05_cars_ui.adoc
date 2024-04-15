@@ -2,6 +2,12 @@
 title: "Список авто / Карточка авто"
 slug: "05_cars_ui"
 weight: 5
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Onerolf
+    - ARM Cars UI
 ---
 
 :imgdir: /02_01_01_05_img/

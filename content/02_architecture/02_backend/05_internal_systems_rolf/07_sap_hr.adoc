@@ -3,6 +3,12 @@ title: "Платформа управления персоналом SAP HR"
 description: "Платформа управления персоналом SAP HR"
 weight: 7
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Internal systems
+    - SAP HR
 ---
 
 :imgdir: /02_02_05_06_img/

@@ -4,6 +4,10 @@ description: "Описание внутренней логики (Backend)"
 weight: 2
 draft: false
 slug: ""
+Categories:
+    - Architecture
+Tags:
+    - Backend
 ---
 
 = Внутренняя логика (Backend)

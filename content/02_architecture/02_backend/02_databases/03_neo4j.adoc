@@ -3,6 +3,12 @@ title: "Система управления базами данных Neo4J"
 description: "Система управления базами данных Neo4J"
 weight: 3
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Databases
+    - PostgreSQL
 ---
 
 :imgdir: /02_02_01_03_img/

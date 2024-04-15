@@ -3,6 +3,10 @@ title: "Описание"
 description: "Описание"
 weight: 1
 draft: false
+Categories:
+    - Overview
+Tags:
+    - Overview
 ---
 
 :imgdir: /01_03_img/

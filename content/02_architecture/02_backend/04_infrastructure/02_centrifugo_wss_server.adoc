@@ -3,6 +3,12 @@ title: "Сервер обмена сообщениями Centrifugo"
 description: "Сервер обмена сообщениями Centrifugo WSS Server"
 weight: 2
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Infrastructure
+    - Centrifugo WSS Server
 ---
 
 :imgdir: /02_02_04_02_img/

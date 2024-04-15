@@ -4,6 +4,11 @@ description: "Хранилища и Базы данных"
 weight: 2
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Databases
 ---
 
 = Хранилища и Базы данных

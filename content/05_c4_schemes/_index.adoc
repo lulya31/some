@@ -3,7 +3,12 @@ title: "Схемы С4"
 description: "Схемы С4"
 weight: 2
 draft: false
+titleIcon: "fa-solid fa-network-wired"
 slug: ""
+Categories:
+    - C4 Schemes
+Tags:
+    - C4 Schemes
 ---
 
 = Схемы С4

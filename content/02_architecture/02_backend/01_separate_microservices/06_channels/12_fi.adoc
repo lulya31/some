@@ -1,8 +1,15 @@
 ---
-title: "Канал fi"
-description: "Канал fi"
+title: "Канал FI"
+description: "Канал FI"
 weight: 12
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
+    - Канал FI
 ---
 
 :imgdir: /02_02_01_06_12_img/

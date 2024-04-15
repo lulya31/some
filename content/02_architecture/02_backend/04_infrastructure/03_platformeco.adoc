@@ -3,6 +3,12 @@ title: "Platformeco"
 description: "Platformeco"
 weight: 2
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Infrastructure
+    - Platformeco
 ---
 
 :imgdir: /02_02_04_03_img/

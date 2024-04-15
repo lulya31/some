@@ -3,6 +3,12 @@ title: "Система поиска OpenSearch"
 description: "Система поиска OpenSearch"
 weight: 5
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Databases
+    - OpenSearch
 ---
 
 :imgdir: /02_02_01_05_img/

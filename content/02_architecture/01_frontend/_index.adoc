@@ -4,6 +4,10 @@ description: "Взаимодействие с пользователями (Fron
 weight: 1
 draft: false
 slug: ""
+Categories:
+    - Architecture
+Tags:
+    - Frontend
 ---
 
 = Взаимодействие с пользователями (Frontend)

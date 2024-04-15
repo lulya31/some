@@ -3,6 +3,12 @@ title: "Debezium"
 description: "Debezium"
 weight: 8
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Databases
+    - Debezium
 ---
 
 :imgdir: /02_02_01_07_img/

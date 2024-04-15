@@ -3,6 +3,13 @@ title: "Канал service"
 description: "Канал service"
 weight: 14
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
+    - Канал service
 ---
 
 :imgdir: /02_02_01_06_14_img/

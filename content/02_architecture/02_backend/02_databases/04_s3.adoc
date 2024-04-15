@@ -3,6 +3,12 @@ title: "Объектное хранилище данных S3"
 description: "Объектное хранилище данных S3"
 weight: 4
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Databases
+    - S3
 ---
 
 :imgdir: /02_02_02_04_img/

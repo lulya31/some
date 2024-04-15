@@ -3,6 +3,10 @@ title: "Hugo"
 description: "Hugo"
 weight: 3
 draft: false
+Categories:
+    - Documentation    
+Tags:
+    - Hugo
 ---
 
 :imgdir: /04_03_img/

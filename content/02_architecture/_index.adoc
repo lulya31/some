@@ -3,7 +3,12 @@ title: "Архитектура компонент One Rolf"
 description: "Архитектура компонент One Rolf"
 weight: 3
 draft: false
+titleIcon: "fa-solid fa-ethernet"
 slug: ""
+Categories:
+    - Architecture
+Tags:
+    - Architecture
 ---
 
 = Компоненты проекта One Rolf

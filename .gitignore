@@ -1,4 +1,5 @@
 .asciidoctor
+.resources
 /public
 /hugo.exe
 .idea
@@ -7,7 +8,7 @@
 *.html
 LICENSE
 /.vs
-.resources
 /static/pagefind
 .vscode
 *.svg
+.themes

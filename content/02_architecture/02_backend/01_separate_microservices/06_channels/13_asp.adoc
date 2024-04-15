@@ -1,8 +1,15 @@
 ---
-title: "Канал asp"
-description: "Канал asp"
+title: "Канал ASP"
+description: "Канал ASP"
 weight: 13
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
+    - Канал ASP
 ---
 
 :imgdir: /02_02_01_06_13_img/

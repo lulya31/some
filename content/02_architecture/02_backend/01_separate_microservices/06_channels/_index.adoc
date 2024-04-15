@@ -4,6 +4,12 @@ description: "Каналы"
 weight: 9
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
 ---
 
 = Каналы

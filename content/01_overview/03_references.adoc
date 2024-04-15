@@ -3,6 +3,10 @@ title: "Полезные ссылки"
 description: "Полезные ссылки"
 weight: 3
 draft: false
+Categories:
+    - Overview
+Tags:
+    - References
 ---
 
 :imgdir: /01_03_img/

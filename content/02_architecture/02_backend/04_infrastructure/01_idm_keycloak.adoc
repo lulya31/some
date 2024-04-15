@@ -3,6 +3,12 @@ title: "IDM KeyCloak"
 description: "IDM KeyCloak"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Infrastructure
+    - Idm key cloak
 ---
 
 :imgdir: /02_02_04_01_img/

@@ -3,6 +3,12 @@ title: "Jaeger"
 description: "Jaeger"
 weight: 2
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Logs
+Tags:
+    - Jaeger
 ---
 
 :imgdir: /02_02_08_02_02_img/

@@ -3,6 +3,12 @@ title: "Grafana"
 description: "Grafana"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Logs
+    - Grafana
 ---
 
 :imgdir: /02_02_08_01_img/

@@ -3,6 +3,12 @@ title: "ИС Шторм"
 description: "ИС Шторм"
 weight: 2
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Opersystems
+    - Shtorm
 ---
 
 :imgdir: /02_02_06_02_img/

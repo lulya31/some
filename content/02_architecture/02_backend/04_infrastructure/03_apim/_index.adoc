@@ -4,6 +4,12 @@ description: "APIM"
 weight: 3
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Backend
+    - Infrastructure
+Tags:
+    - APIM
 ---
 
 = Внутринние системы Rolf

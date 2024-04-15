@@ -4,6 +4,11 @@ description: "One ROLF"
 weight: 1
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Onerolf
 ---
 
 == One Rolf

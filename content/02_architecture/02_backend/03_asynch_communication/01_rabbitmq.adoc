@@ -3,6 +3,12 @@ title: "RabbitMQ - Сервис очередей"
 description: "RabbitMQ - Сервис очередей"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Async communications
+    - RabbitMQ
 ---
 
 :imgdir: /02_02_03_01_img/

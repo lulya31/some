@@ -4,6 +4,11 @@ description: "Оперативные системы Rolf"
 weight: 6
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Opersystems
 ---
 
 = Оперативные системы Rolf

@@ -3,6 +3,12 @@ title: "ИС FishBlue"
 description: "ИС FishBlue"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Opersystems
+    - Fishblue
 ---
 
 :imgdir: /02_02_06_01_img/

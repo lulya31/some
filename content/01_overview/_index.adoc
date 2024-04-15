@@ -1,8 +1,10 @@
 ---
 title: "Общая информация о системе"
 description: "Общая информация о системе"
+titleIcon: "fa-sharp fa-align-left"
 weight: 1
 draft: false
+titleIcon: "fa-solid fa-folder"
 slug: ""
 ---
 

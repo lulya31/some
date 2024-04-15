@@ -3,6 +3,13 @@ title: "Канал integration"
 description: "Канал integration"
 weight: 3
 draft: false
+Categories:
+    - Architecture
+    - Backend
+    - Services
+Tags:
+    - Каналы
+    - Канал integration
 ---
 
 :imgdir: /02_02_01_06_03_img/

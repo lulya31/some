@@ -4,6 +4,11 @@ description: "Технологии"
 weight: 5
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Technologies
 ---
 
 = Технологии

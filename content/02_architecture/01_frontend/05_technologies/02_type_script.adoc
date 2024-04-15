@@ -3,6 +3,12 @@ title: "TypeScript"
 description: "Описание TypeScript"
 weight: 2
 draft: false
+Categories:
+    - Architecture
+    - Frontend
+Tags:
+    - Technologies
+    - TypeScript
 ---
 
 :imgdir: /02_01_05_02_img/

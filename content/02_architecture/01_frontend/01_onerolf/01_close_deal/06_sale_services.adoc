@@ -2,6 +2,13 @@
 title: "Продажа Услуг сервиса"
 slug: "06_sale_services"
 weight: 6
+Categories:
+    - Architecture
+    - Frontend
+    - Onerolf
+Tags:
+    - Close deal
+    - Продажа Услуг сервиса
 ---
 
 :imgdir: /02_01_01_01_06_img/

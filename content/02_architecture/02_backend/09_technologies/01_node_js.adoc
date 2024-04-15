@@ -3,6 +3,12 @@ title: "Node JS"
 description: "Node JS"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Technologies
+    - NodeJS
 ---
 
 :imgdir: /02_02_09_01_img/

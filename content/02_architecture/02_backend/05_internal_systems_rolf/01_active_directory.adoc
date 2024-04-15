@@ -3,6 +3,12 @@ title: "Active Derectory (Службы каталогов)"
 description: "Active Derectory (Службы каталогов)"
 weight: 1
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Internal systems
+    - Active directory
 ---
 
 :imgdir: /02_02_05_01_img/

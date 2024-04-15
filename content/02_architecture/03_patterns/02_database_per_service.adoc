@@ -3,6 +3,11 @@ title: "Паттерн - База данных на сервис"
 description: "Паттерн - База данных на сервис"
 weight: 2
 draft: false
+Categories:
+    - Architecture
+    - Patterns    
+Tags:
+    - Data per service
 ---
 
 :imgdir: /02_03_02_img/

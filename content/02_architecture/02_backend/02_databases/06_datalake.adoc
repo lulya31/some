@@ -3,6 +3,12 @@ title: "Data Lake"
 description: "Data Lake"
 weight: 7
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Databases
+    - DataLake
 ---
 
 :imgdir: /02_02_01_06_img/

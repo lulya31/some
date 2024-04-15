@@ -3,6 +3,11 @@ title: "CDP - Платформа клиентских данных"
 description: "CDP - Платформа клиентских данных"
 weight: 10
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - CDP
 ---
 
 :imgdir: /02_02_10_img/

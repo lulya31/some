@@ -4,6 +4,12 @@ description: "Закрытие потребности (сделка)"
 weight: 1
 draft: false
 slug: ""
+Categories:
+    - Architecture
+    - Frontend
+    - Onerolf
+Tags:
+    - Close deal
 ---
 
 = Закрытие потребности (сделка)

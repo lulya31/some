@@ -3,6 +3,12 @@ title: "Mongo DB"
 description: "Mongo DB"
 weight: 9
 draft: false
+Categories:
+    - Architecture
+    - Backend
+Tags:
+    - Databases
+    - MongoDB
 ---
 
 :imgdir: /02_02_01_08_img/
