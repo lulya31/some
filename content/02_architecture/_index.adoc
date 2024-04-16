@@ -1,7 +1,7 @@
 ---
 title: "Архитектура компонент One Rolf"
 description: "Архитектура компонент One Rolf"
-weight: 3
+weight: 2
 draft: false
 titleIcon: "fa-solid fa-ethernet"
 slug: ""
