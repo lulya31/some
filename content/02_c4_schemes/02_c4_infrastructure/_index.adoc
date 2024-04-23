@@ -1,0 +1,42 @@
+---
+title: "Инфраструктурная схема (уровень С1)"
+description: "C4 Flora Infrastructure - Уровень С1"
+weight: 2
+draft: false
+slug: ""
+Categories:
+    - C4 Schemes
+Tags:
+    - C4 Flora Infrastructure
+---
+
+:imgdir: /05_02_img/
+:imagesoutdir: ./static/05_02_img/
+
+include::static/includes/init.adoc[]
+
+= C4 Flora Infrastructure
+
+{empty} +
+
+++++
+<style type="text/css">
+.diagram_dimensions { 
+    width: 100%;
+}
+</style>
+
+<div class="diagram_dimensions">
+++++
+
+****
+[plantuml%interactive, rolf, format=svg, align=center, width=60%]
+.C4 Flora Infrastructure - Уровень С1
+----
+include::{imagesoutdir}rolf.puml[]
+----
+****
+
+++++
+</div>
+++++

@@ -1,7 +1,7 @@
 ---
-title: "Общая информация о системе"
+title: "Информация о системе"
 description: "Общая информация о системе"
-titleIcon: "fa-sharp fa-align-left"
+titleIcon: "fa-regular fa-align-left"
 weight: 1
 draft: false
 titleIcon: "fa-solid fa-folder"

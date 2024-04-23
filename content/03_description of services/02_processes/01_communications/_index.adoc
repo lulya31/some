@@ -1,0 +1,13 @@
+---
+title: "Коммуникации"
+description: "Коммуникации"
+version: 1
+additional:
+    author: "Панасюк Сергей"
+    maintainer: "Александр Хван"
+    status: "in_work"
+draft: true
+weight: 1
+---
+
+Раздел содержит описание типовых процессов происходящих в канале *Communications* системы *FLORA*

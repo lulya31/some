@@ -1,0 +1,15 @@
+---
+title: "Управление мастер-данными (MDM)"
+description: "Описание доменной области MDM"
+slug: ""
+version: 1
+weight: 19
+titleIcon: ""
+draft: false
+additional:
+    author: "Полина Иванова"
+    maintainer: "Сергей Панасюк"
+    status: "in_work"
+---
+
+*Управление мастер-данными (доменная область)* - хранит запчасти с их ценами

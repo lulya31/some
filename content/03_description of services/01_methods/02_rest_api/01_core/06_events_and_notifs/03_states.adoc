@@ -1,0 +1,50 @@
+---
+title: "Состояния (states)"
+description: "Методы по работе со статусами"
+version: 1
+additional:
+    team: ""
+    author: ""
+    service : "PLT TasksAndEvent"
+    maintainer: ""
+    developer: ""
+    status: "in_work"
+    subscribers: ["TasksAndEvent"]
+draft: false
+weight: 3
+---
+
+== Основные свойства
+
+
+== Информационная модель
+
+
+
+== Методы
+
+{{% openapi source="/02_01_01_04_03_json/tasks.json" %}}
+
+=== Примеры использования
+
+
+
+=== Требуется для разработки
+
+|===
+| #   | Метод | Endpoint | Description | Priority | Comments |
+| --- | ----- | -------- | ----------- | -------- | -------- |
+|     |       |          |             |          |          |
+|     |       |          |             |          |          |
+|     |       |          |             |          |          |
+|===
+
+=== Доработки
+
+|===
+| #   | Текущий | Новый | Задача | Comments |
+| --- | ------- | ----- | ------ | -------- |
+|     |         |       |        |          |
+|     |         |       |        |          |
+|     |         |       |        |          |
+|===

@@ -1,0 +1,518 @@
+---
+title: "Методы REST FLORA"
+description: "Документ содержит информацию по методам работы с основными сущностями Flora"
+slug: ""
+version: 1
+additional:
+    author: "Панасюк Сергей"
+    maintainer: "Панасюк Сергей"
+    status: "in_work"
+draft: false
+weight: 2
+---
+
+Документ содержит информацию по взаимодействию с сущностями Flora.
+
+== Структура API
+
+{{<notice note>}}
+*API* - совокупность методов и описания работы с ними для взаимодействия с бизнес-сущностями.
+
+Методы группируются в зависимости от сущностей, с которыми работают и дополнительно по выполняемым функциям.
+{{</notice>}}
+
+
+Все методы API разделены по принципу:
+
+
+----
+ДОМЕН (FLORA) - на текущий момент домен один
+      |__ НАПРАВЛЕНИЕ (CORE или EXPERIENCE) - определяет направление команды
+                    |__ КАТЕГОРИЯ (ClientID) - группа продуктов, опубликованных на APIM
+                                 |___ ПРОДУКТ (Clients) - набор методов, сгруппированных в продукт
+                                            |__ СУЩНОСТЬ (Address) - если внутри продукта есть разделение по сущностям
+                                                        |__ ТЕГ (Адреса, Справочник) - если для сущности надо выделить 
+                                                                |__ МЕТОД (POST {host}/{basepath}/v1/clients/{uuid}/address) - конкретный REST метод
+
+
+BASEPATH при публикации прокси-листа состоит из: ДОМЕН + КАТЕГОРИЯ + СУЩНОСТЬ
+    Примеры: /flora/clientid/address, /flora/fi/insurance
+
+ПРОДУКТ может включать в себя методы из разных прокси-листов.
+
+----
+
+Текущее распределение методов API:
+
+
+
+// РАЗОБРАТЬСЯ КАК ВЫВОДИТЬ ДИАГАММУ MARKMAP
+
+
+
+
+
+//:imagesoutdir: /static/
+
+//include::static/includes/init.adoc[]
+
+
+
+////
+++++
+<style type="text/css">
+.diagram_dimensions {
+    width: 100%;
+}
+</style>
+
+<div class="diagram_dimensions">
+++++
+
+
+****
+[Markdown%interactive, format=svg]
+
+----
+include::./static/test.md[]
+----
+****
+
+++++
+</div>
+++++
+
+
+
+
+
+
+
+++++
+---
+markmap:
+  colorFreezeLevel: 4
+  pan: false
+  embedAssets: true
+  maxWidth: 300
+---
+
+# FLORA
+
+== CORE <br> Общий функционал
+
+=== [CORE <br> Комментарии, датагриды](https://doc-core-main.com-dev.int.rolfcorp.ru/)
+
+===# ANNOTATIONS
+- [Аннотации (annotations)](https://confluence.rlf-tech.com/pages/viewpage.action?pageId=55862298)
+  - [Описание API](https://confluence.rlf-tech.com/pages/viewpage.action?pageId=55493137)
+
+===# COMMENTS
+- [Комментарии (comments)](https://doc-core-main.com-dev.int.rolfcorp.ru/03_methods/01_sharedflow/01_comments/)
+  - [Описание API](https://doc-core-main.com-dev.int.rolfcorp.ru/03_methods/01_sharedflow/01_comments/)
+- [Словари (dicts)]
+  
+===# DATAGRIDS
+- [Фильтры баз данных (filters)](https://doc-core-main.com-dev.int.rolfcorp.ru/03_methods/20_data_grids_filters_and_select_lists/)
+  - [Описание API](https://doc-core-main.com-dev.int.rolfcorp.ru/03_methods/20_data_grids_filters_and_select_lists/04_core_get_datagrid_filter/)
+- [Базы данных](https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/10_datastorage/01_postgresql/)
+  - [Описание API](https://doc-core-main.com-dev.int.rolfcorp.ru/03_methods/20_data_grids_filters_and_select_lists/05_core_get_datagrid_filter_by_uuid/)
+
+===# COMMON
+- [Общие методы (common)](https://doc-core-main.com-dev.int.rolfcorp.ru/03_methods/)
+  - [Описание API](https://doc-core-main.com-dev.int.rolfcorp.ru/01_overview/02_methods/)
+
+=== [NEEDS_AND_ORDERS <br> Обращения, потребности, предложения](https://doc-orders-main.com-dev.int.rolfcorp.ru/)
+
+===# [NEEDS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/ab2dcf9b-edec-4662-8148-8e2ca17efba0/info/environment/preprod)
+- [Потребности (needs)](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/02_need/)
+  - [Описание API](https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/01_needs/)
+
+===# [ORDERS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/8a897fa9-f00a-4aa1-8dc7-ec071125bcb5/info/environment/dev)
+  - [Предложение товара или услуги (orders)](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/03_order/) 
+    - [Описание API](https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_orders/)
+
+===# [CARTS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/d922f853-7ba5-4aeb-8edf-91ef13473416/info/environment/dev)
+- [Корзины/пакеты (carts)](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/06_cart/)
+  - [Описание API](https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/03_carts/)
+
+===# [NAO_DICTS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/63e5b281-d78f-4b62-b216-3a13b18996d1/info/environment/dev)
+- [Словари (dicts)](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/01_dictionaries/)
+  - [Описание API](https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/06_dicts/)
+
+===# ERL
+  - [Синхронизация сущностей FLORA и единого рабочего листа]
+    - [Описание API]
+
+=== [LEGAL_EXECUTION <br> Фиксация юридических событий и документов](https://doc-orders-main.com-dev.int.rolfcorp.ru/)
+     
+===# [LEGAL-EVENTS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/3e416701-7674-4830-9949-72cce944387e/info/environment/dev)
+- [Юридические события (legal-events)](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/04_legal_event/)
+  - [Описание API](https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/04_legal_events/)
+- [Словари dicts](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/01_dictionaries/)
+    - [Описание API](https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/06_dicts/)
+  
+===# [LEGAL-DOCUMENTS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/4d8f69cc-2455-45fd-a14e-f5490e36ca87/info/environment/dev)
+- [Юридические документы (legal-documents)](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/05_legal_document/)
+  - [Описание API](https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/05_legal_documents/)
+- [Словари dicts](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/01_dictionaries/)
+    - [Описание API](https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/06_dicts/)
+
+=== [CRM <br> Фиксация фактов коммуникаций с клиентами](https://doc-communications-main.com-dev.int.rolfcorp.ru/)
+
+===# [COMMUNICATIONS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/f3ff6be6-5aeb-4f2b-8295-befd9d88f11b/info/environment/dev)
+- [Коммуникации (communications)](https://doc-communications-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/01_communication/)
+  - [Описание API](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/01_communications/)
+- [Словари (dicts)]
+  - [Описание API](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/01_communications/05_get_dicts_communications_methods/)
+  
+===# REQUESTS
+- [Обращения (requests)](https://doc-communications-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/02_request/) 
+  - [Описание API](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/)
+
+=== [BUSINESS_PROCESSES <br> Работа с бизнес-процессами и задачами](https://doc-notifs-main.com-dev.int.rolfcorp.ru/)
+
+===# [TASKS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/f266465f-704d-4bf4-ae3c-449c3e288494/info/environment/dev)
+- [Задачи (tasks)](https://doc-notifs-main.com-dev.int.rolfcorp.ru/02_info_model/06_task/)
+  - [Описание API](https://doc-notifs-main.com-dev.int.rolfcorp.ru/03_methods/02_rest/01_tasks/)
+  
+===# TASKS-SF
+- [Задачи (tasks-sf)](https://doc-notifs-main.com-dev.int.rolfcorp.ru/03_methods/01_sharedflow/01_tasks/)
+  - [Описание API](https://doc-notifs-main.com-dev.int.rolfcorp.ru/03_methods/01_sharedflow/01_tasks/)
+
+===# TASKS-WMS 
+- [Задачи (tasks-wms)](https://doc-notifs-main.com-dev.int.rolfcorp.ru/03_methods/02_rest/01_tasks/06_task_for_wms/)
+  - [Описание API](https://doc-notifs-main.com-dev.int.rolfcorp.ru/03_methods/02_rest/01_tasks/07_wms_task_status/)
+
+=== [EVENTS_AND_NOTIFICATIONS](https://doc-notifs-main.com-dev.int.rolfcorp.ru/)
+
+===# [EVENTS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/74aad504-c882-4500-984a-95b2ec73b605/api/2ea956bf-35e0-438c-aacb-bad51ca440b6)
+- [События (events)](https://doc-notifs-main.com-dev.int.rolfcorp.ru/02_info_model/02_event/)
+  - [Описание API](https://doc-notifs-main.com-dev.int.rolfcorp.ru/03_methods/00_event_based/)
+  
+===# [NOTIFS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/4401c416-ee7e-4c8f-a8e5-0ab4b9f41a07/info/environment/dev)
+- [Уведомление (notifs)](https://doc-notifs-main.com-dev.int.rolfcorp.ru/02_info_model/01_notify/) 
+  - [Описание API](https://doc-notifs-main.com-dev.int.rolfcorp.ru/03_methods/02_rest/02_notifs/)
+- [Centrifugo]  
+
+=== [CLIENTID <br> Клиенты (физлица и организации)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/)
+
+===# CLIENTS 
+- [Физическое лицо (person)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/04_person/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/03_clients/01_person/)
+- [Черный список(forbidden)]
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/01_person/03_shared_get_forbidden_info_by_person_uuid/)
+- [Дети (children)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/04_person/#дети)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/01_person/04_shared_get_children_by_person_uuid/)
+- [СОПД (sopd)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/10_sopds/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/09_sopd/)
+- [Документы (documents)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/09_documents/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/02_documents/)
+- [Адреса (addresses)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/08_address/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/06_address/)
+- [Электронная почта (emails)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/06_emails/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/03_email/)
+- [Телефоны (telephones)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/07_telephones/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/04_telephone/)
+- [Социальные сети (Socials)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/12_socials/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/08_socials/)
+- [Мессенджеры (Messengers)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/11_messengers/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/07_messengers/)
+
+===# CLIENTID-SYNC
+- [Синхронизация ФЛ (person-sync)]
+  - [Описание API]
+- [Синхронизация компаний и контактных лиц (legal-sync)]
+  - [Описание API]
+
+===# ORGANIZATIONS
+- [Юридические лица (organizations)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/01_aggregates/02_organizations/) 
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_organization/)
+- [Словари(dicts)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/05_datagrids_and_filters/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/05_datagrids_and_filters/05_organization_select_lists/)
+
+===# COMPANIES
+- [Компании (companies)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/01_aggregates/01_companies/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/01_company/)
+- [Представители (representatives)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/01_representative/)
+  - [Описание API](https://confluence.rlf-tech.com/display/OPF/rolfid_getRepresentative)
+- [Словари(dicts)](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/05_datagrids_and_filters/)
+  - [Описание API](https://doc-clientid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/05_datagrids_and_filters/04_companies_select_lists_v2/)
+
+=== [CARID <br> Транспортные средства](https://doc-carid-main.com-dev.int.rolfcorp.ru/ )
+
+===# VEHICLES
+- [Транспортные средства (vehicles)](https://doc-carid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/01_vehicle/)
+  - [Описание API](https://doc-carid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/)  
+- [Контакты ТС (contacts)](https://doc-carid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/12_create_new_vehicles_contacts/)
+  - [Описание API](https://doc-carid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/13_get_vehicles_contacts/) 
+- [Словари (dicts)]
+  - [Описание API]
+  
+===# VEHICLES-DOCUMENTS
+- [Документы транспортного средства(documents)](https://doc-carid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/07_rolfid_new_vehicle_document_pts/)
+  - [Описание API](https://doc-carid-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/10_rolfid_getvehicledocumentpts/)
+- [Словари (dicts)]
+  - [Описание API]
+
+===# VEHICLES-ORACLE
+- [Интеграция с Oracle (oracle)](https://doc-carid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/15_shared_get_warranty_cover_from_oracle/)
+  - [Описание API](https://doc-carid-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/14_shared_get_warranty_level_from_oracle/)
+
+===# VEHICLES-SYNC
+- [Синхронизация с Oracle (oracle)]
+  - [Описание API]
+
+=== [ROLFID <br> Сотрудники, пользователи, ДЦ](https://doc-rolfid-main.com-dev.int.rolfcorp.ru/)
+
+===# [USERS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/1613def6-556c-4415-9e86-859a851ac87f/info/environment/dev)
+- [Пользователи (users)](https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/03_user/)
+  - [Описание API](https://doc-rolfid-main.com-dev.int.rolfcorp.ru/06_methods/03_users/)
+- [Рабочий день (workday)](https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/03_user_v2/#рабочий-день-work_day)
+  - [Описание API](https://doc-rolfid-main.com-dev.int.rolfcorp.ru/06_methods/03_users/86_change_user_workday_state/)
+- [Функциональные группы (user_groups)](https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/09_user_group/)
+  - [Описание API](https://doc-rolfid-main.com-dev.int.rolfcorp.ru/06_methods/06_user_groups/)
+- [Словари (dicts)]
+  - [Описание API]
+
+===# [DEALERSHIPS](https://ui-apim.plf.int.rolfcorp.ru/catalogue/page/product/9ab5d6cb-c48c-499c-8e87-3b4fe680e78f/info/environment/dev)
+- [Диллерские центры (dealerships)](https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/08_dealership/)
+  - [Описание API](https://doc-rolfid-main.com-dev.int.rolfcorp.ru/06_methods/05_dealerships/)
+- [Словари (dicts)]
+  - [Описание API]
+
+=== [PAYMENTS <br> Платежи, чеки](https://doc-payments-main.com-dev.int.rolfcorp.ru/)
+
+===# PAYMENTS
+- [Платежи (payments)](https://doc-payments-main.com-dev.int.rolfcorp.ru/02_info_model/01_payment/) 
+  - [Описание API](https://doc-payments-main.com-dev.int.rolfcorp.ru/03_methods/)
+- [Словари (dicts)]
+  - [Описание API]
+  
+===# PAYMENTS-ACCOUNTS
+- [Банковские счета (bank_accounts)](https://doc-payments-main.com-dev.int.rolfcorp.ru/03_methods/05_bank_assignment/)
+  - [Описание API](https://doc-payments-main.com-dev.int.rolfcorp.ru/03_methods/05_bank_assignment/05_crm_new_bank_account/)
+
+=== [INTERNAL_INTEGRATION <br> Внутренние интеграции](https://doc-integration-int-main.com-dev.int.rolfcorp.ru/) 
+
+===# ASTERISK
+- [АТС Asterisk](https://doc-integration-int-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/01_asterisk/)
+  - [Описание API](https://doc-integration-int-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/01_asterisk/01_get_asterisk_record_id_v2/)
+
+===# MDM
+- [MDM (mdm)]
+  - [Описание API](https://confluence.rlf-tech.com/pages/viewpage.action?pageId=99058688)
+  
+===# WMS
+- [WMS (wms)]
+  - [Описание API](https://confluence.rlf-tech.com/display/WMS/wms_getVehicleInfo)
+
+=== [EXTERNAL-INTEGRATION <br> Внешние интеграции](https://doc-integration-main.com-dev.int.rolfcorp.ru/)
+
+===# ELT
+- [Общие методы]
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/04_elt/01_common/)
+- [Каско (kasko)]
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/04_elt/02_products/02_kasko/)
+- [Осаго (osago)]
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/04_elt/02_products/01_osago/)
+- [GAP (gap)]
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/04_elt/02_products/03_gap/)  
+- [Продленная гарантия (quarantee)]
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/04_elt/02_products/05_guarantee/)
+- [Карты помощи (assistance)]
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/04_elt/02_products/04_assistance/)
+- [Шины и диски (gaptires)]
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/04_elt/02_products/06_gaptires/) 
+ - [Медицинское сопровождение (medical)]
+   - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/04_elt/02_products/07_medical/) 
+
+   
+===# TINKOFF
+- [Тинькофф. Интеграционные методы](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/09_tinkoff_integration/)
+  - [Страховые продукты](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/09_tinkoff_integration/01_insurance_products/01_common/01_tinkoff_rest_get_documents/)
+  - [Тинькофф Кредит](https://doc-integration-main.com-dev.int.rolfcorp.ru/04_rnd/01_fetm/02_credit_products/04_draft_current_methods/01_tinkoff_credit//)
+  
+===# E-CREDIT
+- [E-Credit](https://doc-integration-main.com-dev.int.rolfcorp.ru/04_rnd/01_fetm/02_credit_products/04_draft_current_methods/03_e_credit/)
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/04_rnd/01_fetm/02_credit_products/04_draft_current_methods/03_e_credit/03_shared_ecredit_authorize/)
+
+===# ROSBANK
+-[Rosbank](https://doc-integration-main.com-dev.int.rolfcorp.ru/04_rnd/01_fetm/02_credit_products/04_draft_current_methods/02_rosbank_credit/)
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/08_fetm/02_credit_products/03_shared_flow/02_data_tranformation/02_rosbank/) 
+    - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/08_fetm/02_credit_products/03_shared_flow/04_trial_credit_company/02_rosbank/)
+
+===# DADATA
+- [ДаДата (dadata)](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/02_dadata/)
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/02_dadata/01_get_user_address/)
+  
+===# KONTUR-FOCUS
+- [Контур-фокус]
+  - [Описание API]
+  
+===# KIA-MYSERVICE
+- [MyService (KIA)]
+  - [Описание API]
+
+===# YOUTRACK
+- [Интеграция Youtrack](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/05_yt_tages/)
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/05_yt_tages/01_yt_api/)
+  
+=== [PRINTSERVICE <br> Печатные формы](https://doc-pforms-main.com-dev.int.rolfcorp.ru/ )
+
+===# PFORMFS
+- [Печатная форма (printforms)](https://doc-pforms-main.com-dev.int.rolfcorp.ru/05_printforms/)
+  - [Описание API](https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/01_print_service/) 
+
+===# PFORMS-TEMPLATE
+- [Шаблон ПФ (template)](doc-pforms-main.com-dev.int.rolfcorp.ru/01_overview/01_overview/#шаблон-документа)
+  - [Описание API](https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/01_print_service/09_pforms_createtemplate/)
+
+===# PFORMS-ADMIN
+- [Теги ПФ(tags)](https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/02_glossary/)
+  - [Описание API](https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/02_glossary/05_get_tags/)
+- [Типы тегов (tag-types)](https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/02_glossary/)  
+  - [Описание API](https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/02_glossary/02_post_tag_types/)
+- [Изображения (images)](https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/01_print_service/)
+  - [Описание API](https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/01_print_service/12_pforms_create_image/)
+- [Файлы (files)](https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/01_print_service/)
+  - [Описание API](https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/01_print_service/01_pforms_makepdf/)
+
+===# [PFORMS-ANALYZE](https://doc-pfanalyze-main.com-dev.int.rolfcorp.ru/)
+- [Анализ печатных форм (pfanalyze)](https://doc-pfanalyze-main.com-dev.int.rolfcorp.ru/01_overview/)
+  - [Описание API](https://doc-pfanalyze-main.com-dev.int.rolfcorp.ru/06_methods/)
+
+== EXPERIENCE <br> Прикладные методы
+
+=== [ASP <br> Автомобили с пробегом](https://doc-asp-main.com-dev.int.rolfcorp.ru/)
+  
+===# ASP
+- [Передача данных в Oracle для других каналов](https://doc-asp-main.com-dev.int.rolfcorp.ru/05_integrations/01_oracle/)
+  - [Описание API](https://doc-asp-main.com-dev.int.rolfcorp.ru/05_integrations/01_oracle/02_to_oracle/)
+
+===# ASP-COMMON
+- [Автотека (autoteka.ru)](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/01_avtoteka/)
+  - [Описание API](https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/01_avtoteka/01_asp_autotekagetreport-copy/)
+
+=== [NA <br> Новые автомобили](https://doc-na-main.com-dev.int.rolfcorp.ru/)
+
+===# NA-SELL
+- [Потребности (needs)]
+  - [Описание API]
+- [Предложения товаров и услуг (orders)]
+  - [Описание API]
+- [Юридические события (legal-events)]
+  - [Описание API]
+- [Юридические документы (legal-documents)]
+  - [Описание API]
+
+=== [SERVICE <br> Сервисные услуги](https://doc-service-main.com-dev.int.rolfcorp.ru/01_overview/01_overview/)
+
+===# SERVICE
+
+- [Oracle]
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/07_oracle/)
+- [Альтернативные плательщики (alternative countryparty)]
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/03_counterparty/)
+- [Audatex]
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_audatex/)
+- [Календарь (calendar)]
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/05_calendar/)
+- [Чек-листы (checklist)]  
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/04_checklist/)
+- [Фото и видео (document photo-video)]  
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/08_photo-video/)
+- [Юридические события (legal-events)]  
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/01_process/05_create_legal_event_and_zn/)
+- [Юридические документы (legal-documents)]  
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/06_le/)
+- [Потребность]  
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/01_process/12_needs_uuid/)
+- [Рекомендации (recommendation)]  
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/11_recommendation/)
+- [Работы и запчасти (works and details)]  
+  - [Описание API](https://doc-service-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/10_works-details/)
+
+===# MES
+
+- [Работы MES](https://doc-service-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/mes/work/)
+  - [Описание API]
+- [Работники MES](https://doc-service-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/mes/employee/)
+  - [Описание API]
+- [Статусы Работ MES](https://doc-service-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/mes/work/#статусная-модель)
+  - [Описание API]
+- [Посты MES (workstations)](https://doc-service-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/mes/workstation/)
+  - [Описание API]
+- [Цеха MES (workshops)](https://doc-service-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/mes/workshop/)
+  - [Описание API]  
+  
+=== [FAI (F&I) <br> Страховае и финансовые продукты](https://doc-fi-main.com-dev.int.rolfcorp.ru/)
+
+===# FI-COMMOM
+- [Словари (dicts)](https://doc-fi-main.com-dev.int.rolfcorp.ru/03_info_model/02_dicts/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/01_dicts_and_support/)
+- [Вспомогательные методы (support)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/01_dicts_and_support/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/01_dicts_and_support/)
+- [Потребности F&I (needs)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/02_fi_get_pre_calculations_info/)
+- [Предложения продуктов F&I (orders)](https://doc-fi-main.com-dev.int.rolfcorp.ru/03_info_model/01_fai_orders/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/03_fi_get_pre_calculations_detail_info/)
+- [Пакеты F&I (carts)]
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/01_fi_get_pre_calculations/)
+
+
+===# INSURANCE
+- [Страховые продукты (orders)](https://doc-fi-main.com-dev.int.rolfcorp.ru/03_info_model/01_entities/04_flora_result_json_insurance/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/01_dicts_and_support/)
+- [Документы F&I (documents)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/04_documents_and_events/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/04_documents_and_events/)
+- [ОСАГО (osago)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/01_osago/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/01_osago/01_fi_osago_save_trial_calculation/)
+- [КАСКО (kasko)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/02_kasko/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/02_kasko/01_fi_kasko_save_trial_calculation/)
+- [GAP (gap)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/03_gap/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/03_gap/01_fi_gap_save_trial_calculation/)
+- [Неинтеграционные продукты (non-integration)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/05_non_integration/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/05_non_integration/01_fi_non_integration_save_trial_calculation/)
+- [Карты помощи (assistance)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/04_assistance/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/04_assistance/01_fi_assistance_save_trial_calculation/)
+- [Продленная гарантия (guarantee)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/06_guarantee/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/06_guarantee/01_fi_guarantee_save_trial_calculation/)
+- [Шины и диски (gaptires)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/10_gaptires/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/10_gaptires/01_fi_gaptires_save_trial_calculation/)
+- [Медицинское сопровождение (medical)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/12_telemedical/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/12_telemedical/01_fi_telemedical_save_trial_calculation/)
+- [Non-Flora продукты (non-flora)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/13_non_flora/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/02_needs/13_non_flora/01_fi_non_flora_save_final_calculation/)
+
+===# CREDIT
+- [Предложения кредита (orders)](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/03_credit/)
+  - [Описание API](https://doc-fi-main.com-dev.int.rolfcorp.ru/06_methods/03_credit/)
+
+++++
+
+
+
+
+
+
+{{<notice tip>}}
+Примеры:
+
+* Метод  `POST /v1/clients` - создание клиента
+** Домен: **FLORA**
+** Направление: **CORE**
+** Категория: **ClientID**
+** Продукт: **FLORA-CLIENTS**
+** Сущность: **Clients**
+** Тег: **Клиенты (физ. лицо)**
+** Basepath: **/flora/clientid/clients**
+* Метод `GET /v2/needs/{uuid}/full-info` - получение информации по потребности F&I
+** Домен: **FLORA**
+** Направление: **EXPERIENCE**
+** Категория: **F&I**
+** Продукт: **FLORA-INSURANCE**
+** Сущность: **Needs**
+** Тег: **Страховые продукты**
+** Basepath: **/flora/fi/insurance**
+{{</notice>}}

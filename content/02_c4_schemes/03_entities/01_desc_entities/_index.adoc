@@ -1,0 +1,164 @@
+---
+title: "Описание сущностей"
+description: "Описание сущностей"
+slug: ""
+version: 1
+weight: 2
+titleIcon: ""
+draft: false
+additional:
+    author: "Полина Иванова"
+    maintainer: ""
+    status: "in_work"
+---
+     
+= Описание сущностей
+
+[cols="1,1,1,3,1"]
+|===
+| Доменная область   | Поддоменная область | Сущность/Атрибут |  Описание сущности | Подробнее о сущности по ссылке
+| Core       | Business process| Process                    |  
+| 
+| Core       | Business process| Tasks                      |  
+|https://doc-notifs-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/06_task/
+| Core       | Technical       | Annotations                | Текст, который может быть добавлен к любому процессу            
+|          
+| Core       | Technical       | Comments                   | Текст, который может быть добавлен к любому типу сущности из справочной таблицы flora_metadata.object_type_d            
+| https://doc-communications-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/03_comment/         
+| Core       | Technical       | Datagrids                  |             |          
+| Core       | Technical       | Filters                    |             |           
+| Core       | Technical       | Search                     |             |            
+| Core       | Events          | Actions                    |             
+| https://doc-notifs-main.com-dev.int.rolfcorp.ru/03_methods/00_event_based/10_actions/          
+| Core       | Events          | Events                     | Отражение свершившегося факта (например, у задачи сменился исполнитель / создалась потребность / продан А/М и т.д.)            
+| https://doc-notifs-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/02_event/           
+| Core       | Events          | Notifs                     |             
+| https://doc-notifs-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/01_notify/           
+| CRM        | Legal execution | Legal events               | Событие, которое происходит с товарами или услугами и означает изменение их юридического статуса. Юридическое событие имеет силу, когда есть юридический документ.
+
+В рамках юридического события оформляются документы по сделке (Договор купли-продажи, Акт приема-передач, Страховой полис и др.)            
+| https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/04_legal_event/         
+| CRM        | Legal execution | Legal documents            | Документ, который возникает в процессе сделки: договоры, акты и так далее, а также:
+
+* Записи электронных бесед и чатов
+* Выдержки из журналов действий пользователей в UI сайтов и мобильных приложений
+* Документы из официального ЭДО
+Юридический документ подтверждает, что юридическое событие (legal-events) вступило в силу.            
+| https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/05_legal_document/         
+| CRM        | Legal execution | Templates                  |             |          
+| CRM        | Legal execution | Type legal events          |             |            
+| CRM        | Need and Orders | Business subdomain         |             |            
+| CRM        | Need and Orders | Business domain            |             |            
+| CRM        | Need and Orders | Carts                      |             
+| https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/06_cart/          
+| CRM        | Need and Orders | Good_ref_types needs       |             |          
+| CRM        | Need and Orders | Good_ref_types orders      |             |        
+| CRM        | Need and Orders | Needs                      | Желание клиента провзаимодействовать с Rolf. Это может быть желанием купить автомобиль, оформить страховку и прочее из типов потребности            
+| https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/02_need/        
+| CRM        | Need and Orders | Orders                     | Предложения, которые может предложить Rolf для закрытия потребности клиента
+| https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/03_order/         
+| CRM        | Traffic         | Communications             | Обозначает факт осуществления взаимодействия (фиксацию связи) между клиентом и сотрудником
+| https://doc-communications-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/01_communication/         
+| CRM        | Traffic         | Requests                   | Объединяющая сущность, которая включает первичную коммуникацию и первичную потребность. Обращение не существует без этих сущностей. Коммуникация может быть не выполнена, но обращение как сущность существует
+| https://doc-communications-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/02_request/           
+| CRM        | Traffic         | Type communications        |             |            
+| CRM        | Traffic         | Type requests              |             |            
+| ID         | CarID           | Buyout conditions          |             |   
+| ID         | CarID           | Car inspection             |             |  
+| ID         | CarID           | Check list service         |             |  
+| ID         | CarID           | Documents                  |             |          
+| ID         | CarID           | Documents ekd              |             |  
+| ID         | CarID           | Keys                       |             |  
+| ID         | CarID           | Links                      |             |  
+| ID         | CarID           | Media                      |             |  
+| ID         | CarID           | Meta                       |             |  
+| ID         | CarID           | Mileage employee           |             |  
+| ID         | CarID           | Optional equipment         |             |  
+| ID         | CarID           | Owner                      |             |  
+| ID         | CarID           | Parking place              |             |  
+| ID         | CarID           | Price formation            |             | 
+| ID         | CarID           | Storage logistics info     |             |  
+| ID         | CarID           | Vehicle                    |             |  
+| ID         | CarID           | Vehicles card              | Описывает все транспортные средства, которые находятся в продаже или являются собственностью клиента и так или иначе учавствуют в сделках. Агрегат Автомобиль содержит в себе только информацию о технических характеристиках транспортного средства и его документах. Агрегать Автомобиль не является полноценным отображением карточки автомобиля, но является неотъемлимой её частью. Для отображения карточки автомобиля необходимо получать инфомодель автомобиля и инфомодели связанных агрегатов (пример: история, связанные потребности, отзывные компании, диски и шины)           
+|   
+| ID         | CarID           | Vehicles sb check          |             
+|   
+| ID         | CarID           | Warranty                   |             
+|   
+| ID         | ClientID        | Adresses                   |            
+| https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/08_address/
+| ID         | ClientID        | Bank accounts              |   
+| https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/02_bank_accounts/        
+| ID         | ClientID        | Clients                    |       
+| https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/01_aggregates/03_clients/    
+| ID         | ClientID        | Companies                  |            
+| https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/01_aggregates/01_companies/
+| ID         | ClientID        | Documents organizations    |        
+| https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/09_documents/           
+| ID         | ClientID        | Emails                     |      
+| https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/06_emails/            
+| ID         | ClientID        | Organizations              |          
+| https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/01_aggregates/02_organizations/           
+| ID         | ClientID        | Persons                    |            
+| https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/04_person/
+| ID         | ClientID        | Representative             |      
+| https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/01_representative/     
+| ID         | ClientID        | Signatories                |       
+|      
+| ID         | ClientID        | Telephones                 |  
+| https://doc-clientid-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/07_telephones/    
+| ID         | RolfID          | Dealership location        | 
+| https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/01_entities/10_dealership_location/
+| ID         | RolfID          | Dealership location cluster| 
+| https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/01_entities/11_dealership_location_cluster/
+| ID         | RolfID          | Dealerships                | Сущность, хранящая в себе всю информацию о диллерских центрах компании Rolf      
+| https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/01_entities/08_dealership/ 
+| ID         | RolfID          | Functions subset           |     
+| https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/01_entities/13_functions_subset/
+| ID         | RolfID          | Manufacturer brand         |      | 
+| ID         | RolfID          | Module                     | 
+| https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/01_entities/12_module/
+| ID         | RolfID          | Policy                     | 
+| https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/01_entities/14_policy/
+| ID         | RolfID          | Users                      | Хранит в себе все данные о пользователях Flora. Пользователем Flora может являться как сотрудник Rolf, так и клиент. У сотрудников может быть установлен разный уровень доступа
+| https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/01_entities/03_user_v2/
+| ID         | RolfID          | User group                 |             
+| https://doc-rolfid-main.com-dev.int.rolfcorp.ru/03_info_model/01_entities/09_user_group/ 
+| Experiense | ASP             | Random ASP                 |        |        
+| Experiense | ASP             | Sale ASP                   |       |      
+| Experiense | FI              | Admin rules                | |
+| Experiense | FI              | Credit organizations       | |
+| Experiense | FI              | Credit programs            | |
+| Experiense | FI              | Credits                    | |
+| Experiense | FI              | Data as json               | 
+| https://doc-fi-main.com-dev.int.rolfcorp.ru/03_info_model/01_entities/01_data_as_json/
+| Experiense | FI              | Insurationce company       | |
+| Experiense | FI              | Insurationce programs      | |
+| Experiense | FI              | Products                   | |
+| Experiense | NA              | Sale NA                    |       |
+| Experiense | Servise         | Calendar                   |    |  
+| Experiense | Servise         | Workshops                  |    |    
+| Experiense | Servise         | Workstations               |    |
+| Experiense | Servise         | Account category           |    |
+| Experiense | Servise         | Alternative countryparty   |    |
+| Experiense | Servise         | Document photo-video       |    |
+| Experiense | SFF             | Sff item                   |       
+| https://doc-sff-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/01_sff_order/
+| Experiense | SFF             | Sff order                  |       
+| https://doc-sff-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/02_sff_item_and_offer/
+| External   | FETM            | E-credit                   |       |
+| External   | FETM            | Credit organizations       |   
+| https://doc-integration-main.com-dev.int.rolfcorp.ru/04_rnd/01_fetm/02_credit_products/  
+| External   | FETM            | ELT                        |       
+| https://doc-integration-main.com-dev.int.rolfcorp.ru/02_integrations/04_elt/  
+| External   | FETM            | Insurance organizations    |     
+| https://doc-integration-main.com-dev.int.rolfcorp.ru/04_rnd/01_fetm/01_insurance_products/
+| Internal   | Print Service   | Pforms                     |         
+| https://doc-pforms-main.com-dev.int.rolfcorp.ru/02_info_model/10_entities/10_printform/
+| Internal   | Print Service   | Template                   |          
+| https://doc-pforms-main.com-dev.int.rolfcorp.ru/03_methods/20_templates/
+| Payments   | -               | Mutual settlements         |   
+| https://doc-payments-main.com-dev.int.rolfcorp.ru/02_info_model/01_mutual_settlements/
+| Payments   | -               | Payments                   | Агрегат который фиксирует процесс перехода денежных средства от КЛИЕНТА к РОЛЬФ и наоборот  
+| https://doc-payments-main.com-dev.int.rolfcorp.ru/02_info_model/02_payment/
+|===
