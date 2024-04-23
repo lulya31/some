@@ -1,0 +1,211 @@
+---
+title: "Потребность (needs)"
+description: "Общее описание сервиса/канала"
+version: 1
+additional:
+    team: "Team_CORE"
+    author: "Сергей Панасюк"
+    service : "PLT Orders"
+    maintainer: "Team_CORE"
+    status: "in_work"
+    subscribers: ["Team_Insurance","Team_Credits"]
+draft: false
+slug: ""
+weight: 2
+---
+
+Сущность [Потребность (needs)](https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/01_crm/03_need/) - центральная сущность систем FLora для бизнес-процесса. 
+
+## Основные свойства
+
+**Типы потребности:**
+
+> Определяется несколькими полями.
+
+* Продажа НА (MVP)
+* Продажа АСП (MVP)
+* Выкуп АСП (MVP)
+* Фин. услуги (MVP)
+* Сервис (MVP)
+* Страховой ремонт
+* ЗЧ/ДО
+* Консультация в КЦ
+* Обратная связь
+* Связь с сотрудником ЦО
+* Вторичный траффик по обращению
+* Потребность так же имеет обязательный параметр - ПРИЗНАК, который определяется системой в зависимости от инициатора
+
+**Признаки потребности:**
+
+* **Первичная (базовая) потребность** - потребность, названная клиентом.
+* **Вторичная потребность** - потребность, созданная во время работы над первичной потребностью (например, во время процесса продажи АСП могут возникнуть потребности в оформлении кредита / страховки / опциона и т.д.)
+
+## Информационная модель
+
+[Ссылка на инфо модель потребности в репозитории Orders](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/02_need/)
+
+```json
+{
+    "uuid": "af5ee12c-44d0-4944-9766-14627b8ffa56",
+    "ui_id": "7f272ac9",
+    "status": "in_progress",
+    "status_ui": "В работе",
+    "cross_selling_order": {
+        "uuid": "d6e48335-f0c6-4489-b45f-e55137009fd4"
+    },
+    "legal_execution_stage": {
+        "uuid": "49bf13c7-cf51-4615-b2c1-0e2eb41f87c7",
+        "name": "Исполнено",
+        "is_for_orders": true,
+        "is_for_payment": true,
+        "description": null
+    },
+    "sale_is_stopped": false,
+    "business_domain": {
+        "uuid": "3c3398f4-986d-4bd4-831e-4955ef56547f",
+        "name": "АСП"
+    },
+    "business_subdomain": {
+        "uuid": "efd7fab7-f340-4944-b420-332b5c524fd1",
+        "business_domain": {
+            "uuid": "3c3398f4-986d-4bd4-831e-4955ef56547f"
+        },
+        "name": "Продажа АСП физ. лицам",
+        "description": null
+    },
+    "good_ref_type": {
+        "uuid": "02d41636-4ca4-45da-a8eb-c88de38a0a90",
+        "name": "Обобщающая потребность"
+    },
+    "needs_and_orders_good_type": {
+        "uuid": "038c39fb-a743-48a8-9847-a394b5a89c67",
+        "name": "Покупка АСП",
+        "good_ref_type": {
+            "uuid": "02d41636-4ca4-45da-a8eb-c88de38a0a90"
+        },
+        "is_general": true,
+        "is_detail": false,
+        "may_be_paid": false,
+        "sequence_number_in_user_interface": 1,
+        "f_and_i_product": null,
+        "business_domain": {
+            "uuid": "3c3398f4-986d-4bd4-831e-4955ef56547f"
+        },
+        "good_class": {
+            "uuid": "20214e1c-4b8e-401b-ae64-74bb07b3a5ee"
+        },
+        "business_subdomain": null
+    },
+    "needs_and_orders_class": {
+        "uuid": "82109a9a-409a-11ed-b878-0242ac120002",
+        "name": "Продажа",
+        "operation_direction": 1,
+        "is_return": false
+    },
+    "sale_stop_reason": {
+        "uuid": "2c9c81f7-9762-4c11-b812-183fe6ff4192",
+        "name": "Аут"
+    },
+    "good_class": {
+        "uuid": "8b75b439-c9d2-4028-b2a0-ed60a371d8b4",
+        "business_domain": {
+            "uuid": "8094c426-5085-4e7f-8d56-f961ed874929"
+        },
+        "name": "Не импортёрские (Dealer Trade)"
+    },
+    "client_class": {
+        "uuid": "eb4becee-37a5-4292-bb69-4cd600ce0f4d",
+        "needs_and_orders_class": {
+            "uuid": "82109a9a-409a-11ed-b878-0242ac120002"
+        },
+        "name": "Физ. лицо или единичная продажа юр. лицо"
+    },
+    "priority_for_recommendation_of_service": {
+        "uuid": "6c4fc676-50c7-4322-80f8-34ff417cedd7",
+        "name": "Высокий",
+        "sort_priority": "1"
+    },
+    "accounting_category": {
+        "uuid": "c8581f67-e821-402f-92a1-06805fd2eced",
+        "name": "Гарантия сервиса"
+    },
+    "client": {
+        "uuid": "7bbce7ff-3423-4318-8c3e-e8e4637aba26"
+    },
+    "source_vehicle": {
+        "uuid": "0015416d-00e8-4f82-9927-413d3d2c5f65"
+    },
+    "dealership": {
+        "uuid": "2b441b9a-26fe-4548-8c96-5e819e1cc6ab"
+    },
+    "salesman": {
+        "uuid": "8378c902-5b43-11ed-9b6a-0242ac120002"
+    },
+    "power_of_attorney": {
+        "uuid": null
+    },
+    "client_side_proxy": {
+        "uuid": null
+    },
+    "is_obligatory_safety_recommendation_of_service": null,
+    "quantity": 1,
+    "needs_returned": {
+        "uuid": null
+    },
+    "movements_of_goods_counterparty": {
+        "uuid": null
+    },
+    "cash_movement_counterparty": {
+        "uuid": null
+    },
+    "payment_alternative_counterparty": {
+        "uuid": null
+    },
+    "insert_date": "2023-03-27 16:26:25.383 +0300",
+    "attached_files_list_json": null,
+    "finish_date": "2023-05-04 10:57:49.566 +0300",
+    "date_of_last_stage_change": null,
+    "orders": [
+        {
+            "uuid": "3b06be1c-0463-4edd-bcb1-d4574016f533"
+        }
+    ],
+    "carts": [
+        {
+            "uuid": "05a0fcda-6383-4944-b179-1de89e8bff8c"
+        }
+    ],
+    "additional_needs": [
+        {
+            "uuid": "3b06be1c-0463-4edd-bcb1-d4574016f533"
+        }
+    ],
+    "is_potential": true,
+    "initial_communication": {
+        "uuid": "7b026900-c6b9-4461-a9bf-119fd24d70b3"
+    },
+    "communications": [
+        {
+            "uuid": "c48fe13f-92ef-4f3b-af22-6f901df037c7"
+        }
+    ]
+}    
+
+```
+
+## Методы
+
+{{% openapi source="/02_01_01_02_json/needs_openapi.json" %}}
+
+### Примеры использования
+
+
+
+### Требуется для разработки
+
+| # п.п. | Метод | Endpoint | Description | Priority | Comments |
+| ------ | ----- | -------- | ----------- | -------- | -------- |
+|        |       |          |             |          |          |
+|        |       |          |             |          |          |
+|        |       |          |             |          |          |
+

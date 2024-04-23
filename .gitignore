@@ -9,6 +9,8 @@
 LICENSE
 /.vs
 /static/pagefind
-.vscode
+.vscode/
 *.svg
-.themes
+themes/
+archetypes/
+resources/

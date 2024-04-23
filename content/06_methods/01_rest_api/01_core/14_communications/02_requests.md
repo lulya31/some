@@ -1,0 +1,100 @@
+---
+title: "Обращения (requests)"
+description: "Обращение клиента"
+version: 1
+additional:
+    team: ""
+    author: ""
+    service : "Communications"
+    maintainer: ""
+    developer: ""
+    status: "in_work"
+    subscribers: [""]
+draft: false
+weight: 2
+---
+
+{{<notice info>}}
+
+[Описание переходов статусов, JSON представление сущности и атрибутивный состав](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/01_request/)
+
+{{</notice>}}
+
+**Обращение всегда должно содержать ссылку на первичную коммуникацию и потребность.**
+
+**ТИПЫ ОБРАЩЕНИЙ:**
+1. Звонок
+2. Визит
+3. Запрос на исходящую коммуникацию
+4. Исходящая коммуникация
+
+{{<notice info>}}
+* Типы обращения являются композитными
+* Тип обращения связан с типом коммуникации
+{{</notice>}}
+
+| Тип обращения          | Тип коммуникации |
+| :--------------------- | :--------------- |
+| Визит                  | Визит            |
+| Звонок                 | Звонок           |
+| Исходящая коммуникация | Звонок           |
+
+
+Из обращения автоматически или оператором формируется сущность "Потребность". Это означает, что требуется выяснить потребность. (создается пустая строка в БД)
+
+**СТАТУСЫ ОБРАЩЕНИЯ:**
+1. Создано
+2. В работе ( хотя бы одна потребность в работе )
+3. Выполнено ( ( когда все потребности в статусе "Выполнено", а остальные в "Аут" или "В работе" ) или ( если хотя бы одна потребность со статусом "Выполнено" , а все остальные потребности "Аут" ) ) - новые потребности добавить нельзя!
+4. Аут ( определять по статусу всех потребностей, но из АУТа вернуться нельзя )
+
+Статус обращения определяется по статусам всех потребностей (по лучшему (наивысшему) статусу потребности).
+
+
+
+
+## Основные свойства
+
+
+## Информационная модель
+
+```json
+
+```
+
+## Методы
+
+| Тип метода | URL                                                                                                                                                                                     | Бизнес-домен | Описание                                                                                           |
+| :--------: | :--------------------- | :----------: | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+|    GET     | [/v2/requests/{uuid}](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/00_get_request_info_model/)           |     CORE     | Дефиниция сбора инфо-модели обращения                                                                                                                                       |
+|    GET     | [/v2/requests](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/10_get_requests/)                     |     CORE     | Дефиниция предназначена для получения массива обращений по различным входным параметрам                                                                                                                                      |
+|    GET     | [/v2/dicts/request-types](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/06_get_dicts_request_types/)          |     CORE     | Дефиниция предназначена для получения справочника с типами обращений                                                                                                                                       |
+|    POST    | [/v2/collections/requests](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/01_get_requests_info_models/)         |     CORE     | Дефиниция сбора инфо-моделей обращений                                                                                                                                       |
+|    POST    | [/v2/requests](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/02_create_request/)                   |     CORE     | Создание обращения                                                                                                                                       |
+|    POST    | [/v1/requests/id-translations](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/04_create_request_id_translation/)    |     CORE     | Дефиниция необходима для создания связи уникальных идентификаторов обращения между Flora и Oracle                                                                                                                                          |
+|   PATCH    | [/v2/requests/{uuid}](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/03_update_request/)                   |     CORE     | Изменение обращения                                                                                                                                       |
+|    GET     | [/v1/requests/id-translations](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/05_get_request_id_translation/)       |     CORE     | Дефиниция необходима для получения связи уникальных идентификаторов обращения между Flora и Oracle                                                                                                                                        |
+|    GET     | [/v1/requests/{uuid}/needs](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/07_get_needs_for_requests/)           |     CORE     | Дефиниция получения списка потребностей по обращению                                                                                                                                       |
+|    POST    | [/v1/orders/create-comm-req-need](https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/11_create_comm_req_and_need/)         |     CORE     | Дефиниция создает коммуникацию, потребность и обращение (нецелевое решение)                                                                                                                                        |
+
+
+### Примеры использования
+
+
+
+### Требуется для разработки
+
+| #   | Метод | Endpoint | Description | Priority | Comments |
+| --- | ----- | -------- | ----------- | -------- | -------- |
+|     |       |          |             |          |          |
+|     |       |          |             |          |          |
+|     |       |          |             |          |          |
+
+
+### Доработки
+
+| #   | Текущий | Новый | Задача | Comments |
+| --- | ------- | ----- | ------ | -------- |
+|     |         |       |        |          |
+|     |         |       |        |          |
+|     |         |       |        |          |

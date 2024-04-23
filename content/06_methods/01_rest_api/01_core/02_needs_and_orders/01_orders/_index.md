@@ -1,0 +1,181 @@
+---
+title: "Заказы и предложения (orders)"
+description: "Описание методов по работе c конкретными позициями заказа или предложениями во Flora"
+version: 1
+additional:
+    team: ""
+    author: ""
+    service : "PLT Orders"
+    maintainer: ""
+    developer: ""
+    status: ""
+    subscribers: [""]
+draft: false
+slug: ""
+weight: 1
+---
+
+[Заказы и предложения (orders)]() - сущность, которая объединяет несколько предложений.
+
+
+## Основные свойства
+
+
+## Информационная модель
+
+[Ссылка на инфо модель предложения товара или услуги в репозитории orders](https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/03_order/)
+
+```json
+{
+  "uuid" : "d14ab03f-03b1-4c59-8ade-938a96de67e6",
+  "ui_id": "d14ab03f",
+  "status_ui": "Коммерческое предложение",
+  "general_need" : {
+    "uuid": "60eac159-2d07-4ac6-886f-a9269cc105f7"
+  },
+  "cross_selling_order" : {
+    "uuid": "8c75f9d6-2f97-4c23-9b6f-aa450a53b91e"
+  },
+  "legal_execution_stage" : {
+    "uuid": "80e0e1b4-8fe9-4249-ad0a-f9e57b82682b",
+    "name": "Коммерческое предложение",
+    "is_for_orders": true,
+    "is_for_payment": false,
+    "description": null
+  },
+  "sale_is_stopped": false,
+  "sale_stop_reason" : null,
+  "source_vehicle" : {
+    "uuid" : "0015416d-00e8-4f82-9927-413d3d2c5f65"
+  },
+  "good": {
+    "vehicle_uuid": "bd70c51d-a581-4ac1-9fb7-4e6417effe2b",
+  },
+  "business_domain" : {
+    "uuid" : "3c3398f4-986d-4bd4-831e-4955ef56547f",
+    "name" : "АСП"
+  },
+  "business_subdomain" : {
+    "uuid": "efd7fab7-f340-4944-b420-332b5c524fd1",
+    "business_domain": {
+      "uuid": "3c3398f4-986d-4bd4-831e-4955ef56547f"
+    },
+    "name": "Продажа АСП физ. лицам",
+    "description": null
+  },
+  "good_ref_type" : {
+    "uuid" : "6a84c833-9b0f-479c-b13b-ee774f75b7a1",
+    "name" : "Ссылка на Автомобиль"
+  },
+  "needs_and_orders_good_type" : {
+    "uuid": "d2053433-2589-4d48-a20b-f6f88cbcc8e8",
+    "name": "Конкретное предложение покупки АСП",
+    "good_ref_type": {
+      "uuid": "6a84c833-9b0f-479c-b13b-ee774f75b7a1"
+    },
+    "is_general": true,
+    "is_detail": true,
+    "may_be_paid": true,
+    "sequence_number_in_user_interface": 3,
+    "f_and_i_product": null,
+    "business_domain": {
+      "uuid": "3c3398f4-986d-4bd4-831e-4955ef56547f"
+    },
+    "good_class": {
+      "uuid": "20214e1c-4b8e-401b-ae64-74bb07b3a5ee"
+    },
+    "business_subdomain": null
+  },
+  "needs_and_orders_class" : {
+    "uuid": "82109a9a-409a-11ed-b878-0242ac120002",
+    "name": "Продажа",
+    "operation_direction": 1,
+    "is_return": false
+  },
+  "good_class" : {
+    "uuid": "20214e1c-4b8e-401b-ae64-74bb07b3a5ee",
+    "business_domain": {
+      "uuid": "3c3398f4-986d-4bd4-831e-4955ef56547f"
+    },
+    "name": "АМ"
+  },
+  "client_class" : {
+    "uuid": "eb4becee-37a5-4292-bb69-4cd600ce0f4d",
+    "needs_and_orders_class": {
+      "uuid": "82109a9a-409a-11ed-b878-0242ac120002"
+    },
+    "name": "Физ. лицо или единичная продажа юр. лицо"
+  },
+  "priority_for_recommendation_of_service": {
+    "uuid": "6c4fc676-50c7-4322-80f8-34ff417cedd7",
+    "name": "Высокий",
+    "sort_priority": "1"
+  },
+  "accounting_category": null,
+  "client" : {
+    "uuid" : "7bbce7ff-3423-4318-8c3e-e8e4637aba26"
+  },
+  "dealership" : {
+    "uuid" : "664480c9-67e8-375f-f8b2-2d3a0fa4cde3"
+  },
+  "salesman" : {
+    "uuid" : "3dad60ce-8a42-406d-8b0e-c49561256997"
+  },
+  "power_of_attorney" : null,
+  "client_side_proxy" : null,
+  "need_returned": null,
+  "movements_of_goods_counterparty": {
+    "uuid": "a9acd9fb-4784-4393-a680-4dfa820ba04a"
+  },
+  "cash_movement_counterparty": {
+    "uuid": "a9acd9fb-4784-4393-a680-4dfa820ba04a"
+  },
+  "payment_alternative_counterparty": null,
+  "attached_files_list_json": null,
+  "sale": {
+    "sale_value_including_vat": 1297000.0,
+    "sale_vat_amount": 68666.67,
+    "sale_value_excluding_vat": 1228333.33,
+    "sale_vat_rate_as_percentage": 20,
+    "vat_from_price_difference": true
+  },
+  "recommended_retail_price": 1297000.0,
+  "quantity": 1,
+  "cost_price": 885000.0,
+  "negotiated_price": 1297000.0,
+  "standard_hours_for_work": null,
+  "is_obligatory_safety_recommendation_of_service": false, 
+  "is_included_in_single_document_with_vehicle_of_cross_selling": false,
+  "on_credit": null,
+  "insert_date": "2023-03-27 16:42:28.073 +0300",
+  "finish_date": null,
+  "date_of_last_stage_change": null,
+  "initial_communication": {
+    "uuid": "7b026900-c6b9-4461-a9bf-119fd24d70b3"
+  },
+  {
+    "communications": [
+        {
+            "uuid": "c48fe13f-92ef-4f3b-af22-6f901df037c7"
+        }
+    ]
+  }
+}
+```
+
+## Методы
+
+{{% openapi source="/02_01_01_02_01_json/orders_openapi.json" %}}
+
+### Примеры использования
+
+
+
+### Требуется для разработки
+
+| # п.п. | Метод | Endpoint | Description | Priority | Comments |
+| ------ | ----- | -------- | ----------- | -------- | -------- |
+|        |       |          |             |          |          |
+|        |       |          |             |          |          |
+|        |       |          |             |          |          |
+

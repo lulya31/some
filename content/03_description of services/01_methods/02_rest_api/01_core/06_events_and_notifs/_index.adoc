@@ -1,0 +1,17 @@
+---
+title: "EVENTS_NOTIFS_STATUSES"
+description: "Методы по работе с событиями, нотификациями, состояниями и оповещениями сущностей Flora"
+version: 1
+additional:
+    team: ""
+    author: ""
+    maintainer: ""
+    developer: ""
+    status: "in_work"
+    subscribers: [""]
+draft: false
+slug: ""
+weight: 6
+---
+
+Раздел содержит описание основных API FLORA и правил их реализации.
