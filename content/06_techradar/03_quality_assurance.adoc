@@ -19,48 +19,44 @@ include::static/includes/init.adoc[]
 {empty} +
 
 ++++
-<div class="back-button">
-    <a href="/06_techradar/"><button class="button-1">Back</button></a>
-</div>
-
 <div class="radar">
     <svg id="radar"></svg>
 </div>
 
 <script>
-    fetch('/06_03_img/quality_assurance.json').then(function(response) {
-        return response.json();
-    }).then(function(data) {
-        radar_visualization({
-        svg_id: "radar",
-        width: 1400,
-        height: 900,
-        colors: {
-            background: "#fff",
-            grid: '#dddde0',
-            inactive: "#ddd"
-        },
-        title: "Quality Assurance",
-        date: data.date,
-        quadrants: [
-            { name: "Languages & Frameworks" },
-            { name: "Platform & Infrastructure" },
-            { name: "Data Management" },
-            { name: "Techniques & Tools" },
-        ],
-        rings: [
-            { name: "RESEARCH", color: "#5ba300" },
-            { name: "TRIAL", color: "#009eb0" },
-            { name: "ADOPT", color: "#c7ba00" },
-            { name: "HOLD", color: "#e09b96" }
-        ],
-        print_layout: true,
-        links_in_new_tabs: true,
-        // zoomed_quadrant: 0,
-        entries: data.entries
-        });
-    }).catch(function(err) {
-        console.log('Error loading config.json', err);
+fetch('/06_03_img/quality_assurance.json').then(function(response) {
+    return response.json();
+}).then(function(data) {
+    radar_visualization({
+    svg_id: "radar",
+    width: 1400,
+    height: 900,
+    colors: {
+        background: "#fff",
+        grid: '#dddde0',
+        inactive: "#ddd"
+    },
+    title: "Quality Assurance",
+    date: data.date,
+    quadrants: [
+        { name: "Data Management" },
+        { name: "Techniques & Tools" },
+        { name: "Platform & Infrastructure" },
+        { name: "Languages & Frameworks" }, 
+    ],
+    rings: [
+        { name: "ADOPT", color: "#5ba300" },
+        { name: "TRIAL", color: "#009eb0" },
+        { name: "RESEARCH", color: "#c7ba00" },
+        { name: "HOLD", color: "#e09b96" }
+    ],
+    print_layout: true,
+    links_in_new_tabs: true,
+    // zoomed_quadrant: 0,
+    entries: data.entries
     });
+}).catch(function(err) {
+    console.log('Error loading config.json', err);
+});
 </script>
 ++++

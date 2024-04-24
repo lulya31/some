@@ -19,10 +19,6 @@ include::static/includes/init.adoc[]
 {empty} +
 
 ++++
-<div class="back-button">
-    <a href="/06_techradar/"><button class="button-1">Back</button></a>
-</div>
-
 <div class="radar">
     <svg id="radar"></svg>
 </div>
@@ -43,15 +39,15 @@ fetch('/06_05_img/infrastructure.json').then(function(response) {
     title: "Infrastructure",
     date: data.date,
     quadrants: [
-        { name: "Languages & Frameworks" },
-        { name: "Platform & Infrastructure" },
         { name: "Data Management" },
         { name: "Techniques & Tools" },
+        { name: "Platform & Infrastructure" },
+        { name: "Languages & Frameworks" }, 
     ],
     rings: [
-        { name: "RESEARCH", color: "#5ba300" },
+        { name: "ADOPT", color: "#5ba300" },
         { name: "TRIAL", color: "#009eb0" },
-        { name: "ADOPT", color: "#c7ba00" },
+        { name: "RESEARCH", color: "#c7ba00" },
         { name: "HOLD", color: "#e09b96" }
     ],
     print_layout: true,
