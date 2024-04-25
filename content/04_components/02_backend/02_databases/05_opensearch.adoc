@@ -72,7 +72,7 @@ include::static/02_02_01_05_img/opensearch_postman_collection.json[]
 ****
 
 ====
-NOTE: Последняя версия *OpenSearch* доступна для скачивания link:https://opensearch.org/downloads.html[*здесь*, window=_blank].
+> Последняя версия *OpenSearch* доступна для скачивания link:https://opensearch.org/downloads.html[*здесь*, window=_blank].
 ====
 
 ****

@@ -15,5 +15,5 @@ include::static/includes/init.adoc[]
 {empty} +
 
 ====
-NOTE: Описание раздела *One CAR ID* будет добавлено позднее.
+> Описание раздела *One CAR ID* будет добавлено позднее.
 ====

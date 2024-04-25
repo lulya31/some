@@ -1,0 +1,42 @@
+---
+title: "API схема"
+description: "API схема сервиса Коммуникации"
+slug: ""
+version: 1
+additional:
+    author: "Иванова Полина"
+    maintainer: ""
+    status: "in_work"
+draft: false
+weight: 1
+---
+
+== Инфраструктурная схема API сервиса Коммуникации - С3 Уровень компонентов
+
+
+:imgdir: /05_03_puml/
+:imagesoutdir: ./static/05_03_puml/
+
+include::static/includes/init.adoc[]
+
+  
+++++
+<style type="text/css">
+.diagram_dimensions { 
+    width: 100%;
+}
+</style>
+
+<div class="diagram_dimensions">
+++++
+
+****
+[plantuml%interactive, flora, format=svg, align=center]
+----
+include::{imagesoutdir}api_communications.puml[]
+----
+****
+
+++++
+</div>
+++++

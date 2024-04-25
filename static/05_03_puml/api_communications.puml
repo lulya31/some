@@ -1,0 +1,110 @@
+@startuml Component
+
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+
+skinparam minClassWidth 200
+skinparam wrapWidth 200
+skinparam nodesep 75
+skinparam backgroundColor transparent
+skinparam vgap 200
+
+LAYOUT_TOP_DOWN()
+
+AddRelTag("Async", $textColor="green", $lineColor="green", $lineStyle=BoldLine())
+AddRelTag("Not_Direct", $textColor="orange", $lineColor="orange", $lineStyle=BoldLine())
+
+System_Ext(apim, "APIM", "API Managment", $descr="Платформа управления REST API", $sprite="img:static/05_02_01_img/leroy_logo.png")
+
+Container_Boundary(conteiner, "Platformeco Communications") {
+
+        Component(comments, "Comments", "REST", $descr="Текст с информацией по конкретной сущности", $link="https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/03_comments/")
+        Component(annotation, "Annotations", "REST", $descr="Текст относящийся ко всему процессу")
+        Component(communication, "Communications", "REST", $descr="Описывает взаимодействие пользователя с клиентом", $link="https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/01_communications/")
+        Component(request, "Requests", "REST", $descr="Объединяет потребности и коммуникации", $link="https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_requests/")
+
+        Component(request_2, "Requests", "Shared flow", $descr="Объединяет потребности и коммуникации", $sprite="img:static/05_02_01_img/request.png", $link="https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/02_requests/")
+        Component(annotation_2, "Annotations", "Shared flow", $descr="Текст относящийся ко всему процессу", $sprite="img:static/05_02_01_img/annotation.png")
+        Component(communication_2, "Communications", "Shared flow", $descr="Описывает взаимодействие пользователя с клиентом", $sprite="img:static/05_02_01_img/communications.png", $link="https://doc-communications-main.com-dev.int.rolfcorp.ru/02_shared_flow/01_communications/")
+        Component(comments_2, "Comments", "Shared flow", $descr="Текст с информацией по конкретной сущности", $sprite="img:static/05_02_01_img/comments.png", $link="https://doc-communications-main.com-dev.int.rolfcorp.ru/03_methods/02_shared_flow/03_comments/")
+
+        Component(communication_3, "Communications", "Kafka API", $descr="Описывает взаимодействие пользователя с клиентом")
+        Component(request_3, "Requests", "Kafka API", $descr="Объединяет потребности и коммуникации")
+}
+
+Component_Ext(need, "Потребности", "Needs", $descr="Формируется из обращения клиента", $sprite="img:static/05_02_01_img/needs.png")
+
+Container_Ext(kafka, "Kafka", "Message broker: kafka", "Топики с доменными событиями Flora", $sprite="img:static/05_02_01_img/kafka_logo.png", $link="")
+ContainerDb_Ext(opensearch_service_comm, "Opensearch Communications", "DB:OpenSearch", "Содержит JSON представления коммуникаций, обогощенных данными вложенных сущностей (витрина данных)", $sprite="img:static/05_02_01_img/opensearch.png", $link="https://doc-example-main.com-dev.int.rolfcorp.ru/02_info_model/03_datastorage/02_data_opensearch/")
+ContainerDb_Ext(opensearch_service_req, "Opensearch Requests", "DB:OpenSearch", "Содержит JSON представления обращений, обогощенных данными вложенных сущностей (витрина данных)", $sprite="img:static/05_02_01_img/opensearch.png", $link="https://doc-example-main.com-dev.int.rolfcorp.ru/02_info_model/03_datastorage/02_data_opensearch/")
+ContainerDb_Ext(db_need, "flora-needs-and-orders", "DB: PostgreSQL", "Хранение данных для работы с сущностью need и orders", $sprite="img:static/05_02_01_img/postgressql.svg", $link="")
+ContainerDb_Ext(db_request, "flora-clients-request", "DB: PostgreSQL", "Ханение данных для работы с сущностью Обращение", $sprite="img:static/05_02_01_img/postgressql.svg", $link="")
+ContainerDb_Ext(db_communication, "flora-communications", "DB: PostgreSQL", "Хранение данных для работы с сущностью Коммуникация", $sprite="img:static/05_02_01_img/postgressql.svg", $link="")
+ContainerDb_Ext(db_comments_and_annotations, "flora-comments-and-annotations", "DB: PostgreSQL", "Хранение данных для работы с сущностями Комментарии и Заметки", $sprite="img:static/05_02_01_img/postgressql.svg", $link="")
+
+'- - - - - - - - - - - - - - - - - - - -
+' Layout 
+
+'малышки в красивом порядке
+Lay_R(request, communication)
+Lay_R(communication, comments)
+Lay_R(comments, annotation)
+
+'малышки друг над другом
+Lay_D(comments, comments_2)
+Lay_D(annotation, annotation_2)
+Lay_D(communication, communication_2)
+Lay_D(request, request_2)
+Lay_D(comments_2, db_comments_and_annotations)
+Lay_D(communication_2, db_communication)
+Lay_D(request_2, db_request)
+Lay_U(communication, communication_3)
+Lay_U(request, request_3)
+
+'apim наверху
+Lay_U(request_3, apim)
+
+'Kafka наверху
+Lay_U(request_3, kafka)
+Lay_U(communication_3, kafka)
+
+'DB в красивом порядке
+Lay_R(db_request, db_communication)
+Lay_R(db_communication, db_comments_and_annotations)
+Lay_L(db_request, opensearch_service_req)
+Lay_L(db_communication, opensearch_service_comm)
+Lay_R(db_comments_and_annotations, db_need)
+Lay_D(annotation_2, db_need)
+Lay_U(db_comments_and_annotations, need)
+
+'- - - - - - - - - - - - - - - - - - - -
+' Relations 
+
+Rel(apim, comments, "Makes API calls")
+Rel(apim, annotation, "Makes API calls")
+Rel(apim, communication, "Makes API calls")
+Rel(apim, request, "Makes API calls")
+Rel(comments, comments_2, "uses")
+Rel(annotation, annotation_2, "uses")
+Rel(communication, communication_2, "uses")
+Rel(request, request_2, "uses")
+Rel(comments_2, db_comments_and_annotations, "CRUD", "TCP: Binary")
+Rel(annotation_2, db_comments_and_annotations, "CRUD", "TCP: Binary")
+Rel(communication_2, db_communication, "CRUD", "TCP: Binary")
+Rel(request_2, db_request, "CRUD", "TCP: Binary")
+Rel(communication_3, kafka, "READING EVENTS", "kafka protocol")
+Rel(request_3, kafka, "READING EVENTS", "kafka protocol")
+Rel(communication_3, communication_2, "uses")
+Rel(request_3, request_2, "uses")
+Rel(communication_2, opensearch_service_comm, "Наполнение витрины", "HTTPS:JSON")
+Rel(request_2, opensearch_service_req, "Наполнение витрины", "HTTPS:JSON")
+
+'Сущности c need
+BiRel(need, request_2, "")
+BiRel(need, comments_2, "")
+BiRel(need, communication_2, "")
+Rel(need, db_need, "CRUD", "TCP: Binary")
+
+SHOW_LEGEND()
+
+@enduml
