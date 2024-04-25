@@ -21,5 +21,5 @@ include::static/includes/init.adoc[]
 {empty} +
 
 ====
-NOTE: Описание раздела *Data Lake* будет добавлено позднее.
+> Описание раздела *Data Lake* будет добавлено позднее.
 ====

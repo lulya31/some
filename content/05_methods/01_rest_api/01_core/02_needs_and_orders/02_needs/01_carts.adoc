@@ -1,0 +1,103 @@
+---
+title: "Пакеты (carts)"
+description: "Описание методов по работе с пакетами услуг"
+version: 1
+additional:
+    team: ""
+    author: ""
+    service : "PLT Orders"
+    maintainer: ""
+    developer: ""
+    status: "in_work"
+    subscribers: [""]
+draft: false
+weight: 1
+---
+
+Пакеты услуг и предложений - сущность, которая объединяет несколько конкретных предложений.
+
+
+== Основные свойства
+
+
+== Информационная модель
+
+https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/06_cart/[Ссылка на инфо модель корзины в репозитории orders]
+
+```json
+{
+    "uuid": "05a0fcda-6383-4944-b179-1de89e8bff8c",
+    "status": "",
+    "status_ui": "",
+    "price": 1100000,
+    "level": 1,
+    "general_need": {
+        "uuid": "60eac159-2d07-4ac6-886f-a9269cc105f7"
+    },
+    "cross_selling": {
+        "uuid": null
+    },
+    "client": {
+        "uuid": "7bbce7ff-3423-4318-8c3e-e8e4637aba26"
+    },
+    "salesman": {
+        "uuid": "8378c902-5b43-11ed-9b6a-0242ac120002"
+    },
+    "is_active": false,
+    "is_full": true,
+    "sequence_number": 1,
+    "nested_carts": [
+        {
+            "uuid": "616b7f13-08df-4991-90eb-74b3914aaa8c",
+            "nested_carts": [
+                {
+                    "uuid": "b627bd51-83d9-4145-8455-a84709db5958"
+                }
+            ]
+        },
+        {
+            "uuid": "d56bbe99-4228-45b1-8aa2-0f7ab2df0125",
+            "nested_carts": [
+                {
+                    "uuid": "aef114e8-b115-4035-a9eb-f5389c3f9c0d"
+                }
+            ]
+        }
+    ],
+    "orders": [
+        {
+            "uuid": "05a0fcda-6383-4944-b179-1de89e8bff8c"
+        },
+        {
+            "uuid": "05a0fcda-6383-4944-b179-1de89e8bff8c"
+        }
+    ]
+}
+
+```
+
+== Методы
+
+{{% openapi source="/02_01_01_02_02_01_json/carts_openapi.json" %}}
+
+=== Примеры использования
+
+
+
+=== Требуется для разработки
+|===
+| #   | Метод | Endpoint | Description | Priority | Comments |
+| --- | ----- | -------- | ----------- | -------- | -------- |
+|     |       |          |             |          |          |
+|     |       |          |             |          |          |
+|     |       |          |             |          |          |
+|===
+
+=== Доработки
+|===
+| #   | Метод | Текущий Endpoint | Новый Endpoint | Задача | Comments |
+| --- | ----- | ---------------- | -------------- | ------ | -------- |
+|     |       |                  |                |        |          |
+|     |       |                  |                |        |          |
+|     |       |                  |                |        |          |
+|===

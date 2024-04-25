@@ -1,7 +1,7 @@
 ---
 title: "Информация о системе"
 description: "Общая информация о системе"
-titleIcon: "fa-regular fa-align-left"
+titleIcon: "fa-sharp fa-align-left"
 weight: 1
 draft: false
 titleIcon: "fa-solid fa-folder"
@@ -14,8 +14,8 @@ slug: ""
 
 {empty} +
 
-====
-NOTE: Данный документ описывает верхнеуровневую архитектуру проекта *Rolf*
-====
+
+> Данный документ описывает верхнеуровневую архитектуру проекта *Rolf*
+
 
 {empty} +
