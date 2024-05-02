@@ -12,7 +12,7 @@ additional:
     subscribers: [""]
 draft: false
 slug: ""
-weight: 2
+weight: 5
 ---
 
 Раздел содержит описание основных *API FLORA* и правил их реализации.

@@ -103,6 +103,9 @@ buildDrafts = true
     #         url = '/02_info_model/'
     #         icon = 'fa-solid fa-network-wired'
 
+[params.markmap]
+   enable = true
+   
 # Markup configure section
 # See https://gohugo.io/getting-started/configuration-markup/
 [markup]
