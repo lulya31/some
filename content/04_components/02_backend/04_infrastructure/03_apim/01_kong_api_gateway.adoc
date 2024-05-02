@@ -24,7 +24,7 @@ include::static/includes/init.adoc[]
 == Доступы Kong APIM
 
 ****
-[cols="^.^10h,90"]
+[cols="^.^10,90"]
 |===
 | Окружение ^.^| URL
 

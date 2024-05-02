@@ -23,7 +23,7 @@ include::static/includes/init.adoc[]
 == Доступы Centrifugo
 
 ****
-[cols=".^30h,.^70"]
+[cols=".^30,.^70"]
 |===
 | Документация | `[.blue]#https://centrifugal.dev/#`
 | url | `[.blue]#https://centrifugo.com-dev.int.rolfcorp.ru#`
