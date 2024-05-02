@@ -1,7 +1,7 @@
 ---
 title: "Архитектура ПО FLORA"
 description: "Архитектура ПО FLORA"
-weight: 1
+weight: 25
 draft: false
 slug: ""
 ---

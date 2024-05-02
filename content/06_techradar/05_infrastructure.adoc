@@ -19,6 +19,10 @@ include::static/includes/init.adoc[]
 {empty} +
 
 ++++
+<div class="back-button">
+  <a href="/06_techradar/"><button class="button-1">Back</button></a>
+</div>
+
 <div class="radar">
     <svg id="radar"></svg>
 </div>
