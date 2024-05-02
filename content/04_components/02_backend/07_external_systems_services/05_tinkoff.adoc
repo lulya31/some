@@ -119,7 +119,7 @@ IMPORTANT: На текущий момент по предоставленной 
 ==== Порядок вызова методов
 
 ****
-[cols=".^15h,.^85"]
+[cols=".^15,.^85"]
 |===
 | URL test | `*link:https://qa.forma.tcsbank.ru/api/autobroker/v1/cobroker/app[window=_blank]*`
 | URL prod | `*link:https://forma.tinkoff.ru/api/autobroker/v1/cobroker/app[window=_blank]*`

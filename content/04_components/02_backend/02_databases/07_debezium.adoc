@@ -54,7 +54,7 @@ include::static/02_02_01_07_img/debezium_postman_collection.json[]
 | `10.124.11.6:9200` | `10.124.21.47:9200`
 |===
 
-[cols="^.^100h"]
+[cols="^.^100"]
 |===
 | Полезные ссылки
 | `link:https://doc-core-main.com-dev.int.rolfcorp.ru/06_rnd/01_versions/[*Описание архитектуры целевого решения*, window=_blank]`

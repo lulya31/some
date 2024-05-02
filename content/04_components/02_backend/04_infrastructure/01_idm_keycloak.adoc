@@ -37,7 +37,7 @@ include::static/02_02_04_01_img/keycloak_postman_collection.json[]
 == Досупы KeyCloak
 
 ****
-[cols="^.^10h,.^90"]
+[cols="^.^10,.^90"]
 |===
 | Окружение ^.^| URL
 

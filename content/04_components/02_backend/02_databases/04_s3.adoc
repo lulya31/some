@@ -26,7 +26,7 @@ include::static/includes/init.adoc[]
 .Подключения *Platformeco* по протоколу *HTTP*
 [%collapsible%open]
 ====
-[cols=".^30h,.^70"]
+[cols=".^30,.^70"]
 |===
 | Настройки подключения через CyberDuck | `*link:https://cyberduck.io/[window=_blank]*`
 | Тип соединения | *Amazon S3*

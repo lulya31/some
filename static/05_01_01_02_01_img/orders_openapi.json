@@ -1,0 +1,1407 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "nao-orders-v1",
+    "description": "Канал приложения orders: Предложения товаров и услуг (orders)\nhttps://jira.rolf.ru/browse/FLORA-10949",
+    "version": "1.1.1"
+  },
+  "servers": [
+    {
+      "url": "https://api-dev.plf-dev.int.rolfcorp.ru:443/flora/nao/orders",
+      "description": "dev"
+    },
+    {
+      "url": "https://api-preprod.plf-dev.int.rolfcorp.ru:443/flora/nao/orders",
+      "description": "preprod"
+    },
+    {
+      "url": "https://api-stage.plf-dev.int.rolfcorp.ru:443/flora/nao/orders",
+      "description": "stage"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": [],
+      "jwtToken": []
+    }
+  ],
+  "paths": {
+    "/v2/orders/{uuid}": {
+      "get": {
+        "tags": [
+          "Предложения товаров и услуг (orders)"
+        ],
+        "summary": "Инфо модель order - предложения заказа",
+        "description": "Дефиниция сбора инфо-модели “Предложения заказа” по UUID",
+        "externalDocs": {
+          "url": "https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/01_crm/09_order/"
+        },
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/orderInfoModel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Предложения товаров и услуг (orders)"
+        ],
+        "summary": "Метод для удаления предложения заказа",
+        "description": "Метод для удаления предложения заказа",
+        "externalDocs": {
+          "url": "https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_orders/04_delete_order/"
+        },
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "^Bearer .*",
+            "required": true,
+            "schema": {
+              "pattern": "^Bearer .*",
+              "type": "string",
+              "format": "JWT"
+            }
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "UUID заказа",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Ошибка при получении записи из БД: *текст_ошибки*",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Предложения товаров и услуг (orders)"
+        ],
+        "summary": "Метод для обновления информации о предложении заказа",
+        "description": "Метод для обновления информации о предложении заказа",
+        "externalDocs": {
+          "url": "https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_orders/03_update_order/"
+        },
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "^Bearer .*",
+            "schema": {
+              "pattern": "^Bearer .*",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateOrderBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/orderInfoModel"
+                }
+                
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Ошибка при получении записи из БД: *текст_ошибки*",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "bodyParameter"
+      }
+    },
+    "/v2/needs/{uuid_general}/orders": {
+      "post": {
+        "tags": [
+          "Предложения товаров и услуг (orders)"
+        ],
+        "summary": "Метод для создания предложения заказа",
+        "description": "Метод для создания предложения заказа",
+        "externalDocs": {
+          "url": "https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_orders/02_create_order/"
+        },
+        "parameters": [
+          {
+            "name": "uuid_general",
+            "in": "path",
+            "description": "Пример: f797de78-de20-45ce-ac17-9c2281fb9da3",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "^Bearer .*",
+            "schema": {
+              "pattern": "^Bearer .*",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createOrderBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/orderInfoModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Ошибка при получении записи из БД: *текст_ошибки*",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "*/*": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "bodyParameter"
+      }
+    },
+    "/v3/collections/orders": {
+      "post": {
+        "tags": [
+          "Предложения товаров и услуг (orders)"
+        ],
+        "summary": "Инфо модель order - предложения заказа",
+        "description": "Дефиниция сбора массива инфо-моделей “Предложений заказа” по массиву UUID",
+        "externalDocs": {
+          "url": "https://doc-core-main.com-dev.int.rolfcorp.ru/02_info_model/01_crm/09_order/"
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "orders": {
+                    "type": "array",
+                    "items": {
+                      "title": "order",
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items":{
+                        "$ref": "#/components/schemas/orderInfoModel"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "*/*": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "*/*": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "*/*": {
+                "schema":{
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "bodyParameter"
+      }
+    },
+    "/v2/orders/{uuid}/legal-events": {
+      "get": {
+        "parameters": [
+          {
+            "name": "legal_event_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "all_legal_conditions_for_needs_execution_met",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Inernal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Предложения товаров и услуг (orders)"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "externalDocs": {
+          "url": "https://doc-orders-main.com-dev.int.rolfcorp.ru/03_methods/01_rest/02_orders/09_get_le_by_orders/"
+        },
+        "summary": "getLegalEventsByOrder. Метод для получения массива с инфо-моделями юридических событий, которые есть для конкретного предложения.",
+        "description": "Метод для получения массива с инфо-моделями юридических событий, которые есть для конкретного предложения."
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "error": {
+        "title": "error",
+        "required": [
+          "_error",
+          "error",
+          "statusCode"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          },
+          "_error": {
+            "required": [
+              "code",
+              "details",
+              "text"
+            ],
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "details": {
+                "required": [
+                  "definition_name",
+                  "external_error",
+                  "method",
+                  "stack",
+                  "time",
+                  "url"
+                ],
+                "type": "object",
+                "properties": {
+                  "time": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "method": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "definition_name": {
+                    "type": "string"
+                  },
+                  "stack": {
+                    "type": "string"
+                  },
+                  "external_error": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "orderInfoModel":{
+          "required": [
+            "uuid"
+          ],
+          "type": "object",
+          "properties": {
+            "uuid": {
+              "type": "string",
+              "example": ""
+            },
+            "status": {
+              "type": "string",
+              "example": ""
+            },
+            "status_ui": {
+              "type": "string",
+              "example": ""
+            },
+            "cross_selling_order": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": ""
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "legal_execution_stage": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "49bf13c7-cf51-4615-b2c1-0e2eb41f87c7"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "sale_is_stopped": {
+              "type": "boolean"
+            },
+            "sale_stop_reason": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "uufbcb7cee-8f7c-4284-8091-ca0d0080419eid"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "source_vehicle": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "0015416d-00e8-4f82-9927-413d3d2c5f65"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "good_class": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "0015416d-00e8-4f82-9927-413d3d2c5f65"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "client_class": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "priority_for_recommendation_of_service": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "accounting_category": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "dealership": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "0015416d-00e8-4f82-9927-413d3d2c5f65"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "salesman": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "power_of_attorney": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "client_side_proxy": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "movements_of_goods_counterparty": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "cash_movement_counterparty": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "dafd3cd4-f872-4d1b-867e-1df0bb524bc9"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "payment_alternative_counterparty": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                },
+                "required": {
+                  "type": "object"
+                }
+              }
+            },
+            "sale": {
+              "type": "object",
+              "properties": {}
+            },
+            "quantity": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            },
+            "cost_price": {
+              "type": "integer",
+              "format": "int32",
+              "example": 885000
+            },
+            "negotiated_price": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1297000
+            },
+            "recommended_retail_price": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1297000
+            },
+            "standard_hours_for_work": {
+              "type": "string",
+              "format": "nullable"
+            },
+            "is_obligatory_safety_recommendation_of_service": {
+              "type": "boolean"
+            },
+            "is_included_in_single_document_with_vehicle_of_cross_selling": {
+              "type": "boolean"
+            },
+            "on_credit": {
+              "type": "boolean"
+            },
+            "attached_files_list_json": {
+              "type": "object",
+              "properties": {}
+            },
+            "finish_date": {
+              "type": "string",
+              "example": "string"
+            },
+            "date_of_last_stage_change": {
+              "type": "string",
+              "example": "string"
+            }
+          }
+      },
+      "createOrderBody":{
+          "required": [
+            "business_domain",
+            "business_subdomain",
+            "client",
+            "good_ref_type",
+            "needs_and_orders_class",
+            "needs_and_orders_good_type",
+            "negotiated_price"
+          ],
+          "type": "object",
+          "properties": {
+            "user_d_login": {
+              "type": "string",
+              "example": "igumerov_ismirnov_kdragun"
+            },
+            "cross_selling_order": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "source_vehicle": {
+              "type": "object"
+            },
+            "good": {
+              "type": "object"
+            },
+            "business_domain": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "business_subdomain": {
+              "type": "object"
+            },
+            "good_ref_type": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "needs_and_orders_good_type": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "needs_and_orders_class": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "good_class": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "client": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "object"
+                }
+              }
+            },
+            "client_class": {
+              "type": "object"
+            },
+            "priority_for_recommendation_of_service": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "accounting_category": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "dealership": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "salesman": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "object"
+                }
+              }
+            },
+            "power_of_attorney": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "object"
+                }
+              }
+            },
+            "client_side_proxy": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "object"
+                }
+              }
+            },
+            "movements_of_goods_counterparty": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "object"
+                }
+              }
+            },
+            "cash_movement_counterparty": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "object"
+                }
+              }
+            },
+            "payment_alternative_counterparty": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "object"
+                }
+              }
+            },
+            "attached_files_list_json": {
+              "type": "object"
+            },
+            "sale": {
+              "type": "object",
+              "properties": {
+                "sale_value_including_vat": {
+                  "type": "number"
+                },
+                "sale_vat_amount": {
+                  "type": "number"
+                },
+                "sale_value_excluding_vat": {
+                  "type": "number"
+                },
+                "sale_vat_rate_as_percentage": {
+                  "type": "integer"
+                },
+                "vat_from_price_difference": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "need_returned": {
+              "type": "object",
+              "properties": {}
+            },
+            "recommended_retail_price": {
+              "type": "number"
+            },
+            "quantity": {
+              "type": "integer"
+            },
+            "cost_price": {
+              "type": "number"
+            },
+            "negotiated_price": {
+              "type": "number"
+            },
+            "standard_hours_for_work": {
+              "type": "number"
+            }
+          },
+          "example": {
+            "good": {
+              "vehicle_uuid": "145198f1-79c9-485e-82a4-71619e6643a9"
+            },
+            "business_domain": {
+              "uuid": "3c3398f4-986d-4bd4-831e-4955ef56547f"
+            },
+            "business_subdomain": {
+              "uuid": "efd7fab7-f340-4944-b420-332b5c524fd1"
+            },
+            "good_ref_type": {
+              "uuid": "6a84c833-9b0f-479c-b13b-ee774f75b7a1"
+            },
+            "needs_and_orders_good_type": {
+              "uuid": "d2053433-2589-4d48-a20b-f6f88cbcc8e8"
+            },
+            "needs_and_orders_class": {
+              "uuid": "82109a9a-409a-11ed-b878-0242ac120002"
+            },
+            "client": {
+              "uuid": "ac2e78d0-5280-40bb-b63a-112624832dd0"
+            },
+            "dealership": {
+              "uuid": "664480c9-67e8-375f-f8b2-2d3a0fa4cde3"
+            },
+            "salesman": {
+              "uuid": "3dad60ce-8a42-406d-8b0e-c49561256997"
+            },
+            "power_of_attorney": {
+              "uuid": ""
+            },
+            "client_side_proxy": {
+              "uuid": ""
+            },
+            "movements_of_goods_counterparty": {
+              "uuid": ""
+            },
+            "cash_movement_counterparty": {
+              "uuid": ""
+            },
+            "payment_alternative_counterparty": {
+              "uuid": ""
+            },
+            "attached_files_list_json": {},
+            "sale": {},
+            "need_returned": {
+              "uuid": ""
+            },
+            "quantity": 1,
+            "cost_price": 1000,
+            "negotiated_price": 750,
+            "recommended_retail_price": 500,
+            "standard_hours_for_work": 3
+          }
+      },
+      "updateOrderBody":{
+          "type": "object",
+          "properties": {
+            "user_d_login": {
+              "type": "string",
+              "example": "igumerov_ismirnov_kdragun"
+            },
+            "cross_selling_order": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "legal_execution_stage": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "49bf13c7-cf51-4615-b2c1-0e2eb41f87c7"
+                }
+              }
+            },
+            "sale_is_stopped": {
+              "type": "boolean"
+            },
+            "sale_stop_reason": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "source_vehicle": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "0015416d-00e8-4f82-9927-413d3d2c5f65"
+                }
+              }
+            },
+            "good_class": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "0015416d-00e8-4f82-9927-413d3d2c5f65"
+                }
+              }
+            },
+            "client_class": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                }
+              }
+            },
+            "priority_for_recommendation_of_service": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                }
+              }
+            },
+            "accounting_category": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                }
+              }
+            },
+            "dealership": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "0015416d-00e8-4f82-9927-413d3d2c5f65"
+                }
+              }
+            },
+            "salesman": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                }
+              }
+            },
+            "power_of_attorney": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                }
+              }
+            },
+            "client_side_proxy": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                }
+              }
+            },
+            "movements_of_goods_counterparty": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                }
+              }
+            },
+            "cash_movement_counterparty": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "dafd3cd4-f872-4d1b-867e-1df0bb524bc9"
+                }
+              }
+            },
+            "payment_alternative_counterparty": {
+              "required": [
+                "uuid"
+              ],
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "fbcb7cee-8f7c-4284-8091-ca0d0080419e"
+                }
+              }
+            },
+            "sale": {
+              "type": "object",
+              "properties": {
+                "sale_value_including_vat": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "sale_vat_amount": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "sale_value_excluding_vat": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "sale_vat_rate_as_percentage": {
+                  "pattern": "\\d+",
+                  "type": "string"
+                },
+                "vat_from_price_difference": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "quantity": {
+              "type": "integer",
+              "example": 2
+            },
+            "cost_price": {
+              "type": "number",
+              "example": 885000
+            },
+            "negotiated_price": {
+              "type": "number",
+              "example": 1297000
+            },
+            "recommended_retail_price": {
+              "type": "number",
+              "example": 1297000
+            },
+            "standard_hours_for_work": {
+              "type": "number"
+            },
+            "is_obligatory_safety_recommendation_of_service": {
+              "type": "boolean"
+            },
+            "is_included_in_single_document_with_vehicle_of_cross_selling": {
+              "type": "boolean"
+            },
+            "on_credit": {
+              "type": "boolean"
+            },
+            "attached_files_list_json": {
+              "type": "object",
+              "properties": {}
+            },
+            "finish_date": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "date_of_last_stage_change": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header"
+      },
+      "jwtToken": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "x-gateway-basepath": {
+    "prefix": "/flora/nao/orders",
+    "description": "when deploying to a gateway the prefix will be added to all paths",
+    "reverseProxy": false
+  }
+}
