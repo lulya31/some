@@ -9,8 +9,8 @@ Tags:
     - Markdown
 ---
 
-:imgdir: /04_02_img/
-:imagesoutdir: ./static/04_02_img/
+:imgdir: /07_02_img/
+:imagesoutdir: ./static/07_02_img/
 
 include::static/includes/init.adoc[]
 

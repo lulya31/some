@@ -11,6 +11,13 @@ Tags:
     - External system services
 ---
 
+:imgdir: /04_02_07_img/
+:imagesoutdir: ./static/04_02_07_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Внешние системы и сервисы
 
 {empty} +

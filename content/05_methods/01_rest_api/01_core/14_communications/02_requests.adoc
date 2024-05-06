@@ -14,6 +14,13 @@ draft: false
 weight: 2
 ---
 
+:imgdir: /05_01_01_14_02_img/
+:imagesoutdir: ./static/05_01_01_14_02_img/
+
+include::static/includes/init.adoc[]
+
+
+
 {{<notice info>}}
 
 https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/01_request/[Описание переходов статусов, JSON представление сущности и атрибутивный состав]

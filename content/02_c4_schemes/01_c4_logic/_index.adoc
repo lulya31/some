@@ -10,10 +10,12 @@ Tags:
     - C4 Flora Logic
 ---
  
-:imgdir: /05_01_img/
-:imagesoutdir: ./static/05_01_img/
+:imgdir: /02_01_img/
+:imagesoutdir: ./static/02_01_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = C4 Flora Logic
 

@@ -11,10 +11,12 @@ Tags:
     - Продажа АСП
 ---
 
-:imgdir: /02_01_01_01_02_img/
-:imagesoutdir: ./static/02_01_01_01_02_img/
+:imgdir: /04_01_01_01_02_img/
+:imagesoutdir: ./static/04_01_01_01_02_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Продажа АСП
 

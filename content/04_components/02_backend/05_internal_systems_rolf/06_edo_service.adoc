@@ -12,10 +12,12 @@ Tags:
 ---
 
 :experimental:
-:imgdir: /02_02_05_06_img/
-:imagesoutdir: ./static/02_02_05_06_img/
+:imgdir: /04_02_05_06_img/
+:imagesoutdir: ./static/04_02_05_06_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Сервис ЭДО (подписание договоров)
 

@@ -14,4 +14,11 @@ slug: ""
 weight: 2
 ---
 
+:imgdir: /05_01_02_img/
+:imagesoutdir: ./static/05_01_02_img/
+
+include::static/includes/init.adoc[]
+
+
+
 Раздел содержит описание методы прикладных направлений.

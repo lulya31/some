@@ -10,10 +10,12 @@ Tags:
     - Saga
 ---
 
-:imgdir: /02_03_01_img/
-:imagesoutdir: ./static/02_03_01_img/
+:imgdir: /04_03_01_img/
+:imagesoutdir: ./static/04_03_01_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Паттерн - Saga
 

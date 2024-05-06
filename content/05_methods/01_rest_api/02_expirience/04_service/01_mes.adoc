@@ -15,6 +15,11 @@ slug: ""
 weight: 1
 ---
 
+:imgdir: /05_01_02_04_01_img/
+:imagesoutdir: ./static/05_01_02_04_01_img/
+
+include::static/includes/init.adoc[]
+
 
 
 == Основные свойства
@@ -27,9 +32,9 @@ weight: 1
 ```
 
 == Методы
-
+////
 {{< swaggerui src="/04_tasks/notifs.json" >}}
-
+////
 === Примеры использования
 
 

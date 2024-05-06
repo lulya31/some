@@ -11,10 +11,12 @@ Tags:
     - ELT
 ---
 
-:imgdir: /02_02_07_03_img/
-:imagesoutdir: ./static/02_02_07_03_img/
+:imgdir: /04_02_07_03_img/
+:imagesoutdir: ./static/04_02_07_03_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = ELT сервис - страховой модуль
 
@@ -26,7 +28,7 @@ include::static/includes/init.adoc[]
 === Получение токена авторизации
 
 ****
-[cols=".^60,.^40"]
+[%header, cols=".^60,.^40"]
 |===
 | Описание запроса для получения токена авторизации | link:https://elt-testapi.int.rolfcorp.ru/v1/auth/api/doc[window=_blank]
 | Для получения токена авторизации необходимо отправить *POST* запрос по *URL*: | link:https://elt-testapi.int.rolfcorp.ru/v1/auth/api/token[window=_blank]
@@ -92,7 +94,7 @@ image::elt_1.jpg[title="Инфраструктура, обеспечивающа
 ****
 
 ****
-[cols=".^25,.^75"]
+[%header, cols=".^25,.^75"]
 |===
 | `[.blue]#*gitlab.elt-poisk.com*#` | Машина с гитлабом, расположенная в контуре *ELT*. С неё происходит заливка кода и поступает команда на сборку контейнеров из образов.
 | `[.blue]#*registry.elt-poisk.com*#` | Машина с собранными образами в контуре *ELT*. Необходима для сборки контейнеров.

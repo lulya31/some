@@ -16,6 +16,8 @@ Tags:
 
 include::static/includes/init.adoc[]
 
+
+
 = Радар технологий
 
 {empty} +

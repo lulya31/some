@@ -11,10 +11,12 @@ Tags:
     - Kafka
 ---
 
-:imgdir: /02_02_03_02_img/
-:imagesoutdir: ./static/02_02_03_02_img/
+:imgdir: /04_02_03_02_img/
+:imagesoutdir: ./static/04_02_03_02_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Сервис очередей Kafka
 
@@ -87,7 +89,7 @@ include::static/includes/init.adoc[]
 .Доступы *Kafka*
 [%collapsible%open]
 ====
-[cols="^.^25,^.^25,^.^50"]
+[%header, cols="^.^25,^.^25,^.^50"]
 [.center, width=100%]
 |===
 | Контур | Канал | Rest Proxy для Oracle
@@ -104,7 +106,7 @@ include::static/includes/init.adoc[]
 | `prod` | `clientid` | `dp-aswt:8097(резервный dp-aswt:8098)`
 |===
 
-[cols=".^50,.^50"]
+[%header, cols=".^50,.^50"]
 |===
 ^.^| Dev ^.^| Prod
 

@@ -11,10 +11,12 @@ Tags:
     - Jaeger
 ---
 
-:imgdir: /02_02_08_02_02_img/
-:imagesoutdir: ./static/02_02_08_02_02_img/
+:imgdir: /04_02_08_02_02_img/
+:imagesoutdir: ./static/04_02_08_02_02_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Jaeger
 
@@ -24,7 +26,7 @@ include::static/includes/init.adoc[]
 
 .*Трейсинг*
 ****
-[cols="^.^30,.^70"]
+[%header, cols="^.^30,.^70"]
 |===
 | Окружение ^.^| URL
 

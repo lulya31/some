@@ -15,6 +15,11 @@ slug: ""
 weight: 14
 ---
 
+:imgdir: /05_01_01_09_14_01_img/
+:imagesoutdir: ./static/05_01_01_09_14_01_img/
+
+include::static/includes/init.adoc[]
+
 
 
 == Основные свойства
@@ -61,7 +66,9 @@ weight: 14
 
 == Методы
 
+++++
 {{% openapi source="/02_01_01_09_14_01_json/dealerships.json" %}}
+++++
 
 === Примеры использования
 

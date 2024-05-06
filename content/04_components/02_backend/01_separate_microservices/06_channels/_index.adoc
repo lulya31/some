@@ -12,6 +12,12 @@ Tags:
     - Каналы
 ---
 
+:imgdir: /04_02_01_06_img/
+:imagesoutdir: ./static/04_01_01_06_img/
+
+include::static/includes/init.adoc[]
+
+
 = Каналы
 
 {empty} +

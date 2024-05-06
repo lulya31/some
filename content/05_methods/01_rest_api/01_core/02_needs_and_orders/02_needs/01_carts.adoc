@@ -78,7 +78,9 @@ https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/06_car
 
 == Методы
 
+++++
 {{% openapi source="/02_01_01_02_02_01_json/carts_openapi.json" %}}
+++++
 
 === Примеры использования
 

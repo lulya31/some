@@ -14,6 +14,10 @@ draft: false
 weight: 2
 ---
 
+:imgdir: /05_01_01_06_02_img/
+:imagesoutdir: ./static/05_01_01_06_02_img/
+
+include::static/includes/init.adoc[]
 
 
 
@@ -28,7 +32,9 @@ weight: 2
 
 == Методы
 
+++++
 {{% openapi source="/02_01_01_04_03_json/tasks.json" %}}
+++++
 
 === Примеры использования
 

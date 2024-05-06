@@ -11,6 +11,9 @@ Tags:
     - Services
 ---
 
+:imgdir: /04_02_01_img/
+:imagesoutdir: ./static/04_01_01_img/
+
 = Сервисы
 
 {empty} +

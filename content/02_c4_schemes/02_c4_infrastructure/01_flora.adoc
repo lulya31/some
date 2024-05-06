@@ -10,8 +10,8 @@ Tags:
     - C2 level
 ---
 
-:imgdir: /05_02_01_img/
-:imagesoutdir: ./static/05_02_01_img/
+:imgdir: /02_02_01_img/
+:imagesoutdir: ./static/02_02_01_img/
 
 include::static/includes/init.adoc[]
 

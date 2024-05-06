@@ -11,10 +11,12 @@ Tags:
     - Platformeco
 ---
 
-:imgdir: /02_02_04_03_img/
-:imagesoutdir: ./static/02_02_04_03_img/
+:imgdir: /04_02_04_03_img/
+:imagesoutdir: ./static/04_02_04_03_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Platformeco
 
@@ -26,7 +28,7 @@ include::static/includes/init.adoc[]
 .Подключения *Platformeco* по протоколу *HTTP*
 [%collapsible%open]
 ====
-[cols=".^100"]
+[%header, cols=".^100"]
 |===
 ^.^| *Cloud Studio*
 | `*link:https://cloud-studio.plf-dev.int.rolfcorp.ru/[window=_blank]*` - `*link:http://dp-asw3:20030[window=_blank]*`

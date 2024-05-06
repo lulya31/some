@@ -11,10 +11,12 @@ Tags:
     - S3
 ---
 
-:imgdir: /02_02_02_04_img/
-:imagesoutdir: ./static/02_02_02_04_img/
+:imgdir: /04_02_02_04_img/
+:imagesoutdir: ./static/04_02_02_04_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Объектное хранилище данных S3
 
@@ -26,7 +28,7 @@ include::static/includes/init.adoc[]
 .Подключения *Platformeco* по протоколу *HTTP*
 [%collapsible%open]
 ====
-[cols=".^30,.^70"]
+[%header, cols=".^30,.^70"]
 |===
 | Настройки подключения через CyberDuck | `*link:https://cyberduck.io/[window=_blank]*`
 | Тип соединения | *Amazon S3*

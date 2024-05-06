@@ -11,10 +11,12 @@ Tags:
     - Idm key cloak
 ---
 
-:imgdir: /02_02_04_01_img/
-:imagesoutdir: ./static/02_02_04_01_img/
+:imgdir: /04_02_04_01_img/
+:imagesoutdir: ./static/04_02_04_01_img/
 
 include::static/includes/init.adoc[]
+
+
 
 :mermaid-puppeteer-config: ./themes/shadocs/puppeteer-config.json
 
@@ -29,7 +31,7 @@ include::static/includes/init.adoc[]
 ====
 [source, json]
 ----
-include::static/02_02_04_01_img/keycloak_postman_collection.json[]
+include::static/04_02_04_01_img/keycloak_postman_collection.json[]
 ----
 ====
 ****
@@ -37,7 +39,7 @@ include::static/02_02_04_01_img/keycloak_postman_collection.json[]
 == Досупы KeyCloak
 
 ****
-[cols="^.^10,.^90"]
+[%header, cols="^.^10,.^90"]
 |===
 | Окружение ^.^| URL
 

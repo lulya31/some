@@ -9,10 +9,12 @@ Tags:
     - Overview
 ---
 
-:imgdir: /01_03_img/
-:imagesoutdir: ./static/01_03_img/
+:imgdir: /01_01_img/
+:imagesoutdir: ./static/01_01_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Описание
 

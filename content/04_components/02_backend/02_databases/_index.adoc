@@ -11,6 +11,13 @@ Tags:
     - Databases
 ---
 
+:imgdir: /04_02_02_img/
+:imagesoutdir: ./static/04_02_02_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Хранилища и Базы данных
 
 {empty} +

@@ -12,6 +12,13 @@ Tags:
     - APIM
 ---
 
+:imgdir: /04_02_04_03_img/
+:imagesoutdir: ./static/04_02_04_03_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Внутринние системы Rolf
 
 {empty} +

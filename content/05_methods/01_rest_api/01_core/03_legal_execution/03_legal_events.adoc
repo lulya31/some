@@ -14,6 +14,13 @@ draft: false
 weight: 3
 ---
 
+:imgdir: /05_01_01_03_03_img/
+:imagesoutdir: ./static/05_01_01_03_03_img/
+
+include::static/includes/init.adoc[]
+
+
+
 Юридические события (legal) - сущность, которая объединяет несколько конкретных предложений.
 
 
@@ -65,7 +72,9 @@ https://doc-orders-main.com-dev.int.rolfcorp.ru/02_info_model/02_entities/04_leg
 
 == Методы
 
+++++
 {{% openapi source="/02_01_01_03_03_json/legal_events_openapi.json" %}}
+++++
 
 === Примеры использования
 

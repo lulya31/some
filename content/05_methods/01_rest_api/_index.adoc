@@ -11,6 +11,13 @@ draft: false
 weight: 2
 ---
 
+:imgdir: /05_01_img/
+:imagesoutdir: ./static/05_01_img/
+
+include::static/includes/init.adoc[]
+
+
+
 Документ содержит информацию по взаимодействию с сущностями Flora.
 
 == Структура API

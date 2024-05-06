@@ -10,10 +10,12 @@ Tags:
     - CDP
 ---
 
-:imgdir: /02_02_10_img/
-:imagesoutdir: ./static/02_02_10_img/
+:imgdir: /04_02_10_img/
+:imagesoutdir: ./static/04_02_10_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = CDP - Платформа клиентских данных
 

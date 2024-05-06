@@ -14,6 +14,11 @@ draft: false
 weight: 3
 ---
 
+:imgdir: /05_01_01_07_07_03_img/
+:imagesoutdir: ./static/05_01_01_07_07_03_img/
+
+include::static/includes/init.adoc[]
+
 
 
 == Основные свойства
@@ -27,7 +32,9 @@ weight: 3
 
 == Методы
 
+////
 {{< swaggerui src="/04_tasks/notifs.json" >}}
+////
 
 === Примеры использования
 

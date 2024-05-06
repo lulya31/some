@@ -11,10 +11,12 @@ Tags:
     - Avtoteka
 ---
 
-:imgdir: /02_02_03_02_img/
-:imagesoutdir: ./static/02_02_07_02_img/
+:imgdir: /04_02_07_02_img/
+:imagesoutdir: ./static/04_02_07_02_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Сервис проверки истории авто по VIN - Автотека
 

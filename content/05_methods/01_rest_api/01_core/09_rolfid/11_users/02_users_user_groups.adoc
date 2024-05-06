@@ -14,6 +14,11 @@ draft: false
 weight: 2
 ---
 
+:imgdir: /05_01_01_09_11_02_img/
+:imagesoutdir: ./static/05_01_01_09_11_02_img/
+
+include::static/includes/init.adoc[]
+
 
 
 == Основные свойства
@@ -404,7 +409,9 @@ weight: 2
 
 == Методы
 
+++++
 {{% openapi source="/02_01_01_09_11_02_json/users_user_groups_openapi.json" %}}
+++++
 
 === Примеры использования
 

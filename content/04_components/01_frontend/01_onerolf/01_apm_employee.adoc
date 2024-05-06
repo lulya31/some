@@ -18,10 +18,12 @@ Tags:
     - ARM Employee
 ---
 
-:imgdir: /02_01_01_01_img/
-:imagesoutdir: ./static/02_01_01_01_img/
+:imgdir: /04_01_01_01_img/
+:imagesoutdir: ./static/04_01_01_01_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = АРМ сотрудника
 

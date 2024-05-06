@@ -14,4 +14,11 @@ slug: ""
 weight: 2
 ---
 
+:imgdir: /05_03_img/
+:imagesoutdir: ./static/05_03_img/
+
+include::static/includes/init.adoc[]
+
+
+
 Раздел содержит описание API сервисов FLORA

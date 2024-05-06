@@ -11,10 +11,12 @@ Tags:
     - Выкуп АСП
 ---
 
-:imgdir: /02_01_01_01_03_img/
-:imagesoutdir: ./static/02_01_01_01_03_img/
+:imgdir: /04_01_01_01_03_img/
+:imagesoutdir: ./static/04_01_01_01_03_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Выкуп АСП
 

@@ -11,10 +11,11 @@ Tags:
     - Microfrontends
 ---
 
-:imgdir: /02_01_05_03_img/
-:imagesoutdir: ./static/02_01_05_03_img/
+:imgdir: /04_01_05_03_img/
+:imagesoutdir: ./static/04_01_05_03_img/
 
 include::static/includes/init.adoc[]
+
 
 = Микрофронтенды
 

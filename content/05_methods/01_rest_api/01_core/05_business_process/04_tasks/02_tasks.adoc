@@ -15,6 +15,12 @@ slug: ""
 weight: 4
 ---
 
+:imgdir: /05_01_01_05_04_02_img/
+:imagesoutdir: ./static/05_01_01_05_04_02_img/
+
+include::static/includes/init.adoc[]
+
+
 
 Сущность [Задача](https://doc-notifs-main.com-dev.int.rolfcorp.ru/02_info_model/06_task/) уникальная зависимая сущность, имеющая свой ID, которая может быть сформирована в составе таск листа по его сценарию или вне воронки продаж.
 
@@ -154,7 +160,9 @@ weight: 4
 
 == Методы
 
+++++
 {{% openapi source="/02_01_01_04_03_json/tasks.json" %}}
+++++
 
 === Примеры использования
 
