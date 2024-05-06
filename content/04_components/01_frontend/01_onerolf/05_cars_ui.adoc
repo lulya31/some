@@ -10,10 +10,12 @@ Tags:
     - ARM Cars UI
 ---
 
-:imgdir: /02_01_01_05_img/
-:imagesoutdir: ./static/02_01_01_05_img/
+:imgdir: /04_01_01_05_img/
+:imagesoutdir: ./static/04_01_01_05_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Список авто / Карточка авто
 

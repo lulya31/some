@@ -15,6 +15,13 @@ slug: ""
 weight: 3
 ---
 
+:imgdir: /05_02_img/
+:imagesoutdir: ./static/05_02_img/
+
+include::static/includes/init.adoc[]
+
+
+
 Документ содержит общее описание принципов асинхронного взаимодействия.
 
 

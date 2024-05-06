@@ -11,6 +11,13 @@ Tags:
     - Infrastructure
 ---
 
+:imgdir: /04_02_04_img/
+:imagesoutdir: ./static/04_02_04_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Внешние системы и сервисы
 
 {empty} +

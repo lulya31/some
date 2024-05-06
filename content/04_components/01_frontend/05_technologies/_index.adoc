@@ -11,6 +11,13 @@ Tags:
     - Technologies
 ---
 
+:imgdir: /04_01_05_img/
+:imagesoutdir: ./static/04_01_05_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Технологии
 
 {empty} +

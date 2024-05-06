@@ -11,6 +11,13 @@ Tags:
     - Async communications
 ---
 
+:imgdir: /04_02_03_img/
+:imagesoutdir: ./static/04_02_03_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Асинхронное взаимодействие
 
 {empty} +

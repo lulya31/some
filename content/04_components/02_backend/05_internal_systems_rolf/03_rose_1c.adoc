@@ -11,10 +11,12 @@ Tags:
     - Rose 1C
 ---
 
-:imgdir: /02_02_05_02_img/
-:imagesoutdir: ./static/02_02_05_02_img/
+:imgdir: /04_02_05_03_img/
+:imagesoutdir: ./static/04_02_05_03_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = ROSE 1C
 

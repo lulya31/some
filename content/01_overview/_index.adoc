@@ -8,6 +8,13 @@ titleIcon: "fa-solid fa-folder"
 slug: ""
 ---
 
+:imgdir: /01_img/
+:imagesoutdir: ./static/01_img/
+
+include::static/includes/init.adoc[]
+
+
+
 :icons: font
 
 = Общая информация о системе

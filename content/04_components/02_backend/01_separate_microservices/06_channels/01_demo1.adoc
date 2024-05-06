@@ -12,10 +12,12 @@ Tags:
     - Канал demo1
 ---
 
-:imgdir: /02_02_01_06_01_img/
-:imagesoutdir: ./static/02_02_01_06_01_img/
+:imgdir: /04_02_01_06_01_img/
+:imagesoutdir: ./static/04_02_01_06_01_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Канал demo1
 

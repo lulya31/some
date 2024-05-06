@@ -11,6 +11,11 @@ Tags:
     - Architecture
 ---
 
+:imgdir: /04_img/
+:imagesoutdir: ./static/04_img/
+
+include::static/includes/init.adoc[]
+
 = Компоненты проекта One Rolf
 
 {empty} +

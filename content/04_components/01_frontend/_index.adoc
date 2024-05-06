@@ -10,6 +10,13 @@ Tags:
     - Frontend
 ---
 
+:imgdir: /04_01_img/
+:imagesoutdir: ./static/04_01_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Взаимодействие с пользователями (Frontend)
 
 {empty} +

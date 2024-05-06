@@ -11,13 +11,15 @@ draft: false
 weight: 1
 ---
 
-== Инфраструктурная схема API сервиса Коммуникации - С3 Уровень компонентов
-
-
-:imgdir: /05_03_puml/
-:imagesoutdir: ./static/05_03_puml/
+:imgdir: /05_03_01_img/
+:imagesoutdir: ./static/05_03_01_img/
 
 include::static/includes/init.adoc[]
+
+
+
+== Инфраструктурная схема API сервиса Коммуникации - С3 Уровень компонентов
+
 
   
 ++++

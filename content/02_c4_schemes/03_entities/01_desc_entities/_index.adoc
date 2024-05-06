@@ -11,10 +11,17 @@ additional:
     maintainer: ""
     status: "in_work"
 ---
-     
+
+:imgdir: /02_03_01_img/
+:imagesoutdir: ./static/02_03_01_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Описание сущностей
 
-[cols="1,1,1,3,1"]
+[%header, cols="1,1,1,3,1"]
 |===
 | Доменная область   | Поддоменная область | Сущность/Атрибут | Описание сущности | Подробнее о сущности по ссылке
 | Core       | Business process| Process                    |  

@@ -10,10 +10,12 @@ Tags:
     - ARM Clients UI
 ---
 
-:imgdir: /02_01_01_04_img/
-:imagesoutdir: ./static/02_01_01_04_img/
+:imgdir: /04_01_01_04_img/
+:imagesoutdir: ./static/04_01_01_04_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Список клиентов / Карточка клиента
 

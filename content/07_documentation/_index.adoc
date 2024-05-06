@@ -11,6 +11,13 @@ Tags:
     - Documentation
 ---
 
+:imgdir: /07_img/
+:imagesoutdir: ./static/07_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Документация
 
 {empty} +

@@ -11,10 +11,12 @@ Tags:
     - OpenSearch
 ---
 
-:imgdir: /02_02_01_05_img/
-:imagesoutdir: ./static/02_02_01_05_img/
+:imgdir: /04_02_02_05_img/
+:imagesoutdir: ./static/04_02_02_05_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Система поиска OpenSearch
 
@@ -31,7 +33,7 @@ IMPORTANT: В *коллекции Postman* для *Debezium* и *OpenSearch* в�
 ====
 [source, json]
 ----
-include::static/02_02_01_05_img/opensearch_postman_collection.json[]
+include::static/04_02_02_05_img/opensearch_postman_collection.json[]
 ----
 ====
 ****
@@ -39,7 +41,7 @@ include::static/02_02_01_05_img/opensearch_postman_collection.json[]
 == Доступы к системе OpenSearch
 
 ****
-[cols=".^30,.^10,.^60"]
+[%header, cols=".^30,.^10,.^60"]
 |===
 ^.^| Окружение | |
 

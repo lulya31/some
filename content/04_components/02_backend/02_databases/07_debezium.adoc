@@ -11,10 +11,12 @@ Tags:
     - Debezium
 ---
 
-:imgdir: /02_02_01_07_img/
-:imagesoutdir: ./static/02_02_01_07_img/
+:imgdir: /04_02_02_07_img/
+:imagesoutdir: ./static/04_02_02_07_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Debezium
 
@@ -33,7 +35,7 @@ IMPORTANT: В *коллекции Postman* для *Debezium* и *OpenSearch* в�
 ====
 [source, json]
 ----
-include::static/02_02_01_07_img/debezium_postman_collection.json[]
+include::static/04_02_02_07_img/debezium_postman_collection.json[]
 ----
 ====
 ****
@@ -44,7 +46,7 @@ include::static/02_02_01_07_img/debezium_postman_collection.json[]
 .Доступы *Debezium*
 [%collapsible%open]
 ====
-[cols=".^50,.^50"]
+[%header, cols=".^50,.^50"]
 |===
 ^.^| Dev ^.^| Prod
 
@@ -54,7 +56,7 @@ include::static/02_02_01_07_img/debezium_postman_collection.json[]
 | `10.124.11.6:9200` | `10.124.21.47:9200`
 |===
 
-[cols="^.^100"]
+[%header, cols="^.^100"]
 |===
 | Полезные ссылки
 | `link:https://doc-core-main.com-dev.int.rolfcorp.ru/06_rnd/01_versions/[*Описание архитектуры целевого решения*, window=_blank]`
@@ -209,7 +211,7 @@ image::debezium_2.png[title="Сервер *Debezium*", align=center]
 ****
 *Debezium* предоставляет следующие *SMT*:
 
-[cols=".^30,.^70"]
+[%header, cols=".^30,.^70"]
 |===
 ^.^| Трансформировать ^.^| Описание
 

@@ -10,8 +10,8 @@ Tags:
     - C4 Flora Infrastructure
 ---
 
-:imgdir: /05_02_img/
-:imagesoutdir: ./static/05_02_img/
+:imgdir: /02_02_img/
+:imagesoutdir: ./static/02_02_img/
 
 include::static/includes/init.adoc[]
 

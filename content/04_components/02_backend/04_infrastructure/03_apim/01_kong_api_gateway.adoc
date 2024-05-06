@@ -12,10 +12,12 @@ Tags:
     - Kong API gateway
 ---
 
-:imgdir: /02_02_04_03_01_img/
-:imagesoutdir: ./static/02_02_04_03_01_img/
+:imgdir: /04_02_04_03_01_img/
+:imagesoutdir: ./static/04_02_04_03_01_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = API Gateway (Kong APIM)
 
@@ -24,7 +26,7 @@ include::static/includes/init.adoc[]
 == Доступы Kong APIM
 
 ****
-[cols="^.^10,90"]
+[%header, cols="^.^10,90"]
 |===
 | Окружение ^.^| URL
 

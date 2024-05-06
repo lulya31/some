@@ -12,10 +12,12 @@ Tags:
     - Leroy APIM
 ---
 
-:imgdir: /02_02_04_03_02_img/
+:imgdir: /04_02_04_03_02_img/
 :imagesoutdir: ./static/02_02_04_03_02_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Leroy API Management
 
@@ -131,7 +133,7 @@ image::groups_services_apim.png[title="Группы распределенных
 ****
 
 ****
-[cols=".^50,.^50"]
+[%header, cols=".^50,.^50"]
 |===
 2+^.^|  *Tutorials*
 | link:https://docs-apim.plf.int.rolfcorp.ru/docs/api-draft-creation-process/[Создание проекта *API*, window=_blank] | link:https://docs-apim.plf.int.rolfcorp.ru/docs/management-api-proxy-or-product/[Управление *API Proxy/Product*, window=_blank]
@@ -155,7 +157,7 @@ image::groups_services_apim.png[title="Группы распределенных
 ****
 Как правило, бизнес-процессы большинства компаний можно разделить на несколько категорий:
 
-[cols="^.^20,.^80"]
+[%header, cols="^.^20,.^80"]
 |===
 ^.^| Группа ^.^| Описание
 

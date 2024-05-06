@@ -10,4 +10,11 @@ draft: true
 weight: 1
 ---
 
+:imgdir: /03_01_img/
+:imagesoutdir: ./static/03_01_img/
+
+include::static/includes/init.adoc[]
+
+
+
 Раздел содержит описание типовых процессов происходящих в канале *Communications* системы *FLORA*

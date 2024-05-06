@@ -11,10 +11,12 @@ Tags:
     - Centrifugo WSS Server
 ---
 
-:imgdir: /02_02_04_02_img/
+:imgdir: /04_02_04_02_img/
 :imagesoutdir: ./static/02_02_04_02_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Centrifugo WSS Server
 
@@ -23,7 +25,7 @@ include::static/includes/init.adoc[]
 == Доступы Centrifugo
 
 ****
-[cols=".^30,.^70"]
+[%header, cols=".^30,.^70"]
 |===
 | Документация | `[.blue]#https://centrifugal.dev/#`
 | url | `[.blue]#https://centrifugo.com-dev.int.rolfcorp.ru#`

@@ -11,6 +11,13 @@ Tags:
     - C4 Schemes
 ---
 
+:imgdir: /02_img/
+:imagesoutdir: ./static/02_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Схемы С4
 
 {empty} +

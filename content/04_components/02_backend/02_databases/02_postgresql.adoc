@@ -11,10 +11,12 @@ Tags:
     - PostgreSQL
 ---
 
-:imgdir: /02_02_01_02_img/
-:imagesoutdir: ./static/02_02_01_02_img/
+:imgdir: /04_02_02_02_img/
+:imagesoutdir: ./static/04_02_02_02_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = База данных PostgreSQL
 
@@ -35,7 +37,7 @@ include::static/includes/init.adoc[]
 ****
 [.scrollable]
 --
-[cols=".^1,.^1,.^1,.^1,.^1,.^1,.^1,.^1,.^1,.^1,.^1,.^1"]
+[%header, cols=".^1,.^1,.^1,.^1,.^1,.^1,.^1,.^1,.^1,.^1,.^1,.^1"]
 |===
 6+^.^| *Для работы с Dbeaver и PGadmin* 2+^.^| *Для работы Platformeco, канал COREAPP* 2+^.^| *Для работы Platformeco, канал INTEGRATION* 2+^.^| *Для работы Platformeco, канал ROLFID*
 ^.^| *host* ^.^| *port* ^.^| *sslmode* ^.^| *dbname* ^.^| *user* ^.^| *pass* ^.^| *пути в vault* ^.^| *юзер и пароль хранятся в vault* ^.^| *пути в vault* ^.^| *юзер и пароль хранятся в vault* ^.^| *пути в vault* ^.^| *юзер и пароль хранятся в vault*
@@ -77,7 +79,7 @@ HC_VAULT_SECRET_ID: 10e3effd-c5ce-afeb-0341-93ba57b12838`
 === PROD кластер
 
 ****
-[cols="^.^55,^.^15,^.^15,^.^15"]
+[%header, cols="^.^55,^.^15,^.^15,^.^15"]
 |===
 | Host | Port | sslmode | dbname
 

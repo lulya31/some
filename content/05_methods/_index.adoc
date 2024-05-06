@@ -15,4 +15,11 @@ slug: ""
 weight: 5
 ---
 
+:imgdir: /05_img/
+:imagesoutdir: ./static/05_img/
+
+include::static/includes/init.adoc[]
+
+
+
 Раздел содержит описание основных *API FLORA* и правил их реализации.

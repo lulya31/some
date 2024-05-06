@@ -15,6 +15,13 @@ slug: ""
 weight: 1
 ---
 
+:imgdir: /05_01_02_01_img/
+:imagesoutdir: ./static/05_01_02_01_img/
+
+include::static/includes/init.adoc[]
+
+
+
 Раздел содержит информацию по основным продуктам
 
 == Основные продукты

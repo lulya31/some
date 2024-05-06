@@ -10,6 +10,13 @@ Tags:
     - Backend
 ---
 
+:imgdir: /04_02_img/
+:imagesoutdir: ./static/04_02_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Внутренняя логика (Backend)
 
 {empty} +

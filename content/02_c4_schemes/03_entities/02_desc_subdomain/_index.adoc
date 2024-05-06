@@ -12,10 +12,17 @@ additional:
     status: "in_work"
 ---
 
+:imgdir: /02_03_02_img/
+:imagesoutdir: ./static/02_03_02_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Описание поддоменных областей
 
 
-[cols="1,1,3"]
+[%header, cols="1,1,3"]
 |===
 | Доменная область   | Поддоменная область     | Описание поддоменной области
 | Core               | Business process        | управление бизнес-процессами, такими как задача

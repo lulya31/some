@@ -11,10 +11,11 @@ Tags:
     - TypeScript
 ---
 
-:imgdir: /02_01_05_02_img/
-:imagesoutdir: ./static/02_01_05_02_img/
+:imgdir: /04_01_05_02_img/
+:imagesoutdir: ./static/04_01_05_02_img/
 
 include::static/includes/init.adoc[]
+
 
 = TypeScript
 
@@ -186,7 +187,7 @@ console.log(typeof(y))
 
 .Встроенные типы TypeScript и их описания
 [[table_1_anchor]]
-[cols="^.^15,.^85"]
+[%header, cols="^.^15,.^85"]
 |===
 | Ключевое слово | Описание
 
@@ -206,7 +207,7 @@ console.log(typeof(y))
 
 .Пользовательские типы TypeScript и их описания
 [[table_2_anchor]]
-[cols="^.^25,.^75"]
+[%header, cols="^.^25,.^75"]
 |===
 | Ключевое слово | Описание
 

@@ -14,6 +14,12 @@ draft: false
 weight: 3
 ---
 
+:imgdir: /05_01_01_14_03_img/
+:imagesoutdir: ./static/05_01_01_14_03_img/
+
+include::static/includes/init.adoc[]
+
+
 
 == Основные свойства
 

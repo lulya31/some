@@ -11,4 +11,11 @@ Tags:
     - Onerolf
 ---
 
+:imgdir: /04_01_01_img/
+:imagesoutdir: ./static/04_01_01_img/
+
+include::static/includes/init.adoc[]
+
+
+
 == One Rolf

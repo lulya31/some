@@ -11,10 +11,12 @@ Tags:
     - OpenTelemetry service
 ---
 
-:imgdir: /02_02_14_02_01_img/
-:imagesoutdir: ./static/02_02_08_02_01_img/
+:imgdir: /04_02_08_02_01_img/
+:imagesoutdir: ./static/04_02_08_02_01_img/
 
 include::static/includes/init.adoc[]
+
+
 
 = Open Telemetry
 
@@ -24,7 +26,7 @@ include::static/includes/init.adoc[]
 
 .*Телеметрия мониторинг*
 ****
-[cols="^.^30,.^70"]
+[%header, cols="^.^30,.^70"]
 |===
 | Окружение ^.^| URL
 

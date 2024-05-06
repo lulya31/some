@@ -11,6 +11,13 @@ Tags:
     - Logs
 ---
 
+:imgdir: /04_02_08_img/
+:imagesoutdir: ./static/04_02_08_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Системы логирования
 
 {empty} +

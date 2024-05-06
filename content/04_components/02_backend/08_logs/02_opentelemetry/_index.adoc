@@ -12,6 +12,13 @@ Tags:
     - OpenTelemetry
 ---
 
+:imgdir: /04_02_08_02_img/
+:imagesoutdir: ./static/04_02_08_02_img/
+
+include::static/includes/init.adoc[]
+
+
+
 = Платформа OpenTelemetry
 
 {empty} +
