@@ -9,6 +9,5 @@ LICENSE
 /.vs
 /static/pagefind
 .vscode/
-*.svg
 archetypes/
 resources/
