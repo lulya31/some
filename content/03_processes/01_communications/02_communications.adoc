@@ -20,17 +20,19 @@ weight: 2
     - Коммуникации
 ---
 
+:dontUseSourceHighliter:
+//:dontUseSourceHighliter: -> параметр, означает, что на этой странице мы не используем  инструмент подсветки синтаксиса. Это нужно, чтобы отображались схемы mermaid
 :imgdir: /03_01_02_img/
 :imagesoutdir: ./static/03_01_02_img/
 
 include::static/includes/init.adoc[]
 
 
-
 > Описание: Процесс создания коммуникации начинается в момент ... - КРАТКОЕ ОПИСАНИЕ ПРОЦЕССА
 
 
 == Схема процесса
+
 
 [source, mermaid]
 ----

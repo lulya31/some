@@ -11,6 +11,8 @@ draft: false
 weight: 2
 ---
 
+:dontUseSourceHighliter:
+//:dontUseSourceHighliter: -> параметр, означает, что на этой странице мы не используем  инструмент подсветки синтаксиса. Это нужно, чтобы отображались схемы mermaid
 :imgdir: /05_01_img/
 :imagesoutdir: ./static/05_01_img/
 

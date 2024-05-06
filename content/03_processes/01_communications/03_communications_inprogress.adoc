@@ -20,6 +20,8 @@ weight: 3
     - Коммуникации
 ---
 
+:dontUseSourceHighliter:
+//:dontUseSourceHighliter: -> параметр, означает, что на этой странице мы не используем  инструмент подсветки синтаксиса. Это нужно, чтобы отображались схемы mermaid
 :imgdir: /03_01_03_img/
 :imagesoutdir: ./static/03_01_03_img/
 
@@ -44,3 +46,6 @@ flowchart TD
 
     click NEW_COMMUNICATION href "/03_processes/01_communications/02_communications/" "Процесс создания новой коммуникации"
 ----
+
+
+

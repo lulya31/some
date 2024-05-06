@@ -6,9 +6,13 @@
 :doctype: book
 :icons: font
 :figure-caption: Рисунок
+
+//:source-highlighter: pygments
+ifndef::dontUseSourceHighliter[]
 :source-highlighter: pygments
 :pygments-css: style
 :pygments-style: monokai
+endif::[]
 
 :includedir: ./content/
 :imagesdir: {imgdir}
