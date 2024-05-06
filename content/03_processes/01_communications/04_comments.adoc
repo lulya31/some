@@ -20,6 +20,8 @@ weight: 4
     - Обращения
 ---
 
+:dontUseSourceHighliter:
+//:dontUseSourceHighliter: -> параметр, означает, что на этой странице мы не используем  инструмент подсветки синтаксиса. Это нужно, чтобы отображались схемы mermaid
 :imgdir: /03_01_04_img/
 :imagesoutdir: ./static/03_01_04_img/
 
