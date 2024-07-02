@@ -1,0 +1,73 @@
+@startuml create_appeal
+
+title "Создание обращения Cервис"
+
+
+' loads the package bootstrap
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+!include https://raw.githubusercontent.com/tmorin/plantuml-libs/master/distribution/eventstorming/single.puml
+
+skinparam svgLinkTarget _blank
+
+LAYOUT_LEFT_RIGHT()
+
+Person('flora_communications_v1orders_create_comm_req_need', 'flora/communications/v1/orders/create-comm-req-need')
+Person('СПРК', 'СПРК')
+
+UserInterface('ЭкранСозданияОбращения', 'Экран создания обращения')
+UserInterface('ЭкранСОбращением', 'Экран с обращением')
+UserInterface('РабочийСтолСЗадачами', 'Рабочий стол с задачами')
+
+Command('СоздатьОбращение', 'Создать обращение')
+Command('СоздатьСущностьOracle', 'Создать сущность Oracle')
+Command('СоздатьЗадачу', 'Создать задачу')
+
+System('createCommReqAndNeed')
+System('Integration_int')
+System('kafka_serviceEventsNeedConsumerCreateTask')
+
+DomainEvent('КоммуникацияСоздана', 'Коммуникация создана')
+DomainEvent('ПотребностьСоздана', 'Потребность создана')
+DomainEvent('ОбращениеСоздано', 'Обращение создано')
+DomainEvent('СущностьВАСРольфСоздана', 'Сущность в АС Рольф создана')
+DomainEvent('ЗадачаДанныеОКлиентеИАвтоСоздана', 'Задача "Данные о клиенте и авто" создана')
+
+Policy('ИнтеграцияСОперСистемой', 'Интеграция с опер системой')
+Policy('ПроверкаТипаПотребности', 'Проверка типа потребности')
+
+Aggregate('Communication', 'Communication')
+Aggregate('Need', 'Need')
+Aggregate('Request', 'Request')
+Aggregate('Task', 'Task')
+
+ЭкранСозданияОбращения -- СПРК
+СПРК -- СоздатьОбращение
+СоздатьОбращение -- createCommReqAndNeed
+createCommReqAndNeed -- КоммуникацияСоздана
+createCommReqAndNeed -- ПотребностьСоздана
+createCommReqAndNeed -- ОбращениеСоздано
+
+КоммуникацияСоздана .. Communication
+ПотребностьСоздана .. Need
+ОбращениеСоздано .. Request
+
+Need ... ИнтеграцияСОперСистемой
+Need ... ПроверкаТипаПотребности
+
+ПроверкаТипаПотребности--ЭкранСОбращением
+ЭкранСОбращением--СоздатьЗадачу
+ИнтеграцияСОперСистемой--СоздатьСущностьOracle
+
+СоздатьСущностьOracle--Integration_int
+СоздатьЗадачу--kafka_serviceEventsNeedConsumerCreateTask
+
+kafka_serviceEventsNeedConsumerCreateTask--ЗадачаДанныеОКлиентеИАвтоСоздана
+Integration_int--СущностьВАСРольфСоздана
+
+ЗадачаДанныеОКлиентеИАвтоСоздана .. Task
+Task .. РабочийСтолСЗадачами
+
+
+
+@enduml

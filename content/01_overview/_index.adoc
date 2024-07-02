@@ -13,16 +13,331 @@ slug: ""
 
 include::static/includes/init.adoc[]
 
-
-
 :icons: font
 
 = Общая информация о системе
 
 {empty} +
 
-
 > Данный документ описывает верхнеуровневую архитектуру проекта *Rolf*
 
-
 {empty} +
+
+
+// Создание обращения Сервис
+++++
+<div class="scroll" id="flora32">
+++++
+
+[plantuml%interactive, flora32, format=svg, width=4000px]
+
+----
+include::static/01_img/create_appeal.puml[]
+----
+++++
+</div>
+++++
+
+
+// Заполнение данные о клиенте и А/М
+
+
+++++
+<div class="scroll" id="flora35">
+++++
+[plantuml%interactive, flora35, format=svg, width=6000px, align=center]
+----
+include::static/01_img/filling_data_am.puml[]
+----
+++++
+</div>
+++++
+
+
+// Наполнение работ и запчастей в ПВЗ для Клиентов
+
+++++
+</div>
+++++
+
+++++
+<div class="scroll" id="flora44">
+++++
+[plantuml%interactive, flora44, format=svg, width=4500px, align=center]
+----
+include::static/01_img/work_spareparts.puml[]
+----
+
+++++
+</div>
+++++
+
+
+
+// Создание ПЗН
+ 
+++++
+</div>
+++++
+
+++++
+<div class="scroll" id="flora33">
+++++
+[plantuml%interactive, flora33, format=svg, width=7000px, align=center]
+----
+include::static/01_img/create_pzn.puml[]
+----
+
+++++
+</div>
+++++
+
+
+// Согласование записи клиента на приемку
+
+++++
+</div>
+++++
+
+++++
+<div class="scroll" id="flora30">
+++++
+[plantuml%interactive, flora30, format=svg, width=10900px, align=center]
+----
+include::static/01_img/client_record_approval.puml[]
+----
+
+++++
+</div>
+++++
+
+
+// Подпись ПЗН
+
+++++
+</div>
+++++
+
+++++
+<div class="scroll" id="flora42">
+++++
+[plantuml%interactive, flora42, format=svg, width=8000px, align=center]
+----
+include::static/01_img/sign_pzn.puml[]
+----
+
+++++
+</div>
+++++
+
+
+// Завершение юридического события "Предоставлено КП"
+
+++++
+<div class="scroll" id="flora36">
+++++
+
+[plantuml%interactive, flora36, format=svg, width=7000px, align=center]
+----
+include::static/01_img/endKP.puml[]
+----
+++++
+</div>
+++++
+
+
+// Осмотр автомобиля и подписание АПП
+
+++++
+<div class="scroll" id="flora39">
+++++
+
+[plantuml%interactive, flora39, format=svg, width=13000px, align=center]
+----
+include::static/01_img/look_auto_signAPP.puml[]
+----
+++++
+</div>
+++++
+
+// Запись А/М в цех и создание задачи на перегонщика
+
+++++
+<div class="scroll" id="flora45">
+++++
+
+[plantuml%interactive, flora45, format=svg, width=5000px, align=center]
+----
+include::static/01_img/drivers_task.puml[]
+----
+++++
+</div>
+++++
+
+
+// Перегон ТС
+
+++++
+<div class="scroll" id="flora43">
+++++
+
+[plantuml%interactive, flora43, format=svg, width=3500px, align=center]
+----
+include::static/01_img/stage_TS.puml[]
+----
+++++
+</div>
+++++
+
+
+// Запись клиента на выдачу
+
+++++
+<div class="scroll" id="flora41">
+++++
+
+[plantuml%interactive, flora41, format=svg, width=5000px, align=center]
+----
+include::static/01_img/registration_for_delivery.puml[]
+----
+++++
+</div>
+++++
+
+
+// Выполнение работ
+
+++++
+<div class="scroll" id="flora37">
+++++
+
+[plantuml%interactive, flora37, format=svg, width=10000px, align=center]
+----
+include::static/01_img/execution_of_work.puml[]
+----
+++++
+</div>
+++++
+
+
+// Распределение выполненных работ по заказ-нарядам
+
+++++
+<div class="scroll" id="flora34">
+++++
+
+[plantuml%interactive, flora34, format=svg, width=6000px, align=center]
+----
+include::static/01_img/distribution_of_work.puml[]
+----
+++++
+</div>
+++++
+
+// Подготовка и подпись документов
+
+++++
+<div class="scroll" id="flora40">
+++++
+
+[plantuml%interactive, flora40, format=svg, width=7000px, align=center]
+----
+include::static/01_img/preparation_signing_documents.puml[]
+----
+++++
+</div>
+++++
+
+
+// Процесс оплаты
+
+++++
+<div class="scroll" id="flora38">
+++++
+
+[plantuml%interactive, flora38, format=svg, width=15000px, align=center]
+----
+include::static/01_img/payment_process.puml[]
+----
+++++
+</div>
+++++
+
+
+// Завершение сделки
+
+++++
+<div class="scroll" id="flora31">
+++++
+
+[plantuml%interactive, flora31, format=svg, width=11000px, align=center]
+----
+include::static/01_img/completion_of_the_transaction.puml[]
+----
+++++
+</div>
+++++
+
+
+
+
+++++
+<style>
+.scroll {
+    height: 500px;
+    border: 1px solid #C1C1C1;
+    overflow: auto;
+}
+</style>
+<script language="javascript">
+
+    var elements = document.getElementsByClassName("scroll");
+    var testDivs = Array.prototype.filter.call(
+        elements,
+        function (element) {
+            const container = document.querySelector('#' + element.id);
+
+            let startY;
+            let startX;
+            let scrollLeft;
+            let scrollTop;
+            let isDown;
+
+            container.addEventListener('mousedown',e => mouseIsDown(e));
+            container.addEventListener('mouseup',e => mouseUp(e));
+            container.addEventListener('mouseleave',e=>mouseLeave(e));
+            container.addEventListener('mousemove',e=>mouseMove(e));
+
+            function mouseIsDown(e){
+                isDown = true;
+                startY = e.pageY - container.offsetTop;
+                startX = e.pageX - container.offsetLeft;
+                scrollLeft = container.scrollLeft;
+                scrollTop = container.scrollTop; 
+            }
+            function mouseUp(e){
+                isDown = false;
+            }
+            function mouseLeave(e){
+                isDown = false;
+            }
+            function mouseMove(e){
+                if(isDown){
+                    e.preventDefault();
+                    // Move vertcally
+                    const y = e.pageY - container.offsetTop;
+                    const walkY = y - startY;
+                    container.scrollTop = scrollTop - walkY;
+
+                    // Move Horizontally
+                    const x = e.pageX - container.offsetLeft;
+                    const walkX = x - startX;
+                    container.scrollLeft = scrollLeft - walkX;
+                }
+            }
+        },
+    );
+</script>
+++++
+
+

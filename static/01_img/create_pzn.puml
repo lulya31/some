@@ -1,0 +1,96 @@
+@startuml create pzn
+
+title "Создание ПЗН"
+
+' loads the package bootstrap
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+!include https://raw.githubusercontent.com/tmorin/plantuml-libs/master/distribution/eventstorming/single.puml
+
+
+skinparam svgLinkTarget _blank
+
+LAYOUT_LEFT_RIGHT()
+
+Container_Boundary(b,""){
+    System('kafka_serviceLegalDocumentTask', 'kafka_serviceLegalDocumentTask')
+    DomainEvent('ЗадачаНаполнениеРаботиЗЧЗакрыта','Задача "Наполнение работ и ЗЧ" закрыта')
+    Aggregate('Task1','Task')
+    Policy('ДолжнаБытьСозданаЗадачаНаполнениеработИЗЧ', 'Должна быть создана задача "Наполнениее работ и ЗЧ"')
+    Command('СоздатьЗадачу', 'Создать задачу')
+    DomainEvent('ЗадачаЗаписьКлиентаСоздана','Задача "Запись клиента" создана')
+    Aggregate('Task2','Task')
+}
+
+'yellow
+Person('СПРК1', 'СПРК')
+Person('СПРК2', 'СПРК')
+
+
+'blue
+Command('СоздатьПЗН', 'Создать ПЗН')
+Command('СоздатьЛегалДокумент', 'Создать легал документ')
+Command('ЗакрытьЗадачу', 'Закрыть задачу')
+
+Command('СоздатьПФ', 'Создать ПФ')
+
+'pink
+System('createLegalEvent', 'createLegalEvent')
+System('createLegalDocument', 'createLegalDocument')
+System('generatePdForLegalDocument', 'generatePdForLegalDocument')
+
+'fiolet
+Policy('НеобходимоСоздатьЛегалДокументСТипомПЗН', 'Необходимо создать легал документ с типом "ПЗН"')
+Policy('ДолжнаБытьЗакрытаЗадачаНаполнениеработИЗЧ', 'Должна быть закрыта задача "Наполнениее работ и ЗЧ"')
+
+
+
+DomainEvent('ЮридическоеСобытиеПредоставленоКПСоздано', 'Юридическое событие "Предоставлено КП создано"')
+DomainEvent('ЮридическийДокументПЗНСоздан','Юридический документ "ПЗН" создан')
+DomainEvent('ПФДляПЗНСоздана','ПФ для ПЗН создана')
+
+'grenn
+UserInterface('ЭкранШагЗаказНаряд', 'Экран/шаг "Заказ наряды"')
+
+
+Aggregate('LegalEvent', 'Legal Event')
+Aggregate('LegalDocument1','Legal Document')
+Aggregate('LegalDocument2','Legal Document')
+
+
+СПРК1--СоздатьПЗН
+СоздатьПЗН--createLegalEvent
+createLegalEvent--ЮридическоеСобытиеПредоставленоКПСоздано
+
+ЮридическоеСобытиеПредоставленоКПСоздано .. LegalEvent
+LegalEvent .. НеобходимоСоздатьЛегалДокументСТипомПЗН
+
+НеобходимоСоздатьЛегалДокументСТипомПЗН--СоздатьЛегалДокумент
+СоздатьЛегалДокумент--createLegalDocument
+createLegalDocument--ЮридическийДокументПЗНСоздан
+
+ЮридическийДокументПЗНСоздан .. LegalDocument1
+LegalDocument1 .. ДолжнаБытьЗакрытаЗадачаНаполнениеработИЗЧ
+
+ЮридическийДокументПЗНСоздан-->kafka_serviceLegalDocumentTask
+ДолжнаБытьЗакрытаЗадачаНаполнениеработИЗЧ--ЗакрытьЗадачу
+ЗакрытьЗадачу--kafka_serviceLegalDocumentTask
+kafka_serviceLegalDocumentTask--ЗадачаНаполнениеРаботиЗЧЗакрыта
+
+ЗадачаНаполнениеРаботиЗЧЗакрыта .. Task1
+Task1 .. ДолжнаБытьСозданаЗадачаНаполнениеработИЗЧ
+
+ДолжнаБытьСозданаЗадачаНаполнениеработИЗЧ--СоздатьЗадачу
+СоздатьЗадачу--ЗадачаЗаписьКлиентаСоздана
+
+ЗадачаЗаписьКлиентаСоздана .. Task2
+Task2 .. ЭкранШагЗаказНаряд
+
+ЭкранШагЗаказНаряд--СПРК2
+СПРК2--СоздатьПФ
+СоздатьПФ--generatePdForLegalDocument
+generatePdForLegalDocument--ПФДляПЗНСоздана
+
+ПФДляПЗНСоздана .. LegalDocument2
+
+@enduml

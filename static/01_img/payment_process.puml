@@ -1,0 +1,230 @@
+@startuml preparation_signing_documentts
+
+title "Процесс оплаты"
+
+
+' loads the package bootstrap
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+!include https://raw.githubusercontent.com/tmorin/plantuml-libs/master/distribution/eventstorming/single.puml
+
+
+skinparam svgLinkTarget _blank
+
+LAYOUT_LEFT_RIGHT()
+
+Container_Boundary(container1, "") {
+    Policy('СчетФактураДолженБытьОплачен', 'Счет-фактура должен быть оплачен')
+    Policy('НеобходимоПроверятьСтатусКаждуюМинуту', 'Необходимо проверять статус каждую минуту')
+    System('srv_checkPaymentStatusBySchedule_v4', 'srv_checkPaymentStatusBySchedule_v4')
+    System('srv_sf_checkPaymentStatus_v4', 'srv_sf_checkPaymentStatus_v4')
+    DomainEvent('КлиентОплатилСчетФактурувКассеИлипоСсылке', 'Клиент оплатил счет-фактуру (в кассе или по ссылке)')
+    DomainEvent('ПлатежПерешелвСтадиюОплачено', 'Платеж перешел в стадию "Оплачено"')
+    DomainEvent('ПлатежноеСобытиеСоздано3', 'Платежное событие создано')
+    Aggregate('Payment3', 'Payment')
+    Aggregate('PaymentEvent3', 'Payment Event')
+    System('kafka_send', 'kafka_send')
+}
+
+Container_Boundary(container2, "") {
+    Policy('МодульДолженПроверятьСтатусПлатежа', 'Модуль должен проверять статус платежа')
+    Command('ЖдатьИзмененийотPayments', 'Ждать изменений от Payments')
+    System('kafka_serviceGetPaymentStatus', 'kafka_serviceGetPaymentStatus')
+    System('closeTask', 'closeTask')
+    DomainEvent('ЗакрытаЗадачаОплата', 'Закрыта задача "Оплата"')
+    DomainEvent('СозданаЗадачаПередачатсКлиенту', 'Создана задача "Передача т/с клиенту"')
+    Aggregate('Task1', 'Task')
+    Aggregate('Task2', 'Task')
+    System('publishWS1', 'publishWS')
+    System('createTask', 'createTask')
+}
+
+Container_Boundary(container3, "") {
+    System('kafka_crm_get_MutualSettlement_payment_stage_event_v4', 'kafka_crm_get_MutualSettlement_payment_stage_event_v4')
+    System('publishWS2', 'publishWS')
+    DomainEvent('ОбновленСтатусвUIвиджета', 'Обновлен статус в UI виджета')
+    UserInterface('ВиджетПлатежей', 'Виджет платежей')
+    UserInterface('СтатусОплачено', 'Статус "Оплачено"')
+}
+
+
+'yellow
+Person('СПРК1', 'СПРК')
+Person('СПРК2', 'СПРК')
+Person('СПРК3', 'СПРК')
+Person('СПРК4', 'СПРК')
+Person('СПРК5', 'СПРК')
+
+
+'blue
+Command('ПерейтинаЭкранОплаты', 'Перейти на экран оплаты')
+Command('ПерейтивВиджетПлатежей', 'Перейти в виджет платежей')
+Command('СформироватьПлатеж1', 'Сформировать платеж')
+Command('ВыбратьДатуОплаты', 'Выбрать дату оплаты')
+Command('ВыбратьМетодОплаты', 'Выбрать метод оплаты')
+Command('ВыбратьБанковскийСчет', 'Выбрать банковский счет')
+Command('УказатьСуммуПлатежа', 'Указать сумму платежа')
+Command('СформироватьПлатеж', 'Сформировать платеж')
+
+
+
+'pink
+System('UICommand1', 'UI Command')
+System('UICommand2', 'UI Command')
+System('crm_getMutualSettlementForNeeds', 'crm_getMutualSettlementForNeeds')
+System('ЧтоОплатитьМетодыМодулей', 'Что оплатить? методы модулей')
+System('crm_create_MutualSettlement_payment', 'crm_create_MutualSettlement_payment')
+System('srv_getPaymentsMethods_v4', 'srv_getPaymentsMethods_v4')
+System('crm_getMutualSettlementPaymentPurpose', 'crm_getMutualSettlementPaymentPurpose')
+System('srv_getBankAccount_v4', 'srv_getBankAccount_v4')
+System('crm_updateMutualSettlementPayment', 'crm_updateMutualSettlementPayment')
+System('crm_initializeMutualSettlementPayment', 'crm_initializeMutualSettlementPayment')
+System('srv_registerPayment_v4', 'srv_registerPayment_v4')
+System('srv_initializePayment_v4', 'srv_initializePayment_v4')
+System('srv_createPaymentDocument_v4', 'srv_createPaymentDocument_v4')
+
+
+'fiolet
+Policy('ДатаПлатежаНеРанееДатыДоговора', 'Дата платежа не ранее даты договора')
+Policy('СуммаПлатежаНеБольшеСуммыОрдерса', 'Сумма платежа не больше суммы ордерса')
+
+
+DomainEvent('ОткрылсяЭкранОплата', 'Открылся экран "Оплата"')
+DomainEvent('ОткрылсяВиджет', 'Открылся виджет')
+DomainEvent('СозданВзаиморассчет', 'Создан взаиморассчет')
+DomainEvent('ВзаиморассчетДополненРеквизитами', 'Взаиморассчет дополнен реквизитами')
+DomainEvent('ПлатежСформирвоанвСтадииОбсуждение', 'Платеж сформирвоан в стадии "обсуждение"')
+DomainEvent('ПлатежноеСобытиеСоздано1', 'Платежное событие создано')
+DomainEvent('ПлатежноеСобытиеСоздано2', 'Платежное событие создано')
+DomainEvent('ПлатежПерешелвСтадиюИнициированаОплата', 'Платеж перешел в стадию "Инициирована оплата"')
+DomainEvent('ПлатежныйДокументСчетфактураСоздан', 'Платежный документ "Счет-фактура" создан')
+
+
+'grenn
+UserInterface('ЭкранПодготовкаДокументов', 'Экран "Подготовка документов"')
+UserInterface('ЭкранОплата', 'Экран "Оплата"')
+UserInterface('ВиджетПлатежей1', 'Виджет платежей')
+UserInterface('МодалкасПлатежом', 'Модалка с платежом')
+UserInterface('КнопкаСформироватьПлатеж', 'Кнопка сформировать платеж')
+
+
+Aggregate('Mutualsettlement1', 'Mutual settlement')
+Aggregate('Mutualsettlement2', 'Mutual settlement')
+Aggregate('Payment1', 'Payment')
+Aggregate('PaymentEvent1', 'Payment Event')
+Aggregate('Payment2', 'Payment')
+Aggregate('PaymentEvent2', 'Payment Event')
+Aggregate('PaymentDocument', 'Payment Document')
+
+
+ЭкранПодготовкаДокументов--СПРК1
+СПРК1--ПерейтинаЭкранОплаты
+ПерейтинаЭкранОплаты--UICommand1
+UICommand1--ОткрылсяЭкранОплата
+ОткрылсяЭкранОплата--ЭкранОплата
+ЭкранОплата--СПРК2
+СПРК2--ПерейтивВиджетПлатежей
+ПерейтивВиджетПлатежей--UICommand2
+UICommand2--crm_getMutualSettlementForNeeds
+
+crm_getMutualSettlementForNeeds-->ЧтоОплатитьМетодыМодулей
+
+
+Lay_L(crm_getMutualSettlementForNeeds,ЧтоОплатитьМетодыМодулей)
+
+crm_getMutualSettlementForNeeds--ОткрылсяВиджет
+ОткрылсяВиджет--ВиджетПлатежей1
+ВиджетПлатежей1--СПРК3
+СПРК3--СформироватьПлатеж1
+СформироватьПлатеж1--crm_create_MutualSettlement_payment
+crm_create_MutualSettlement_payment--srv_getPaymentsMethods_v4
+srv_getPaymentsMethods_v4--СозданВзаиморассчет
+
+srv_getPaymentsMethods_v4-->ВыбратьМетодОплаты
+
+СозданВзаиморассчет .. Mutualsettlement1
+Mutualsettlement1 .. МодалкасПлатежом
+
+МодалкасПлатежом--СПРК4
+СПРК4--ВыбратьДатуОплаты
+
+ВыбратьДатуОплаты-->ДатаПлатежаНеРанееДатыДоговора
+Lay_L(ВыбратьДатуОплаты, ДатаПлатежаНеРанееДатыДоговора)
+
+ВыбратьДатуОплаты--ВыбратьМетодОплаты
+ВыбратьМетодОплаты--crm_getMutualSettlementPaymentPurpose
+crm_getMutualSettlementPaymentPurpose--srv_getBankAccount_v4
+srv_getBankAccount_v4--ВыбратьБанковскийСчет
+ВыбратьБанковскийСчет--ВзаиморассчетДополненРеквизитами
+
+ВзаиморассчетДополненРеквизитами .. Mutualsettlement2
+Mutualsettlement2 .. УказатьСуммуПлатежа
+
+УказатьСуммуПлатежа-->СуммаПлатежаНеБольшеСуммыОрдерса
+Lay_L(УказатьСуммуПлатежа,СуммаПлатежаНеБольшеСуммыОрдерса)
+УказатьСуммуПлатежа--КнопкаСформироватьПлатеж
+
+КнопкаСформироватьПлатеж--СПРК5
+СПРК5--СформироватьПлатеж
+СформироватьПлатеж--crm_updateMutualSettlementPayment
+crm_updateMutualSettlementPayment--crm_initializeMutualSettlementPayment
+crm_initializeMutualSettlementPayment--srv_registerPayment_v4
+
+srv_registerPayment_v4--ПлатежСформирвоанвСтадииОбсуждение
+srv_registerPayment_v4--ПлатежноеСобытиеСоздано1
+
+ПлатежСформирвоанвСтадииОбсуждение .. Payment1
+ПлатежноеСобытиеСоздано1 .. PaymentEvent1
+
+Payment1--srv_initializePayment_v4
+PaymentEvent1--srv_initializePayment_v4
+
+srv_initializePayment_v4--ПлатежПерешелвСтадиюИнициированаОплата
+srv_initializePayment_v4--ПлатежноеСобытиеСоздано2
+
+ПлатежПерешелвСтадиюИнициированаОплата .. Payment2
+ПлатежноеСобытиеСоздано2 .. PaymentEvent2
+
+Payment2 .. srv_createPaymentDocument_v4
+PaymentEvent2 .. srv_createPaymentDocument_v4
+
+srv_createPaymentDocument_v4--ПлатежныйДокументСчетфактураСоздан
+ПлатежныйДокументСчетфактураСоздан .. PaymentDocument
+PaymentDocument .. СчетФактураДолженБытьОплачен
+
+СчетФактураДолженБытьОплачен--НеобходимоПроверятьСтатусКаждуюМинуту
+НеобходимоПроверятьСтатусКаждуюМинуту--srv_checkPaymentStatusBySchedule_v4
+srv_checkPaymentStatusBySchedule_v4--srv_sf_checkPaymentStatus_v4
+
+srv_sf_checkPaymentStatus_v4--КлиентОплатилСчетФактурувКассеИлипоСсылке
+
+КлиентОплатилСчетФактурувКассеИлипоСсылке--ПлатежПерешелвСтадиюОплачено
+КлиентОплатилСчетФактурувКассеИлипоСсылке--ПлатежноеСобытиеСоздано3
+
+ПлатежноеСобытиеСоздано3 .. PaymentEvent3
+ПлатежПерешелвСтадиюОплачено .. Payment3
+
+PaymentEvent3 .. kafka_send
+Payment3 .. kafka_send
+
+
+МодульДолженПроверятьСтатусПлатежа--ЖдатьИзмененийотPayments
+ЖдатьИзмененийотPayments--kafka_serviceGetPaymentStatus
+kafka_serviceGetPaymentStatus--closeTask
+closeTask--ЗакрытаЗадачаОплата
+ЗакрытаЗадачаОплата .. Task1
+Task1 .. createTask
+createTask--СозданаЗадачаПередачатсКлиенту
+СозданаЗадачаПередачатсКлиенту .. Task2
+Task2 .. publishWS1
+
+kafka_send-->kafka_serviceGetPaymentStatus
+
+
+kafka_send-->kafka_crm_get_MutualSettlement_payment_stage_event_v4
+kafka_crm_get_MutualSettlement_payment_stage_event_v4--publishWS2
+publishWS2--ОбновленСтатусвUIвиджета
+ОбновленСтатусвUIвиджета--ВиджетПлатежей
+ВиджетПлатежей--СтатусОплачено
+
+@enduml

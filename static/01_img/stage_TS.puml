@@ -1,0 +1,62 @@
+@startuml stage_TS
+
+title "Перегон ТС"
+
+
+' loads the package bootstrap
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+!include https://raw.githubusercontent.com/tmorin/plantuml-libs/master/distribution/eventstorming/single.puml
+
+skinparam svgLinkTarget _blank
+
+
+LAYOUT_LEFT_RIGHT()
+
+'yellow
+Person('Перегонщик', 'Перегонщик')
+
+'blue
+Command('ЗакрытьЗадачуНаПерегонщика', 'Закрыть "Задачу на перегонщика"')
+Command('ЗакрытьЗадачу', 'Закрыть задачу')
+
+
+DomainEvent('АМПерегнан', 'А/М перегнан')
+DomainEvent('ЗадачаНаПерегонщикаЗакрыта','Задача на перегонщика закрыта')
+DomainEvent('ЗадачаПередачаТСвЦехЗакрыта','Задача "Передача ТС в цех" закрыта')
+
+'pink
+System('closeTask', 'closeTask')
+System('kafka_serviceLegalDocumentsEventsConsumer', 'kafka_serviceLegalDocumentsEventsConsumer')
+
+
+'fiolet
+Policy('АМДолженБытьПерегнан', 'А/М должен быть перегнан')
+Policy('ДолжнаБытьЗакрытаЗадачаПриемкаТС', 'Должна быть закрыта задача "Приемка ТС"')
+
+'grenn
+UserInterface('ЭкранПерегонщика', 'Экран перегонщика')
+
+Aggregate('Task1', 'Task')
+Aggregate('Task2', 'Task')
+
+
+АМДолженБытьПерегнан--АМПерегнан
+АМПерегнан--ЭкранПерегонщика
+ЭкранПерегонщика--Перегонщик
+Перегонщик--ЗакрытьЗадачуНаПерегонщика
+ЗакрытьЗадачуНаПерегонщика--closeTask
+closeTask--ЗадачаНаПерегонщикаЗакрыта
+
+ЗадачаНаПерегонщикаЗакрыта .. Task1
+Task1 .. ДолжнаБытьЗакрытаЗадачаПриемкаТС
+
+ДолжнаБытьЗакрытаЗадачаПриемкаТС--ЗакрытьЗадачу
+ЗакрытьЗадачу--kafka_serviceLegalDocumentsEventsConsumer
+kafka_serviceLegalDocumentsEventsConsumer--ЗадачаПередачаТСвЦехЗакрыта
+
+ЗадачаПередачаТСвЦехЗакрыта .. Task2
+
+ЗадачаНаПерегонщикаЗакрыта-->kafka_serviceLegalDocumentsEventsConsumer
+
+@enduml

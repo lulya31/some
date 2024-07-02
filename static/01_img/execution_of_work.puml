@@ -1,0 +1,130 @@
+@startuml execution of work
+
+title "Выполнение работ"
+
+
+' loads the package bootstrap
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+!include https://raw.githubusercontent.com/tmorin/plantuml-libs/master/distribution/eventstorming/single.puml
+
+
+skinparam svgLinkTarget _blank
+
+LAYOUT_LEFT_RIGHT()
+
+Container_Boundary(b,""){
+    System('kafka_serviceLegalDocumentsEventsConsumer', 'kafka_serviceLegalDocumentsEventsConsumer')
+    DomainEvent('ЗадачРемонтТСЗакрыта', 'Задач  "Ремонт ТС" закрыта')
+    Aggregate('Task1', 'Task')
+    DomainEvent('ЗадачаРаспределениеРаботПознСоздана', 'Задача "Распределение работ по з/н" создана')
+    Aggregate('Task2', 'Task')
+}
+
+'yellow
+Person('СПРК', 'СПРК')
+Person('Механик1', 'Механик')
+Person('Механик2', 'Механик')
+
+
+'blue
+Command('ПереходВЭкранШагРемонтТС', 'Переход в Экран/шаг "Ремонт ТС"')
+Command('СоздатьРЗН', 'Создать РЗН')
+Command('ПереходВЗадачуСРаботами', 'Переход в задачу с работами')
+Command('РаспечататьПФРЗН', 'Распечатать ПФ (РЗН)')
+Command('ПоменятьСтатус', 'Поменять статус')
+Command('ЗакрытьЗадачу', 'Закрыть задачу')
+
+'pink
+System('createLegalEvent', 'createLegalEvent')
+System('createLegalDocument', 'createLegalDocument')
+System('generatePdfForLegalDocument', 'generatePdfForLegalDocument')
+System('pforms_getPDF', 'pforms_getPDF')
+System('signLegalDocument', 'signLegalDocument')
+System('uploadSignedLegalDocument', 'uploadSignedLegalDocument')
+
+
+'fiolet
+Policy('НеобходимоПродвинутьСделкувЮридическомСмысле', 'Необходимо продвинуть сделку в юридическом смысле')
+Policy('ДолженСоздаватьсяРЗНДляМеханика', 'Должен создаваться РЗН для механика')
+Policy('УДокументаДолженБытьИзмененСтатус', 'У документа должен быть изменен статус')
+Policy('ДолжнаБытьЗакрытаЗадачаПриемкаТС', 'Должна быть закрыта задача "Приемка ТС"')
+Policy('РЗНДолженБытПодписан', 'РЗН должен быть подписан')
+
+
+DomainEvent('ЮридическоеСобытиеПодтвержденоИсполнениеСоздано', 'Юридическое событие "Подтверждено исполнение" создано')
+DomainEvent('ЮридическийДокументРЗНСоздан', 'Юридический документ "РЗН" создан')
+DomainEvent('ЮридическийДокументРЗНРаспечатан', 'Юридический документ "РЗН" распечатан')
+DomainEvent('РаботыВыполнены', 'Работы выполнены')
+DomainEvent('РЗНПодписанМехаником', 'РЗН подписан механиком')
+DomainEvent('ЮридическийДокументРЗНПодписанМехаником', 'Юридический документ "РЗН" подписан механиком')
+
+
+'grenn
+UserInterface('СообщениеШагРемонтТСРазблоикирован', 'Сообщение "Шаг" Ремонт ТС "разблоикирован"')
+UserInterface('РабочийСтолсЗадачами', 'Рабочий стол с задачами')
+UserInterface('ОкноНеобходимоПодтвердитьПодписаниеДокумента', 'Окно "Необходимо подтвердить подписание документа"')
+
+
+Aggregate('LegalEvent', 'Legal Event')
+Aggregate('LegalDocument1', 'Legal Document')
+Aggregate('LegalDocument2', 'Legal Document')
+Aggregate('LegalDocument3', 'Legal Document')
+
+
+
+СообщениеШагРемонтТСРазблоикирован--СПРК
+СПРК--ПереходВЭкранШагРемонтТС
+ПереходВЭкранШагРемонтТС--НеобходимоПродвинутьСделкувЮридическомСмысле
+НеобходимоПродвинутьСделкувЮридическомСмысле--createLegalEvent
+createLegalEvent--ЮридическоеСобытиеПодтвержденоИсполнениеСоздано
+
+ЮридическоеСобытиеПодтвержденоИсполнениеСоздано .. LegalEvent
+LegalEvent .. ДолженСоздаватьсяРЗНДляМеханика
+
+ДолженСоздаватьсяРЗНДляМеханика--СоздатьРЗН
+СоздатьРЗН--createLegalDocument
+createLegalDocument--ЮридическийДокументРЗНСоздан
+
+ЮридическийДокументРЗНСоздан .. LegalDocument1
+LegalDocument1 .. РабочийСтолсЗадачами
+
+РабочийСтолсЗадачами--Механик1
+Механик1--ПереходВЗадачуСРаботами
+ПереходВЗадачуСРаботами--РаспечататьПФРЗН
+РаспечататьПФРЗН--generatePdfForLegalDocument
+generatePdfForLegalDocument--pforms_getPDF
+pforms_getPDF--ЮридическийДокументРЗНРаспечатан
+
+ЮридическийДокументРЗНРаспечатан .. LegalDocument2
+LegalDocument2 .. РаботыВыполнены
+
+РаботыВыполнены--РЗНДолженБытПодписан
+РЗНДолженБытПодписан--РЗНПодписанМехаником
+РЗНПодписанМехаником--УДокументаДолженБытьИзмененСтатус
+УДокументаДолженБытьИзмененСтатус--ОкноНеобходимоПодтвердитьПодписаниеДокумента
+ОкноНеобходимоПодтвердитьПодписаниеДокумента--Механик2
+Механик2--ПоменятьСтатус
+
+ПоменятьСтатус--signLegalDocument
+ПоменятьСтатус--uploadSignedLegalDocument
+
+signLegalDocument--ЮридическийДокументРЗНПодписанМехаником
+uploadSignedLegalDocument--ЮридическийДокументРЗНПодписанМехаником
+
+ЮридическийДокументРЗНПодписанМехаником .. LegalDocument3
+LegalDocument3 .. ДолжнаБытьЗакрытаЗадачаПриемкаТС
+
+ДолжнаБытьЗакрытаЗадачаПриемкаТС--ЗакрытьЗадачу
+
+ЗакрытьЗадачу--kafka_serviceLegalDocumentsEventsConsumer
+kafka_serviceLegalDocumentsEventsConsumer--ЗадачРемонтТСЗакрыта
+
+ЗадачРемонтТСЗакрыта .. Task1
+Task1 .. ЗадачаРаспределениеРаботПознСоздана
+ЗадачаРаспределениеРаботПознСоздана .. Task2
+
+ЮридическийДокументРЗНПодписанМехаником-->kafka_serviceLegalDocumentsEventsConsumer
+
+
+@enduml
